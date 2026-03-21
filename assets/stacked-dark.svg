@@ -1,0 +1,11 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Spotter — 1A Rounded Cradle | Stacked | Dark Background -->
+  <g transform="translate(20, 8)">
+    <circle cx="40" cy="36" r="20" fill="#5EC4AC" opacity="0.1"/>
+    <circle cx="40" cy="36" r="20" fill="none" stroke="#5EC4AC" stroke-width="3"/>
+    <path d="M12 14 C3 24, 0 42, 8 56" stroke="#F4845F" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M68 14 C77 24, 80 42, 72 56" stroke="#F4845F" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <circle cx="40" cy="36" r="5" fill="#5EC4AC"/>
+  </g>
+  <text x="60" y="100" font-family="'Manrope', sans-serif" font-weight="700" font-size="24" fill="#f0f0f0" letter-spacing="-0.6" text-anchor="middle">spotter</text>
+</svg>
