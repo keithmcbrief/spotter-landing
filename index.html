@@ -691,7 +691,11 @@
       <h2 class="section-title">Ready to grow your business?</h2>
       <p class="section-sub">Fill out the form or book a call directly. Either way, we'll get back to you within 24 hours.</p>
       <div class="contact-grid">
-        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="25b5fd87-15cc-4507-9655-37daeeba7952">
+          <input type="hidden" name="subject" value="New lead from Spotter Digital website">
+          <input type="hidden" name="from_name" value="Spotter Digital Website">
+          <input type="checkbox" name="botcheck" style="display:none">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Full Name</label>
@@ -804,19 +808,45 @@
     // ── Form submit ──
     function handleSubmit(e) {
       e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
       const original = btn.textContent;
-      btn.textContent = 'Sent! We\'ll be in touch.';
-      btn.style.background = 'var(--teal)';
-      btn.style.borderColor = 'var(--teal)';
+      btn.textContent = 'Sending...';
       btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.style.background = '';
-        btn.style.borderColor = '';
-        btn.disabled = false;
-        e.target.reset();
-      }, 3000);
+
+      const data = Object.fromEntries(new FormData(form));
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      .then(res => {
+        if (res.ok) {
+          btn.textContent = 'Sent! We\'ll be in touch.';
+          btn.style.background = 'var(--teal)';
+          btn.style.borderColor = 'var(--teal)';
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.style.background = '';
+            btn.style.borderColor = '';
+            btn.disabled = false;
+            form.reset();
+          }, 3000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(() => {
+        btn.textContent = 'Error — please try again';
+        btn.style.background = '#e74c3c';
+        btn.style.borderColor = '#e74c3c';
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.style.background = '';
+          btn.style.borderColor = '';
+          btn.disabled = false;
+        }, 3000);
+      });
     }
 
     // ── Smooth scroll for nav links ──
