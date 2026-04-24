@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Editor / tooling caches
+.claude/settings.local.json
+.gstack/
+node_modules/
+
+# Local backups / scratch files
+*.bak
+index.old.html
+_spotter-original.html
+copythis.html

@@ -1,864 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spotter Digital — AI-Powered Marketing for Local Businesses in Katy &amp; Houston</title>
-  <meta name="description" content="Spotter Digital helps small businesses in Katy and Houston grow with SEO, AI voice receptionists, automated Google review responses, and Google Maps optimized websites.">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Spotter Digital — You don't have a marketing problem. You have a leak problem.</title>
+<meta name="description" content="AI operations for local businesses. The average Houston med spa loses $80k+/yr to missed calls, dead reviews, and a slipping Google profile. Spotter plugs every leak — 24/7, on autopilot." />
+<link rel="icon" href="assets/spotter-brand-kit/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/spotter-brand-kit/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/spotter-brand-kit/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/spotter-brand-kit/favicon/apple-touch-icon.png">
+<link rel="manifest" href="assets/spotter-brand-kit/favicon/site.webmanifest">
+<meta name="theme-color" content="#023E3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #faf3ec; color: #171717; }
+  body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: #003837; color: #faf3ec; }
+  a { color: inherit; }
+  .sp-btn:hover { transform: translateY(-1px); }
+  .sp-btn[style*="background: rgb(0, 56, 55)"]:hover { background: #004f4d !important; border-color: #004f4d !important; }
+  input::placeholder { color: rgba(250, 243, 236, 0.5); }
+  @keyframes sp-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+  }
+  img { max-width: 100%; height: auto; }
 
-    :root {
-      --teal: #2B6B5E;
-      --teal-light: #5EC4AC;
-      --teal-dim: #1d4a41;
-      --coral: #F4845F;
-      --coral-hover: #e06d48;
-      --dark: #1a1a1a;
-      --text: #3a3a3a;
-      --text-light: #6b7280;
-      --bg: #fafaf8;
-      --bg-warm: #f5f0eb;
-      --white: #ffffff;
-      --radius: 12px;
-      --radius-lg: 20px;
-    }
+  /* ============ MOBILE ============ */
+  @media (max-width: 900px) {
+    h1, h2 { font-size: clamp(34px, 9vw, 52px) !important; line-height: 1.05 !important; }
+    h3 { font-size: clamp(22px, 5vw, 28px) !important; }
+    nav ul { display: none !important; }
 
-    html { scroll-behavior: smooth; }
+    /* Section padding: tighten horizontal, drop vertical */
+    section { padding: 72px 20px !important; }
 
-    body {
-      font-family: 'Manrope', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+    /* Flatten any inline grid-template-columns to 1fr */
+    [style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 32px !important; }
 
-    /* ── Utility ── */
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+    /* Flatten class-based grids */
+    .sp-handle-cards,
+    .sp-leaks-head,
+    .sp-leaks-grid,
+    .sp-footer-cols { grid-template-columns: 1fr !important; gap: 28px !important; }
 
-    /* ── Buttons ── */
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 32px; border-radius: 50px; font-family: inherit;
-      font-weight: 600; font-size: 0.95rem; text-decoration: none;
-      border: 2px solid transparent; cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .btn-coral {
-      background: var(--coral); color: var(--white); border-color: var(--coral);
-    }
-    .btn-coral:hover { background: var(--coral-hover); border-color: var(--coral-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(244,132,95,0.35); }
-    .btn-outline {
-      background: transparent; color: var(--teal); border-color: var(--teal);
-    }
-    .btn-outline:hover { background: var(--teal); color: var(--white); transform: translateY(-2px); }
-    .btn-white {
-      background: var(--white); color: var(--teal); border-color: var(--white);
-    }
-    .btn-white:hover { background: transparent; color: var(--white); transform: translateY(-2px); }
+    /* What-we-handle: category header flex (icon next to text) — keep but shrink */
+    .sp-handle-header { gap: 16px !important; margin-bottom: 28px !important; }
+    .sp-handle-header svg { width: 40px !important; height: 40px !important; flex-shrink: 0; }
+    .sp-handle-header h3 { font-size: 16px !important; }
+    .sp-handle-header p { font-size: 14px !important; }
 
-    /* ── Navbar ── */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 16px 0;
-      background: rgba(250,250,248,0.8);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(43,107,94,0.08);
-      transition: all 0.3s ease;
-    }
-    .navbar.scrolled {
-      padding: 10px 0;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
-    }
-    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: flex; align-items: center; text-decoration: none; }
-    .nav-logo svg { height: 40px; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.9rem;
-      letter-spacing: 0.01em; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--teal); }
-    .nav-cta .btn { padding: 10px 24px; font-size: 0.85rem; }
-    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-    .mobile-toggle span {
-      display: block; width: 24px; height: 2px; background: var(--dark);
-      transition: all 0.3s; margin: 6px 0;
-    }
+    /* Card visual: simplify dramatically on mobile. */
+    .sp-card-visual { height: auto !important; min-height: 0 !important; padding: 24px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+    .sp-card-visual > div:not(.sp-card-keep) { display: none !important; }
+    .sp-card-visual > .sp-card-keep { position: static !important; transform: none !important; width: 100% !important; max-width: 100% !important; left: auto !important; right: auto !important; top: auto !important; bottom: auto !important; margin: 0 !important; }
 
-    /* ── Hero ── */
-    .hero {
-      padding: 160px 0 100px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; top: -40%; right: -20%; width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(94,196,172,0.12) 0%, rgba(244,132,95,0.06) 50%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute; bottom: -10%; left: -10%; width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(244,132,95,0.08) 0%, transparent 60%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero .container { position: relative; z-index: 1; }
-    .hero-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-    }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(43,107,94,0.08); color: var(--teal);
-      padding: 6px 16px; border-radius: 50px;
-      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;
-      text-transform: uppercase; margin-bottom: 24px;
-    }
-    .hero-eyebrow span {
-      width: 6px; height: 6px; background: var(--coral); border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 3.8rem);
-      font-weight: 800; color: var(--dark); line-height: 1.1;
-      letter-spacing: -0.03em; margin-bottom: 24px;
-    }
-    .hero h1 em {
-      font-family: 'Playfair Display', serif;
-      font-style: italic; color: var(--teal);
-    }
-    .hero-sub {
-      font-size: 1.15rem; color: var(--text-light); line-height: 1.7;
-      max-width: 520px; margin-bottom: 40px;
-    }
-    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
-    .hero-visual {
-      display: flex; justify-content: center; align-items: center;
-      position: relative;
-    }
-    .hero-card {
-      background: var(--white); border-radius: var(--radius-lg);
-      padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-      position: relative; width: 100%;
-    }
-    .hero-card::before {
-      content: ''; position: absolute; inset: -1px;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, var(--teal), var(--coral));
-      z-index: -1; opacity: 0.15;
-    }
-    .hero-stat { margin-bottom: 28px; }
-    .hero-stat:last-child { margin-bottom: 0; }
-    .hero-stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); font-weight: 600; margin-bottom: 6px; }
-    .hero-stat-value { font-size: 2rem; font-weight: 800; color: var(--dark); }
-    .hero-stat-value .accent { color: var(--coral); }
-    .hero-stat-bar {
-      height: 6px; background: rgba(43,107,94,0.1); border-radius: 3px;
-      margin-top: 10px; overflow: hidden;
-    }
-    .hero-stat-bar-fill {
-      height: 100%; border-radius: 3px;
-      background: linear-gradient(90deg, var(--teal), var(--teal-light));
-      width: 0; transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .hero-stat-bar-fill.coral {
-      background: linear-gradient(90deg, var(--coral), #f7a68e);
-    }
+    /* Hero pad */
+    .sp-hero { padding: 160px 20px 80px !important; }
 
-    /* ── Social Proof ── */
-    .proof {
-      padding: 60px 0;
-      border-top: 1px solid rgba(43,107,94,0.08);
-      border-bottom: 1px solid rgba(43,107,94,0.08);
-    }
-    .proof-inner {
-      display: flex; align-items: center; justify-content: center;
-      gap: 60px; flex-wrap: wrap;
-    }
-    .proof-item { text-align: center; }
-    .proof-number {
-      font-size: 2.2rem; font-weight: 800; color: var(--teal);
-      letter-spacing: -0.02em;
-    }
-    .proof-label {
-      font-size: 0.82rem; color: var(--text-light); margin-top: 4px;
-      font-weight: 500;
-    }
-    .proof-divider {
-      width: 1px; height: 48px; background: rgba(43,107,94,0.15);
-    }
+    /* Demo card: stack mic+transcript */
+    .sp-demo-grid { grid-template-columns: 1fr !important; }
+    .sp-demo-stats { grid-template-columns: 1fr 1fr !important; }
 
-    /* ── Section common ── */
-    .section { padding: 100px 0; }
-    .section-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--coral); margin-bottom: 16px;
-    }
-    .section-label::before {
-      content: ''; width: 24px; height: 2px; background: var(--coral);
-    }
-    .section-title {
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 800; color: var(--dark); letter-spacing: -0.02em;
-      line-height: 1.15; margin-bottom: 20px;
-    }
-    .section-sub {
-      font-size: 1.05rem; color: var(--text-light); max-width: 560px;
-      line-height: 1.7;
-    }
+    /* Footer brand block */
+    .sp-footer-cols { grid-template-columns: 1fr 1fr !important; }
 
-    /* ── Services ── */
-    .services { background: var(--white); }
-    .services-header { text-align: center; margin-bottom: 64px; }
-    .services-header .section-sub { margin: 0 auto; }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-    }
-    .service-card {
-      padding: 44px 40px;
-      border-radius: var(--radius-lg);
-      background: var(--bg);
-      border: 1px solid rgba(43,107,94,0.08);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative; overflow: hidden;
-    }
-    .service-card::after {
-      content: ''; position: absolute; top: 0; left: 0;
-      width: 100%; height: 3px;
-      background: linear-gradient(90deg, var(--teal), var(--coral));
-      opacity: 0; transition: opacity 0.4s;
-    }
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
-      border-color: transparent;
-    }
-    .service-card:hover::after { opacity: 1; }
-    .service-icon {
-      width: 56px; height: 56px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 24px; font-size: 1.5rem;
-      background: rgba(43,107,94,0.08);
-    }
-    .service-card:nth-child(2) .service-icon { background: rgba(244,132,95,0.1); }
-    .service-card:nth-child(3) .service-icon { background: rgba(94,196,172,0.15); }
-    .service-card:nth-child(4) .service-icon { background: rgba(244,132,95,0.08); }
-    .service-card h3 {
-      font-size: 1.3rem; font-weight: 700; color: var(--dark);
-      margin-bottom: 12px; letter-spacing: -0.01em;
-    }
-    .service-card p {
-      color: var(--text-light); font-size: 0.95rem; line-height: 1.7;
-    }
-    .service-tag {
-      display: inline-block; margin-top: 16px; padding: 4px 12px;
-      background: rgba(43,107,94,0.06); color: var(--teal);
-      font-size: 0.75rem; font-weight: 600; border-radius: 50px;
-      letter-spacing: 0.02em;
-    }
+    /* Counter */
+    .sp-leak-counter { text-align: left !important; }
 
-    /* ── How It Works ── */
-    .how { background: var(--bg); }
-    .how-header { text-align: center; margin-bottom: 72px; }
-    .how-header .section-sub { margin: 0 auto; }
-    .how-steps {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px;
-      position: relative;
-    }
-    .how-steps::before {
-      content: ''; position: absolute; top: 44px; left: 20%; right: 20%;
-      height: 2px; background: linear-gradient(90deg, var(--teal), var(--coral), var(--teal));
-      opacity: 0.2;
-    }
-    .how-step { text-align: center; position: relative; }
-    .step-number {
-      width: 88px; height: 88px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 28px;
-      background: var(--white);
-      border: 2px solid rgba(43,107,94,0.12);
-      font-size: 1.6rem; font-weight: 800; color: var(--teal);
-      position: relative; z-index: 1;
-      transition: all 0.3s;
-    }
-    .how-step:hover .step-number {
-      background: var(--teal); color: var(--white);
-      border-color: var(--teal);
-      transform: scale(1.05);
-    }
-    .how-step h3 {
-      font-size: 1.15rem; font-weight: 700; color: var(--dark);
-      margin-bottom: 10px;
-    }
-    .how-step p { color: var(--text-light); font-size: 0.92rem; max-width: 280px; margin: 0 auto; }
+    /* Hide decorative floating tag pills entirely on mobile */
+    .sp-card-visual .sp-visual-tag { display: none !important; }
 
-    /* ── Why Spotter ── */
-    .why { background: var(--teal-dim); color: var(--white); position: relative; overflow: hidden; }
-    .why::before {
-      content: ''; position: absolute; top: -50%; right: -20%; width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(244,132,95,0.1) 0%, transparent 60%);
-      border-radius: 50%; pointer-events: none;
-    }
-    .why .container { position: relative; z-index: 1; }
-    .why-header { margin-bottom: 64px; }
-    .why .section-title { color: var(--white); }
-    .why .section-sub { color: rgba(255,255,255,0.65); }
-    .why-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
-    }
-    .why-item {
-      display: flex; gap: 20px; padding: 32px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: all 0.3s;
-    }
-    .why-item:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-2px);
-    }
-    .why-icon {
-      flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px;
-      background: rgba(244,132,95,0.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-    }
-    .why-item h3 {
-      font-size: 1.05rem; font-weight: 700; margin-bottom: 8px;
-    }
-    .why-item p {
-      font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.6;
-    }
+    /* Process steps: stack */
+    .sp-process { grid-template-columns: 1fr !important; gap: 32px !important; }
 
-    /* ── Contact ── */
-    .contact { background: var(--white); }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-      margin-top: 64px;
-    }
-    .contact-form { display: flex; flex-direction: column; gap: 20px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group label {
-      font-size: 0.82rem; font-weight: 600; color: var(--dark);
-      letter-spacing: 0.02em;
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      padding: 14px 18px;
-      border: 1.5px solid rgba(43,107,94,0.15);
-      border-radius: var(--radius);
-      font-family: inherit; font-size: 0.95rem;
-      color: var(--dark); background: var(--bg);
-      transition: all 0.2s; outline: none;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(43,107,94,0.1);
-    }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-submit { margin-top: 8px; }
-    .form-submit .btn { width: 100%; justify-content: center; padding: 16px; font-size: 1rem; }
+    /* Section 05: hide the video placeholder entirely on mobile */
+    .sp-process-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .sp-process-video { display: none !important; }
+    .sp-process-left h2 { text-align: center !important; margin-bottom: 36px !important; }
+    .sp-step-card { grid-template-columns: 1fr !important; text-align: center !important; gap: 14px !important; padding: 28px 22px !important; }
+    .sp-step-card > div:first-child { margin: 0 auto !important; }
+    .sp-step-card p { margin-left: auto !important; margin-right: auto !important; max-width: 360px !important; }
 
-    .contact-right {
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .contact-book {
-      background: var(--bg);
-      border-radius: var(--radius-lg);
-      padding: 48px; text-align: center;
-      border: 1px solid rgba(43,107,94,0.08);
-    }
-    .contact-book h3 {
-      font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 12px;
-    }
-    .contact-book p {
-      color: var(--text-light); margin-bottom: 32px; font-size: 0.95rem;
-    }
-    .contact-book .btn { margin-bottom: 32px; }
-    .contact-info { text-align: left; margin-top: 16px; }
-    .contact-info-item {
-      display: flex; align-items: center; gap: 12px;
-      padding: 12px 0;
-      border-top: 1px solid rgba(43,107,94,0.08);
-      font-size: 0.9rem; color: var(--text-light);
-    }
-    .contact-info-item svg { flex-shrink: 0; color: var(--teal); }
+    /* Leaks counter sizing */
+    .sp-leak-counter-num { font-size: clamp(56px, 14vw, 96px) !important; justify-content: flex-start !important; }
 
-    /* ── Footer ── */
-    .footer {
-      padding: 48px 0;
-      background: var(--dark);
-      color: rgba(255,255,255,0.5);
-    }
-    .footer-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 16px;
-    }
-    .footer-logo img { height: 48px; }
-    .footer p { font-size: 0.85rem; }
-    .footer-links { display: flex; gap: 24px; list-style: none; }
-    .footer-links a {
-      color: rgba(255,255,255,0.5); text-decoration: none;
-      font-size: 0.85rem; transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--white); }
+    /* Final CTA: stack the two buttons full-width instead of letting them wrap */
+    .sp-cta-buttons { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; }
+    .sp-cta-buttons > a { justify-content: center !important; padding: 18px 24px !important; }
+  }
+  @media (max-width: 640px) {
+    /* Once the nav is too tight, drop the "Talk to our AI →" link */
+    .sp-nav-talk { display: none !important; }
+  }
+  @media (max-width: 520px) {
+    section { padding: 56px 18px !important; }
+    .sp-footer-cols { grid-template-columns: 1fr !important; }
+    nav { padding: 14px 18px !important; }
+    .sp-brand span { font-size: 18px !important; }
+    .sp-brand img { height: 26px !important; width: 26px !important; }
+  }
+</style>
 
-    /* ── Scroll Reveal ── */
-    .reveal {
-      opacity: 0; transform: translateY(32px);
-      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.35s; }
-
-    /* ── Mobile Nav ── */
-    .mobile-menu {
-      display: none; position: fixed; inset: 0; z-index: 99;
-      background: rgba(250,250,248,0.98); backdrop-filter: blur(20px);
-      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-size: 1.4rem; font-weight: 600; color: var(--dark);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .mobile-menu a:hover { color: var(--teal); }
-
-    /* ── Responsive ── */
-    @media (max-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-      .hero-card { max-width: 480px; margin: 0 auto; }
-      .services-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-cta { display: none; }
-      .mobile-toggle { display: block; }
-      .hero { padding: 130px 0 60px; }
-      .hero h1 { font-size: 2.2rem; }
-      .section { padding: 72px 0; }
-      .proof-inner { gap: 32px; }
-      .proof-divider { display: none; }
-      .how-steps { grid-template-columns: 1fr; gap: 40px; }
-      .how-steps::before { display: none; }
-      .form-row { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
-  </style>
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
 </head>
 <body>
+<div id="root"></div>
 
-  <!-- ════ Navbar ════ -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="#" class="nav-logo" aria-label="Spotter Digital Home">
-        <img src="assets/primary-light.svg" alt="Spotter" height="56">
-      </a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#why">Why Spotter</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="nav-cta">
-        <a href="#contact" class="btn btn-coral">Book a Free Call</a>
-      </div>
-      <button class="mobile-toggle" aria-label="Open menu" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
+<script type="text/babel" src="assets/tweaks-panel.jsx"></script>
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="sections.jsx"></script>
+<script type="text/babel" src="what-we-handle.jsx"></script>
+<script type="text/babel" src="sections2.jsx"></script>
+
+<script type="text/babel" data-presets="env,react">
+const SPOTTER_DEFAULTS = {
+  "headlineEmphasis": "leak",
+  "heroStyle": "editorial",
+  "accentGreen": "#003837",
+  "cream": "#faf3ec",
+  "leakSpeed": 2.6,
+  "showTicker": true,
+  "capitalizeHeadlines": false
+};
+
+function App() {
+  React.useEffect(() => {
+    document.documentElement.style.setProperty('--accent', SPOTTER_DEFAULTS.accentGreen);
+  }, []);
+
+  return (
+    <div style={{ background: SPOTTER_DEFAULTS.cream, minHeight: '100vh' }}>
+      <NavBar />
+      <Hero />
+      <WhatWeHandleSection />
+      <LeaksSection />
+      <PlugSection />
+      <WhySection />
+      <ProcessSection />
+      <FinalCTA />
+      <Footer />
     </div>
-  </nav>
+  );
+}
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#services" onclick="toggleMenu()">Services</a>
-    <a href="#how" onclick="toggleMenu()">How It Works</a>
-    <a href="#why" onclick="toggleMenu()">Why Spotter</a>
-    <a href="#contact" onclick="toggleMenu()">Contact</a>
-    <a href="#contact" class="btn btn-coral" onclick="toggleMenu()">Book a Free Call</a>
-  </div>
-
-  <!-- ════ Hero ════ -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div>
-          <div class="hero-eyebrow"><span></span> AI-Powered Marketing Agency</div>
-          <h1>We help Katy &amp; Houston businesses <em>get found</em> and <em>grow</em></h1>
-          <p class="hero-sub">From SEO to AI-powered voice agents, we give small businesses the tools that used to be reserved for big brands — without the big brand price tag.</p>
-          <div class="hero-ctas">
-            <a href="#contact" class="btn btn-coral">Book a Free Consultation</a>
-            <a href="#services" class="btn btn-outline">See Our Services</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-card">
-            <div class="hero-stat">
-              <div class="hero-stat-label">Average Client Traffic Increase</div>
-              <div class="hero-stat-value"><span class="accent">+</span>187%</div>
-              <div class="hero-stat-bar"><div class="hero-stat-bar-fill" data-width="87"></div></div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat-label">Calls Answered by AI (After Hours)</div>
-              <div class="hero-stat-value"><span class="accent">100</span>%</div>
-              <div class="hero-stat-bar"><div class="hero-stat-bar-fill coral" data-width="100"></div></div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat-label">Google Reviews Responded Within</div>
-              <div class="hero-stat-value"><span class="accent">&lt; 5</span> min</div>
-              <div class="hero-stat-bar"><div class="hero-stat-bar-fill" data-width="95"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ Social Proof ════ -->
-  <section class="proof">
-    <div class="container">
-      <div class="proof-inner">
-        <div class="proof-item reveal">
-          <div class="proof-number">50+</div>
-          <div class="proof-label">Local Businesses Served</div>
-        </div>
-        <div class="proof-divider"></div>
-        <div class="proof-item reveal reveal-delay-1">
-          <div class="proof-number">4.9</div>
-          <div class="proof-label">Google Rating</div>
-        </div>
-        <div class="proof-divider"></div>
-        <div class="proof-item reveal reveal-delay-2">
-          <div class="proof-number">10K+</div>
-          <div class="proof-label">Calls Handled by AI</div>
-        </div>
-        <div class="proof-divider"></div>
-        <div class="proof-item reveal reveal-delay-3">
-          <div class="proof-number">24/7</div>
-          <div class="proof-label">Always-On Support</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ Services ════ -->
-  <section class="section services" id="services">
-    <div class="container">
-      <div class="services-header">
-        <div class="section-label">What We Do</div>
-        <h2 class="section-title">Everything your business needs<br>to dominate local search</h2>
-        <p class="section-sub">We combine proven marketing strategies with cutting-edge AI to deliver results that move the needle for your business.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2B6B5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m11 8v6"/><path d="m8 11h6"/></svg>
-          </div>
-          <h3>SEO Services</h3>
-          <p>Rank higher on Google where your customers are searching. We optimize your online presence with local SEO strategies built specifically for the Katy and Houston market.</p>
-          <span class="service-tag">Organic Growth</span>
-        </div>
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <h3>AI Voice Receptionist</h3>
-          <p>Never miss another call. Our AI voice agent answers your phone 24/7, books appointments, answers FAQs, and routes urgent calls — sounding natural and professional every time.</p>
-          <span class="service-tag">Always On</span>
-        </div>
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2B6B5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="m10 8-2 2 2 2"/><path d="m14 8 2 2-2 2"/></svg>
-          </div>
-          <h3>AI Google Review Responses</h3>
-          <p>Every review gets a thoughtful, personalized reply within minutes — not hours. Our AI agent responds to Google reviews in your brand's voice, boosting your reputation on autopilot.</p>
-          <span class="service-tag">Reputation Management</span>
-        </div>
-        <div class="service-card reveal reveal-delay-3">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          </div>
-          <h3>Google Maps Optimized Websites</h3>
-          <p>Get a fast, mobile-first website engineered to rank on Google Maps and local search. We build sites that convert visitors into customers and help you own your local area.</p>
-          <span class="service-tag">Local Dominance</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ How It Works ════ -->
-  <section class="section how" id="how">
-    <div class="container">
-      <div class="how-header">
-        <div class="section-label">How It Works</div>
-        <h2 class="section-title">Up and running in three steps</h2>
-        <p class="section-sub">No long contracts. No confusing jargon. Just a clear path to more customers.</p>
-      </div>
-      <div class="how-steps">
-        <div class="how-step reveal">
-          <div class="step-number">1</div>
-          <h3>Book a Free Call</h3>
-          <p>Tell us about your business, your goals, and where you're struggling. We'll listen — no sales pitch.</p>
-        </div>
-        <div class="how-step reveal reveal-delay-1">
-          <div class="step-number">2</div>
-          <h3>We Build Your Strategy</h3>
-          <p>We create a custom plan combining SEO, AI agents, and a killer website tailored to your market.</p>
-        </div>
-        <div class="how-step reveal reveal-delay-2">
-          <div class="step-number">3</div>
-          <h3>Watch Your Business Grow</h3>
-          <p>More calls, more reviews, more traffic. We handle the tech so you can focus on what you do best.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ Why Spotter ════ -->
-  <section class="section why" id="why">
-    <div class="container">
-      <div class="why-header">
-        <div class="section-label" style="color: var(--coral);">Why Spotter</div>
-        <h2 class="section-title">Built different. Built for you.</h2>
-        <p class="section-sub">We're not a faceless agency. We're a local team that understands Katy and Houston businesses because we are one.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-item reveal">
-          <div class="why-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div>
-            <h3>Local to Katy &amp; Houston</h3>
-            <p>We know your market, your customers, and the competitive landscape. Our strategies are built for your specific area — not generic nationwide playbooks.</p>
-          </div>
-        </div>
-        <div class="why-item reveal reveal-delay-1">
-          <div class="why-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"/></svg>
-          </div>
-          <div>
-            <h3>AI-First Approach</h3>
-            <p>We don't just talk about AI — we deploy it. Real voice agents answering your phones. Real automation managing your reviews. Technology that works while you sleep.</p>
-          </div>
-        </div>
-        <div class="why-item reveal reveal-delay-2">
-          <div class="why-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          </div>
-          <div>
-            <h3>Results You Can Measure</h3>
-            <p>No vanity metrics. We track calls answered, reviews responded to, rankings gained, and customers acquired. You'll see exactly what's working.</p>
-          </div>
-        </div>
-        <div class="why-item reveal reveal-delay-3">
-          <div class="why-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div>
-            <h3>Dedicated Support</h3>
-            <p>You'll work directly with our team — not a chatbot, not a ticket queue. When you need us, we're one call away.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ Contact ════ -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <div class="section-label">Get Started</div>
-      <h2 class="section-title">Ready to grow your business?</h2>
-      <p class="section-sub">Fill out the form or book a call directly. Either way, we'll get back to you within 24 hours.</p>
-      <div class="contact-grid">
-        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="25b5fd87-15cc-4507-9655-37daeeba7952">
-          <input type="hidden" name="subject" value="New lead from Spotter Digital website">
-          <input type="hidden" name="from_name" value="Spotter Digital Website">
-          <input type="checkbox" name="botcheck" style="display:none">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="John Smith" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(281) 555-0123">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="john@yourbusiness.com" required>
-          </div>
-          <div class="form-group">
-            <label for="service">What are you interested in?</label>
-            <select id="service" name="service">
-              <option value="">Select a service...</option>
-              <option value="seo">SEO Services</option>
-              <option value="voice">AI Voice Receptionist</option>
-              <option value="reviews">AI Google Review Responses</option>
-              <option value="website">Google Maps Optimized Website</option>
-              <option value="all">All of the above</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Tell us about your business</label>
-            <textarea id="message" name="message" placeholder="What does your business do? What's your biggest challenge right now?"></textarea>
-          </div>
-          <div class="form-submit">
-            <button type="submit" class="btn btn-coral">Send Message</button>
-          </div>
-        </form>
-        <div class="contact-right">
-          <div class="contact-book">
-            <h3>Prefer to talk?</h3>
-            <p>Skip the form and book a free 15-minute strategy call. No pressure, no obligation — just real advice for your business.</p>
-            <a href="https://cal.com/spotter-digital" target="_blank" rel="noopener" class="btn btn-coral">Book a Free Call</a>
-            <div class="contact-info">
-              <div class="contact-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                Katy &amp; Houston, Texas
-              </div>
-              <div class="contact-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                tristan@spotterdigital.ai
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ Footer ════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <a href="#" class="footer-logo" aria-label="Spotter Digital">
-          <img src="assets/primary-dark.svg" alt="Spotter" height="48">
-        </a>
-        <p>&copy; 2025 Spotter Digital. All rights reserved.</p>
-        <ul class="footer-links">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // ── Sticky nav ──
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
-
-    // ── Mobile menu ──
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('open');
-      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-    }
-
-    // ── Scroll reveal ──
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // ── Hero stat bars ──
-    const barObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const bar = entry.target;
-          bar.style.width = bar.dataset.width + '%';
-          barObserver.unobserve(bar);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.hero-stat-bar-fill').forEach(bar => barObserver.observe(bar));
-
-    // ── Form submit ──
-    function handleSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const btn = form.querySelector('button[type="submit"]');
-      const original = btn.textContent;
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-
-      const data = Object.fromEntries(new FormData(form));
-      fetch(form.action, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data),
-      })
-      .then(res => {
-        if (res.ok) {
-          btn.textContent = 'Sent! We\'ll be in touch.';
-          btn.style.background = 'var(--teal)';
-          btn.style.borderColor = 'var(--teal)';
-          setTimeout(() => {
-            btn.textContent = original;
-            btn.style.background = '';
-            btn.style.borderColor = '';
-            btn.disabled = false;
-            form.reset();
-          }, 3000);
-        } else {
-          throw new Error('Form submission failed');
-        }
-      })
-      .catch(() => {
-        btn.textContent = 'Error — please try again';
-        btn.style.background = '#e74c3c';
-        btn.style.borderColor = '#e74c3c';
-        setTimeout(() => {
-          btn.textContent = original;
-          btn.style.background = '';
-          btn.style.borderColor = '';
-          btn.disabled = false;
-        }, 3000);
-      });
-    }
-
-    // ── Smooth scroll for nav links ──
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
 </body>
 </html>
