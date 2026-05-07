@@ -189,7 +189,7 @@ const Hero = () => {
           maxWidth: 640, margin: '28px auto 0',
           opacity: 0.78, textWrap: 'pretty'
         }}>
-          The average Houston med spa loses <strong style={{ color: '#003837', fontWeight: 600 }}>$80k+ a year</strong> to missed calls, dead reviews, and a slipping Google profile. Spotter plugs every leak — 24/7, on autopilot.
+          The average local business loses <strong style={{ color: '#003837', fontWeight: 600 }}>$10k+ a year</strong> to missed calls, dead reviews, and a slipping Google profile. Spotter plugs every leak — 24/7, on autopilot.
         </p>
         <div style={{ display: 'flex', gap: 12, marginTop: 28, justifyContent: 'center', flexWrap: 'wrap' }}>
           <PrimaryBtn href="https://cal.com/spotter-digital/discovery-call-30-min">Book a call</PrimaryBtn>
@@ -257,7 +257,7 @@ const Hero = () => {
               fontFamily: 'Inter, sans-serif', fontSize: 12,
               opacity: 0.6, textAlign: 'center', lineHeight: 1.5, maxWidth: 220
             }}>
-              Or try any vertical: <strong style={{ fontWeight: 500 }}>med spa · dental · chiro · vet</strong>
+              Works across: <strong style={{ fontWeight: 500 }}>med spa · dental · home services · legal · auto · more</strong>
             </div>
           </div>
 
@@ -274,7 +274,7 @@ const Hero = () => {
         }}>
           {[
           { k: 'Ring 1', v: 'Always picks up' },
-          { k: '$527', v: 'Avg new-patient visit' },
+          { k: '$527', v: 'Avg new-customer value' },
           { k: '$82k/yr', v: 'Leak from 3 missed calls/wk' },
           { k: '7 days', v: 'From call to live' }].
           map((s, i) =>
@@ -441,9 +441,9 @@ const VisualDormantReviews = () =>
   borderRadius: 4, padding: '18px 18px 14px'
 }}>
     {[
-  { name: 'Jessica R.', stars: 5, body: 'Loved my HydraFacial, so relaxing!', reply: null, ago: '2d' },
-  { name: 'Marcus T.', stars: 4, body: 'Good Botox results, front desk was slow.', reply: null, ago: '9d' },
-  { name: 'Elena G.', stars: 5, body: 'Amber was amazing with laser treatment.', reply: null, ago: '18d' }].
+  { name: 'Jessica R.', stars: 5, body: 'Great service, super easy and friendly!', reply: null, ago: '2d' },
+  { name: 'Marcus T.', stars: 4, body: 'Quality work, but front desk was slow.', reply: null, ago: '9d' },
+  { name: 'Elena G.', stars: 5, body: 'Amber was amazing — highly recommend.', reply: null, ago: '18d' }].
   map((r, i) =>
   <div key={i} style={{
     padding: '10px 0',
@@ -478,7 +478,7 @@ const VisualRankLadder = () =>
   borderRadius: 4, padding: 20, position: 'relative'
 }}>
     <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', opacity: 0.5, marginBottom: 16 }}>
-      Map pack · "Med spa near Katy"
+      Map pack · "[Your service] near you"
     </div>
     <svg viewBox="0 0 260 120" style={{ width: '100%', height: 120 }}>
       <defs>
@@ -528,7 +528,7 @@ const LeaksSection = () => {
               lineHeight: 0.98, letterSpacing: '-0.02em',
               fontWeight: 400, margin: '0 0 24px', textWrap: 'balance'
             }}>
-              Most med spas don't lose patients to price, location, or service.
+              Most local businesses don't lose customers to price, location, or service.
             </h2>
             <p style={{
               fontFamily: 'Inter, sans-serif', fontSize: 16.5,
@@ -558,7 +558,7 @@ const LeaksSection = () => {
               fontFamily: 'Inter, sans-serif', fontSize: 12,
               opacity: 0.45, marginTop: 12, fontStyle: 'italic'
             }}>
-              Based on an average med spa in a 250k-household metro.
+              Based on an average local business in a 250k-household metro.
             </div>
           </div>
         </div>
@@ -570,7 +570,7 @@ const LeaksSection = () => {
           <LeakColumn
             n={1}
             title="The phone that nobody answers."
-            body="Your front desk is prepping a patient. The phone rings. It goes to voicemail. Fewer than 1 in 4 new-patient callers ever calls back — they just book with the spa three blocks over."
+            body="Your front desk is busy with a customer. The phone rings. It goes to voicemail. Fewer than 1 in 4 new-customer callers ever calls back — they just book with the competitor three blocks over."
             stat="$82k"
             statLabel="Annual revenue lost · 3 missed calls / week"
             visual={<VisualPhoneSilence />} />
@@ -578,9 +578,9 @@ const LeaksSection = () => {
           <LeakColumn
             n={2}
             title="Reviews that die in silence."
-            body="Google confirmed it: responding to reviews lifts local rankings, especially when you mention the service and city. Most med spas reply to fewer than 1 in 5 — and leave the ranking juice on the table."
+            body="Google confirmed it: responding to reviews lifts local rankings, especially when you mention the service and city. Most local businesses reply to fewer than 1 in 5 — and leave the ranking juice on the table."
             stat="15%"
-            statLabel="Typical med spa response rate vs. 100% for top performers"
+            statLabel="Typical response rate vs. 100% for top performers"
             visual={<VisualDormantReviews />} />
           
           <LeakColumn
