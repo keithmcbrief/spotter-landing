@@ -9,7 +9,7 @@ const PhoneMock = () => {
   const steps = [
   { caller: 'Incoming • (832) 555‑0148', state: 'Ringing…' },
   { caller: 'Spotter AI • Answering', state: 'Picked up on ring 1' },
-  { caller: 'Booking link sent', state: 'SMS delivered → GlossGenius' },
+  { caller: 'Booking link sent', state: 'SMS delivered → Your booking system' },
   { caller: 'Lead captured', state: 'Calendar event created' }];
 
   const s = steps[step];
@@ -50,7 +50,7 @@ const ReviewMock = () =>
       </div>
     </div>
     <p style={{ fontSize: 14, lineHeight: 1.5, margin: '0 0 16px', opacity: 0.8 }}>
-      Loved the HydraFacial here — skin has never looked better. Staff was so warm.
+      Loved working with this team — couldn't be happier with the result. Staff was so warm.
     </p>
     <div style={{
     borderLeft: '2px solid #003837', paddingLeft: 14, marginTop: 14,
@@ -58,7 +58,7 @@ const ReviewMock = () =>
   }}>
       <div style={{ fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#003837', marginBottom: 6, fontFamily: 'JetBrains Mono, monospace' }}>Spotter reply · 2h later</div>
       <p style={{ fontSize: 13, lineHeight: 1.55, margin: 0, opacity: 0.85 }}>
-        Thank you, Maria! So glad the <strong>HydraFacial</strong> left your skin glowing — we love bringing that fresh-from-the-clinic feeling to every client here in <strong>Katy</strong>. Can't wait to see you again soon. ✨
+        Thank you, Maria! So glad we delivered for you — we love taking care of every customer here in <strong>Katy</strong>. Can't wait to see you again soon. ✨
       </p>
     </div>
   </div>;
@@ -100,13 +100,13 @@ const PlugSection = () => {
   {
     kicker: 'Fix 01',
     title: 'Every call answered — day, night, weekend, holiday.',
-    body: "Our AI receptionist picks up on the first ring. It answers questions about services, pricing, and hours. It captures every lead and books appointments by texting a link to your existing system — GlossGenius, Mangomint, Vagaro, whatever you already use. No migration. No integration project. It just works.",
+    body: "Our AI receptionist picks up on the first ring. It answers questions about services, pricing, and hours. It captures every lead and books appointments by texting a link to your existing system — Square, Calendly, Acuity, whatever you already use. No migration. No integration project. It just works.",
     visual: <PhoneMock />
   },
   {
     kicker: 'Fix 02',
     title: 'Every client asked for a review — automatically.',
-    body: "After every appointment, your client gets a personalized Google review request by text. No asking at checkout. No awkward follow-ups. Just a steady, compounding stream of fresh reviews hitting your profile every week.",
+    body: "After every job, your customer gets a personalized Google review request by text. No asking at checkout. No awkward follow-ups. Just a steady, compounding stream of fresh reviews hitting your profile every week.",
     visual: <ReviewVelocity />
   },
   {
@@ -171,7 +171,7 @@ const WhySection = () => {
   {
     n: '01',
     title: "We don't make you switch software.",
-    body: "Other AI receptionists want to replace your booking platform, your CRM, and your calendar. We don't. You keep GlossGenius. You keep Mangomint. You keep the workflow your team already trusts. We text a link to the booking page you already have. Done.",
+    body: "Other AI receptionists want to replace your booking platform, your CRM, and your calendar. We don't. You keep your booking system. You keep your CRM. You keep the workflow your team already trusts. We text a link to the booking page you already have. Done.",
     tag: "Integration-free"
   },
   {
@@ -252,7 +252,7 @@ const ProcessSection = () => {
   {
     n: '01',
     title: 'Book a 20-minute call.',
-    body: "Tell us about your spa. We'll run a phone audit before we talk — calling your business three times at different hours and benchmarking your Google profile against your two closest competitors.",
+    body: "Tell us about your business. We'll run a phone audit before we talk — calling your business three times at different hours and benchmarking your Google profile against your two closest competitors.",
     time: '20 MIN'
   },
   {
@@ -465,7 +465,7 @@ const FinalCTA = () => {
                 <input
                   type="url"
                   required
-                  placeholder="willowmedspa.com"
+                  placeholder="yourcompany.com"
                   value={companyUrl}
                   onChange={(e) => setCompanyUrl(e.target.value)}
                   style={{
@@ -486,7 +486,7 @@ const FinalCTA = () => {
                 <input
                   type="email"
                   required
-                  placeholder="you@willowmedspa.com"
+                  placeholder="you@yourcompany.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   style={{

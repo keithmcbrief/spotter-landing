@@ -80,7 +80,7 @@ const VisualCallAnswered = () => (
     </div>
 
     <TagPill style={{ position: 'absolute', top: 22, left: 22 }} tone="cream">Inbound Call · Ring 1</TagPill>
-    <TagPill style={{ position: 'absolute', top: 62, right: 30 }} tone="cream">Patient ID Verified</TagPill>
+    <TagPill style={{ position: 'absolute', top: 62, right: 30 }} tone="cream">Caller ID Verified</TagPill>
     <TagPill style={{ position: 'absolute', top: 102, left: 60 }} tone="cream">Appt Scheduled</TagPill>
     <TagPill style={{ position: 'absolute', bottom: 36, right: 24 }} tone="cream">SMS Delivered</TagPill>
     <TagPill style={{ position: 'absolute', bottom: 70, right: 80 }} tone="cream" icon="dot">Successful Call</TagPill>
@@ -104,7 +104,7 @@ const VisualCallAnswered = () => (
       fontFamily: 'Inter, sans-serif', fontSize: 12, lineHeight: 1.4,
       maxWidth: 220, boxShadow: '0 6px 16px -6px rgba(23,23,23,0.15)'
     }}>
-      Thanks for calling, Jasmin. Your HydraFacial is confirmed for Thu, Aug 18 @ 2pm.
+      Thanks for calling, Jasmin. Your appointment is confirmed for Thu, Aug 18 @ 2pm.
     </div>
   </div>
 );
@@ -135,7 +135,7 @@ const VisualBooking = () => (
         padding: '5px 10px', borderRadius: 999,
         fontFamily: 'JetBrains Mono, monospace', fontSize: 9,
         letterSpacing: '0.1em', textTransform: 'uppercase'
-      }}>Collected · New Patient Info</div>
+      }}>Collected · New Customer Info</div>
     </div>
 
     {/* Chat card top-right */}
@@ -150,10 +150,10 @@ const VisualBooking = () => (
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
         <ChatBubble role="user" style={{ alignSelf: 'flex-end', background: '#003837', color: '#faf3ec', fontSize: 10.5, padding: '7px 10px', maxWidth: 180 }}>
-          Do you offer financing for the HydraFacial package?
+          Do you offer financing on the full package?
         </ChatBubble>
         <ChatBubble style={{ fontSize: 10.5, padding: '7px 10px', background: '#faf3ec', maxWidth: 180 }}>
-          We do! The 3-session package splits into 4 payments. Want me to text the details?
+          We do! It splits into 4 monthly payments. Want me to text the details?
         </ChatBubble>
       </div>
       <div style={{
@@ -184,14 +184,14 @@ const VisualReviewResponse = () => (
       <div style={{
         fontFamily: 'Inter, sans-serif', fontSize: 8.5, color: '#faf3ec',
         opacity: 0.55, textAlign: 'center', marginBottom: 8
-      }}>Willow Med Spa · Review Reply</div>
+      }}>Willow & Co. · Review Reply</div>
       <div style={{
         background: 'rgba(250,243,236,0.08)', padding: '7px 9px',
         borderRadius: 6, marginBottom: 6
       }}>
         <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 7.5, color: '#faf3ec', opacity: 0.5, letterSpacing: '0.1em' }}>★★★★★ MARIA R.</div>
         <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, color: '#faf3ec', opacity: 0.9, marginTop: 3, lineHeight: 1.35 }}>
-          HydraFacial here was incredible — my skin glows.
+          The service here was incredible — couldn't be happier.
         </div>
       </div>
       <div style={{
@@ -200,13 +200,13 @@ const VisualReviewResponse = () => (
       }}>
         <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 7, letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0.6 }}>Mia · 2h later</div>
         <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, lineHeight: 1.4, marginTop: 3 }}>
-          Thank you, Maria! So glad the <strong>HydraFacial</strong> left your skin glowing here in <strong>Katy</strong>. ✨
+          Thank you, Maria! So glad we delivered for you here in <strong>Katy</strong>. We can't wait to see you again. ✨
         </div>
       </div>
     </div>
 
     <TagPill style={{ position: 'absolute', top: 20, left: 16 }} tone="cream">Review Received</TagPill>
-    <TagPill style={{ position: 'absolute', top: 60, left: 14 }} tone="cream">Service: HydraFacial</TagPill>
+    <TagPill style={{ position: 'absolute', top: 60, left: 14 }} tone="cream">Service Mentioned</TagPill>
     <TagPill style={{ position: 'absolute', top: 100, left: 26 }} tone="cream">City: Katy</TagPill>
     <TagPill style={{ position: 'absolute', bottom: 60, right: 16 }} tone="cream">Reply Drafted</TagPill>
     <TagPill style={{ position: 'absolute', bottom: 20, right: 30 }} tone="cream" icon="dot">Posted to Google</TagPill>
@@ -231,7 +231,7 @@ const VisualReviewRequest = () => (
       <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, lineHeight: 1.5, color: '#171717' }}>
         Hi Jasmin! Thanks for coming in today. Would you mind leaving a quick review? It really helps.
         <br/>
-        <span style={{ color: '#003837', textDecoration: 'underline' }}>g.page/willow-katy/review</span>
+        <span style={{ color: '#003837', textDecoration: 'underline' }}>g.page/willow-co/review</span>
       </div>
     </div>
 
@@ -265,7 +265,7 @@ const VisualMissedFollowup = () => (
       display: 'flex', flexDirection: 'column', gap: 8
     }}>
       <ChatBubble role="agent" style={{ alignSelf: 'flex-start', maxWidth: 200 }}>
-        Hi Jasmin — we missed your call. Still interested in HydraFacial?
+        Hi Jasmin — we missed your call. Still want to book an appointment?
       </ChatBubble>
       <ChatBubble style={{ alignSelf: 'flex-end', background: '#faf3ec', maxWidth: 150 }}>
         Yes! Thursday?
@@ -299,12 +299,12 @@ const VisualProfile = () => (
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
         <div style={{ width: 32, height: 32, borderRadius: 6, background: '#003837' }}></div>
         <div>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 500, color: '#171717' }}>Willow Med Spa · Katy</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 500, color: '#171717' }}>Willow & Co. · Katy</div>
           <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 9, color: '#171717', opacity: 0.6, letterSpacing: '0.1em' }}>★ 4.9 · 342 REVIEWS · OPEN</div>
         </div>
       </div>
       <div style={{ display: 'flex', gap: 4, marginTop: 10 }}>
-        {['HYDRAFACIAL', 'BOTOX', 'LASER', 'MICRONEEDLING'].map(s => (
+        {['BOOKING', 'PRICING', 'HOURS', 'PHOTOS'].map(s => (
           <span key={s} style={{
             fontFamily: 'JetBrains Mono, monospace', fontSize: 8,
             letterSpacing: '0.1em', background: '#f3ece2',
@@ -331,7 +331,7 @@ const VisualProfile = () => (
     </div>
 
     <TagPill style={{ position: 'absolute', top: 98, right: 18 }} tone="cream">Response Rate 100%</TagPill>
-    <TagPill style={{ position: 'absolute', top: 138, left: 18 }} tone="cream">Services Listed · 12</TagPill>
+    <TagPill style={{ position: 'absolute', top: 138, left: 18 }} tone="cream">Profile Fully Optimized</TagPill>
   </div>
 );
 
@@ -406,19 +406,19 @@ const WhatWeHandleSection = () => {
   const groups = [
     {
       kicker: 'Streamline your front office',
-      description: 'Every call answered. Every new-patient conversation handled, start to finish.',
+      description: 'Every call answered. Every new-customer conversation handled, start to finish.',
       icon: 'phone',
       cards: [
         { visual: <VisualCallAnswered />, caption: 'Book appointments 24/7. No voicemail, no "we\'ll call you back."' },
-        { visual: <VisualBooking />,       caption: 'Collect new-patient info, answer common questions, and route complex asks to your team.' }
+        { visual: <VisualBooking />,       caption: 'Collect new-customer info, answer common questions, and route complex asks to your team.' }
       ]
     },
     {
       kicker: 'Close the loop on every visit',
-      description: 'Automate the follow-ups so your staff stays focused on clients, not chasing tasks.',
+      description: 'Automate the follow-ups so your staff stays focused on customers, not chasing tasks.',
       icon: 'automate',
       cards: [
-        { visual: <VisualReviewRequest />,  caption: 'Send a review request after every appointment. Build a steady stream of fresh Google reviews.' },
+        { visual: <VisualReviewRequest />,  caption: 'Send a review request after every job. Build a steady stream of fresh Google reviews.' },
         { visual: <VisualMissedFollowup />, caption: 'Rescue missed calls with an instant SMS follow-up so leads don\'t leak to the competitor they call next.' }
       ]
     },
