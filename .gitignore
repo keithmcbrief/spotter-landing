@@ -5,9 +5,13 @@
 .claude/settings.local.json
 .gstack/
 node_modules/
+.env
+.env.*
+!.env.example
 
 # Local backups / scratch files
 *.bak
 index.old.html
 _spotter-original.html
 copythis.html
+.vercel

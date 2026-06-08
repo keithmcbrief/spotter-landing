@@ -1,157 +1,924 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Spotter Digital — You don't have a marketing problem. You have a leak problem.</title>
-<meta name="description" content="AI operations for local businesses. The average Houston med spa loses $80k+/yr to missed calls, dead reviews, and a slipping Google profile. Spotter plugs every leak — 24/7, on autopilot." />
-<link rel="icon" href="assets/spotter-brand-kit/favicon/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/spotter-brand-kit/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/spotter-brand-kit/favicon/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/spotter-brand-kit/favicon/apple-touch-icon.png">
-<link rel="manifest" href="assets/spotter-brand-kit/favicon/site.webmanifest">
-<meta name="theme-color" content="#023E3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: #faf3ec; color: #171717; }
-  body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-  html { scroll-behavior: smooth; }
-  ::selection { background: #003837; color: #faf3ec; }
-  a { color: inherit; }
-  .sp-btn:hover { transform: translateY(-1px); }
-  .sp-btn[style*="background: rgb(0, 56, 55)"]:hover { background: #004f4d !important; border-color: #004f4d !important; }
-  input::placeholder { color: rgba(250, 243, 236, 0.5); }
-  @keyframes sp-pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.5); opacity: 0.5; }
-  }
-  img { max-width: 100%; height: auto; }
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotter Digital - Growth Agency Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      /* Spotter Digital palette remap (cream + teal + ink) */
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              rose:   { 50: '#eef3f2', 100: '#dbe7e5', 200: '#a9c4c2', 500: '#004f4d', 600: '#003837', 900: '#012523' },
+              orange: { 400: '#003837' },
+              red:    { 50: '#f3ece2' },
+              gray:   { 50: '#f3ece2', 100: '#ece4d8', 200: '#ddd4c6', 400: '#8c877f', 500: '#6f6a62', 600: '#57514a', 700: '#403b35', 900: '#171717' }
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&amp;display=swap" rel="stylesheet">
+    <style>
+      /* Typography overrides */
+      body { font-family: 'Switzer', 'Inter', system-ui, -apple-system, sans-serif; }
+      .font-serif { font-family: 'Instrument Serif', 'Cormorant Garamond', 'Georgia', serif; }
+      .font-montserrat { font-family: 'Switzer', 'Inter', system-ui, sans-serif; }
+      /* Animations */
+      @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes infinite-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+      }
+      .animate-fade-up {
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      }
+      .animate-infinite-scroll {
+      animation: infinite-scroll 40s linear infinite;
+      }
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+      .delay-500 { animation-delay: 0.5s; }
+      /* Utilities */
+      .glass {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      }
+      .marquee-mask {
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      }
+      /* Custom FAQ Details Marker removal */
+      details > summary {
+      list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+      display: none;
+      }
+    </style>
+    <link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-geist">
+      .font-geist { font-family: 'Geist', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-roboto">
+      .font-roboto { font-family: 'Roboto', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-montserrat">
+      .font-montserrat { font-family: 'Switzer', 'Inter', system-ui, sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-poppins">
+      .font-poppins { font-family: 'Poppins', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap">
+    <style id="all-fonts-style-font-playfair">
+      .font-playfair { font-family: 'Playfair Display', serif !important; }
+    </style>
+    <link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-instrument-serif">
+      .font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+    </style>
+    <link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap">
+    <style id="all-fonts-style-font-merriweather">
+      .font-merriweather { font-family: 'Merriweather', serif !important; }
+    </style>
+    <link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-bricolage">
+      .font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap">
+    <style id="all-fonts-style-font-jakarta">
+      .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap">
+    <style id="all-fonts-style-font-manrope">
+      .font-manrope { font-family: 'Manrope', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-space-grotesk">
+      .font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap">
+    <style id="all-fonts-style-font-work-sans">
+      .font-work-sans { font-family: 'Work Sans', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
+    <style id="all-fonts-style-font-pt-serif">
+      .font-pt-serif { font-family: 'PT Serif', serif !important; }
+    </style>
+    <link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-geist-mono">
+      .font-geist-mono { font-family: 'Geist Mono', monospace !important; }
+    </style>
+    <link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap">
+    <style id="all-fonts-style-font-space-mono">
+      .font-space-mono { font-family: 'Space Mono', monospace !important; }
+    </style>
+    <link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-quicksand">
+      .font-quicksand { font-family: 'Quicksand', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap">
+    <style id="all-fonts-style-font-nunito">
+      .font-nunito { font-family: 'Nunito', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap">
+    <style id="all-fonts-style-font-newsreader">
+      .font-newsreader { font-family: 'Newsreader', serif !important; }
+    </style>
+    <link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-google-sans-flex">
+      .font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-oswald">
+      .font-oswald { font-family: 'Oswald', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-dm-sans">
+      .font-dm-sans { font-family: 'DM Sans', sans-serif !important; }
+    </style>
+    <link id="all-fonts-link-font-cormorant" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-cormorant">
+      .font-cormorant { font-family: 'Cormorant Garamond', serif !important; }
+    </style>
+    <style id="border-gradient-shared-style">
+      [style*="--border-gradient"]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: var(--border-radius-before, inherit);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      background: var(--border-gradient);
+      pointer-events: none;
+      }
+    </style>
+    <style id="spotter-system-overrides">
+      :root {
+        --font-sans: 'Switzer', 'Inter', system-ui, -apple-system, sans-serif;
+        --font-serif: 'Instrument Serif', 'Cormorant Garamond', 'Georgia', serif;
+        --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+      }
+      body { font-family: var(--font-sans); }
+      .font-serif { font-family: var(--font-serif) !important; }
+      .font-montserrat { font-family: var(--font-sans) !important; }
+      /* Uppercase eyebrow labels use the mono instrumentation register */
+      .font-montserrat.uppercase.tracking-widest {
+        font-family: var(--font-mono) !important;
+        letter-spacing: 0.18em;
+      }
+      ::-moz-selection { background: #003837; color: #faf3ec; }
+      ::selection { background: #003837; color: #faf3ec; }
+    </style>
+    <!-- Wistia hero video -->
+    <script src="https://fast.wistia.com/player.js" async></script>
+    <script src="https://fast.wistia.com/embed/45ck5rfxnv.js" async type="module"></script>
+    <style>
+      wistia-player[media-id='45ck5rfxnv']:not(:defined) {
+        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/45ck5rfxnv/swatch');
+        display: block;
+        filter: blur(5px);
+        padding-top: 56.25%;
+      }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-rose-100 selection:text-rose-900 text-gray-600 bg-[#faf3ec]">
+    <template id="__bundler_thumbnail" data-bg-color="#faf3ec">
+      <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="800" fill="#faf3ec"></rect>
+        <rect x="430" y="250" width="340" height="300" rx="40" fill="#003837"></rect>
+        <text x="600" y="470" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="200" fill="#faf3ec">S</text>
+        <text x="600" y="620" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="46" letter-spacing="6" fill="#171717">SPOTTER DIGITAL</text>
+      </svg>
+    </template>
+    <!-- 1. Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4 md:pt-6 md:px-6 pointer-events-none">
+      <nav class="pointer-events-auto glass border rounded-full pl-5 pr-2 py-2 flex items-center justify-between gap-4 md:gap-10 shadow-[0_2px_10px_-2px_rgba(0,0,0,0.05)] w-full max-w-5xl transition-all duration-300 border-gray-200/60">
+        <!-- Left: Logo -->
+        <a href="#" class="group flex items-center gap-2 md:gap-2.5 shrink-0">
+          <img src="assets/spotter-mark.png" alt="Spotter Digital" class="h-7 w-7 md:h-8 md:w-8 object-contain transition-transform group-hover:-translate-y-0.5">
+          <span class="font-montserrat font-bold text-base md:text-lg tracking-tight leading-none">
+            <span class="text-gray-900">SPOTTER </span><span class="text-rose-600">DIGITAL</span>
+          </span>
+        </a>
 
-  /* ============ MOBILE ============ */
-  @media (max-width: 900px) {
-    h1, h2 { font-size: clamp(34px, 9vw, 52px) !important; line-height: 1.05 !important; }
-    h3 { font-size: clamp(22px, 5vw, 28px) !important; }
-    nav ul { display: none !important; }
+        <!-- Right: Single CTA -->
+        <a href="#book-call" class="text-xs px-4 py-2 md:px-5 md:py-2.5 rounded-full transition-all duration-300 flex items-center gap-2 font-montserrat font-medium group shadow-md hover:shadow-lg hover:shadow-rose-500/20 bg-[#003837] text-white hover:bg-[#004f4d] shrink-0">
+          Book a call
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-3 h-3 transition-transform group-hover:translate-x-0.5 hidden sm:block">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </nav>
+    </header>
 
-    /* Section padding: tighten horizontal, drop vertical */
-    section { padding: 72px 20px !important; }
+    <main class="max-w-7xl mx-auto pt-28 md:pt-32 px-4 md:px-6 pb-24">
+      <!-- 2. Hero Section -->
+      <section class="relative rounded-[2rem] md:rounded-[2.5rem] p-6 py-12 md:p-12 lg:p-20 border shadow-[0_1px_2px_rgba(0,0,0,0.02)] overflow-hidden text-center mb-12 md:mb-16 bg-white border-gray-200/60">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#e7ddcf_1px,transparent_1px),linear-gradient(to_bottom,#e7ddcf_1px,transparent_1px)] bg-[size:3rem_3rem] md:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none opacity-50"></div>
 
-    /* Flatten any inline grid-template-columns to 1fr */
-    [style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+        <div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
+          <!-- Eyebrow -->
+          <div class="animate-fade-up w-fit border px-3 py-1 rounded-full text-[10px] tracking-widest uppercase font-montserrat font-bold mb-6 md:mb-8 bg-rose-50 border-rose-100 text-rose-600">
+            Attention B2B founders
+          </div>
 
-    /* Flatten class-based grids */
-    .sp-handle-cards,
-    .sp-leaks-head,
-    .sp-leaks-grid,
-    .sp-footer-cols { grid-template-columns: 1fr !important; gap: 28px !important; }
+          <!-- Main Headline -->
+          <h1 class="animate-fade-up delay-100 text-4xl sm:text-5xl md:text-7xl lg:text-[5rem] leading-[1.1] md:leading-[0.95] tracking-tighter mb-6 md:mb-8 font-serif font-medium text-gray-900">
+            We Guarantee
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 italic pr-2 to-orange-400">
+              4+ New Clients Signed
+            </span>
+            in
+            <br class="hidden md:block">
+            60 Days With Our Cold Email System, Or
+            <span class="border-b-2 md:border-b-4 border-rose-200/60">
+              You Pay Nothing.
+            </span>
+          </h1>
 
-    /* What-we-handle: category header flex (icon next to text) — keep but shrink */
-    .sp-handle-header { gap: 16px !important; margin-bottom: 28px !important; }
-    .sp-handle-header svg { width: 40px !important; height: 40px !important; flex-shrink: 0; }
-    .sp-handle-header h3 { font-size: 16px !important; }
-    .sp-handle-header p { font-size: 14px !important; }
+          <!-- Subheadline -->
+          <p class="animate-fade-up delay-200 text-base md:text-xl text-gray-500 leading-relaxed max-w-2xl mb-8 md:mb-12 font-light px-2">
+            We build the system, find the leads, write the emails, and book the
+            calls. You just show up to qualified meetings with the
+            decision-makers you actually want to close — without touching a
+            single piece of the tech.
+          </p>
 
-    /* Card visual: simplify dramatically on mobile. */
-    .sp-card-visual { height: auto !important; min-height: 0 !important; padding: 24px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
-    .sp-card-visual > div:not(.sp-card-keep) { display: none !important; }
-    .sp-card-visual > .sp-card-keep { position: static !important; transform: none !important; width: 100% !important; max-width: 100% !important; left: auto !important; right: auto !important; top: auto !important; bottom: auto !important; margin: 0 !important; }
+          <!-- Hero Video (Wistia) -->
+          <div class="animate-fade-up delay-300 relative w-full max-w-4xl aspect-video rounded-xl md:rounded-[2rem] border-2 md:border-4 shadow-xl md:shadow-2xl overflow-hidden mb-8 md:mb-12 ring-1 bg-gray-900 border-white/50 shadow-gray-200 ring-gray-900/5">
+            <wistia-player media-id="45ck5rfxnv" aspect="1.7777777777777777" class="block w-full h-full"></wistia-player>
+          </div>
 
-    /* Hero pad */
-    .sp-hero { padding: 160px 20px 80px !important; }
+          <!-- CTA Group -->
+          <div class="animate-fade-up delay-500 flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-center w-full mb-6">
+            <a href="#book-call" class="w-full sm:w-auto px-8 py-3.5 md:py-4 rounded-full text-sm hover:shadow-xl hover:shadow-rose-500/20 transition-all duration-300 flex items-center justify-center gap-2 font-montserrat font-medium group bg-[#003837] text-white hover:bg-[#004f4d]">
+              Book a free strategy call
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 transition-transform group-hover:translate-x-1">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
 
-    /* Demo card: stack mic+transcript */
-    .sp-demo-grid { grid-template-columns: 1fr !important; }
-    .sp-demo-stats { grid-template-columns: 1fr 1fr !important; }
+          <!-- Context Statement -->
+          <p class="animate-fade-up delay-500 text-[10px] md:text-xs font-montserrat text-gray-400">
+            Free 30-minute call. No credit card, no commitment.
+          </p>
+        </div>
+      </section>
 
-    /* Footer brand block */
-    .sp-footer-cols { grid-template-columns: 1fr 1fr !important; }
+      <!-- 3. Social Proof (Trust Bar) -->
+      <div class="w-full py-8 md:py-12 mb-16 md:mb-20 text-center border-b border-gray-100">
+        <p class="text-[10px] md:text-xs font-montserrat uppercase tracking-widest mb-8 md:mb-10 text-gray-400">
+          Trusted by
+        </p>
 
-    /* Counter */
-    .sp-leak-counter { text-align: left !important; }
+        <div class="marquee-mask relative overflow-hidden">
+          <div class="flex w-max animate-infinite-scroll">
+            <!-- Logos -->
+            <div class="flex items-center gap-10 md:gap-16 px-4 md:px-8 grayscale opacity-60 scale-90 md:scale-100">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="triangle" class="lucide lucide-triangle w-5 h-5 md:w-6 md:h-6">
+                  <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                </svg>
+                <span class="font-bold text-base md:text-lg">Smartlead.ai</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="hexagon" class="lucide lucide-hexagon w-5 h-5 md:w-6 md:h-6">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                </svg>
+                <span class="font-bold text-base md:text-lg">Client Ascension</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="circle" class="lucide lucide-circle w-5 h-5 md:w-6 md:h-6">
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                <span class="font-bold text-base md:text-lg">Blue Moon Estate Sales</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="box" class="lucide lucide-box w-5 h-5 md:w-6 md:h-6">
+                  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+                  <path d="m3.3 7 8.7 5 8.7-5"></path>
+                  <path d="M12 22V12"></path>
+                </svg>
+                <span class="font-bold text-base md:text-lg">Residential AC/H</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="slack" class="lucide lucide-slack w-5 h-5 md:w-6 md:h-6">
+                  <rect width="3" height="8" x="13" y="2" rx="1.5"></rect>
+                  <path d="M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5"></path>
+                  <rect width="3" height="8" x="8" y="14" rx="1.5"></rect>
+                  <path d="M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5"></path>
+                  <rect width="8" height="3" x="14" y="13" rx="1.5"></rect>
+                  <path d="M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5"></path>
+                  <rect width="8" height="3" x="2" y="8" rx="1.5"></rect>
+                  <path d="M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5"></path>
+                </svg>
+                <span class="font-bold text-base md:text-lg">Staff Mode</span>
+              </div>
+            </div>
+            <!-- Duplicate -->
+            <div class="flex items-center gap-10 md:gap-16 px-4 md:px-8 grayscale opacity-60 scale-90 md:scale-100">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="triangle" class="lucide lucide-triangle w-5 h-5 md:w-6 md:h-6">
+                  <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                </svg>
+                <span class="font-bold text-base md:text-lg">Smartlead.ai</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="hexagon" class="lucide lucide-hexagon w-5 h-5 md:w-6 md:h-6">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                </svg>
+                <span class="font-bold text-base md:text-lg">Client Ascension</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="circle" class="lucide lucide-circle w-5 h-5 md:w-6 md:h-6">
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                <span class="font-bold text-base md:text-lg">Blue Moon Estate Sales</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="box" class="lucide lucide-box w-5 h-5 md:w-6 md:h-6">
+                  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+                  <path d="m3.3 7 8.7 5 8.7-5"></path>
+                  <path d="M12 22V12"></path>
+                </svg>
+                <span class="font-bold text-base md:text-lg">Residential AC/H</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="slack" class="lucide lucide-slack w-5 h-5 md:w-6 md:h-6">
+                  <rect width="3" height="8" x="13" y="2" rx="1.5"></rect>
+                  <path d="M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5"></path>
+                  <rect width="3" height="8" x="8" y="14" rx="1.5"></rect>
+                  <path d="M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5"></path>
+                  <rect width="8" height="3" x="14" y="13" rx="1.5"></rect>
+                  <path d="M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5"></path>
+                  <rect width="8" height="3" x="2" y="8" rx="1.5"></rect>
+                  <path d="M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5"></path>
+                </svg>
+                <span class="font-bold text-base md:text-lg">Staff Mode</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    /* Hide decorative floating tag pills entirely on mobile */
-    .sp-card-visual .sp-visual-tag { display: none !important; }
+      <!-- 4. Pain Points Section -->
+      <section class="py-12 md:py-20 max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-5xl text-center mb-4 tracking-tight font-serif font-medium text-gray-900 px-4">
+          Right now, landing new clients feels like a gamble
+        </h2>
+        <p class="text-center text-gray-500 font-light text-base md:text-lg max-w-2xl mx-auto mb-10 md:mb-16 px-4">
+          Most B2B founders are stuck rotating between three things that don't
+          reliably bring in business:
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+          <!-- Card 1 -->
+          <div class="md:p-8 md:rounded-3xl hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-red-50 to-white rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 shadow-sm" style="position: relative; --border-gradient: linear-gradient(135deg, rgba(0,56,55,0.22), rgba(0,56,55,0.5)); --border-radius-before: 1.5rem">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-5 md:mb-6 bg-rose-50 text-rose-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trending-down" class="lucide lucide-trending-down w-5 h-5 md:w-6 md:h-6">
+                <path d="M16 17h6v-6"></path>
+                <path d="m22 17-8.5-8.5-5 5L2 7"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg md:text-xl font-montserrat font-semibold mb-2 md:mb-3 text-gray-900">
+              You pour money into ads and get tire-kickers.
+            </h3>
+            <p class="text-gray-500 font-light leading-relaxed text-sm">
+              Every click costs more than the last, and half of them come from
+              people who were never going to buy. You're funding clicks, not
+              clients — and the budget runs dry long before the pipeline fills.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div class="md:p-8 md:rounded-3xl hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-red-50 to-white rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 shadow-sm" style="position: relative; --border-gradient: linear-gradient(135deg, rgba(0,56,55,0.22), rgba(0,56,55,0.5)); --border-radius-before: 1.5rem">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-5 md:mb-6 bg-rose-50 text-rose-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users w-5 h-5 md:w-6 md:h-6">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h3 class="text-lg md:text-xl font-montserrat font-semibold mb-2 md:mb-3 text-gray-900">
+              You network in rooms full of your own competitors.
+            </h3>
+            <p class="text-gray-500 font-light leading-relaxed text-sm">
+              Chamber breakfasts, mixers, LinkedIn groups — you trade cards with
+              people who do the exact same thing you do. Meanwhile, the clients
+              you actually want are sitting in their offices deciding who to
+              hire, with no idea you exist.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div class="md:p-8 md:rounded-3xl hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-red-50 to-white rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 shadow-sm" style="position: relative; --border-gradient: linear-gradient(135deg, rgba(0,56,55,0.22), rgba(0,56,55,0.5)); --border-radius-before: 1.5rem">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-5 md:mb-6 bg-rose-50 text-rose-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock w-5 h-5 md:w-6 md:h-6">
+                <path d="M12 6v6l4 2"></path>
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <h3 class="text-lg md:text-xl font-montserrat font-semibold mb-2 md:mb-3 text-gray-900">
+              You rely on word of mouth.
+            </h3>
+            <p class="text-gray-500 font-light leading-relaxed text-sm">
+              Word of mouth feels great — right up until it goes quiet. You
+              can't turn it up when you need revenue, you can't predict when the
+              next referral lands, and you can't build a forecast on "I hope
+              someone mentions us." It leaves your growth in everyone's hands but
+              your own.
+            </p>
+          </div>
+        </div>
+      </section>
 
-    /* Process steps: stack */
-    .sp-process { grid-template-columns: 1fr !important; gap: 32px !important; }
+      <!-- 5. Benefits / Why Us -->
+      <section class="py-12 md:py-20">
+        <div class="text-center mb-10 md:mb-16 px-4">
+          <h2 class="md:text-5xl text-3xl font-medium text-gray-900 tracking-tight font-serif">
+            Why founders choose Spotter
+          </h2>
+        </div>
 
-    /* Section 05: hide the video placeholder entirely on mobile */
-    .sp-process-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-    .sp-process-video { display: none !important; }
-    .sp-process-left h2 { text-align: center !important; margin-bottom: 36px !important; }
-    .sp-step-card { grid-template-columns: 1fr !important; text-align: center !important; gap: 14px !important; padding: 28px 22px !important; }
-    .sp-step-card > div:first-child { margin: 0 auto !important; }
-    .sp-step-card p { margin-left: auto !important; margin-right: auto !important; max-width: 360px !important; }
+        <div class="grid md:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
+          <!-- Benefit 1 -->
+          <div class="group md:rounded-3xl md:p-8 overflow-hidden md:h-80 flex flex-col transition-colors hover:border-rose-200 bg-gradient-to-br from-white to-gray-50 h-64 border border-gray-200 rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 relative">
+            <h3 class="md:text-2xl md:mb-4 text-xl font-medium text-gray-900 font-montserrat mb-3">
+              Emails that don't read like emails.
+            </h3>
+            <p class="text-gray-500 font-light text-sm leading-relaxed z-10 relative">
+              We personalize every message so it lands like a one-to-one note,
+              not a blast. Prospects reply because it feels like you wrote it
+              just for them.
+            </p>
+            <div class="mt-auto self-end group-hover:text-rose-500 transition-colors duration-500 transform group-hover:scale-110 text-rose-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="crosshair" class="lucide lucide-crosshair w-16 h-16 md:w-24 md:h-24 stroke-[1px]">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="22" x2="18" y1="12" y2="12"></line>
+                <line x1="6" x2="2" y1="12" y2="12"></line>
+                <line x1="12" x2="12" y1="6" y2="2"></line>
+                <line x1="12" x2="12" y1="22" y2="18"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- Benefit 2 -->
+          <div class="group md:rounded-3xl md:p-8 overflow-hidden md:h-80 flex flex-col transition-colors hover:border-rose-200 bg-gradient-to-br from-white to-gray-50 h-64 border border-gray-200 rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 relative">
+            <h3 class="text-xl md:text-2xl font-montserrat font-medium mb-3 md:mb-4 text-gray-900">
+              Full visibility, no black box.
+            </h3>
+            <p class="text-gray-500 font-light text-sm leading-relaxed z-10 relative">
+              You always know what's going out, who's engaging, and how close
+              you are to your next signed client. Real numbers, every week.
+            </p>
+            <div class="mt-auto self-end group-hover:text-rose-500 transition-colors duration-500 transform group-hover:scale-110 text-rose-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="monitor" class="lucide lucide-monitor w-16 h-16 md:w-24 md:h-24 stroke-[1px]">
+                <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                <line x1="8" x2="16" y1="21" y2="21"></line>
+                <line x1="12" x2="12" y1="17" y2="21"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- Benefit 3 -->
+          <div class="group md:rounded-3xl md:p-8 overflow-hidden md:h-80 flex flex-col transition-colors hover:border-rose-200 bg-gradient-to-br from-white to-gray-50 h-64 border border-gray-200 rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 relative">
+            <h3 class="text-xl md:text-2xl font-montserrat font-medium mb-3 md:mb-4 text-gray-900">
+              A real person on your account.
+            </h3>
+            <p class="text-gray-500 font-light text-sm leading-relaxed z-10 relative">
+              You're not buying software and getting left to figure it out. You
+              get a dedicated point of contact who knows your business and tunes
+              the campaigns as we go.
+            </p>
+            <div class="mt-auto self-end group-hover:text-rose-500 transition-colors duration-500 transform group-hover:scale-110 text-rose-100">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" class="lucide lucide-shield-check w-16 h-16 md:w-24 md:h-24 stroke-[1px]">
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
 
-    /* Leaks counter sizing */
-    .sp-leak-counter-num { font-size: clamp(56px, 14vw, 96px) !important; justify-content: flex-start !important; }
+        <div class="flex justify-center">
+          <a href="#book-call" class="w-full sm:w-auto justify-center px-8 py-3.5 rounded-full text-sm transition-all duration-300 font-montserrat font-medium flex items-center gap-2 bg-[#003837] text-white hover:bg-[#004f4d]">
+            Book a free strategy call
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" class="lucide lucide-phone w-4 h-4">
+              <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+            </svg>
+          </a>
+        </div>
+      </section>
 
-    /* Final CTA: stack the two buttons full-width instead of letting them wrap */
-    .sp-cta-buttons { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; }
-    .sp-cta-buttons > a { justify-content: center !important; padding: 18px 24px !important; }
-  }
-  @media (max-width: 640px) {
-    /* Once the nav is too tight, drop the "Talk to our AI →" link */
-    .sp-nav-talk { display: none !important; }
-  }
-  @media (max-width: 520px) {
-    section { padding: 56px 18px !important; }
-    .sp-footer-cols { grid-template-columns: 1fr !important; }
-    nav { padding: 14px 18px !important; }
-    .sp-brand span { font-size: 18px !important; }
-    .sp-brand img { height: 26px !important; width: 26px !important; }
-  }
-</style>
+      <!-- 7. Transformation / Process -->
+      <section id="process" class="py-16 md:py-24">
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="text-3xl md:text-5xl font-serif font-medium text-gray-900">
+            Here's how we fill your calendar
+          </h2>
+          <p class="text-base md:text-lg text-gray-500 font-light max-w-2xl mx-auto mt-4 px-4">
+            No software to learn. No new hire to manage. You hand us your
+            calendar — we handle everything that fills it.
+          </p>
+        </div>
 
-<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
-</head>
-<body>
-<div id="root"></div>
+        <div class="grid md:grid-cols-3 gap-10 md:gap-8 relative max-w-6xl mx-auto">
+          <!-- Connecting Line (Desktop) -->
+          <div class="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent to-transparent -z-10 via-gray-200"></div>
 
-<script type="text/babel" src="assets/tweaks-panel.jsx"></script>
-<script type="text/babel" src="components.jsx"></script>
-<script type="text/babel" src="sections.jsx"></script>
-<script type="text/babel" src="what-we-handle.jsx"></script>
-<script type="text/babel" src="sections2.jsx"></script>
+          <!-- Step 1 -->
+          <div class="flex flex-col items-center text-center group">
+            <div class="w-20 h-20 md:w-24 md:h-24 border rounded-full flex items-center justify-center text-xl md:text-2xl font-serif mb-5 md:mb-6 shadow-sm group-hover:border-rose-500 group-hover:text-rose-500 transition-colors bg-white border-gray-200 text-gray-400">
+              1
+            </div>
+            <h3 class="text-lg md:text-xl font-bold font-montserrat mb-2 md:mb-3 text-gray-900">
+              We learn your business like we work there.
+            </h3>
+            <p class="text-sm text-gray-500 font-light leading-relaxed max-w-xs px-4 md:px-0">
+              We dig into your offer, your best-fit clients, and what actually
+              makes people say yes to you. Then we build your lead lists, your
+              email scripts, and your sending setup from scratch — all done for
+              you.
+            </p>
+          </div>
 
-<script type="text/babel" data-presets="env,react">
-const SPOTTER_DEFAULTS = {
-  "headlineEmphasis": "leak",
-  "heroStyle": "editorial",
-  "accentGreen": "#003837",
-  "cream": "#faf3ec",
-  "leakSpeed": 2.6,
-  "showTicker": true,
-  "capitalizeHeadlines": false
-};
+          <!-- Step 2 -->
+          <div class="flex flex-col items-center text-center group">
+            <div class="w-20 h-20 md:w-24 md:h-24 border rounded-full flex items-center justify-center text-xl md:text-2xl font-serif mb-5 md:mb-6 shadow-sm group-hover:border-rose-500 group-hover:text-rose-500 transition-colors bg-white border-gray-200 text-gray-400">
+              2
+            </div>
+            <h3 class="text-lg md:text-xl font-bold font-montserrat mb-2 md:mb-3 text-gray-900">
+              We launch and optimize the campaign.
+            </h3>
+            <p class="text-sm text-gray-500 font-light leading-relaxed max-w-xs px-4 md:px-0">
+              We start sending personalized emails to your ideal prospects, then
+              split-test the messaging and audiences until we find what books
+              meetings. You see exactly what's working in plain-English reports
+              every week.
+            </p>
+          </div>
 
-function App() {
-  React.useEffect(() => {
-    document.documentElement.style.setProperty('--accent', SPOTTER_DEFAULTS.accentGreen);
-  }, []);
+          <!-- Step 3 -->
+          <div class="flex flex-col items-center text-center group">
+            <div class="w-20 h-20 md:w-24 md:h-24 border rounded-full flex items-center justify-center text-xl md:text-2xl font-serif mb-5 md:mb-6 shadow-sm group-hover:border-rose-500 group-hover:text-rose-500 transition-colors bg-white border-gray-200 text-gray-400">
+              3
+            </div>
+            <h3 class="text-lg md:text-xl font-bold font-montserrat mb-2 md:mb-3 text-gray-900">
+              You take the calls, we do the rest.
+            </h3>
+            <p class="text-sm text-gray-500 font-light leading-relaxed max-w-xs px-4 md:px-0">
+              When prospects reply, we handle the back-and-forth and get the
+              qualified ones booked straight onto your calendar. All you do is
+              show up and close.
+            </p>
+          </div>
+        </div>
 
-  return (
-    <div style={{ background: SPOTTER_DEFAULTS.cream, minHeight: '100vh' }}>
-      <NavBar />
-      <Hero />
-      <WhatWeHandleSection />
-      <LeaksSection />
-      <PlugSection />
-      <WhySection />
-      <ProcessSection />
-      <FinalCTA />
-      <Footer />
-    </div>
-  );
-}
+        <div class="flex justify-center mt-12 md:mt-16">
+          <a href="#book-call" class="w-full sm:w-auto justify-center px-10 py-4 rounded-full text-sm transition-all duration-300 font-montserrat font-medium flex items-center gap-2 shadow-lg hover:shadow-xl hover:shadow-rose-500/20 bg-[#003837] text-white hover:bg-[#004f4d]">
+            Book a free strategy call
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </section>
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
-</script>
-</body>
-</html>
+      <!-- 8. Offer / What's Included -->
+      <section class="py-16 md:py-20 -mx-4 md:-mx-6 px-4 md:px-6 rounded-[2.5rem] md:rounded-[3rem] bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-3xl md:text-5xl text-center mb-10 md:mb-16 tracking-tight font-serif font-medium text-gray-900">
+            Everything's done for you
+          </h2>
+
+          <div class="rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-16 border shadow-sm relative overflow-hidden bg-white border-gray-200">
+            <div class="absolute top-0 right-0 w-[20rem] h-[20rem] md:w-[40rem] md:h-[40rem] bg-gradient-to-b to-transparent rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none from-rose-50/50"></div>
+            <div class="relative z-10 flex flex-col items-center">
+              <div class="text-center mb-8 md:mb-12 max-w-3xl">
+                <p class="text-gray-500 font-light text-base md:text-lg">
+                  One partnership, the whole outbound engine — built, launched,
+                  and run by us.
+                </p>
+              </div>
+              <div class="grid md:grid-cols-2 gap-y-4 gap-x-20 md:gap-y-6 w-full max-w-4xl mb-12 md:mb-16">
+                <ul class="space-y-4 md:space-y-6">
+                  <li class="flex items-center gap-3 md:gap-4">
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 bg-rose-50 text-rose-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 md:w-5 md:h-5">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <span class="font-medium font-montserrat text-sm md:text-lg text-gray-700">
+                      A full deep-dive into your offer and ideal client
+                    </span>
+                  </li>
+                  <li class="flex items-center gap-3 md:gap-4">
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 bg-rose-50 text-rose-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 md:w-5 md:h-5">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <span class="font-medium font-montserrat text-sm md:text-lg text-gray-700">
+                      Done-for-you cold email infrastructure, built and maintained
+                    </span>
+                  </li>
+                  <li class="flex items-center gap-3 md:gap-4">
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 bg-rose-50 text-rose-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 md:w-5 md:h-5">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <span class="font-medium font-montserrat text-sm md:text-lg text-gray-700">
+                      Done-for-you email copywriting that actually gets replies
+                    </span>
+                  </li>
+                </ul>
+                <ul class="space-y-4 md:space-y-6">
+                  <li class="flex items-center gap-3 md:gap-4">
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 bg-rose-50 text-rose-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 md:w-5 md:h-5">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <span class="font-medium font-montserrat text-sm md:text-lg text-gray-700">
+                      Done-for-you lead research and list building
+                    </span>
+                  </li>
+                  <li class="flex items-center gap-3 md:gap-4">
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 bg-rose-50 text-rose-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 md:w-5 md:h-5">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <span class="font-medium font-montserrat text-sm md:text-lg text-gray-700">
+                      Done-for-you reply handling and meeting booking
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="flex flex-col items-center w-full">
+                <a href="#book-call" class="w-full md:w-auto text-base md:text-lg px-8 md:px-12 py-4 md:py-5 rounded-full transition-all duration-300 shadow-xl font-montserrat font-medium flex items-center justify-center gap-3 group bg-[#003837] text-white hover:bg-[#004f4d] shadow-rose-900/10">
+                  Book a free strategy call
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </a>
+                <p class="mt-4 md:mt-6 text-xs md:text-sm font-montserrat text-gray-400">
+                  No long-term contracts. Cancel anytime.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. About Me Section -->
+      <section class="py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-16 items-center border-t border-gray-100">
+        <div class="order-2 lg:order-1">
+          <h2 class="text-3xl md:text-5xl mb-6 md:mb-8 tracking-tight font-serif font-medium text-gray-900">
+            Hey, I'm Tristan
+          </h2>
+          <div class="space-y-4 md:space-y-6 text-sm md:text-base text-gray-500 font-light leading-relaxed">
+            <p>
+              I'm the founder of
+              <span class="font-medium text-gray-900">Spotter Digital</span>.
+            </p>
+            <p>
+              For years I watched founders with great offers pay agencies that
+              sold likes and impressions while their calendar stayed empty. I
+              built Spotter to do the opposite.
+            </p>
+            <p>
+              We do one thing really well: cold email that gets your offer in
+              front of people who can actually say yes. No ads to feed, no
+              vanity metrics, just real conversations on your calendar.
+            </p>
+            <p>
+              And I put my money where my mouth is. If you don't get clients,
+              you don't pay. Your results are all that pays us, so they're all
+              we focus on.
+            </p>
+            <p>
+              If that sounds like what you've been looking for, let's talk.
+            </p>
+          </div>
+          <a href="#book-call" class="inline-block mt-6 md:mt-8 font-semibold border-b pb-0.5 transition-all text-rose-600 border-rose-200 hover:border-rose-600">
+            Let's talk
+          </a>
+        </div>
+        <div class="relative order-1 lg:order-2 h-64 md:h-[500px] w-full rounded-[2rem] overflow-hidden bg-gray-100">
+          <img src="assets/founder-tristan.jpg" alt="Tristan, founder of Spotter Digital" class="w-full h-full object-cover object-[50%_28%]">
+        </div>
+      </section>
+
+      <!-- 11. Final CTA (Lead Magnet) -->
+      <section id="contact" class="py-16 md:py-20 mb-16 md:mb-20 rounded-[2rem] md:rounded-[2.5rem] text-center px-4 md:px-6 relative overflow-hidden bg-gray-900">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-rose-900/40 via-gray-900 to-gray-900"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-5xl mb-4 md:mb-6 tracking-tight font-serif font-medium text-white">
+            The risk is on us, not you
+          </h2>
+          <p class="text-base md:text-lg mb-8 md:mb-10 font-light text-gray-400">
+            Most agencies get paid whether they deliver or not. We don't work
+            that way. If we don't sign you at least 4 new clients in your first
+            60 days, you don't pay. No long-term contract. Cancel anytime.
+            That's how confident we are that this works.
+          </p>
+
+          <div class="flex justify-center">
+            <a href="#book-call" class="w-full sm:w-auto justify-center px-10 py-4 rounded-full text-sm transition-all duration-300 font-montserrat font-medium flex items-center gap-2 shadow-lg hover:shadow-xl hover:shadow-rose-500/20 bg-rose-600 text-white hover:bg-rose-500">
+              Book a free strategy call
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 transition-transform group-hover:translate-x-1">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. FAQ Section -->
+      <section class="max-w-3xl mx-auto py-8 md:py-10 mb-16 md:mb-24 px-2 md:px-6">
+        <h2 class="text-2xl md:text-3xl text-center mb-10 md:mb-12 tracking-tight font-serif font-medium text-gray-900">
+          FREQUENTLY ASKED QUESTIONS
+        </h2>
+
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <details class="group border rounded-2xl overflow-hidden transition-all duration-300 open:shadow-md bg-white border-gray-200">
+            <summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer font-medium font-montserrat select-none text-gray-900 text-sm md:text-base">
+              What happens if it doesn't work?
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180 text-gray-400">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </summary>
+            <div class="px-5 md:px-6 pb-6 text-sm text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100">
+              You don't pay. If we haven't signed you 4+ new clients in 60
+              days, you owe us nothing. The risk is entirely on us.
+            </div>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details class="group border rounded-2xl overflow-hidden transition-all duration-300 open:shadow-md bg-white border-gray-200">
+            <summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer font-medium font-montserrat select-none text-gray-900 text-sm md:text-base">
+              Do I need to buy any software or tools?
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180 text-gray-400">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </summary>
+            <div class="px-5 md:px-6 pb-6 text-sm text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100">
+              No. We build and run the entire system — sending infrastructure,
+              lead lists, copy, and reply handling are all included.
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="group border rounded-2xl overflow-hidden transition-all duration-300 open:shadow-md bg-white border-gray-200">
+            <summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer font-medium font-montserrat select-none text-gray-900 text-sm md:text-base">
+              How soon will I start seeing meetings?
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180 text-gray-400">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </summary>
+            <div class="px-5 md:px-6 pb-6 text-sm text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100">
+              It varies by offer and market, but most campaigns start booking
+              qualified meetings within the first few weeks of going live. We'll
+              give you a realistic timeline on the call once we understand your
+              business.
+            </div>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="group border rounded-2xl overflow-hidden transition-all duration-300 open:shadow-md bg-white border-gray-200">
+            <summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer font-medium font-montserrat select-none text-gray-900 text-sm md:text-base">
+              Who is this for?
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180 text-gray-400">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </summary>
+            <div class="px-5 md:px-6 pb-6 text-sm text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100">
+              Agencies and B2B service businesses with an offer that's a strong
+              fit for cold outreach. If you're not sure that's you, the strategy
+              call will tell us quickly.
+            </div>
+          </details>
+          <details class="group border rounded-2xl overflow-hidden transition-all duration-300 open:shadow-md bg-white border-gray-200">
+            <summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer font-medium font-montserrat select-none text-gray-900 text-sm md:text-base">
+              How much does it cost?
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180 text-gray-400">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </summary>
+            <div class="px-5 md:px-6 pb-6 text-sm text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100">
+              We'll walk through pricing on the strategy call once we understand
+              your goals and what it'll take to hit them. No surprises, no
+              pressure.
+            </div>
+          </details>
+        </div>
+
+        <p class="text-center text-sm mt-8 text-gray-400">
+          Don't see what you're looking for?
+          <a href="#" class="underline transition-all text-rose-600 decoration-rose-200 hover:decoration-rose-600">
+            Get in touch
+          </a>
+          .
+        </p>
+      </section>
+      <!-- 13. Book a Call Section -->
+      <section id="book-call" class="mx-auto py-16 md:py-24 px-4 md:px-6 max-w-7xl">
+        <div class="text-center mb-10 md:mb-16">
+          <h2 class="text-3xl md:text-5xl font-serif font-medium text-gray-900 mb-6 tracking-tight">
+            YOUR NEXT 4 CLIENTS ARE WAITING
+          </h2>
+          <p class="text-base md:text-lg text-gray-500 font-light max-w-2xl mx-auto">
+            Stop hoping for referrals that may never come. Stop burning money on
+            ads that bring tire-kickers. Get a predictable system that delivers
+            qualified prospects who are ready to buy.
+            <br>
+            <br>
+            We guarantee 4+ new clients in 60 days or you pay nothing. Zero
+            risk, guaranteed results.
+          </p>
+        </div>
+        <div class="w-full bg-white rounded-[2rem] border border-gray-200 shadow-sm overflow-hidden">
+          <!-- Calendly inline widget begin -->
+          <div class="calendly-inline-widget w-full" data-url="https://calendly.com/tristan-echeverri/discovery-call" style="min-width:320px;height:700px;width:100%;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async=""></script>
+          <!-- Calendly inline widget end -->
+        </div>
+      </section>
+    </main>
+
+    <!-- 13. Footer -->
+    <footer class="border-t pt-12 md:pt-16 pb-8 md:pb-10 px-4 md:px-6 bg-white border-gray-200">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-10">
+        <!-- Logo -->
+        <div class="text-center md:text-left">
+          <a href="#" class="inline-flex items-center gap-2.5 justify-center md:justify-start">
+            <img src="assets/spotter-mark.png" alt="Spotter Digital" class="h-9 w-9 object-contain">
+            <span class="font-montserrat font-bold text-xl tracking-tight leading-none">
+              <span class="text-gray-900">SPOTTER </span><span class="text-rose-600">DIGITAL</span>
+            </span>
+          </a>
+          <p class="text-xs mt-3 max-w-xs font-light text-gray-400 mx-auto md:mx-0">
+            Scaling revenue for ambitious brands through intelligent cold email
+            ecosystems.
+          </p>
+          <a href="#book-call" class="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-full text-xs font-montserrat font-medium bg-[#003837] text-white hover:bg-[#004f4d] transition-all duration-300 group">
+            Book a free strategy call
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 transition-transform group-hover:translate-x-0.5">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Links -->
+        <div class="flex flex-col gap-3 text-center md:text-right">
+          <a href="#" class="text-sm transition-colors font-medium text-gray-600 hover:text-rose-600">
+            Services
+          </a>
+          <a href="#process" class="text-sm transition-colors font-medium text-gray-600 hover:text-rose-600">
+            How It Works
+          </a>
+          <a href="#" class="text-sm transition-colors font-medium text-gray-600 hover:text-rose-600">
+            About
+          </a>
+          <a href="#book-call" class="text-sm transition-colors font-medium text-gray-600 hover:text-rose-600">
+            Contact
+          </a>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto mt-12 md:mt-16 pt-8 border-t text-center text-[10px] md:text-xs font-montserrat border-gray-100 text-gray-400">
+        <p>© 2026 Spotter Digital. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  
+</body></html>
