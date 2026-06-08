@@ -210,6 +210,63 @@
       ::-moz-selection { background: #003837; color: #faf3ec; }
       ::selection { background: #003837; color: #faf3ec; }
     </style>
+    <style id="spotter-editorial-redesign">
+      /* ===== Spotter editorial-operator redesign (below the fold) ===== */
+      .sp-serif { font-family: 'Instrument Serif', 'Georgia', serif; font-weight: 400; letter-spacing: -0.02em; }
+      .sp-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.16em; }
+      .sp-sans { font-family: 'Switzer', 'Inter', system-ui, sans-serif; }
+
+      /* Section eyebrow: NN —— LABEL */
+      .sp-eyebrow { display: inline-flex; align-items: center; gap: 14px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+      .sp-eyebrow .sp-num { opacity: 0.55; }
+      .sp-eyebrow .sp-rule { width: 38px; height: 1px; background: currentColor; opacity: 0.35; display: inline-block; }
+
+      /* Editorial headline */
+      .sp-display { font-family: 'Instrument Serif', 'Georgia', serif; font-weight: 400; letter-spacing: -0.022em; line-height: 1.0; }
+      .sp-display em { font-style: italic; }
+
+      /* Pill buttons with signature arrow */
+      .sp-btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; font-family: 'Switzer', 'Inter', sans-serif; font-weight: 500; letter-spacing: -0.01em; text-decoration: none; transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
+      .sp-btn svg { transition: transform .25s ease; }
+      .sp-btn:hover { transform: translateY(-1px); }
+      .sp-btn:hover svg { transform: translateX(3px); }
+      .sp-btn-teal { background: #003837; color: #faf3ec; border: 1px solid #003837; box-shadow: 0 30px 60px -30px rgba(0,56,55,0.40), 0 8px 20px -10px rgba(23,23,23,0.15); }
+      .sp-btn-teal:hover { background: #004f4d; border-color: #004f4d; }
+      .sp-btn-cream { background: #faf3ec; color: #003837; border: 1px solid #faf3ec; }
+      .sp-btn-cream:hover { background: #fff; }
+
+      /* Dark inset panels (single hero card for a whole section) */
+      .sp-panel { border-radius: 36px; position: relative; overflow: hidden; }
+      .sp-panel-teal { background: #003837; color: #faf3ec; }
+      .sp-panel-ink { background: #171717; color: #faf3ec; }
+
+      /* Editorial columns (problem / why) */
+      .sp-col { border-top: 1px solid rgba(23,23,23,0.12); padding-top: 28px; }
+      .sp-col-dark { border-top: 1px solid rgba(250,243,236,0.18); padding-top: 28px; }
+      .sp-index { font-family: 'Instrument Serif', serif; font-weight: 400; line-height: 1; letter-spacing: -0.02em; }
+
+      /* Hairline divider rule on dark */
+      .sp-hairline-dark { border-color: rgba(250,243,236,0.15); }
+
+      /* Faint dripline texture for dark panels */
+      .sp-drip::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: repeating-linear-gradient(to bottom, transparent 0 80px, rgba(250,243,236,0.025) 80px 81px); }
+
+      /* Scroll reveal */
+      .sp-reveal { filter: blur(4px); transform: translateY(-8px); opacity: 0; transition: filter .8s ease, transform .8s ease, opacity .8s ease; }
+      .sp-reveal.is-in { filter: blur(0); transform: none; opacity: 1; }
+      @media (prefers-reduced-motion: reduce) { .sp-reveal { filter: none; transform: none; opacity: 1; } }
+
+      /* FAQ rows */
+      .sp-faq { border: 1px solid rgba(23,23,23,0.10); border-radius: 14px; background: #fff; transition: box-shadow .3s ease; overflow: hidden; }
+      .sp-faq[open] { box-shadow: 0 20px 40px -28px rgba(0,56,55,0.30); }
+      .sp-faq summary { list-style: none; cursor: pointer; }
+      .sp-faq summary::-webkit-details-marker { display: none; }
+      .sp-faq summary .sp-chev { transition: transform .3s ease; }
+      .sp-faq[open] summary .sp-chev { transform: rotate(180deg); }
+
+      .sp-footer-lnk { text-decoration: none; transition: color .3s ease, transform .3s ease; display: inline-block; }
+      .sp-footer-lnk:hover { color: #faf3ec !important; transform: translateX(2px); }
+    </style>
     <!-- Wistia hero video -->
     <script src="https://fast.wistia.com/player.js" async></script>
     <script src="https://fast.wistia.com/embed/45ck5rfxnv.js" async type="module"></script>
@@ -223,14 +280,6 @@
     </style>
   </head>
   <body class="antialiased selection:bg-rose-100 selection:text-rose-900 text-gray-600 bg-[#faf3ec]">
-    <template id="__bundler_thumbnail" data-bg-color="#faf3ec">
-      <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-        <rect width="1200" height="800" fill="#faf3ec"></rect>
-        <rect x="430" y="250" width="340" height="300" rx="40" fill="#003837"></rect>
-        <text x="600" y="470" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="200" fill="#faf3ec">S</text>
-        <text x="600" y="620" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="46" letter-spacing="6" fill="#171717">SPOTTER DIGITAL</text>
-      </svg>
-    </template>
     <!-- 1. Navigation Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4 md:pt-6 md:px-6 pointer-events-none">
       <nav class="pointer-events-auto glass border rounded-full pl-5 pr-2 py-2 flex items-center justify-between gap-4 md:gap-10 shadow-[0_2px_10px_-2px_rgba(0,0,0,0.05)] w-full max-w-5xl transition-all duration-300 border-gray-200/60">
@@ -407,64 +456,64 @@
       </div>
 
       <!-- 4. Pain Points Section -->
-      <section class="py-12 md:py-20 max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-5xl text-center mb-4 tracking-tight font-serif font-medium text-gray-900 px-4">
-          Right now, landing new clients feels like a gamble
-        </h2>
-        <p class="text-center text-gray-500 font-light text-base md:text-lg max-w-2xl mx-auto mb-10 md:mb-16 px-4">
-          Most B2B founders are stuck rotating between three things that don't
-          reliably bring in business:
-        </p>
-        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-          <!-- Card 1 -->
-          <div class="md:p-8 md:rounded-3xl hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-red-50 to-white rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 shadow-sm" style="position: relative; --border-gradient: linear-gradient(135deg, rgba(0,56,55,0.22), rgba(0,56,55,0.5)); --border-radius-before: 1.5rem">
-            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-5 md:mb-6 bg-rose-50 text-rose-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trending-down" class="lucide lucide-trending-down w-5 h-5 md:w-6 md:h-6">
-                <path d="M16 17h6v-6"></path>
-                <path d="m22 17-8.5-8.5-5 5L2 7"></path>
-              </svg>
+      <section class="py-16 md:py-28 max-w-6xl mx-auto px-1">
+        <div class="sp-reveal max-w-3xl">
+          <div class="sp-eyebrow text-gray-900 mb-7">
+            <span class="sp-num">01</span>
+            <span class="sp-rule"></span>
+            <span>The problem</span>
+          </div>
+          <h2 class="sp-display text-[2.4rem] sm:text-5xl md:text-[4.1rem] text-gray-900 mb-6">
+            Right now, landing new clients feels like a <em class="text-[#003837]">gamble</em>
+          </h2>
+          <p class="sp-sans text-gray-500 font-light text-base md:text-xl leading-relaxed max-w-2xl">
+            Most B2B founders are stuck rotating between three things that don't
+            reliably bring in business:
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-x-10 gap-y-12 mt-14 md:mt-20">
+          <!-- Problem 1 -->
+          <div class="sp-reveal sp-col flex flex-col">
+            <div class="flex items-baseline justify-between mb-5">
+              <span class="sp-index text-[#003837] text-5xl md:text-6xl">01</span>
+              <span class="sp-mono text-[11px] text-gray-400">Paid ads</span>
             </div>
-            <h3 class="text-lg md:text-xl font-montserrat font-semibold mb-2 md:mb-3 text-gray-900">
+            <h3 class="sp-sans text-lg md:text-[1.35rem] font-semibold leading-snug mb-3 text-gray-900 text-balance">
               You pour money into ads and get tire-kickers.
             </h3>
-            <p class="text-gray-500 font-light leading-relaxed text-sm">
+            <p class="sp-sans text-gray-500 font-light leading-relaxed text-[15px]">
               Every click costs more than the last, and half of them come from
               people who were never going to buy. You're funding clicks, not
               clients — and the budget runs dry long before the pipeline fills.
             </p>
           </div>
-          <!-- Card 2 -->
-          <div class="md:p-8 md:rounded-3xl hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-red-50 to-white rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 shadow-sm" style="position: relative; --border-gradient: linear-gradient(135deg, rgba(0,56,55,0.22), rgba(0,56,55,0.5)); --border-radius-before: 1.5rem">
-            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-5 md:mb-6 bg-rose-50 text-rose-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users w-5 h-5 md:w-6 md:h-6">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-              </svg>
+          <!-- Problem 2 -->
+          <div class="sp-reveal sp-col flex flex-col">
+            <div class="flex items-baseline justify-between mb-5">
+              <span class="sp-index text-[#003837] text-5xl md:text-6xl">02</span>
+              <span class="sp-mono text-[11px] text-gray-400">Networking</span>
             </div>
-            <h3 class="text-lg md:text-xl font-montserrat font-semibold mb-2 md:mb-3 text-gray-900">
+            <h3 class="sp-sans text-lg md:text-[1.35rem] font-semibold leading-snug mb-3 text-gray-900 text-balance">
               You network in rooms full of your own competitors.
             </h3>
-            <p class="text-gray-500 font-light leading-relaxed text-sm">
+            <p class="sp-sans text-gray-500 font-light leading-relaxed text-[15px]">
               Chamber breakfasts, mixers, LinkedIn groups — you trade cards with
               people who do the exact same thing you do. Meanwhile, the clients
               you actually want are sitting in their offices deciding who to
               hire, with no idea you exist.
             </p>
           </div>
-          <!-- Card 3 -->
-          <div class="md:p-8 md:rounded-3xl hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-red-50 to-white rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 shadow-sm" style="position: relative; --border-gradient: linear-gradient(135deg, rgba(0,56,55,0.22), rgba(0,56,55,0.5)); --border-radius-before: 1.5rem">
-            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-5 md:mb-6 bg-rose-50 text-rose-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock w-5 h-5 md:w-6 md:h-6">
-                <path d="M12 6v6l4 2"></path>
-                <circle cx="12" cy="12" r="10"></circle>
-              </svg>
+          <!-- Problem 3 -->
+          <div class="sp-reveal sp-col flex flex-col">
+            <div class="flex items-baseline justify-between mb-5">
+              <span class="sp-index text-[#003837] text-5xl md:text-6xl">03</span>
+              <span class="sp-mono text-[11px] text-gray-400">Referrals</span>
             </div>
-            <h3 class="text-lg md:text-xl font-montserrat font-semibold mb-2 md:mb-3 text-gray-900">
+            <h3 class="sp-sans text-lg md:text-[1.35rem] font-semibold leading-snug mb-3 text-gray-900 text-balance">
               You rely on word of mouth.
             </h3>
-            <p class="text-gray-500 font-light leading-relaxed text-sm">
+            <p class="sp-sans text-gray-500 font-light leading-relaxed text-[15px]">
               Word of mouth feels great — right up until it goes quiet. You
               can't turn it up when you need revenue, you can't predict when the
               next referral lands, and you can't build a forecast on "I hope
@@ -476,105 +525,97 @@
       </section>
 
       <!-- 5. Benefits / Why Us -->
-      <section class="py-12 md:py-20">
-        <div class="text-center mb-10 md:mb-16 px-4">
-          <h2 class="md:text-5xl text-3xl font-medium text-gray-900 tracking-tight font-serif">
-            Why founders choose Spotter
-          </h2>
-        </div>
+      <section class="py-8 md:py-12">
+        <div class="sp-panel sp-panel-teal sp-drip sp-reveal px-6 py-14 md:px-16 md:py-24">
+          <div class="relative z-10">
+            <div class="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-16 items-end mb-12 md:mb-20">
+              <div>
+                <div class="sp-eyebrow text-[#faf3ec] mb-7 opacity-90">
+                  <span class="sp-num">02</span>
+                  <span class="sp-rule"></span>
+                  <span>Why Spotter</span>
+                </div>
+                <h2 class="sp-display text-[2.4rem] sm:text-5xl md:text-[4.2rem] text-[#faf3ec]">
+                  Why founders choose <em>Spotter</em>
+                </h2>
+              </div>
+              <a href="#book-call" class="sp-btn sp-btn-cream px-7 py-3.5 text-sm whitespace-nowrap self-start lg:self-end">
+                Book a free strategy call
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6"></path>
+                </svg>
+              </a>
+            </div>
 
-        <div class="grid md:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
-          <!-- Benefit 1 -->
-          <div class="group md:rounded-3xl md:p-8 overflow-hidden md:h-80 flex flex-col transition-colors hover:border-rose-200 bg-gradient-to-br from-white to-gray-50 h-64 border border-gray-200 rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 relative">
-            <h3 class="md:text-2xl md:mb-4 text-xl font-medium text-gray-900 font-montserrat mb-3">
-              Emails that don't read like emails.
-            </h3>
-            <p class="text-gray-500 font-light text-sm leading-relaxed z-10 relative">
-              We personalize every message so it lands like a one-to-one note,
-              not a blast. Prospects reply because it feels like you wrote it
-              just for them.
-            </p>
-            <div class="mt-auto self-end group-hover:text-rose-500 transition-colors duration-500 transform group-hover:scale-110 text-rose-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="crosshair" class="lucide lucide-crosshair w-16 h-16 md:w-24 md:h-24 stroke-[1px]">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="22" x2="18" y1="12" y2="12"></line>
-                <line x1="6" x2="2" y1="12" y2="12"></line>
-                <line x1="12" x2="12" y1="6" y2="2"></line>
-                <line x1="12" x2="12" y1="22" y2="18"></line>
-              </svg>
+            <div class="grid md:grid-cols-3 gap-x-10 gap-y-12">
+              <!-- Benefit 1 -->
+              <div class="sp-col-dark flex flex-col">
+                <span class="sp-index text-[#faf3ec] opacity-30 text-5xl md:text-6xl mb-5">01</span>
+                <h3 class="sp-serif text-[1.7rem] md:text-[2rem] leading-[1.08] text-[#faf3ec] mb-4 text-balance">
+                  Emails that don't read like emails.
+                </h3>
+                <p class="sp-sans text-[15px] leading-relaxed text-[#faf3ec]/70">
+                  We personalize every message so it lands like a one-to-one note,
+                  not a blast. Prospects reply because it feels like you wrote it
+                  just for them.
+                </p>
+              </div>
+              <!-- Benefit 2 -->
+              <div class="sp-col-dark flex flex-col">
+                <span class="sp-index text-[#faf3ec] opacity-30 text-5xl md:text-6xl mb-5">02</span>
+                <h3 class="sp-serif text-[1.7rem] md:text-[2rem] leading-[1.08] text-[#faf3ec] mb-4 text-balance">
+                  Full visibility, no black box.
+                </h3>
+                <p class="sp-sans text-[15px] leading-relaxed text-[#faf3ec]/70">
+                  You always know what's going out, who's engaging, and how close
+                  you are to your next signed client. Real numbers, every week.
+                </p>
+              </div>
+              <!-- Benefit 3 -->
+              <div class="sp-col-dark flex flex-col">
+                <span class="sp-index text-[#faf3ec] opacity-30 text-5xl md:text-6xl mb-5">03</span>
+                <h3 class="sp-serif text-[1.7rem] md:text-[2rem] leading-[1.08] text-[#faf3ec] mb-4 text-balance">
+                  A real person on your account.
+                </h3>
+                <p class="sp-sans text-[15px] leading-relaxed text-[#faf3ec]/70">
+                  You're not buying software and getting left to figure it out. You
+                  get a dedicated point of contact who knows your business and tunes
+                  the campaigns as we go.
+                </p>
+              </div>
             </div>
           </div>
-          <!-- Benefit 2 -->
-          <div class="group md:rounded-3xl md:p-8 overflow-hidden md:h-80 flex flex-col transition-colors hover:border-rose-200 bg-gradient-to-br from-white to-gray-50 h-64 border border-gray-200 rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 relative">
-            <h3 class="text-xl md:text-2xl font-montserrat font-medium mb-3 md:mb-4 text-gray-900">
-              Full visibility, no black box.
-            </h3>
-            <p class="text-gray-500 font-light text-sm leading-relaxed z-10 relative">
-              You always know what's going out, who's engaging, and how close
-              you are to your next signed client. Real numbers, every week.
-            </p>
-            <div class="mt-auto self-end group-hover:text-rose-500 transition-colors duration-500 transform group-hover:scale-110 text-rose-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="monitor" class="lucide lucide-monitor w-16 h-16 md:w-24 md:h-24 stroke-[1px]">
-                <rect width="20" height="14" x="2" y="3" rx="2"></rect>
-                <line x1="8" x2="16" y1="21" y2="21"></line>
-                <line x1="12" x2="12" y1="17" y2="21"></line>
-              </svg>
-            </div>
-          </div>
-          <!-- Benefit 3 -->
-          <div class="group md:rounded-3xl md:p-8 overflow-hidden md:h-80 flex flex-col transition-colors hover:border-rose-200 bg-gradient-to-br from-white to-gray-50 h-64 border border-gray-200 rounded-[1.5rem] pt-6 pr-6 pb-6 pl-6 relative">
-            <h3 class="text-xl md:text-2xl font-montserrat font-medium mb-3 md:mb-4 text-gray-900">
-              A real person on your account.
-            </h3>
-            <p class="text-gray-500 font-light text-sm leading-relaxed z-10 relative">
-              You're not buying software and getting left to figure it out. You
-              get a dedicated point of contact who knows your business and tunes
-              the campaigns as we go.
-            </p>
-            <div class="mt-auto self-end group-hover:text-rose-500 transition-colors duration-500 transform group-hover:scale-110 text-rose-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" class="lucide lucide-shield-check w-16 h-16 md:w-24 md:h-24 stroke-[1px]">
-                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
-                <path d="m9 12 2 2 4-4"></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex justify-center">
-          <a href="#book-call" class="w-full sm:w-auto justify-center px-8 py-3.5 rounded-full text-sm transition-all duration-300 font-montserrat font-medium flex items-center gap-2 bg-[#003837] text-white hover:bg-[#004f4d]">
-            Book a free strategy call
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" class="lucide lucide-phone w-4 h-4">
-              <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
-            </svg>
-          </a>
         </div>
       </section>
 
       <!-- 7. Transformation / Process -->
-      <section id="process" class="py-16 md:py-24">
-        <div class="text-center mb-12 md:mb-16">
-          <h2 class="text-3xl md:text-5xl font-serif font-medium text-gray-900">
-            Here's how we fill your calendar
+      <section id="process" class="py-16 md:py-28">
+        <div class="sp-reveal max-w-3xl mb-12 md:mb-20">
+          <div class="sp-eyebrow text-gray-900 mb-7">
+            <span class="sp-num">03</span>
+            <span class="sp-rule"></span>
+            <span>How it works</span>
+          </div>
+          <h2 class="sp-display text-[2.4rem] sm:text-5xl md:text-[4.1rem] text-gray-900 mb-6">
+            Here's how we fill your <em class="text-[#003837]">calendar</em>
           </h2>
-          <p class="text-base md:text-lg text-gray-500 font-light max-w-2xl mx-auto mt-4 px-4">
+          <p class="sp-sans text-base md:text-xl text-gray-500 font-light leading-relaxed max-w-2xl">
             No software to learn. No new hire to manage. You hand us your
             calendar — we handle everything that fills it.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-10 md:gap-8 relative max-w-6xl mx-auto">
-          <!-- Connecting Line (Desktop) -->
-          <div class="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent to-transparent -z-10 via-gray-200"></div>
-
+        <div class="grid md:grid-cols-3 gap-5 md:gap-6 max-w-6xl mx-auto">
           <!-- Step 1 -->
-          <div class="flex flex-col items-center text-center group">
-            <div class="w-20 h-20 md:w-24 md:h-24 border rounded-full flex items-center justify-center text-xl md:text-2xl font-serif mb-5 md:mb-6 shadow-sm group-hover:border-rose-500 group-hover:text-rose-500 transition-colors bg-white border-gray-200 text-gray-400">
-              1
+          <div class="sp-reveal bg-white border border-gray-200/70 rounded-[1.25rem] p-7 md:p-8 flex flex-col shadow-[0_6px_18px_-12px_rgba(23,23,23,0.18)]">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 rounded-full bg-[#003837] text-[#faf3ec] flex items-center justify-center sp-serif text-2xl shrink-0">1</div>
+              <span class="sp-mono text-[10.5px] text-[#003837]">Step 01</span>
             </div>
-            <h3 class="text-lg md:text-xl font-bold font-montserrat mb-2 md:mb-3 text-gray-900">
+            <h3 class="sp-serif text-2xl md:text-[1.7rem] leading-[1.1] text-gray-900 mb-3 text-balance">
               We learn your business like we work there.
             </h3>
-            <p class="text-sm text-gray-500 font-light leading-relaxed max-w-xs px-4 md:px-0">
+            <p class="sp-sans text-[15px] text-gray-500 font-light leading-relaxed">
               We dig into your offer, your best-fit clients, and what actually
               makes people say yes to you. Then we build your lead lists, your
               email scripts, and your sending setup from scratch — all done for
@@ -583,14 +624,15 @@
           </div>
 
           <!-- Step 2 -->
-          <div class="flex flex-col items-center text-center group">
-            <div class="w-20 h-20 md:w-24 md:h-24 border rounded-full flex items-center justify-center text-xl md:text-2xl font-serif mb-5 md:mb-6 shadow-sm group-hover:border-rose-500 group-hover:text-rose-500 transition-colors bg-white border-gray-200 text-gray-400">
-              2
+          <div class="sp-reveal bg-white border border-gray-200/70 rounded-[1.25rem] p-7 md:p-8 flex flex-col shadow-[0_6px_18px_-12px_rgba(23,23,23,0.18)]">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 rounded-full bg-[#003837] text-[#faf3ec] flex items-center justify-center sp-serif text-2xl shrink-0">2</div>
+              <span class="sp-mono text-[10.5px] text-[#003837]">Step 02</span>
             </div>
-            <h3 class="text-lg md:text-xl font-bold font-montserrat mb-2 md:mb-3 text-gray-900">
+            <h3 class="sp-serif text-2xl md:text-[1.7rem] leading-[1.1] text-gray-900 mb-3 text-balance">
               We launch and optimize the campaign.
             </h3>
-            <p class="text-sm text-gray-500 font-light leading-relaxed max-w-xs px-4 md:px-0">
+            <p class="sp-sans text-[15px] text-gray-500 font-light leading-relaxed">
               We start sending personalized emails to your ideal prospects, then
               split-test the messaging and audiences until we find what books
               meetings. You see exactly what's working in plain-English reports
@@ -599,14 +641,15 @@
           </div>
 
           <!-- Step 3 -->
-          <div class="flex flex-col items-center text-center group">
-            <div class="w-20 h-20 md:w-24 md:h-24 border rounded-full flex items-center justify-center text-xl md:text-2xl font-serif mb-5 md:mb-6 shadow-sm group-hover:border-rose-500 group-hover:text-rose-500 transition-colors bg-white border-gray-200 text-gray-400">
-              3
+          <div class="sp-reveal bg-white border border-gray-200/70 rounded-[1.25rem] p-7 md:p-8 flex flex-col shadow-[0_6px_18px_-12px_rgba(23,23,23,0.18)]">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 rounded-full bg-[#003837] text-[#faf3ec] flex items-center justify-center sp-serif text-2xl shrink-0">3</div>
+              <span class="sp-mono text-[10.5px] text-[#003837]">Step 03</span>
             </div>
-            <h3 class="text-lg md:text-xl font-bold font-montserrat mb-2 md:mb-3 text-gray-900">
+            <h3 class="sp-serif text-2xl md:text-[1.7rem] leading-[1.1] text-gray-900 mb-3 text-balance">
               You take the calls, we do the rest.
             </h3>
-            <p class="text-sm text-gray-500 font-light leading-relaxed max-w-xs px-4 md:px-0">
+            <p class="sp-sans text-[15px] text-gray-500 font-light leading-relaxed">
               When prospects reply, we handle the back-and-forth and get the
               qualified ones booked straight onto your calendar. All you do is
               show up and close.
@@ -615,112 +658,102 @@
         </div>
 
         <div class="flex justify-center mt-12 md:mt-16">
-          <a href="#book-call" class="w-full sm:w-auto justify-center px-10 py-4 rounded-full text-sm transition-all duration-300 font-montserrat font-medium flex items-center gap-2 shadow-lg hover:shadow-xl hover:shadow-rose-500/20 bg-[#003837] text-white hover:bg-[#004f4d]">
+          <a href="#book-call" class="sp-btn sp-btn-teal px-10 py-4 text-sm">
             Book a free strategy call
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
             </svg>
           </a>
         </div>
       </section>
 
       <!-- 8. Offer / What's Included -->
-      <section class="py-16 md:py-20 -mx-4 md:-mx-6 px-4 md:px-6 rounded-[2.5rem] md:rounded-[3rem] bg-gray-50">
-        <div class="max-w-7xl mx-auto">
-          <h2 class="text-3xl md:text-5xl text-center mb-10 md:mb-16 tracking-tight font-serif font-medium text-gray-900">
-            Everything's done for you
-          </h2>
+      <section class="py-8 md:py-12">
+        <div class="sp-panel sp-panel-ink sp-reveal px-6 py-14 md:px-16 md:py-24">
+          <div class="relative z-10 max-w-4xl mx-auto">
+            <div class="sp-eyebrow text-[#faf3ec] mb-7 opacity-90">
+              <span class="sp-num">04</span>
+              <span class="sp-rule"></span>
+              <span>What's included</span>
+            </div>
+            <h2 class="sp-display text-[2.4rem] sm:text-5xl md:text-[4.2rem] text-[#faf3ec] mb-5">
+              Everything's <em>done for you</em>
+            </h2>
+            <p class="sp-sans text-[#faf3ec]/65 font-light text-base md:text-xl leading-relaxed max-w-2xl mb-12 md:mb-16">
+              One partnership, the whole outbound engine — built, launched,
+              and run by us.
+            </p>
 
-          <div class="rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-16 border shadow-sm relative overflow-hidden bg-white border-gray-200">
-            <div class="absolute top-0 right-0 w-[20rem] h-[20rem] md:w-[40rem] md:h-[40rem] bg-gradient-to-b to-transparent rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none from-rose-50/50"></div>
-            <div class="relative z-10 flex flex-col items-center">
-              <div class="text-center mb-8 md:mb-12 max-w-3xl">
-                <p class="text-gray-500 font-light text-base md:text-lg">
-                  One partnership, the whole outbound engine — built, launched,
-                  and run by us.
-                </p>
-              </div>
-              <div class="grid md:grid-cols-2 gap-y-4 gap-x-20 md:gap-y-6 w-full max-w-4xl mb-12 md:mb-16">
-                <ul class="space-y-4 md:space-y-6">
-                  <li class="flex items-center gap-3 md:gap-4">
-                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 bg-rose-50 text-rose-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 md:w-5 md:h-5">
-                        <path d="M20 6 9 17l-5-5"></path>
-                      </svg>
-                    </div>
-                    <span class="font-medium font-montserrat text-sm md:text-lg text-gray-700">
-                      A full deep-dive into your offer and ideal client
-                    </span>
-                  </li>
-                  <li class="flex items-center gap-3 md:gap-4">
-                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 bg-rose-50 text-rose-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 md:w-5 md:h-5">
-                        <path d="M20 6 9 17l-5-5"></path>
-                      </svg>
-                    </div>
-                    <span class="font-medium font-montserrat text-sm md:text-lg text-gray-700">
-                      Done-for-you cold email infrastructure, built and maintained
-                    </span>
-                  </li>
-                  <li class="flex items-center gap-3 md:gap-4">
-                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 bg-rose-50 text-rose-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 md:w-5 md:h-5">
-                        <path d="M20 6 9 17l-5-5"></path>
-                      </svg>
-                    </div>
-                    <span class="font-medium font-montserrat text-sm md:text-lg text-gray-700">
-                      Done-for-you email copywriting that actually gets replies
-                    </span>
-                  </li>
-                </ul>
-                <ul class="space-y-4 md:space-y-6">
-                  <li class="flex items-center gap-3 md:gap-4">
-                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 bg-rose-50 text-rose-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 md:w-5 md:h-5">
-                        <path d="M20 6 9 17l-5-5"></path>
-                      </svg>
-                    </div>
-                    <span class="font-medium font-montserrat text-sm md:text-lg text-gray-700">
-                      Done-for-you lead research and list building
-                    </span>
-                  </li>
-                  <li class="flex items-center gap-3 md:gap-4">
-                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shrink-0 bg-rose-50 text-rose-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 md:w-5 md:h-5">
-                        <path d="M20 6 9 17l-5-5"></path>
-                      </svg>
-                    </div>
-                    <span class="font-medium font-montserrat text-sm md:text-lg text-gray-700">
-                      Done-for-you reply handling and meeting booking
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <div class="flex flex-col items-center w-full">
-                <a href="#book-call" class="w-full md:w-auto text-base md:text-lg px-8 md:px-12 py-4 md:py-5 rounded-full transition-all duration-300 shadow-xl font-montserrat font-medium flex items-center justify-center gap-3 group bg-[#003837] text-white hover:bg-[#004f4d] shadow-rose-900/10">
-                  Book a free strategy call
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1">
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                  </svg>
-                </a>
-                <p class="mt-4 md:mt-6 text-xs md:text-sm font-montserrat text-gray-400">
-                  No long-term contracts. Cancel anytime.
-                </p>
-              </div>
+            <ul class="grid md:grid-cols-2 gap-x-14 gap-y-0 mb-12 md:mb-16">
+              <li class="flex items-start gap-4 py-5 border-t sp-hairline-dark border-t-[rgba(250,243,236,0.15)]">
+                <span class="w-7 h-7 rounded-full bg-[#003837] text-[#faf3ec] flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                </span>
+                <span class="sp-sans text-[#faf3ec] text-[15px] md:text-[1.05rem] font-medium leading-snug">
+                  A full deep-dive into your offer and ideal client
+                </span>
+              </li>
+              <li class="flex items-start gap-4 py-5 border-t border-t-[rgba(250,243,236,0.15)]">
+                <span class="w-7 h-7 rounded-full bg-[#003837] text-[#faf3ec] flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                </span>
+                <span class="sp-sans text-[#faf3ec] text-[15px] md:text-[1.05rem] font-medium leading-snug">
+                  Done-for-you lead research and list building
+                </span>
+              </li>
+              <li class="flex items-start gap-4 py-5 border-t border-t-[rgba(250,243,236,0.15)]">
+                <span class="w-7 h-7 rounded-full bg-[#003837] text-[#faf3ec] flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                </span>
+                <span class="sp-sans text-[#faf3ec] text-[15px] md:text-[1.05rem] font-medium leading-snug">
+                  Done-for-you cold email infrastructure, built and maintained
+                </span>
+              </li>
+              <li class="flex items-start gap-4 py-5 border-t border-t-[rgba(250,243,236,0.15)]">
+                <span class="w-7 h-7 rounded-full bg-[#003837] text-[#faf3ec] flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                </span>
+                <span class="sp-sans text-[#faf3ec] text-[15px] md:text-[1.05rem] font-medium leading-snug">
+                  Done-for-you reply handling and meeting booking
+                </span>
+              </li>
+              <li class="flex items-start gap-4 py-5 border-t border-t-[rgba(250,243,236,0.15)] md:border-b md:border-b-[rgba(250,243,236,0.15)]">
+                <span class="w-7 h-7 rounded-full bg-[#003837] text-[#faf3ec] flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                </span>
+                <span class="sp-sans text-[#faf3ec] text-[15px] md:text-[1.05rem] font-medium leading-snug">
+                  Done-for-you email copywriting that actually gets replies
+                </span>
+              </li>
+            </ul>
+
+            <div class="flex flex-col items-start gap-5">
+              <a href="#book-call" class="sp-btn sp-btn-cream w-full sm:w-auto justify-center px-9 md:px-11 py-4 md:py-5 text-base md:text-lg">
+                Book a free strategy call
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6"></path>
+                </svg>
+              </a>
+              <p class="sp-mono text-[10.5px] text-[#faf3ec]/45">
+                No long-term contracts · Cancel anytime
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- 10. About Me Section -->
-      <section class="py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-16 items-center border-t border-gray-100">
-        <div class="order-2 lg:order-1">
-          <h2 class="text-3xl md:text-5xl mb-6 md:mb-8 tracking-tight font-serif font-medium text-gray-900">
-            Hey, I'm Tristan
+      <section class="py-16 md:py-28 grid lg:grid-cols-2 gap-10 md:gap-20 items-center border-t border-gray-200/60">
+        <div class="order-2 lg:order-1 sp-reveal">
+          <div class="sp-eyebrow text-gray-900 mb-7">
+            <span class="sp-num">05</span>
+            <span class="sp-rule"></span>
+            <span>The founder</span>
+          </div>
+          <h2 class="sp-display text-[2.4rem] sm:text-5xl md:text-[3.8rem] text-gray-900 mb-7 md:mb-9">
+            Hey, I'm <em class="text-[#003837]">Tristan</em>
           </h2>
-          <div class="space-y-4 md:space-y-6 text-sm md:text-base text-gray-500 font-light leading-relaxed">
+          <div class="space-y-5 text-[15px] md:text-[1.05rem] text-gray-500 font-light leading-relaxed sp-sans">
             <p>
               I'm the founder of
               <span class="font-medium text-gray-900">Spotter Digital</span>.
@@ -744,36 +777,43 @@
               If that sounds like what you've been looking for, let's talk.
             </p>
           </div>
-          <a href="#book-call" class="inline-block mt-6 md:mt-8 font-semibold border-b pb-0.5 transition-all text-rose-600 border-rose-200 hover:border-rose-600">
+          <a href="#book-call" class="inline-flex items-center gap-2 mt-8 sp-sans font-semibold text-[#003837] border-b border-[#003837]/30 pb-0.5 transition-all hover:border-[#003837]">
             Let's talk
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
+            </svg>
           </a>
         </div>
-        <div class="relative order-1 lg:order-2 h-64 md:h-[500px] w-full rounded-[2rem] overflow-hidden bg-gray-100">
+        <div class="relative order-1 lg:order-2 h-72 md:h-[540px] w-full rounded-[2rem] overflow-hidden bg-gray-100 sp-reveal border border-gray-200/60 shadow-[0_30px_70px_-40px_rgba(0,56,55,0.4)]">
           <img src="assets/founder-tristan.jpg" alt="Tristan, founder of Spotter Digital" class="w-full h-full object-cover object-[50%_28%]">
+          <div class="absolute bottom-4 left-4 sp-mono text-[10px] text-[#faf3ec] bg-[#003837]/80 backdrop-blur px-3 py-1.5 rounded-full">
+            Tristan · Founder
+          </div>
         </div>
       </section>
 
       <!-- 11. Final CTA (Lead Magnet) -->
-      <section id="contact" class="py-16 md:py-20 mb-16 md:mb-20 rounded-[2rem] md:rounded-[2.5rem] text-center px-4 md:px-6 relative overflow-hidden bg-gray-900">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-rose-900/40 via-gray-900 to-gray-900"></div>
-
-        <div class="relative z-10 max-w-2xl mx-auto">
-          <h2 class="text-3xl md:text-5xl mb-4 md:mb-6 tracking-tight font-serif font-medium text-white">
-            The risk is on us, not you
-          </h2>
-          <p class="text-base md:text-lg mb-8 md:mb-10 font-light text-gray-400">
-            Most agencies get paid whether they deliver or not. We don't work
-            that way. If we don't sign you at least 4 new clients in your first
-            60 days, you don't pay. No long-term contract. Cancel anytime.
-            That's how confident we are that this works.
-          </p>
-
-          <div class="flex justify-center">
-            <a href="#book-call" class="w-full sm:w-auto justify-center px-10 py-4 rounded-full text-sm transition-all duration-300 font-montserrat font-medium flex items-center gap-2 shadow-lg hover:shadow-xl hover:shadow-rose-500/20 bg-rose-600 text-white hover:bg-rose-500">
+      <section id="contact" class="py-8 md:py-12">
+        <div class="sp-panel sp-panel-teal sp-drip sp-reveal px-6 py-16 md:px-16 md:py-28 text-center">
+          <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+            <div class="sp-eyebrow text-[#faf3ec] mb-8 opacity-90">
+              <span class="sp-num">06</span>
+              <span class="sp-rule"></span>
+              <span>The guarantee</span>
+            </div>
+            <h2 class="sp-display text-[2.7rem] sm:text-6xl md:text-[5.2rem] text-[#faf3ec] mb-7">
+              The risk is on us, <em>not you</em>
+            </h2>
+            <p class="sp-sans text-base md:text-xl mb-10 md:mb-12 font-light text-[#faf3ec]/70 leading-relaxed max-w-2xl">
+              Most agencies get paid whether they deliver or not. We don't work
+              that way. If we don't sign you at least 4 new clients in your first
+              60 days, you don't pay. No long-term contract. Cancel anytime.
+              That's how confident we are that this works.
+            </p>
+            <a href="#book-call" class="sp-btn sp-btn-cream px-10 py-4 md:py-5 text-base md:text-lg">
               Book a free strategy call
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 transition-transform group-hover:translate-x-1">
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6"></path>
               </svg>
             </a>
           </div>
@@ -781,49 +821,56 @@
       </section>
 
       <!-- 12. FAQ Section -->
-      <section class="max-w-3xl mx-auto py-8 md:py-10 mb-16 md:mb-24 px-2 md:px-6">
-        <h2 class="text-2xl md:text-3xl text-center mb-10 md:mb-12 tracking-tight font-serif font-medium text-gray-900">
-          FREQUENTLY ASKED QUESTIONS
-        </h2>
+      <section class="max-w-3xl mx-auto py-16 md:py-24 px-2 md:px-6">
+        <div class="text-center mb-12 md:mb-16 sp-reveal">
+          <div class="sp-eyebrow text-gray-900 mb-6 justify-center">
+            <span class="sp-num">07</span>
+            <span class="sp-rule"></span>
+            <span>FAQ</span>
+          </div>
+          <h2 class="sp-display text-4xl md:text-[3.4rem] text-gray-900">
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+        </div>
 
-        <div class="space-y-4">
+        <div class="space-y-3.5 sp-reveal">
           <!-- FAQ 1 -->
-          <details class="group border rounded-2xl overflow-hidden transition-all duration-300 open:shadow-md bg-white border-gray-200">
-            <summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer font-medium font-montserrat select-none text-gray-900 text-sm md:text-base">
+          <details class="sp-faq">
+            <summary class="sp-sans flex justify-between items-center gap-4 p-5 md:p-6 font-medium select-none text-gray-900 text-[15px] md:text-[1.05rem]">
               What happens if it doesn't work?
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180 text-gray-400">
+              <svg class="sp-chev w-4 h-4 md:w-5 md:h-5 shrink-0 text-[#003837]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m6 9 6 6 6-6"></path>
               </svg>
             </summary>
-            <div class="px-5 md:px-6 pb-6 text-sm text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100">
+            <div class="sp-sans px-5 md:px-6 pb-6 text-[15px] text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100/80">
               You don't pay. If we haven't signed you 4+ new clients in 60
               days, you owe us nothing. The risk is entirely on us.
             </div>
           </details>
 
           <!-- FAQ 2 -->
-          <details class="group border rounded-2xl overflow-hidden transition-all duration-300 open:shadow-md bg-white border-gray-200">
-            <summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer font-medium font-montserrat select-none text-gray-900 text-sm md:text-base">
+          <details class="sp-faq">
+            <summary class="sp-sans flex justify-between items-center gap-4 p-5 md:p-6 font-medium select-none text-gray-900 text-[15px] md:text-[1.05rem]">
               Do I need to buy any software or tools?
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180 text-gray-400">
+              <svg class="sp-chev w-4 h-4 md:w-5 md:h-5 shrink-0 text-[#003837]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m6 9 6 6 6-6"></path>
               </svg>
             </summary>
-            <div class="px-5 md:px-6 pb-6 text-sm text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100">
+            <div class="sp-sans px-5 md:px-6 pb-6 text-[15px] text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100/80">
               No. We build and run the entire system — sending infrastructure,
               lead lists, copy, and reply handling are all included.
             </div>
           </details>
 
           <!-- FAQ 3 -->
-          <details class="group border rounded-2xl overflow-hidden transition-all duration-300 open:shadow-md bg-white border-gray-200">
-            <summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer font-medium font-montserrat select-none text-gray-900 text-sm md:text-base">
+          <details class="sp-faq">
+            <summary class="sp-sans flex justify-between items-center gap-4 p-5 md:p-6 font-medium select-none text-gray-900 text-[15px] md:text-[1.05rem]">
               How soon will I start seeing meetings?
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180 text-gray-400">
+              <svg class="sp-chev w-4 h-4 md:w-5 md:h-5 shrink-0 text-[#003837]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m6 9 6 6 6-6"></path>
               </svg>
             </summary>
-            <div class="px-5 md:px-6 pb-6 text-sm text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100">
+            <div class="sp-sans px-5 md:px-6 pb-6 text-[15px] text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100/80">
               It varies by offer and market, but most campaigns start booking
               qualified meetings within the first few weeks of going live. We'll
               give you a realistic timeline on the call once we understand your
@@ -832,27 +879,27 @@
           </details>
 
           <!-- FAQ 4 -->
-          <details class="group border rounded-2xl overflow-hidden transition-all duration-300 open:shadow-md bg-white border-gray-200">
-            <summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer font-medium font-montserrat select-none text-gray-900 text-sm md:text-base">
+          <details class="sp-faq">
+            <summary class="sp-sans flex justify-between items-center gap-4 p-5 md:p-6 font-medium select-none text-gray-900 text-[15px] md:text-[1.05rem]">
               Who is this for?
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180 text-gray-400">
+              <svg class="sp-chev w-4 h-4 md:w-5 md:h-5 shrink-0 text-[#003837]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m6 9 6 6 6-6"></path>
               </svg>
             </summary>
-            <div class="px-5 md:px-6 pb-6 text-sm text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100">
+            <div class="sp-sans px-5 md:px-6 pb-6 text-[15px] text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100/80">
               Agencies and B2B service businesses with an offer that's a strong
               fit for cold outreach. If you're not sure that's you, the strategy
               call will tell us quickly.
             </div>
           </details>
-          <details class="group border rounded-2xl overflow-hidden transition-all duration-300 open:shadow-md bg-white border-gray-200">
-            <summary class="flex justify-between items-center p-5 md:p-6 cursor-pointer font-medium font-montserrat select-none text-gray-900 text-sm md:text-base">
+          <details class="sp-faq">
+            <summary class="sp-sans flex justify-between items-center gap-4 p-5 md:p-6 font-medium select-none text-gray-900 text-[15px] md:text-[1.05rem]">
               How much does it cost?
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180 text-gray-400">
+              <svg class="sp-chev w-4 h-4 md:w-5 md:h-5 shrink-0 text-[#003837]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m6 9 6 6 6-6"></path>
               </svg>
             </summary>
-            <div class="px-5 md:px-6 pb-6 text-sm text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100">
+            <div class="sp-sans px-5 md:px-6 pb-6 text-[15px] text-gray-500 leading-relaxed font-light border-t pt-4 border-gray-100/80">
               We'll walk through pricing on the strategy call once we understand
               your goals and what it'll take to hit them. No surprises, no
               pressure.
@@ -860,21 +907,26 @@
           </details>
         </div>
 
-        <p class="text-center text-sm mt-8 text-gray-400">
+        <p class="text-center text-sm mt-10 text-gray-400 sp-sans">
           Don't see what you're looking for?
-          <a href="#" class="underline transition-all text-rose-600 decoration-rose-200 hover:decoration-rose-600">
+          <a href="#" class="underline transition-all text-[#003837] decoration-[#003837]/30 hover:decoration-[#003837]">
             Get in touch
           </a>
           .
         </p>
       </section>
       <!-- 13. Book a Call Section -->
-      <section id="book-call" class="mx-auto py-16 md:py-24 px-4 md:px-6 max-w-7xl">
-        <div class="text-center mb-10 md:mb-16">
-          <h2 class="text-3xl md:text-5xl font-serif font-medium text-gray-900 mb-6 tracking-tight">
+      <section id="book-call" class="mx-auto py-16 md:py-24 px-1 md:px-6 max-w-7xl">
+        <div class="text-center mb-10 md:mb-16 sp-reveal">
+          <div class="sp-eyebrow text-gray-900 mb-7 justify-center">
+            <span class="sp-num">08</span>
+            <span class="sp-rule"></span>
+            <span>Book a call</span>
+          </div>
+          <h2 class="sp-display text-[2.5rem] sm:text-5xl md:text-[4rem] text-gray-900 mb-6">
             YOUR NEXT 4 CLIENTS ARE WAITING
           </h2>
-          <p class="text-base md:text-lg text-gray-500 font-light max-w-2xl mx-auto">
+          <p class="text-base md:text-xl text-gray-500 font-light max-w-2xl mx-auto sp-sans leading-relaxed">
             Stop hoping for referrals that may never come. Stop burning money on
             ads that bring tire-kickers. Get a predictable system that delivers
             qualified prospects who are ready to buy.
@@ -884,7 +936,7 @@
             risk, guaranteed results.
           </p>
         </div>
-        <div class="w-full bg-white rounded-[2rem] border border-gray-200 shadow-sm overflow-hidden">
+        <div class="w-full bg-white rounded-[2rem] border border-gray-200/70 shadow-[0_30px_70px_-50px_rgba(0,56,55,0.4)] overflow-hidden sp-reveal">
           <!-- Calendly inline widget begin -->
           <div class="calendly-inline-widget w-full" data-url="https://calendly.com/tristan-echeverri/discovery-call" style="min-width:320px;height:700px;width:100%;"></div>
           <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async=""></script>
@@ -894,53 +946,75 @@
     </main>
 
     <!-- 13. Footer -->
-    <footer class="border-t pt-12 md:pt-16 pb-8 md:pb-10 px-4 md:px-6 bg-white border-gray-200">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-10">
-        <!-- Logo -->
-        <div class="text-center md:text-left">
-          <a href="#" class="inline-flex items-center gap-2.5 justify-center md:justify-start">
-            <img src="assets/spotter-mark.png" alt="Spotter Digital" class="h-9 w-9 object-contain">
-            <span class="font-montserrat font-bold text-xl tracking-tight leading-none">
-              <span class="text-gray-900">SPOTTER </span><span class="text-rose-600">DIGITAL</span>
+    <footer class="relative bg-[#171717] text-[#faf3ec] pt-16 md:pt-24 pb-10 px-4 md:px-6 overflow-hidden">
+      <!-- Radial cream glow at top center -->
+      <div aria-hidden="true" class="absolute inset-x-0 top-0 h-40 pointer-events-none" style="background: radial-gradient(35% 128px at 50% 0%, rgba(250,243,236,0.08), transparent);"></div>
+      <div aria-hidden="true" class="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-0.5 rounded-full" style="background: rgba(250,243,236,0.5); filter: blur(6px);"></div>
+
+      <div class="max-w-7xl mx-auto relative grid gap-12 md:gap-16 md:grid-cols-[minmax(280px,1.4fr)_1fr]">
+        <!-- Brand block -->
+        <div>
+          <a href="#" class="inline-flex items-center gap-3">
+            <img src="assets/spotter-mark-white.png" alt="Spotter Digital" class="h-10 w-10 object-contain">
+            <span class="sp-serif text-3xl leading-none">
+              <span class="text-[#faf3ec]">Spotter </span><span class="text-[#faf3ec]">Digital</span>
             </span>
           </a>
-          <p class="text-xs mt-3 max-w-xs font-light text-gray-400 mx-auto md:mx-0">
+          <p class="text-sm mt-5 max-w-xs font-light text-[#faf3ec]/55 leading-relaxed sp-sans">
             Scaling revenue for ambitious brands through intelligent cold email
             ecosystems.
           </p>
-          <a href="#book-call" class="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-full text-xs font-montserrat font-medium bg-[#003837] text-white hover:bg-[#004f4d] transition-all duration-300 group">
+          <a href="#book-call" class="sp-btn sp-btn-cream inline-flex mt-7 px-6 py-3 text-xs">
             Book a free strategy call
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 transition-transform group-hover:translate-x-0.5">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
             </svg>
           </a>
+          <div class="sp-mono text-[10px] text-[#faf3ec]/40 mt-10">
+            © 2026 Spotter Digital · All rights reserved.
+          </div>
         </div>
 
         <!-- Links -->
-        <div class="flex flex-col gap-3 text-center md:text-right">
-          <a href="#" class="text-sm transition-colors font-medium text-gray-600 hover:text-rose-600">
-            Services
-          </a>
-          <a href="#process" class="text-sm transition-colors font-medium text-gray-600 hover:text-rose-600">
-            How It Works
-          </a>
-          <a href="#" class="text-sm transition-colors font-medium text-gray-600 hover:text-rose-600">
-            About
-          </a>
-          <a href="#book-call" class="text-sm transition-colors font-medium text-gray-600 hover:text-rose-600">
-            Contact
-          </a>
+        <div class="grid grid-cols-2 gap-10">
+          <div>
+            <h3 class="sp-mono text-[10px] text-[#faf3ec]/45 mb-5">Company</h3>
+            <ul class="flex flex-col gap-3.5">
+              <li><a href="#" class="sp-footer-lnk sp-sans text-sm text-[#faf3ec]/65">Services</a></li>
+              <li><a href="#process" class="sp-footer-lnk sp-sans text-sm text-[#faf3ec]/65">How It Works</a></li>
+              <li><a href="#" class="sp-footer-lnk sp-sans text-sm text-[#faf3ec]/65">About</a></li>
+              <li><a href="#book-call" class="sp-footer-lnk sp-sans text-sm text-[#faf3ec]/65">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="sp-mono text-[10px] text-[#faf3ec]/45 mb-5">Get started</h3>
+            <ul class="flex flex-col gap-3.5">
+              <li><a href="#book-call" class="sp-footer-lnk sp-sans text-sm text-[#faf3ec]/65">Book a call</a></li>
+              <li><a href="#contact" class="sp-footer-lnk sp-sans text-sm text-[#faf3ec]/65">The guarantee</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-
-      <div class="max-w-7xl mx-auto mt-12 md:mt-16 pt-8 border-t text-center text-[10px] md:text-xs font-montserrat border-gray-100 text-gray-400">
-        <p>© 2026 Spotter Digital. All rights reserved.</p>
       </div>
     </footer>
 
     <script>
       lucide.createIcons();
+    </script>
+    <script>
+      /* Editorial scroll reveal */
+      (function () {
+        var els = document.querySelectorAll('.sp-reveal');
+        if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          els.forEach(function (el) { el.classList.add('is-in'); });
+          return;
+        }
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        els.forEach(function (el) { obs.observe(el); });
+      })();
     </script>
   
 </body></html>
