@@ -15,3 +15,7 @@ index.old.html
 _spotter-original.html
 copythis.html
 .vercel
+
+# Python bytecode
+__pycache__/
+*.pyc
