@@ -2,11 +2,37 @@
 
 ## Colors
 
-| Role | Hex | RGB |
-|------|-----|-----|
-| Primary Teal | `#023E3E` | `2, 62, 62` |
-| Black | `#141419` | `20, 20, 25` |
-| Background | `#FFFFFF` | `255, 255, 255` |
+The brand runs on a teal system. The logo mark carries the deepest teal; the website UI uses a slightly brighter teal as its primary accent, on white with a neutral support set.
+
+| Role | Hex | RGB | Where it's used |
+|------|-----|-----|------|
+| Brand Teal (primary) | `#004F4D` | `0, 79, 77` | Buttons, links, highlights, accents, active states |
+| Deep Teal | `#003837` | `0, 56, 55` | Dark panels, footer, large feature surfaces |
+| Logo Mark Teal | `#023E3E` | `2, 62, 62` | The teal baked into the logo PNGs (do not restyle) |
+| Ink | `#202020` | `32, 32, 32` | Headings and body text |
+| Steel | `#5F5F5F` | `95, 95, 95` | Secondary / supporting text |
+| Mist | `#F4F4F4` | `244, 244, 244` | Tinted section backgrounds, input fills |
+| Line | `#E2E2E2` | `226, 226, 226` | Borders and dividers |
+| White | `#FFFFFF` | `255, 255, 255` | Primary background |
+
+## Typography
+
+| Role | Typeface | Weights | Use |
+|------|----------|---------|-----|
+| Display & body | **Switzer** | 400, 500, 600, 700 | Headlines (500, tracking ≈ −0.04em), body copy, UI |
+| Mono / labels | **Chivo Mono** | 400, 500, 600 | Eyebrows, micro-labels, data figures, code |
+
+Load both:
+
+```html
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+```
+
+- **Headlines** — Switzer, weight 500, tight tracking (≈ −0.04em); set a key phrase in Brand Teal for emphasis.
+- **Labels / eyebrows** — Chivo Mono, uppercase, small.
+- **Corners** — the UI uses sharp 2px corners throughout, not rounded pills.
 
 ## Files
 
@@ -41,7 +67,7 @@ Upload the `/favicon` folder contents to the root of your domain, then add this 
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#023E3E">
+<meta name="theme-color" content="#004F4D">
 ```
 
 For Framer: Site Settings → General → upload `favicon.ico` as the favicon, and `apple-touch-icon.png` as the Apple touch icon.

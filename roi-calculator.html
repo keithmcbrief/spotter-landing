@@ -10,48 +10,78 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/spotter-brand-kit/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/spotter-brand-kit/favicon/favicon-16x16.png">
 <link rel="shortcut icon" href="assets/spotter-brand-kit/favicon/favicon.ico">
-<meta name="theme-color" content="#023E3E">
+<meta name="theme-color" content="#004f4d">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --cream:#faf3ec; --cream-2:#f3ece2; --cream-3:#ece4d8;
-    --ink:#171717; --teal:#003837; --teal-2:#004f4d;
-    --line:rgba(23,23,23,.12); --line-2:rgba(23,23,23,.08);
-    --muted:#6f6a62; --muted-2:#8c877f;
-    --d-line:rgba(250,243,236,.14);
+    --brand:#004f4d; --navy:#003837; --deep:#00302f;
+    --ink:#202020; --steel:#5f5f5f; --mist:#f4f4f4; --line:#e2e2e2;
+    --d-line:rgba(255,255,255,.14);
     --sans:'Switzer','Inter',system-ui,-apple-system,sans-serif;
-    --serif:'Instrument Serif','Georgia',serif;
-    --mono:'JetBrains Mono',ui-monospace,'SF Mono',monospace;
+    --mono:'Chivo Mono',ui-monospace,'SF Mono',monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{
-    font-family:var(--sans); color:var(--ink); background:var(--cream);
+    font-family:var(--sans); color:var(--ink); background:#fff;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     overflow-x:hidden;
   }
-  ::selection{background:var(--teal);color:var(--cream)}
+  ::selection{background:var(--brand);color:#fff}
+
+  /* ---------- shared design-system bits (from index.html) ---------- */
+  .vk-display{font-family:var(--sans);font-weight:500;letter-spacing:-.04em;line-height:1.0;color:var(--ink)}
+  .vk-display em{font-style:normal;color:var(--brand)}
+  .vk-mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:-.02em}
+  .vk-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);
+    border-radius:2px;padding:7px 12px;font-family:var(--mono);
+    font-size:clamp(10px,.82vw,12px);text-transform:uppercase;letter-spacing:.02em;
+    line-height:1;color:var(--ink)}
+  .vk-pill .dot{width:7px;height:7px;background:var(--brand);flex:none}
+  .vk-pill.live .dot{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+  .vk-pill-light{border-color:rgba(255,255,255,.32);color:#fff}
+  .vk-pill-light .dot{background:#fff}
+  .vk-btn{position:relative;display:inline-flex;align-items:center;gap:9px;overflow:hidden;
+    border-radius:2px;padding:10px 16px;font-family:var(--sans);font-weight:500;
+    font-size:clamp(12px,1vw,14px);letter-spacing:-.01em;text-decoration:none;
+    transition:color .3s,border-color .3s,box-shadow .3s}
+  .vk-btn::before{content:"";position:absolute;left:0;right:0;bottom:0;height:100%;z-index:0;
+    background:var(--btn-fill,var(--navy));transform:translateY(101%);
+    transition:transform .42s cubic-bezier(.45,.05,.2,1)}
+  .vk-btn:hover::before{transform:translateY(0)}
+  .vk-btn span,.vk-btn svg{position:relative;z-index:2}
+  .vk-btn svg{transition:transform .3s}
+  .vk-btn:hover svg{transform:translate(2px,-2px)}
+  .vk-btn-blue{background:var(--brand);color:#fff;--btn-fill:var(--navy)}
+  .vk-btn-light{background:#fff;color:var(--brand);border:1px solid #fff;--btn-fill:var(--brand)}
+  .vk-btn-light:hover{color:#fff;border-color:var(--brand)}
+
+  /* orchestrated page-load reveal */
+  @keyframes riseIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .anim{opacity:0;animation:riseIn .6s cubic-bezier(.2,.7,.2,1) forwards}
+  .d1{animation-delay:.04s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}
+  @media (prefers-reduced-motion:reduce){.anim{opacity:1;animation:none}}
 
   /* ---------- shell ---------- */
   .wrap{
     position:relative; min-height:100dvh; display:flex; flex-direction:column;
     padding:clamp(14px,2.2vh,26px) clamp(16px,3.5vw,52px);
-    /* faint editorial grid */
     background-image:
-      linear-gradient(to right,#e7ddcf 1px,transparent 1px),
-      linear-gradient(to bottom,#e7ddcf 1px,transparent 1px);
+      linear-gradient(to right,rgba(0,56,55,.045) 1px,transparent 1px),
+      linear-gradient(to bottom,rgba(0,56,55,.045) 1px,transparent 1px);
     background-size:clamp(36px,4vw,64px) clamp(36px,4vw,64px);
   }
   .wrap::before{
     content:""; position:absolute; inset:0; pointer-events:none;
-    background:radial-gradient(120% 80% at 50% -10%, transparent 55%, rgba(250,243,236,.85) 100%),
-               radial-gradient(60% 50% at 50% 0%, rgba(0,56,55,.05), transparent 70%);
+    background:radial-gradient(120% 80% at 50% -10%, transparent 52%, #fff 100%),
+               radial-gradient(60% 50% at 50% 0%, rgba(0,79,77,.06), transparent 70%);
   }
   .wrap>*{position:relative;z-index:1}
 
@@ -61,94 +91,81 @@
     padding-bottom:clamp(10px,1.6vh,16px); border-bottom:1px solid var(--line);
   }
   .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-  .brand img{width:clamp(26px,2.4vw,32px);height:clamp(26px,2.4vw,32px);object-fit:contain;
+  .brand img{width:clamp(28px,2.5vw,34px);height:clamp(28px,2.5vw,34px);object-fit:contain;
     transition:transform .3s cubic-bezier(.16,1,.3,1)}
   .brand:hover img{transform:translateY(-2px)}
-  .brand b{font-weight:700;font-size:clamp(14px,1.3vw,17px);letter-spacing:-.01em;line-height:1}
-  .brand b span{color:var(--muted-2);font-weight:500}
-  .topbar-r{font-family:var(--mono);font-size:clamp(9px,.78vw,10.5px);
-    letter-spacing:.22em;text-transform:uppercase;color:var(--muted-2)}
+  .brand b{font-weight:700;text-transform:uppercase;font-size:clamp(14px,1.3vw,17px);
+    letter-spacing:-.01em;line-height:1;color:var(--ink)}
+  .topbar-r{display:inline-flex;align-items:center;gap:clamp(12px,1.4vw,20px)}
+  .topbar-tag{font-family:var(--mono);font-size:clamp(9px,.78vw,10.5px);
+    letter-spacing:.2em;text-transform:uppercase;color:var(--steel)}
 
   /* ---------- intro ---------- */
   .intro{padding:clamp(10px,1.8vh,22px) 0 clamp(8px,1.4vh,16px)}
-  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);
-    font-size:clamp(9px,.8vw,11px);letter-spacing:.2em;text-transform:uppercase;
-    color:var(--teal);margin-bottom:clamp(8px,1.4vh,14px)}
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);
-    animation:pulse 2.4s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
-  h1{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:.98;
-    font-size:clamp(2rem,4.6vw,3.6rem)}
-  h1 em{font-style:italic;color:var(--teal)}
-  .intro p{font-weight:300;color:var(--muted);max-width:42ch;line-height:1.5;
+  .intro .vk-pill{margin-bottom:clamp(8px,1.4vh,14px)}
+  h1{font-family:var(--sans);font-weight:500;letter-spacing:-.04em;line-height:1.0;
+    font-size:clamp(2rem,4.6vw,3.6rem);color:var(--ink)}
+  h1 em{font-style:normal;color:var(--brand)}
+  .intro p{font-weight:400;color:var(--steel);max-width:46ch;line-height:1.5;
     font-size:clamp(13px,1.05vw,16px);margin-top:clamp(7px,1.1vh,11px)}
 
   /* ---------- main grid ---------- */
   .grid{flex:1;display:grid;grid-template-columns:minmax(300px,1.05fr) minmax(360px,1.5fr);
     gap:clamp(16px,1.8vw,28px);align-items:stretch;min-height:0}
 
-  .panel{border-radius:clamp(18px,1.5vw,26px);position:relative}
-  .step{font-family:var(--mono);font-size:clamp(9px,.78vw,10.5px);letter-spacing:.2em;
-    text-transform:uppercase;display:inline-flex;align-items:center;gap:10px}
-  .step b{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
-    font-size:11px;font-weight:700}
+  .panel{border-radius:2px;position:relative}
 
   /* inputs panel (light) */
-  .inputs{background:rgba(255,255,255,.6);border:1px solid var(--line);
-    backdrop-filter:blur(6px);
+  .inputs{background:#fff;border:1px solid var(--line);
     padding:clamp(18px,2.4vh,28px) clamp(18px,1.8vw,30px);
     display:flex;flex-direction:column;gap:clamp(10px,1.3vh,16px)}
-  .inputs .step b{background:var(--ink);color:var(--cream)}
-  .inputs .step span{color:var(--muted-2)}
   .field-list{display:flex;flex-direction:column;flex:1;justify-content:space-between;
     gap:clamp(5px,.7vh,11px)}
   .field{display:grid;grid-template-columns:1fr auto;align-items:center;
-    gap:8px 14px;padding-bottom:clamp(5px,.7vh,11px);border-bottom:1px solid var(--line-2)}
+    gap:8px 14px;padding-bottom:clamp(5px,.7vh,11px);border-bottom:1px solid var(--line)}
   .field:last-child{border-bottom:none;padding-bottom:0}
-  .field label{font-weight:500;font-size:clamp(12.5px,1vw,14.5px);letter-spacing:-.01em}
-  .field .hint{grid-column:1/2;font-size:clamp(10.5px,.82vw,12px);color:var(--muted-2);
-    font-weight:300;line-height:1.35;margin-top:2px}
+  .field label{font-weight:500;font-size:clamp(12.5px,1vw,14.5px);letter-spacing:-.01em;color:var(--ink)}
+  .field .hint{grid-column:1/2;font-size:clamp(10.5px,.82vw,12px);color:var(--steel);
+    font-weight:400;line-height:1.35;margin-top:2px}
   .control{position:relative;justify-self:end;width:clamp(108px,9vw,138px)}
   .control input,.control select{
     width:100%;font-family:var(--sans);font-weight:600;font-size:clamp(13px,1.05vw,15px);
-    color:var(--ink);text-align:right;background:var(--cream);
-    border:1px solid var(--line);border-radius:10px;padding:9px 12px;outline:none;
+    color:var(--ink);text-align:right;background:var(--mist);
+    border:1px solid var(--line);border-radius:2px;padding:9px 12px;outline:none;
     transition:border-color .2s,box-shadow .2s;-moz-appearance:textfield;appearance:none}
   .control input::-webkit-outer-spin-button,.control input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
   .control.pre input{padding-left:24px;text-align:right}
   .control.suf input{padding-right:26px}
   .control select{text-align:left;cursor:pointer;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23003837' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23004f4d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
     background-repeat:no-repeat;background-position:right 11px center;padding-right:30px}
-  .control input:focus,.control select:focus{border-color:var(--teal);
-    box-shadow:0 0 0 3px rgba(0,56,55,.12)}
+  .control input:focus,.control select:focus{border-color:var(--brand);
+    box-shadow:0 0 0 3px rgba(0,79,77,.14)}
   .affix{position:absolute;top:50%;transform:translateY(-50%);font-weight:600;
-    font-size:clamp(13px,1.05vw,15px);color:var(--muted-2);pointer-events:none}
+    font-size:clamp(13px,1.05vw,15px);color:var(--steel);pointer-events:none}
   .affix.pre{left:12px}
   .affix.suf{right:12px}
 
-  /* results panel (dark) */
-  .results{background:var(--ink);color:var(--cream);overflow:hidden;
+  /* results panel (dark teal) */
+  .results{background:var(--navy);color:#fff;overflow:hidden;
     padding:clamp(18px,2.4vh,30px) clamp(20px,2vw,34px);
     display:flex;flex-direction:column;gap:clamp(10px,1.4vh,18px);
     box-shadow:0 40px 80px -50px rgba(0,56,55,.6)}
   .results::before{content:"";position:absolute;inset:0;pointer-events:none;
-    background:repeating-linear-gradient(to bottom,transparent 0 78px,rgba(250,243,236,.02) 78px 79px)}
+    background:repeating-linear-gradient(to bottom,transparent 0 78px,rgba(255,255,255,.02) 78px 79px)}
   .results::after{content:"";position:absolute;top:-30%;right:-10%;width:55%;height:80%;
     pointer-events:none;background:radial-gradient(circle,rgba(0,79,77,.55),transparent 65%);filter:blur(20px)}
   .results>*{position:relative;z-index:1}
-  .results .step b{background:var(--teal);color:var(--cream)}
-  .results .step span{color:rgba(250,243,236,.5)}
 
   /* hero number */
   .hero .cap{font-family:var(--mono);font-size:clamp(9px,.78vw,10.5px);letter-spacing:.2em;
-    text-transform:uppercase;color:rgba(250,243,236,.55);margin-bottom:clamp(2px,.6vh,6px)}
-  .hero .num{font-family:var(--serif);font-weight:400;letter-spacing:-.03em;line-height:.92;
-    font-size:clamp(3rem,7.2vw,6rem);font-variant-numeric:tabular-nums;
+    text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:clamp(2px,.6vh,6px)}
+  .hero .num{font-family:var(--sans);font-weight:500;letter-spacing:-.04em;line-height:.95;
+    font-size:clamp(3rem,7.2vw,5.6rem);font-variant-numeric:tabular-nums;color:#fff;
     transition:opacity .18s}
   .hero .num.flash{opacity:.5}
-  .hero .sub{font-family:var(--mono);font-size:clamp(10px,.82vw,12px);letter-spacing:.06em;
-    color:rgba(250,243,236,.62);margin-top:clamp(4px,.8vh,8px)}
+  .hero .sub{font-family:var(--mono);font-size:clamp(10px,.82vw,12px);letter-spacing:.04em;
+    color:rgba(255,255,255,.62);margin-top:clamp(4px,.8vh,8px)}
 
   hr.rule{border:none;border-top:1px solid var(--d-line);margin:0}
 
@@ -156,36 +173,36 @@
   .pipe{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;
     gap:clamp(3px,.5vw,9px)}
   .pipe .node{display:flex;flex-direction:column;gap:3px}
-  .pipe .node .v{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,2rem);line-height:1;
-    font-variant-numeric:tabular-nums}
+  .pipe .node .v{font-family:var(--sans);font-weight:500;letter-spacing:-.03em;
+    font-size:clamp(1.3rem,2.2vw,2rem);line-height:1;font-variant-numeric:tabular-nums}
   .pipe .node .k{font-family:var(--mono);font-size:clamp(8px,.7vw,9.5px);letter-spacing:.14em;
-    text-transform:uppercase;color:rgba(250,243,236,.5)}
-  .pipe .arr{color:rgba(250,243,236,.35);display:grid;place-items:center}
+    text-transform:uppercase;color:rgba(255,255,255,.5)}
+  .pipe .arr{color:rgba(255,255,255,.35);display:grid;place-items:center}
   .pipe .arr svg{width:clamp(14px,1.2vw,18px);height:auto}
 
   /* over time */
   .over .cap,.metrics .cap{font-family:var(--mono);font-size:clamp(8.5px,.72vw,10px);
-    letter-spacing:.2em;text-transform:uppercase;color:rgba(250,243,236,.45);
+    letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);
     margin-bottom:clamp(6px,1vh,10px)}
   .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(7px,.8vw,12px)}
-  .chip{border:1px solid var(--d-line);border-radius:12px;padding:clamp(8px,1.1vh,13px) clamp(8px,.9vw,14px);
-    background:rgba(250,243,236,.03);transition:border-color .25s,transform .25s}
-  .chip:hover{border-color:rgba(250,243,236,.3);transform:translateY(-2px)}
+  .chip{border:1px solid var(--d-line);border-radius:2px;padding:clamp(8px,1.1vh,13px) clamp(8px,.9vw,14px);
+    background:rgba(255,255,255,.03);transition:border-color .25s,transform .25s}
+  .chip:hover{border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
   .chip .t{font-family:var(--mono);font-size:clamp(8px,.68vw,9.5px);letter-spacing:.16em;
-    text-transform:uppercase;color:rgba(250,243,236,.5);margin-bottom:5px}
-  .chip .a{font-family:var(--serif);font-size:clamp(1.05rem,1.9vw,1.7rem);line-height:1;
-    font-variant-numeric:tabular-nums}
+    text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px}
+  .chip .a{font-family:var(--sans);font-weight:500;letter-spacing:-.03em;
+    font-size:clamp(1.05rem,1.9vw,1.7rem);line-height:1;font-variant-numeric:tabular-nums}
 
   /* metrics footer */
   .metrics{margin-top:auto}
   .metrics .row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,22px)}
   .metric{display:flex;flex-direction:column;gap:3px}
   .metric .k{font-family:var(--mono);font-size:clamp(8.5px,.72vw,10px);letter-spacing:.14em;
-    text-transform:uppercase;color:rgba(250,243,236,.5)}
-  .metric .v{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,2.1rem);line-height:1;
-    font-variant-numeric:tabular-nums}
-  .metric .v.pos{color:#7fd6c2}
-  .metric .v.muted{color:rgba(250,243,236,.4)}
+    text-transform:uppercase;color:rgba(255,255,255,.5)}
+  .metric .v{font-family:var(--sans);font-weight:500;letter-spacing:-.03em;
+    font-size:clamp(1.4rem,2.4vw,2.1rem);line-height:1;font-variant-numeric:tabular-nums}
+  .metric .v.pos{color:#7fb8b2}
+  .metric .v.muted{color:rgba(255,255,255,.4)}
 
   /* ---------- responsive ---------- */
   @media (min-width:901px) and (min-height:640px){
@@ -194,21 +211,27 @@
   }
   /* short laptops (e.g. 1366x768): claw back vertical space */
   @media (min-width:901px) and (max-height:850px){
-    .wrap{padding-top:clamp(8px,1.2vh,14px);padding-bottom:clamp(8px,1.2vh,14px)}
-    .topbar{padding-bottom:clamp(7px,1.1vh,13px)}
-    .intro{padding:clamp(5px,1vh,11px) 0 clamp(4px,.8vh,9px)}
-    .intro p{margin-top:5px}
-    .hero .num{font-size:clamp(2.4rem,4.4vw,3.6rem)}
-    .results{gap:clamp(6px,.9vh,12px)}
-    .inputs{gap:clamp(6px,.9vh,12px)}
-    .field-list{gap:clamp(3px,.45vh,8px)}
-    .field{padding-bottom:clamp(3px,.45vh,8px)}
+    .wrap{padding-top:clamp(7px,1vh,12px);padding-bottom:clamp(7px,1vh,12px)}
+    .topbar{padding-bottom:clamp(6px,1vh,11px)}
+    .intro{padding:clamp(4px,.8vh,9px) 0 clamp(3px,.6vh,7px)}
+    .intro .vk-pill{margin-bottom:clamp(5px,.9vh,9px)}
+    h1{font-size:clamp(1.9rem,3.4vw,2.7rem)}
+    .intro p{font-size:clamp(12px,.92vw,13.5px);line-height:1.4;margin-top:4px;max-width:54ch}
+    .hero .num{font-size:clamp(2.4rem,4.4vw,3.4rem)}
+    .results{gap:clamp(5px,.8vh,11px)}
+    .inputs{gap:clamp(5px,.8vh,11px)}
+    .field-list{gap:clamp(2px,.35vh,6px)}
+    .field{padding-bottom:clamp(2px,.35vh,6px)}
+    .field .hint{font-size:clamp(10px,.76vw,11.5px);line-height:1.3;margin-top:1px}
   }
   @media (max-width:900px){
     .grid{grid-template-columns:1fr;gap:16px}
     .results{order:-1}
     h1{font-size:clamp(2rem,8vw,2.8rem)}
     .control{width:clamp(120px,40vw,160px)}
+  }
+  @media (max-width:640px){
+    .topbar-tag{display:none}
   }
   @media (max-width:560px){
     .pipe .node .v{font-size:1.5rem}
@@ -221,14 +244,20 @@
     <header class="topbar">
       <a class="brand" href="index.html">
         <img src="assets/spotter-mark.png" alt="Spotter Digital">
-        <b>SPOTTER <span>DIGITAL</span></b>
+        <b>Spotter Digital</b>
       </a>
-      <div class="topbar-r">Revenue Leak Estimator</div>
+      <div class="topbar-r">
+        <span class="topbar-tag">Revenue Leak Estimator</span>
+        <a href="index.html#book-call" class="vk-btn vk-btn-blue">
+          <span>Book a free strategy call</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
     </header>
 
     <!-- intro -->
-    <section class="intro">
-      <span class="eyebrow"><span class="dot"></span>Cold email engine · Live</span>
+    <section class="intro anim d1">
+      <span class="vk-pill live"><span class="dot"></span>Cold email engine · Live</span>
       <h1>Cold email ROI, <em>dollarized.</em></h1>
       <p>Set your campaign inputs and watch the qualified calls your system books each quarter, and the new revenue that follows.</p>
     </section>
@@ -236,8 +265,8 @@
     <!-- main -->
     <div class="grid">
       <!-- inputs -->
-      <section class="panel inputs">
-        <div class="step"><b>01</b><span>Campaign inputs</span></div>
+      <section class="panel inputs anim d2">
+        <span class="vk-pill"><span class="dot"></span>Campaign inputs</span>
         <div class="field-list">
           <div class="field">
             <label for="vol">Monthly email volume</label>
@@ -252,7 +281,7 @@
           <div class="field">
             <label for="cb">Call Booking %</label>
             <div class="control suf"><input id="cb" inputmode="decimal" value="50"><span class="affix suf">%</span></div>
-            <span class="hint">The % of positive replies you convert into booked sales calls. Dependent on how well you manage your inbox and nurture leads. 1 call from 5 replies would be a 20% CB%.</span>
+            <span class="hint">The % of positive replies you convert into booked calls. 1 call from 5 replies is a 20% CB%.</span>
           </div>
           <div class="field">
             <label for="close">Close rate</label>
@@ -267,19 +296,24 @@
           <div class="field">
             <label for="cost">Cost per booked call</label>
             <div class="control pre"><span class="affix pre">$</span><input id="cost" inputmode="numeric" value="0"></div>
-            <span class="hint">You only pay for booked calls. Leave 0 to hide ROI.</span>
+            <span class="hint">You only pay for booked calls — pure performance.</span>
+          </div>
+          <div class="field">
+            <label for="tech">Tech fee</label>
+            <div class="control pre"><span class="affix pre">$</span><input id="tech" inputmode="numeric" value="800"></div>
+            <span class="hint">Flat monthly platform fee, counted every month.</span>
           </div>
         </div>
       </section>
 
       <!-- results -->
-      <section class="panel results">
-        <div class="step"><b>02</b><span>Payoff · per quarter</span></div>
+      <section class="panel results anim d3">
+        <span class="vk-pill vk-pill-light"><span class="dot"></span>Payoff · per quarter</span>
 
         <div class="hero">
           <div class="cap">Net revenue added · per quarter</div>
-          <div class="num" id="revenue">$225,000</div>
-          <div class="sub" id="revenue-sub">45 deals × $5,000 LTV</div>
+          <div class="num" id="revenue">$222,600</div>
+          <div class="sub" id="revenue-sub">45 deals × $5,000 LTV − $2,400 cost</div>
         </div>
 
         <hr class="rule">
@@ -299,8 +333,8 @@
         <div class="over">
           <div class="cap">Net revenue over time</div>
           <div class="chips">
-            <div class="chip"><div class="t">6 months</div><div class="a" id="rev6">$450,000</div></div>
-            <div class="chip"><div class="t">12 months</div><div class="a" id="rev12">$900K</div></div>
+            <div class="chip"><div class="t">6 months</div><div class="a" id="rev6">$445.2K</div></div>
+            <div class="chip"><div class="t">12 months</div><div class="a" id="rev12">$890.4K</div></div>
             <div class="chip"><div class="t">24 months</div><div class="a" id="rev24">$1.8M</div></div>
           </div>
         </div>
@@ -309,8 +343,8 @@
 
         <div class="metrics">
           <div class="row">
-            <div class="metric"><span class="k">Return on investment</span><span class="v muted" id="roi">–</span></div>
-            <div class="metric"><span class="k">Cost to acquire a client</span><span class="v muted" id="cac">–</span></div>
+            <div class="metric"><span class="k">Return on investment</span><span class="v pos" id="roi">94x</span></div>
+            <div class="metric"><span class="k">Cost to acquire a client</span><span class="v" id="cac">$53</span></div>
           </div>
         </div>
       </section>
@@ -321,7 +355,7 @@
 (function(){
   var $ = function(id){ return document.getElementById(id); };
   var els = {
-    vol:$('vol'), reply:$('reply'), cb:$('cb'), close:$('close'), ltv:$('ltv'), cost:$('cost'),
+    vol:$('vol'), reply:$('reply'), cb:$('cb'), close:$('close'), ltv:$('ltv'), cost:$('cost'), tech:$('tech'),
     revenue:$('revenue'), revenueSub:$('revenue-sub'),
     pEmails:$('p-emails'), pReplies:$('p-replies'), pBooked:$('p-booked'), pDeals:$('p-deals'),
     rev6:$('rev6'), rev12:$('rev12'), rev24:$('rev24'),
@@ -349,16 +383,18 @@
     var closeP = Math.min(n(els.close.value), 100) / 100;
     var ltv = n(els.ltv.value);
     var cost = n(els.cost.value);
+    var techFee = n(els.tech.value);
 
     var emails  = Math.round(vol * 3);
     var replies = Math.round(emails * replyP);
     var booked  = Math.round(replies * cbP);
     var deals   = Math.round(booked * closeP);
     var revenue = deals * ltv;
-    var investment = booked * cost;
+    var techCost = techFee * 3;                  // monthly tech fee across the quarter
+    var investment = booked * cost + techCost;
     var netRevenue = revenue - investment;
     var roi = (investment > 0) ? revenue / investment : null;
-    var cac = (cost > 0 && deals > 0) ? investment / deals : null;
+    var cac = (investment > 0 && deals > 0) ? investment / deals : null;
 
     // hero = net revenue added (revenue minus cost per booked call)
     if (els.revenue.textContent !== moneySigned(netRevenue)){
@@ -366,7 +402,7 @@
       setTimeout(function(){ els.revenue.classList.remove('flash'); }, 120);
     }
     els.revenue.textContent = moneySigned(netRevenue);
-    els.revenueSub.textContent = cost > 0
+    els.revenueSub.textContent = investment > 0
       ? fmt(deals) + ' deals × ' + money(ltv) + ' LTV − ' + money(investment) + ' cost'
       : fmt(deals) + ' deals × ' + money(ltv) + ' LTV';
 
@@ -396,7 +432,7 @@
   }
 
   // sanitize numeric inputs
-  ['vol','ltv','cost'].forEach(function(k){
+  ['vol','ltv','cost','tech'].forEach(function(k){
     els[k].addEventListener('input', function(e){
       var v = e.target.value.replace(/[^\d]/g,'');
       if (e.target.value !== v) e.target.value = v;
