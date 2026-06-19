@@ -15,6 +15,18 @@ The brand runs on a teal system. The logo mark carries the deepest teal; the web
 | Line | `#E2E2E2` | `226, 226, 226` | Borders and dividers |
 | White | `#FFFFFF` | `255, 255, 255` | Primary background |
 
+CSS tokens (as used in the site): `--brand:#004F4D`, `--navy:#003837` (deep teal), `--deep:#00302F` (darkest shade), `--ink:#202020`, `--steel:#5F5F5F`, `--mist:#F4F4F4`, `--line:#E2E2E2`.
+
+**Accent tints** — teal `#004F4D` at low opacity carries component surfaces and depth:
+- `rgba(0,79,77,0.08)` icon-chip fill · `rgba(0,79,77,0.18)` icon-chip border
+- `rgba(0,79,77,0.45)` card-hover border · `rgba(0,79,77,0.12)` illustration fill
+- soft shadows tinted with deep teal `rgba(0,56,55,0.35)`
+
+**On dark teal panels** — emphasis + chrome accents:
+- `#7FB8B2` light-teal accent (emphasis words on the deep-teal panel)
+- `#CFE3E0` soft-teal accent (emphasis on the bright-teal guarantee panel)
+- white overlays: `rgba(255,255,255,0.08)` fills, `0.2`–`0.35` borders
+
 ## Typography
 
 | Role | Typeface | Weights | Use |
@@ -30,9 +42,44 @@ Load both:
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 ```
 
-- **Headlines** — Switzer, weight 500, tight tracking (≈ −0.04em); set a key phrase in Brand Teal for emphasis.
-- **Labels / eyebrows** — Chivo Mono, uppercase, small.
-- **Corners** — the UI uses sharp 2px corners throughout, not rounded pills.
+- **Display headings** — Switzer 500, tracking ≈ −0.04em, line-height 1.0; set a key phrase in Brand Teal for emphasis (`em`, not italic).
+- **Sub-headings** — Switzer 500, tracking ≈ −0.02em, line-height 1.1.
+- **Body** — Switzer 400; default text color is Steel, headings are Ink.
+- **Labels / eyebrows** — Chivo Mono, uppercase, ~12px.
+
+## Components & patterns
+
+The site is built from a small set of reusable classes (`vk-*`). Everything uses **sharp 2px corners** and the teal system above.
+
+### Eyebrow pills (`vk-pill`)
+Mono label above a heading. 1px Line border, 2px radius, `7px 12px` padding, Chivo Mono 12px uppercase, with a 7×7px Brand Teal **square** dot. On dark panels use the light variant: white text, `rgba(255,255,255,0.35)` border, white dot.
+
+### Buttons (`vk-btn`)
+Sharp 2px rectangles, Switzer 500. Signature hover: a fill **rises from the bottom** (0.42s ease) while the trailing arrow nudges up-right. Variants:
+- **Primary** — Brand Teal bg, rises to Deep Teal
+- **Navy** — Deep Teal bg, rises to Brand Teal
+- **Light** — white bg / teal text (for dark panels), rises to Brand Teal with text flipping white
+- **Outline** — transparent / Ink border, rises to Ink
+
+### Cards / tiles (`vk-tile`)
+White, 1px Line border, 2px radius. On hover the border turns teal (`rgba(0,79,77,0.45)`) and a soft deep-teal shadow lifts it.
+
+### Icon chips (`vk-ico`)
+48×48, 2px radius. Light surfaces: teal-tint fill + teal border + teal stroke icon. Dark panels: white-overlay fill + white icon. Icons are stroke SVGs, ~1.7px weight.
+
+### Layout & rhythm
+- Content column `max-w-7xl` with `px-5 md:px-10` padding; hero column `max-w-5xl`.
+- Section vertical padding `py-20 md:py-28`.
+- Sections alternate **white → mist → deep-teal** panels for rhythm.
+
+### Motion
+- **Scroll reveal** — elements fade in and rise 16px as they enter view; honors `prefers-reduced-motion`.
+- **Button fill** rises from the bottom on hover; the **logo marquee** auto-scrolls with an edge fade mask.
+- Illustrations animate subtly on reveal (drift / float / bars grow / check draws).
+
+### Shadows & corners
+- Corners: **2px** across the UI (the one exception is the email-mockup cards, which use 14px).
+- Shadows are soft and far, tinted with deep teal — e.g. `0 26px 50px -34px rgba(0,56,55,0.35)`.
 
 ## Files
 
