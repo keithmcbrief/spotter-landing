@@ -298,11 +298,6 @@
             <div class="control pre"><span class="affix pre">$</span><input id="cost" inputmode="numeric" value="0"></div>
             <span class="hint">You only pay for booked calls — pure performance.</span>
           </div>
-          <div class="field">
-            <label for="tech">Tech fee</label>
-            <div class="control pre"><span class="affix pre">$</span><input id="tech" inputmode="numeric" value="800"></div>
-            <span class="hint">Flat monthly platform fee, counted every month.</span>
-          </div>
         </div>
       </section>
 
@@ -312,8 +307,8 @@
 
         <div class="hero">
           <div class="cap">Net revenue added · per quarter</div>
-          <div class="num" id="revenue">$222,600</div>
-          <div class="sub" id="revenue-sub">45 deals × $5,000 LTV − $2,400 cost</div>
+          <div class="num" id="revenue">$225,000</div>
+          <div class="sub" id="revenue-sub">45 deals × $5,000 LTV</div>
         </div>
 
         <hr class="rule">
@@ -333,8 +328,8 @@
         <div class="over">
           <div class="cap">Net revenue over time</div>
           <div class="chips">
-            <div class="chip"><div class="t">6 months</div><div class="a" id="rev6">$445.2K</div></div>
-            <div class="chip"><div class="t">12 months</div><div class="a" id="rev12">$890.4K</div></div>
+            <div class="chip"><div class="t">6 months</div><div class="a" id="rev6">$450K</div></div>
+            <div class="chip"><div class="t">12 months</div><div class="a" id="rev12">$900K</div></div>
             <div class="chip"><div class="t">24 months</div><div class="a" id="rev24">$1.8M</div></div>
           </div>
         </div>
@@ -343,8 +338,8 @@
 
         <div class="metrics">
           <div class="row">
-            <div class="metric"><span class="k">Return on investment</span><span class="v pos" id="roi">94x</span></div>
-            <div class="metric"><span class="k">Cost to acquire a client</span><span class="v" id="cac">$53</span></div>
+            <div class="metric"><span class="k">Return on investment</span><span class="v muted" id="roi">–</span></div>
+            <div class="metric"><span class="k">Cost to acquire a client</span><span class="v muted" id="cac">–</span></div>
           </div>
         </div>
       </section>
@@ -355,7 +350,7 @@
 (function(){
   var $ = function(id){ return document.getElementById(id); };
   var els = {
-    vol:$('vol'), reply:$('reply'), cb:$('cb'), close:$('close'), ltv:$('ltv'), cost:$('cost'), tech:$('tech'),
+    vol:$('vol'), reply:$('reply'), cb:$('cb'), close:$('close'), ltv:$('ltv'), cost:$('cost'),
     revenue:$('revenue'), revenueSub:$('revenue-sub'),
     pEmails:$('p-emails'), pReplies:$('p-replies'), pBooked:$('p-booked'), pDeals:$('p-deals'),
     rev6:$('rev6'), rev12:$('rev12'), rev24:$('rev24'),
@@ -383,15 +378,13 @@
     var closeP = Math.min(n(els.close.value), 100) / 100;
     var ltv = n(els.ltv.value);
     var cost = n(els.cost.value);
-    var techFee = n(els.tech.value);
 
     var emails  = Math.round(vol * 3);
     var replies = Math.round(emails * replyP);
     var booked  = Math.round(replies * cbP);
     var deals   = Math.round(booked * closeP);
     var revenue = deals * ltv;
-    var techCost = techFee * 3;                  // monthly tech fee across the quarter
-    var investment = booked * cost + techCost;
+    var investment = booked * cost;
     var netRevenue = revenue - investment;
     var roi = (investment > 0) ? revenue / investment : null;
     var cac = (investment > 0 && deals > 0) ? investment / deals : null;
@@ -432,7 +425,7 @@
   }
 
   // sanitize numeric inputs
-  ['vol','ltv','cost','tech'].forEach(function(k){
+  ['vol','ltv','cost'].forEach(function(k){
     els[k].addEventListener('input', function(e){
       var v = e.target.value.replace(/[^\d]/g,'');
       if (e.target.value !== v) e.target.value = v;
