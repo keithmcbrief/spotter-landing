@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results | Spotter Digital</title>
+    <meta name="description" content="[PLACEHOLDER: meta description — Copywriter]">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/spotter-brand-kit/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/spotter-brand-kit/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="assets/spotter-brand-kit/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/spotter-brand-kit/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/spotter-brand-kit/favicon/site.webmanifest">
+    <meta name="theme-color" content="#004f4d">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.spotterdigital.ai/results">
+    <meta property="og:title" content="Results | Spotter Digital">
+    <meta property="og:description" content="[PLACEHOLDER: OG description — Copywriter]">
+    <meta property="og:image" content="https://www.spotterdigital.ai/assets/spotter-brand-kit/social/spotter-avatar-1000.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: '#004f4d',
+              navy:  '#003837',
+              deep:  '#00302f',
+              ink:   '#202020',
+              steel: '#5f5f5f',
+              mist:  '#f4f4f4',
+              line:  '#e2e2e2'
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin="">
+    <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+      :root{
+        --brand:#004f4d; --navy:#003837; --deep:#00302f;
+        --ink:#202020; --steel:#5f5f5f; --mist:#f4f4f4; --line:#e2e2e2;
+        --sans:'Switzer','Inter',system-ui,-apple-system,sans-serif;
+        --mono:'Chivo Mono',ui-monospace,'SF Mono',monospace;
+      }
+      body{ font-family:var(--sans); color:var(--steel); background:#fff; }
+
+      /* Type */
+      .vk-display{ font-family:var(--sans); font-weight:500; letter-spacing:-0.04em; line-height:1.0; color:var(--ink); }
+      .vk-display em{ font-style:normal; color:var(--brand); }
+      .vk-h{ font-family:var(--sans); font-weight:500; letter-spacing:-0.02em; line-height:1.1; color:var(--ink); }
+      .vk-mono{ font-family:var(--mono); text-transform:uppercase; letter-spacing:-0.02em; }
+
+      /* Eyebrow pill */
+      .vk-pill{ display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:2px; padding:7px 12px; font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:-0.01em; line-height:1; color:var(--ink); }
+      .vk-pill .dot{ width:7px; height:7px; background:var(--brand); }
+      .vk-pill-light{ border-color:rgba(255,255,255,0.35); color:#fff; }
+      .vk-pill-light .dot{ background:#fff; }
+
+      /* Buttons (sharp, fill rises from the bottom on hover) */
+      .vk-btn{ position:relative; display:inline-flex; align-items:center; gap:10px; overflow:hidden; border-radius:2px; padding:12px 18px; font-family:var(--sans); font-weight:500; letter-spacing:-0.01em; text-decoration:none; transition:color .3s ease, border-color .3s ease, box-shadow .3s ease; }
+      .vk-btn::before{ content:""; position:absolute; left:0; right:0; bottom:0; height:100%; z-index:0; background:var(--btn-fill,var(--navy)); transform:translateY(101%); transition:transform .42s cubic-bezier(.45,.05,.2,1); }
+      .vk-btn:hover::before{ transform:translateY(0); }
+      .vk-btn span,.vk-btn svg{ position:relative; z-index:2; }
+      .vk-btn svg{ transition:transform .3s ease; }
+      .vk-btn:hover svg{ transform:translate(2px,-2px); }
+      .vk-btn-blue{ background:var(--brand); color:#fff; --btn-fill:var(--navy); }
+      .vk-btn-navy{ background:var(--navy); color:#fff; --btn-fill:var(--brand); }
+      .vk-btn-light{ background:#fff; color:var(--brand); border:1px solid #fff; --btn-fill:var(--brand); }
+      .vk-btn-light:hover{ color:#fff; border-color:var(--brand); }
+      .vk-btn-outline{ background:transparent; color:var(--ink); border:1px solid var(--line); --btn-fill:var(--ink); }
+      .vk-btn-outline:hover{ color:#fff; border-color:var(--ink); }
+
+      /* Hero solid cards (Book / ROI) */
+      .vk-card{ position:relative; display:flex; flex-direction:column; justify-content:space-between; border-radius:2px; padding:16px; min-height:130px; overflow:hidden; text-decoration:none; transition:transform .3s ease, box-shadow .3s ease; }
+      .vk-card:hover{ transform:translateY(-3px); box-shadow:0 24px 50px -28px rgba(0,79,77,0.5); }
+      .vk-card .arrow{ align-self:flex-end; transition:transform .3s ease; }
+      .vk-card:hover .arrow{ transform:translate(3px,-3px); }
+
+      /* Particle field */
+      #vk-particles{ position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none;
+        -webkit-mask-image:linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+        mask-image:linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent); }
+
+      /* Feature/step cards */
+      .vk-tile{ background:#fff; border:1px solid var(--line); border-radius:2px; transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+      .vk-tile:hover{ border-color:rgba(0,79,77,0.45); box-shadow:0 26px 50px -34px rgba(0,56,55,0.35); }
+      .vk-ico{ display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:2px; }
+      .vk-ico-blue{ background:rgba(0,79,77,0.08); color:var(--brand); border:1px solid rgba(0,79,77,0.18); }
+      .vk-ico-light{ background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.2); }
+
+      /* Marquee */
+      @keyframes vk-scroll{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+      .vk-marquee{ animation:vk-scroll 40s linear infinite; }
+      .vk-mask{ -webkit-mask-image:linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image:linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+
+      /* Reveal */
+      .vk-rev{ opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease; }
+      .vk-rev.in{ opacity:1; transform:none; }
+      @media (prefers-reduced-motion: reduce){ .vk-rev{ opacity:1; transform:none; } }
+
+      /* Why Spotter — before/after email widget */
+      .vk-mail{ border-radius:14px; background:#fff; color:var(--ink); border:1px solid var(--line); box-shadow:0 30px 60px -40px rgba(0,56,55,0.6); }
+      .vk-mail-bad{ filter:grayscale(0.55); opacity:0.78; }
+      .vk-mail-good{ border-color:rgba(0,79,77,0.55); box-shadow:0 30px 70px -34px rgba(0,79,77,0.7); }
+      .vk-mail-dot{ width:11px; height:11px; border-radius:9999px; }
+      .vk-mail-line{ color:var(--ink); }
+      .vk-tag{ color:#b91c1c; font-weight:500; }
+      /* Good email line reveal */
+      .vk-type-line{ opacity:1; transform:none; }
+      [data-vk-mailfx="1"] .vk-type-line{ opacity:0; transform:translateY(8px); transition:opacity .45s ease, transform .45s ease; }
+      [data-vk-mailfx="1"] .vk-type-line.vk-shown{ opacity:1; transform:none; }
+      /* Caret */
+      .vk-caret{ display:none; width:2px; height:1.05em; background:var(--brand); margin-left:2px; vertical-align:-2px; }
+      [data-vk-mailfx="1"] .vk-caret.vk-caret-on{ display:inline-block; animation:vk-blink 0.9s steps(1) infinite; }
+      @keyframes vk-blink{ 50%{ opacity:0; } }
+      /* Good footer badge pop */
+      .vk-mail-foot-good{ opacity:1; transform:none; }
+      [data-vk-mailfx="1"] .vk-mail-foot-good{ opacity:0; transform:scale(0.94); transition:opacity .4s ease, transform .4s cubic-bezier(.34,1.56,.64,1); }
+      [data-vk-mailfx="1"] .vk-mail-foot-good.vk-shown{ opacity:1; transform:none; }
+      @media (prefers-reduced-motion: reduce){
+        [data-vk-mailfx="1"] .vk-type-line,
+        [data-vk-mailfx="1"] .vk-mail-foot-good{ opacity:1 !important; transform:none !important; transition:none !important; }
+        [data-vk-mailfx="1"] .vk-caret{ display:none !important; }
+      }
+
+      /* How It Works — illustration set */
+      .ill{ --stroke:var(--ink); --accent:#004f4d; --deep:#003837; --tint:rgba(0,79,77,0.12); }
+      .ill .ln{ fill:none; stroke:var(--stroke); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+      .ill .ln-accent{ fill:none; stroke:var(--accent); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+      .ill .fill-tint{ fill:var(--tint); }
+      .ill .fill-accent{ fill:var(--accent); }
+      .ill .fill-deep{ fill:var(--deep); }
+      .ill .fill-white{ fill:#fff; }
+      .figframe{ background:linear-gradient(180deg,rgba(0,79,77,0.04),rgba(0,79,77,0)); border:1px solid var(--line); border-radius:2px; }
+      @keyframes ill-drift{ 0%,100%{ transform:translate(0,0); } 50%{ transform:translate(3px,-3px); } }
+      @keyframes ill-floaty{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-3px); } }
+      @keyframes ill-growbar{ from{ transform:scaleY(0); } to{ transform:scaleY(1); } }
+      @keyframes ill-drawcheck{ to{ stroke-dashoffset:0; } }
+      .vk-rev.in .plane{ animation:ill-drift 4.2s ease-in-out infinite; transform-origin:center; }
+      .vk-rev.in .glassgrp{ animation:ill-floaty 5s ease-in-out infinite; transform-origin:center; }
+      .vk-rev.in .bar{ transform-origin:bottom; animation:ill-growbar .8s cubic-bezier(.2,.7,.2,1) forwards; }
+      .vk-rev.in .bar.b2{ animation-delay:.12s; }
+      .vk-rev.in .bar.b3{ animation-delay:.24s; }
+      .checkpath{ stroke-dasharray:40; stroke-dashoffset:40; }
+      .vk-rev.in .checkpath{ animation:ill-drawcheck .7s .35s cubic-bezier(.6,.1,.2,1) forwards; }
+      @media (prefers-reduced-motion: reduce){
+        .plane,.glassgrp,.bar{ animation:none !important; }
+        .bar{ transform:none !important; }
+        .checkpath{ stroke-dashoffset:0 !important; animation:none !important; }
+      }
+
+      /* FAQ */
+      .vk-faq{ border:1px solid var(--line); border-radius:2px; background:#fff; overflow:hidden; transition:border-color .3s ease; }
+      .vk-faq[open]{ border-color:rgba(0,79,77,0.4); }
+      .vk-faq summary{ list-style:none; cursor:pointer; }
+      .vk-faq summary::-webkit-details-marker{ display:none; }
+      .vk-faq .pm{ position:relative; width:16px; height:16px; flex:none; }
+      .vk-faq .pm:before,.vk-faq .pm:after{ content:""; position:absolute; background:var(--ink); transition:transform .3s ease, opacity .3s ease; }
+      .vk-faq .pm:before{ top:7px; left:0; width:16px; height:2px; }
+      .vk-faq .pm:after{ left:7px; top:0; width:2px; height:16px; }
+      .vk-faq[open] .pm:after{ transform:scaleY(0); }
+
+      .vk-foot-lnk{ text-decoration:none; transition:color .3s ease, opacity .3s ease; }
+      .vk-foot-lnk:hover{ color:#fff; opacity:1; }
+      ::selection{ background:var(--brand); color:#fff; }
+    </style>
+  </head>
+  <body class="antialiased text-steel bg-white">
+
+
+    <!-- 1. Navigation Bar -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-line">
+      <nav class="max-w-7xl mx-auto px-5 md:px-10 h-20 flex items-center justify-between gap-6">
+        <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+          <img src="assets/spotter-mark.png" alt="Spotter Digital" class="h-10 md:h-11 w-auto object-contain">
+          <span class="font-bold uppercase text-lg md:text-xl tracking-tight text-ink leading-none">Spotter Digital</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8 vk-mono text-[12px] text-ink">
+          <a href="index.html#process" class="opacity-70 hover:opacity-100 transition-opacity">How It Works</a>
+          <a href="results.html" class="opacity-100">Results</a>
+          <a href="roi-calculator.html" class="opacity-70 hover:opacity-100 transition-opacity">ROI Calculator</a>
+          <a href="index.html#faq" class="opacity-70 hover:opacity-100 transition-opacity">FAQ</a>
+        </div>
+        <a href="https://calendly.com/tristan-echeverri/strategy" target="_blank" rel="noopener noreferrer" class="vk-btn vk-btn-blue text-sm shrink-0">
+          <span>Book a Call</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="pt-20">
+      <section class="border-b border-line">
+        <div class="max-w-5xl mx-auto px-5 md:px-10 pt-14 md:pt-20 pb-14 md:pb-20 flex flex-col items-center text-center">
+          <div class="vk-pill mb-8"><span class="dot"></span>Results</div>
+          <h1 class="vk-display text-[2.3rem] sm:text-5xl md:text-[3.1rem] lg:text-[3.5rem] max-w-4xl mx-auto">[PLACEHOLDER: page headline]</h1>
+          <div class="mt-7"><p class="text-base md:text-lg leading-relaxed max-w-2xl border border-dashed border-line bg-mist px-4 py-3 vk-mono text-[12px]">[PLACEHOLDER: hero intro copy — Copywriter]</p></div>
+        </div>
+      </section>
+      <section id="burned" class="border-b border-line">
+       <div class="max-w-7xl mx-auto px-5 md:px-10 py-20 md:py-28">
+        <div class="vk-rev max-w-3xl mb-12 md:mb-16">
+          <div class="vk-pill mb-6"><span class="dot"></span>[PLACEHOLDER: eyebrow]</div>
+          <h2 class="vk-display text-[2.2rem] sm:text-5xl md:text-[3.2rem] mb-6">Burned by an agency before</h2>
+          <p class="text-base md:text-lg leading-relaxed max-w-2xl border border-dashed border-line bg-mist px-4 py-3 vk-mono text-[12px]">[PLACEHOLDER: intro/body copy for 'Burned by an agency before' — Copywriter]</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <figure class="vk-rev vk-tile overflow-hidden"><img src="assets/results/pair01-insurance-before-after.webp" width="800" height="800" loading="lazy" decoding="async" alt="Quote card, before and after. Before: an insurance agency owner says a previous email agency got responses and meetings, but not with the people he wanted to talk to. After: the same owner says yes, our meetings were worth his time, and calls them great situations." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile overflow-hidden"><img src="assets/results/q01-insurance-not-the-people.webp" width="800" height="800" loading="lazy" decoding="async" alt="Quote card: a commercial insurance agency owner says a previous email agency got responses and meetings, but these were not the people he wanted to talk to." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile overflow-hidden"><img src="assets/results/pair02-cleaning-before-after.webp" width="800" height="800" loading="lazy" decoding="async" alt="Quote card, before and after. Before: a cleaning company owner says she is wary because a previous cold mail vendor produced only one call. After: the same owner, after an on-site walkthrough we booked, says she will bid on the job." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile overflow-hidden"><img src="assets/results/q02-cleaning-wary.webp" width="800" height="800" loading="lazy" decoding="async" alt="Quote card: a commercial cleaning owner says a cold mailing contractor worked with her for about three months and produced only one call and one walkthrough, so she is wary." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile overflow-hidden"><img src="assets/results/q03-agency-skeptical.webp" width="800" height="800" loading="lazy" decoding="async" alt="Quote card: an ad agency owner says past lead gen companies were underwhelming, so he came in skeptical." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile overflow-hidden"><img src="assets/results/q04-human-calls.webp" width="800" height="800" loading="lazy" decoding="async" alt="Quote card: a prospect from a contractor marketing agency says it is refreshing to hear a human handles and calls every reply." class="w-full h-auto block"></figure>
+        </div>
+       </div>
+      </section>
+      <section id="junk" class="bg-mist border-b border-line">
+       <div class="max-w-7xl mx-auto px-5 md:px-10 py-20 md:py-28">
+        <div class="vk-rev max-w-3xl mb-12 md:mb-16">
+          <div class="vk-pill mb-6"><span class="dot"></span>[PLACEHOLDER: eyebrow]</div>
+          <h2 class="vk-display text-[2.2rem] sm:text-5xl md:text-[3.2rem] mb-6">Junk meetings</h2>
+          <p class="text-base md:text-lg leading-relaxed max-w-2xl border border-dashed border-line bg-mist px-4 py-3 vk-mono text-[12px]">[PLACEHOLDER: intro/body copy for 'Junk meetings' — Copywriter]</p>
+        </div>
+        <div class="columns-1 md:columns-2 gap-5 [&>figure]:mb-5 [&>figure]:break-inside-avoid">
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/01-worth-it.webp" width="583" height="334" loading="lazy" decoding="async" alt="Chat screenshot with names blurred: asked if the meetings are worth his time, an insurance client replies yes they are, and says this is a great situation and to keep the meeting." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/03-right-person.webp" width="773" height="155" loading="lazy" decoding="async" alt="Chat screenshot with names blurred: an ads agency client says he spoke with the paid media manager, the right person, so a good lead, and later says another very good lead." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/05-amazing-opportunity.webp" width="529" height="125" loading="lazy" decoding="async" alt="Chat screenshot with name blurred: a client says a booked prospect is an amazing, well-funded opportunity and an important one." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/07-showed-up.webp" width="390" height="146" loading="lazy" decoding="async" alt="Chat screenshot with names blurred: asked whether a booked prospect showed up, the client replies that it went well." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/10-good-opportunity.webp" width="583" height="205" loading="lazy" decoding="async" alt="Chat screenshot with names blurred: an insurance client says a booked call went well and was a good opportunity for sure." class="w-full h-auto block"></figure>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <figure class="vk-rev vk-tile overflow-hidden"><img src="assets/results/q05-prospect-really-good.webp" width="800" height="800" loading="lazy" decoding="async" alt="Quote card: a creative agency client says the prospect from a recent discovery call was really good." class="w-full h-auto block"></figure>
+        </div>
+       </div>
+      </section>
+      <section id="speed" class="border-b border-line">
+       <div class="max-w-7xl mx-auto px-5 md:px-10 py-20 md:py-28">
+        <div class="vk-rev max-w-3xl mb-12 md:mb-16">
+          <div class="vk-pill mb-6"><span class="dot"></span>[PLACEHOLDER: eyebrow]</div>
+          <h2 class="vk-display text-[2.2rem] sm:text-5xl md:text-[3.2rem] mb-6">How fast</h2>
+          <p class="text-base md:text-lg leading-relaxed max-w-2xl border border-dashed border-line bg-mist px-4 py-3 vk-mono text-[12px]">[PLACEHOLDER: intro/body copy for 'How fast' — Copywriter]</p>
+        </div>
+        <div class="columns-1 md:columns-2 gap-5 [&>figure]:mb-5 [&>figure]:break-inside-avoid">
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/06-traction.webp" width="551" height="96" loading="lazy" decoding="async" alt="Chat screenshot with name blurred: a client tells their team it is very exciting to see some traction." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/09-prospect-reply.webp" width="619" height="226" loading="lazy" decoding="async" alt="Screenshot of a reply notification with names blurred: a prospect replies that they can talk today, then confirms 4 PM works." class="w-full h-auto block"></figure>
+        </div>
+       </div>
+      </section>
+      <section id="industry" class="bg-mist border-b border-line">
+       <div class="max-w-7xl mx-auto px-5 md:px-10 py-20 md:py-28">
+        <div class="vk-rev max-w-3xl mb-12 md:mb-16">
+          <div class="vk-pill mb-6"><span class="dot"></span>[PLACEHOLDER: eyebrow]</div>
+          <h2 class="vk-display text-[2.2rem] sm:text-5xl md:text-[3.2rem] mb-6">Works in my industry</h2>
+          <p class="text-base md:text-lg leading-relaxed max-w-2xl border border-dashed border-line bg-mist px-4 py-3 vk-mono text-[12px]">[PLACEHOLDER: intro/body copy for 'Works in my industry' — Copywriter]</p>
+        </div>
+        <div class="columns-1 md:columns-2 gap-5 [&>figure]:mb-5 [&>figure]:break-inside-avoid">
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/07-showed-up.webp" width="390" height="146" loading="lazy" decoding="async" alt="Chat screenshot with names blurred: asked whether a booked prospect showed up, the client replies that it went well." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/02-on-site-bid.webp" width="583" height="194" loading="lazy" decoding="async" alt="Chat screenshot with names and amounts blurred: a commercial cleaning client reports finishing an on-site walkthrough and says they will bid on the job." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/09-prospect-reply.webp" width="619" height="226" loading="lazy" decoding="async" alt="Screenshot of a reply notification with names blurred: a prospect replies that they can talk today, then confirms 4 PM works." class="w-full h-auto block"></figure>
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/03-right-person.webp" width="773" height="155" loading="lazy" decoding="async" alt="Chat screenshot with names blurred: an ads agency client says he spoke with the paid media manager, the right person, so a good lead, and later says another very good lead." class="w-full h-auto block"></figure>
+        </div>
+       </div>
+      </section>
+      <section id="voice" class="border-b border-line">
+       <div class="max-w-7xl mx-auto px-5 md:px-10 py-20 md:py-28">
+        <div class="vk-rev max-w-3xl mb-12 md:mb-16">
+          <div class="vk-pill mb-6"><span class="dot"></span>[PLACEHOLDER: eyebrow]</div>
+          <h2 class="vk-display text-[2.2rem] sm:text-5xl md:text-[3.2rem] mb-6">Sounds like us</h2>
+          <p class="text-base md:text-lg leading-relaxed max-w-2xl border border-dashed border-line bg-mist px-4 py-3 vk-mono text-[12px]">[PLACEHOLDER: intro/body copy for 'Sounds like us' — Copywriter]</p>
+        </div>
+        <div class="columns-1 md:columns-2 gap-5 [&>figure]:mb-5 [&>figure]:break-inside-avoid">
+          <figure class="vk-rev vk-tile p-4 md:p-5"><img src="assets/results/08-copy-praise.webp" width="583" height="220" loading="lazy" decoding="async" alt="Chat screenshot with the draft email blurred: a client reacts to email copy we wrote, saying this is amazing and to activate it." class="w-full h-auto block"></figure>
+        </div>
+       </div>
+      </section>
+      <section class="bg-navy text-white">
+        <div class="max-w-5xl mx-auto px-5 md:px-10 py-20 md:py-28 text-center">
+          <p class="vk-mono text-[12px] text-white/70 border border-dashed border-white/30 px-4 py-3 inline-block">[PLACEHOLDER: closing CTA copy — Copywriter]</p>
+          <div class="mt-8"><a href="https://calendly.com/tristan-echeverri/strategy" target="_blank" rel="noopener noreferrer" class="vk-btn vk-btn-light text-sm px-6 py-3"><span>Book a Call</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg></a></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-16 md:pt-20 pb-10 px-5 md:px-10">
+      <div class="max-w-7xl mx-auto grid gap-12 md:gap-16 md:grid-cols-[minmax(280px,1.4fr)_1fr]">
+        <div>
+          <a href="index.html" class="inline-flex items-center gap-3">
+            <img src="assets/spotter-mark-white.png" alt="Spotter Digital" class="h-9 w-9 object-contain">
+            <span class="font-bold uppercase text-xl tracking-tight leading-none">Spotter Digital</span>
+          </a>
+          <p class="text-sm mt-5 max-w-xs leading-relaxed text-white/55">
+            Scaling revenue for ambitious brands through intelligent cold email ecosystems.
+          </p>
+          <a href="index.html#book-call" class="vk-btn vk-btn-light inline-flex mt-7 text-xs px-6 py-3">
+            <span>Book a free strategy call</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+          </a>
+          <div class="vk-mono text-[10px] text-white/40 mt-10">© 2026 Spotter Digital · All rights reserved.</div>
+        </div>
+        <div class="grid grid-cols-2 gap-10">
+          <div>
+            <h3 class="vk-mono text-[11px] text-white/45 mb-5">Company</h3>
+            <ul class="flex flex-col gap-3.5 text-sm text-white/65">
+              <li><a href="index.html" class="vk-foot-lnk">Services</a></li>
+              <li><a href="index.html#process" class="vk-foot-lnk">How It Works</a></li>
+              <li><a href="results.html" class="vk-foot-lnk">Results</a></li>
+              <li><a href="roi-calculator.html" class="vk-foot-lnk">ROI Calculator</a></li>
+              <li><a href="index.html" class="vk-foot-lnk">About</a></li>
+              <li><a href="index.html#book-call" class="vk-foot-lnk">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="vk-mono text-[11px] text-white/45 mb-5">Get started</h3>
+            <ul class="flex flex-col gap-3.5 text-sm text-white/65">
+              <li><a href="index.html#book-call" class="vk-foot-lnk">Book a call</a></li>
+              <li><a href="index.html#contact" class="vk-foot-lnk">The guarantee</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script>
+      /* Scroll reveal */
+      (function(){
+        var els = document.querySelectorAll('.vk-rev');
+        if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+          els.forEach(function(e){ e.classList.add('in'); }); return;
+        }
+        var obs = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        els.forEach(function(e){ obs.observe(e); });
+      })();
+    </script>
+  </body>
+</html>
