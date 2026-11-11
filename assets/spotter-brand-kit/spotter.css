@@ -908,6 +908,33 @@ a {
   gap: var(--s-3);
 }
 
+/* The guarantee: its own short line under the headline */
+.sd-hero__promise {
+  margin-top: calc(var(--s-4) * -1);
+  color: var(--fg);
+  font-size: clamp(1.875rem, 1.1rem + 3.2vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.sd-hero__buttons,
+.sd-hero__covered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-3);
+}
+
+.sd-hero__covered {
+  gap: var(--s-2);
+  margin-top: var(--s-3);
+}
+
+#video {
+  scroll-margin-top: 96px;
+}
+
 .sd-hero--center .sd-lead {
   margin-inline: auto;
 }
