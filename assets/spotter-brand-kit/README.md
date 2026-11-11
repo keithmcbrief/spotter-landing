@@ -137,7 +137,7 @@ List every one before a deploy:
 grep -o 'data-ph="[^"]*"' 40-calls.html | sort | uniq -c
 ```
 
-Current keys: `draft-banner`, `vsl`, `deal-size`. The page must not go live while any remain.
+Current keys: `draft-banner`, `vsl`. The page must not go live while any remain.
 
 ## Voice
 
