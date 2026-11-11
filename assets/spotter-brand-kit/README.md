@@ -143,7 +143,7 @@ Current keys: `draft-banner`, `vsl`. The page must not go live while any remain.
 
 - First person plural, plain words, specific numbers. Short sentences.
 - No proof we cannot source: no client logos, testimonials, case studies or result numbers unless `offer/current_offer.md` in the business repo approves the claim.
-- The page states the promise and nothing about how the guarantee is settled. Refund terms, price and payment are explained on the call, not on the site (Yuri, 2026-11-11).
+- The page states the promise, "40 qualified sales calls in 90 days, or we refund every call we miss", and nothing about how the refund is settled. Refund terms, price and payment are explained on the call, not on the site (Yuri, 2026-11-11).
 - No emojis. No em dashes or en dashes.
 
 ## Logo

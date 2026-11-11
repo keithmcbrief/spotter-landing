@@ -4,7 +4,7 @@ Static site, no build step. Deployed by Vercel from GitHub: `main` is production
 
 ## Pages
 - `index.html`: the root page. Still the v1 design and the performance-basis offer. Not changed by the brand kit v2 work.
-- `40-calls.html` (served at `/40-calls`): the new landing page, built on brand kit v2. Headline: 40 qualified calls in 90 days, or you don't pay. It states the promise only; how the guarantee is settled, the price and payment are explained on the call, not on the page.
+- `40-calls.html` (served at `/40-calls`): the new landing page, built on brand kit v2. Headline: 40 qualified sales calls in 90 days, or we refund every call we miss. It states the promise only; how the refund is settled, the price and payment are explained on the call, not on the page.
 - `results.html` (served at `/results`) and `roi-calculator.html`: older pages on the v1 inline styles.
 
 ## Brand kit
