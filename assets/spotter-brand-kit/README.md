@@ -55,8 +55,8 @@ Components read `--fg`, `--fg-muted`, `--rule`, `--surface`, `--accent-text` and
 
 | Role | Class | Face | Size | Weight / tracking |
 | --- | --- | --- | --- | --- |
-| Display | `.sd-display` | Switzer | 40 to 72px, fluid | 500, -0.047em, line-height 1.01 |
-| Heading 2 | `.sd-h2` | Switzer | 32 to 60px, fluid | 500, -0.04em, 1.04 |
+| Display | `.sd-display` | Switzer | 40 to 72px, fluid | 500, -0.04em, line-height 1.02 |
+| Heading 2 | `.sd-h2` | Switzer | 32 to 60px, fluid | 500, -0.035em, 1.05 |
 | Heading 3 | `.sd-h3` | Switzer | 21 to 24px | 600, -0.018em, 1.2 |
 | Lead | `.sd-lead` | Switzer | 18 to 20px | 400, line-height 1.55 |
 | Body | `.sd-body` | Switzer | 17px | 400, line-height 1.6 |

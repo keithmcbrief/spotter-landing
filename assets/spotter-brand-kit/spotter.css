@@ -193,15 +193,15 @@ a {
 .sd-display {
   font-size: var(--text-display);
   font-weight: 500;
-  line-height: 1.01;
-  letter-spacing: -0.047em;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
 }
 
 .sd-h2 {
   font-size: var(--text-h2);
   font-weight: 500;
-  line-height: 1.04;
-  letter-spacing: -0.04em;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
 }
 
 .sd-h3 {
@@ -347,12 +347,13 @@ a {
 
 .sd-grid-2 {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--s-5);
 }
 
 @media (min-width: 860px) {
   .sd-grid-2 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 }
 
@@ -498,6 +499,8 @@ a {
   letter-spacing: 0;
   text-transform: none;
   white-space: normal;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   color: #8a4b00;
   background: #fff3d6;
 }
@@ -969,7 +972,10 @@ a {
   border-radius: 50%;
   background: var(--teal-100);
   color: var(--teal-800);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
   font-weight: 600;
+  line-height: 1;
 }
 
 .sd-formula__term--result {
@@ -1002,15 +1008,18 @@ a {
   white-space: nowrap;
 }
 
+/* The refund segment is never narrower than its label, so on small screens
+   the split is indicative rather than to scale */
 .sd-bar__kept {
-  flex: var(--kept, 33);
+  flex: var(--kept, 33) 1 0;
+  min-width: 0;
+  overflow: hidden;
   background: var(--teal-800);
   color: var(--on-dark);
 }
 
 .sd-bar__refund {
-  flex: var(--gap, 7);
-  min-width: 96px;
+  flex: var(--gap, 7) 0 auto;
   background: var(--highlight);
   color: var(--ink);
   justify-content: center;
@@ -1094,6 +1103,7 @@ a {
 
   .sd-compare tbody th,
   .sd-compare td {
+    width: 100%;
     padding: 0;
     border-top: 0;
   }
@@ -1253,6 +1263,7 @@ a {
 .sd-hero__grid {
   position: relative;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(40px, 5vw, 72px);
   align-items: center;
 }
@@ -1279,12 +1290,14 @@ a {
 /* Steps: numbered rows, copy left and a figure right */
 .sd-steps {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--s-5);
   counter-reset: step;
 }
 
 .sd-step {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--s-6);
   align-items: center;
   padding: clamp(24px, 3.4vw, 48px);
@@ -1361,6 +1374,7 @@ a {
 /* Split: sticky heading left, content right */
 .sd-split {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(32px, 5vw, 72px);
 }
 
