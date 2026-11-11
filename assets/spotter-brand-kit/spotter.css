@@ -924,7 +924,7 @@ a {
 
 .sd-hero__big {
   display: block;
-  font-size: clamp(2.75rem, 0.6rem + 9vw, 7.5rem);
+  font-size: clamp(2.5rem, 0.5rem + 7.5vw, 6.25rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.05em;

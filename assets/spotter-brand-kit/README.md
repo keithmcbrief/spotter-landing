@@ -167,7 +167,7 @@ Current keys: `draft-banner`, `vsl`, `walkthrough-video`, `founder-background`, 
 
 - First person plural, plain words, specific numbers. Short sentences.
 - No proof we cannot source: no client logos, testimonials, case studies or result numbers unless `offer/current_offer.md` in the business repo approves the claim.
-- The page states the promise, "I guarantee you 100 qualified sales calls with decision makers in your market. In 90 days, or you don't pay.", and nothing about how that is settled. Terms, price and payment are explained on the call, not on the site (Yuri, 2026-11-11).
+- The page states the promise, "We'll book you 100 sales calls with decision makers in your market. In 90 days, or you don't pay.", and nothing about how that is settled. Terms, price and payment are explained on the call, not on the site (Yuri, 2026-11-11).
 - The promise number and the 90 days are written in four places only: the `title`, the meta description, `og:title` and the `h1`. The guarantee line ("In 90 days, or you don't pay.") sits under the `h1` as `.sd-hero__promise`, so the 90 days is written there and not in the `h1`. Everywhere else the page says "the number", so a change to the promise is a four-line edit.
 - Below the hero, every line says the actual thing we do or the actual thing the client gets. Short sentences, common words, one idea per sentence. No clever headings, no slogans. Sixth grade reading level or lower (Yuri, 2026-11-11). The banned word list is in the business repo: `skills/spotter/cold-email-generator/references/WRITING_RULES.md`, Style.
 - No emojis. No em dashes or en dashes.
