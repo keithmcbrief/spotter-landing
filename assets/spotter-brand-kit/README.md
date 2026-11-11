@@ -1,137 +1,186 @@
-# Spotter Digital — Brand Kit
+# Spotter Digital brand kit (v2, 2026-11-11)
 
-## Colors
+One stylesheet, `spotter.css`, is the source of truth for the marketing site. `index.html` in this folder renders every token and component from it. The landing page (`/index.html`) has no styles of its own: it composes the classes documented here.
 
-The brand runs on a teal system. The logo mark carries the deepest teal; the website UI uses a slightly brighter teal as its primary accent, on white with a neutral support set.
+Change a color, size or spacing value in `spotter.css` and nowhere else.
 
-| Role | Hex | RGB | Where it's used |
-|------|-----|-----|------|
-| Brand Teal (primary) | `#004F4D` | `0, 79, 77` | Buttons, links, highlights, accents, active states |
-| Deep Teal | `#003837` | `0, 56, 55` | Dark panels, footer, large feature surfaces |
-| Logo Mark Teal | `#023E3E` | `2, 62, 62` | The teal baked into the logo PNGs (do not restyle) |
-| Ink | `#202020` | `32, 32, 32` | Headings and body text |
-| Steel | `#5F5F5F` | `95, 95, 95` | Secondary / supporting text |
-| Mist | `#F4F4F4` | `244, 244, 244` | Tinted section backgrounds, input fills |
-| Line | `#E2E2E2` | `226, 226, 226` | Borders and dividers |
-| White | `#FFFFFF` | `255, 255, 255` | Primary background |
+`results.html` and `roi-calculator.html` still carry the v1 styles inline (`vk-*` classes, Tailwind CDN, sharp 2px corners). They have not been migrated.
 
-CSS tokens (as used in the site): `--brand:#004F4D`, `--navy:#003837` (deep teal), `--deep:#00302F` (darkest shade), `--ink:#202020`, `--steel:#5F5F5F`, `--mist:#F4F4F4`, `--line:#E2E2E2`.
+## The idea
 
-**Accent tints** — teal `#004F4D` at low opacity carries component surfaces and depth:
-- `rgba(0,79,77,0.08)` icon-chip fill · `rgba(0,79,77,0.18)` icon-chip border
-- `rgba(0,79,77,0.45)` card-hover border · `rgba(0,79,77,0.12)` illustration fill
-- soft shadows tinted with deep teal `rgba(0,56,55,0.35)`
+The offer is arithmetic: count the market, deliver 100 calls, refund the gap. The kit borrows from a marked-up agreement and a ledger, quietly:
 
-**On dark teal panels** — emphasis + chrome accents:
-- `#7FB8B2` light-teal accent (emphasis words on the deep-teal panel)
-- `#CFE3E0` soft-teal accent (emphasis on the bright-teal guarantee panel)
-- white overlays: `rgba(255,255,255,0.08)` fills, `0.2`–`0.35` borders
+- Warm paper, green-black ink, the logo teal for dark surfaces.
+- One accent, a highlighter. It marks the phrase that matters and the money that comes back. Nothing else.
+- Figures in a mono face with tabular numerals.
+- Totals get a single rule above and a double rule below, as on a balance sheet.
 
-## Typography
+## Color
 
-| Role | Typeface | Weights | Use |
-|------|----------|---------|-----|
-| Display & body | **Switzer** | 400, 500, 600, 700 | Headlines (500, tracking ≈ −0.04em), body copy, UI |
-| Mono / labels | **Chivo Mono** | 400, 500, 600 | Eyebrows, micro-labels, data figures, code |
+| Token | Hex | Use |
+| --- | --- | --- |
+| `--ink` | `#0B1B1A` | Text, primary button, final CTA band, footer |
+| `--muted` | `#5B6866` | Secondary text (5.3:1 on paper) |
+| `--paper` | `#F6F4EE` | Default page background |
+| `--paper-deep` | `#EDEAE1` | Reserved for tinted fills |
+| `--white` | `#FFFFFF` | Cards on paper; alternate section background |
+| `--line` / `--line-strong` | `#DFDBD0` / `#C6C1B3` | Borders and rules |
+| `--teal-900` | `#04302F` | Video frame, deepest surface |
+| `--teal-800` | `#023E3E` | The teal in the logo files. Dark sections and dark cards |
+| `--teal-700` | `#004F4D` | Interactive teal on light: eyebrows, focus ring, button hover |
+| `--teal-300` / `--teal-100` | `#8FBDB7` / `#E1ECE9` | Tints |
+| `--highlight` | `#DCF36A` | The accent. Highlighter stroke, primary button on dark, refunded dots |
+| `--on-dark` / `--on-dark-muted` | `#F3F6F1` / `#A9C2BE` | Text on teal and ink |
 
-Load both:
+Rules:
+
+- The highlighter appears at most once per screen in a heading, plus the refund figure. If it is everywhere it means nothing.
+- No gradients as decoration, no second accent color, no pure black.
+- Placeholder amber (`.sd-ph`) is not a brand color. It exists so unfinished copy cannot ship unnoticed.
+
+### Surface modes
+
+Sections set the surface; components adapt. Add one modifier to `.sd-section`:
+
+| Class | Background | Notes |
+| --- | --- | --- |
+| (none) | paper | Cards are white |
+| `.sd-section--white` | white | Cards are paper |
+| `.sd-section--teal` | teal 800 | Text flips to light, accent text and primary button become the highlighter |
+| `.sd-section--ink` | ink | Same as teal, darker. Used for the final CTA |
+
+Components read `--fg`, `--fg-muted`, `--rule`, `--surface`, `--accent-text` and `--label-accent`, never a raw color. On dark surfaces eyebrows use teal 300, so the highlighter stays reserved for the phrase, the button and the refund. `.sd-card--dark` applies the teal mode to a single card.
+
+## Type
+
+| Role | Class | Face | Size | Weight / tracking |
+| --- | --- | --- | --- | --- |
+| Display | `.sd-display` | Switzer | 40 to 68px, fluid | 600, -0.038em, line-height 1.03 |
+| Heading 2 | `.sd-h2` | Switzer | 32 to 52px, fluid | 600, -0.032em, 1.06 |
+| Heading 3 | `.sd-h3` | Switzer | 21 to 24px | 600, -0.018em, 1.2 |
+| Lead | `.sd-lead` | Switzer | 18 to 20px | 400, line-height 1.55 |
+| Body | `.sd-body` | Switzer | 17px | 400, line-height 1.6 |
+| Small | `.sd-small` | Switzer | 15px | 400 |
+| Label | `.sd-label`, `.sd-eyebrow` | Chivo Mono | 12px | 500, uppercase, +0.08em |
+| Figures | `.sd-num` | Chivo Mono | inherits | tabular numerals |
+
+Fonts load from Fontshare (Switzer 400, 500, 600, 700) and Google Fonts (Chivo Mono 400, 500):
 
 ```html
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
 ```
 
-- **Display headings** — Switzer 500, tracking ≈ −0.04em, line-height 1.0; set a key phrase in Brand Teal for emphasis (`em`, not italic).
-- **Sub-headings** — Switzer 500, tracking ≈ −0.02em, line-height 1.1.
-- **Body** — Switzer 400; default text color is Steel, headings are Ink.
-- **Labels / eyebrows** — Chivo Mono, uppercase, ~12px.
+Rules:
 
-## Components & patterns
+- Headings are sentence case and end with a period when they are a sentence. No all caps headings.
+- Text columns stop at `--measure` (62 characters).
+- Emphasis inside a heading is the highlighter (`.sd-hl`), never italics or a color change. On dark surfaces `.sd-hl` becomes highlighter-colored text.
 
-The site is built from a small set of reusable classes (`vk-*`). Everything uses **sharp 2px corners** and the teal system above.
+## Space, shape, depth
 
-### Eyebrow pills (`vk-pill`)
-Mono label above a heading. 1px Line border, 2px radius, `7px 12px` padding, Chivo Mono 12px uppercase, with a 7×7px Brand Teal **square** dot. On dark panels use the light variant: white text, `rgba(255,255,255,0.35)` border, white dot.
+- Spacing scale, 4px base: `--s-1` 4, `--s-2` 8, `--s-3` 12, `--s-4` 16, `--s-5` 24, `--s-6` 32, `--s-7` 48, `--s-8` 64, `--s-9` 96.
+- `--gutter`: 20 to 40px side padding. `--container`: 1180px. `--section-y`: 72 to 136px vertical section padding.
+- Radius: `--r-sm` 6 (chips, bars), `--r-md` 14 (cards, figures), `--r-lg` 24 (large cards, steps, video), `--r-pill` (buttons).
+- Two shadows only: `--shadow-card` for a raised white card, `--shadow-lift` for the dark hero card and the video frame. Most cards have a border and no shadow.
 
-### Buttons (`vk-btn`)
-Sharp 2px rectangles, Switzer 500. Signature hover: a fill **rises from the bottom** (0.42s ease) while the trailing arrow nudges up-right. Variants:
-- **Primary** — Brand Teal bg, rises to Deep Teal
-- **Navy** — Deep Teal bg, rises to Brand Teal
-- **Light** — white bg / teal text (for dark panels), rises to Brand Teal with text flipping white
-- **Outline** — transparent / Ink border, rises to Ink
+## Components
 
-### Cards / tiles (`vk-tile`)
-White, 1px Line border, 2px radius. On hover the border turns teal (`rgba(0,79,77,0.45)`) and a soft deep-teal shadow lifts it.
+| Component | Classes | Notes |
+| --- | --- | --- |
+| Button | `.sd-btn` + `--primary`, `--accent`, `--ghost`, `--sm` | Pill, 52px tall (42px small). Primary is ink on light and highlighter on dark, automatically. One primary button per section |
+| Text link | `.sd-link` | Underlined, 1px, offset 5px |
+| Eyebrow | `.sd-eyebrow` | Mono label with a short rule in front. One per section header |
+| Chip | `.sd-chip` | Small bordered fact |
+| Placeholder | `.sd-ph` + `data-ph="key"` | Dashed amber box for copy that is not final. See below |
+| Card | `.sd-card` + `--lg`, `--raised`, `--dark`, `--outline` | `.sd-card__title` for the heading |
+| Ledger | `.sd-ledger`, `.sd-ledger__row`, `--total` | `dl` rows with a dotted leader. The total row carries the double rule |
+| Fit list | `.sd-fit` + `--yes` or `--no`, `.sd-fit__mark` | Who it is for and who it is not for |
+| Term sheet | `.sd-terms`, `.sd-terms__row` | `dl` of guarantee terms. Label left, plain sentence right |
+| FAQ | `.sd-faq`, `.sd-faq__item`, `.sd-faq__icon`, `.sd-faq__answer` | Native `details` and `summary`. No script |
+| Video frame | `.sd-video-wrap`, `.sd-video`, `.sd-video__slot`, `.sd-video__play` | 16:9. Holds the VSL embed; shows a labelled slot until it exists |
+| Refund meter | `.sd-meter__dots`, `.sd-meter__control`, `.sd-range` | 100 dots, one per guaranteed call. Missed calls turn highlighter |
+| Formula | `.sd-formula`, `.sd-formula__term`, `--result`, `.sd-formula__op` | The market count written out |
+| Split bar | `.sd-bar`, `.sd-bar__kept`, `.sd-bar__refund` | Delivered against refunded |
+| Check list | `.sd-checks` | Plain list with teal checks |
 
-### Icon chips (`vk-ico`)
-48×48, 2px radius. Light surfaces: teal-tint fill + teal border + teal stroke icon. Dark panels: white-overlay fill + white icon. Icons are stroke SVGs, ~1.7px weight.
+## Section patterns
 
-### Layout & rhythm
-- Content column `max-w-7xl` with `px-5 md:px-10` padding; hero column `max-w-5xl`.
-- Section vertical padding `py-20 md:py-28`.
-- Sections alternate **white → mist → deep-teal** panels for rhythm.
+| Pattern | Classes | Use |
+| --- | --- | --- |
+| Container | `.sd-container` | Every section's inner wrapper |
+| Section | `.sd-section` + surface modifier, `--tight`, `--flush-top` | Vertical rhythm |
+| Section header | `.sd-head`, `--center` | Eyebrow, heading, optional lead. Max 820px wide |
+| Nav | `.sd-nav`, `.sd-nav__inner`, `.sd-brand`, `.sd-nav__links` | Sticky, blurred paper. Links hide under 900px; the button stays |
+| Hero | `.sd-hero`, `.sd-hero__grid`, `.sd-hero__copy`, `.sd-hero__actions` | Copy left, one object right. Stacks under 1000px |
+| Steps | `.sd-steps`, `.sd-step`, `.sd-step__num`, `.sd-step__title`, `.sd-step__figure` | Numbered rows, copy and a figure. Numbers only where order is real |
+| Split | `.sd-split`, `.sd-split__aside` | Sticky heading left, content right. Guarantee and FAQ |
+| Two-up | `.sd-grid-2` | Two equal columns from 860px |
+| CTA band | `.sd-cta` | Centered closing block |
+| Footer | `.sd-footer`, `.sd-footer__inner`, `.sd-footer__links` | Ink |
 
-### Motion
-- **Scroll reveal** — elements fade in and rise 16px as they enter view; honors `prefers-reduced-motion`.
-- **Button fill** rises from the bottom on hover; the **logo marquee** auto-scrolls with an edge fade mask.
-- Illustrations animate subtly on reveal (drift / float / bars grow / check draws).
+Section order on the landing page: hero, video, how it works, who it is for, guarantee, FAQ, final call to action. Surfaces alternate paper, paper, white, paper, teal, white, ink.
 
-### Shadows & corners
-- Corners: **2px** across the UI (the one exception is the email-mockup cards, which use 14px).
-- Shadows are soft and far, tinted with deep teal — e.g. `0 26px 50px -34px rgba(0,56,55,0.35)`.
+## Motion
 
-## Files
+- `.sd-reveal`: fade and 18px rise on scroll, once. `--delay` staggers a neighbor.
+- Buttons: color change and a 3px arrow nudge. FAQ icon: plus turns to minus.
+- The refund meter responds to the slider. That is the only interactive figure.
+- Everything is off under `prefers-reduced-motion`, and nothing is hidden when JavaScript is off.
 
-### /logo
-- `spotter-logo-full.png` — mark + wordmark, transparent. Use for website headers, email signatures, documents.
-- `spotter-logo-full-white-bg.png` — same logo on white. Use when a transparent background won't render well (some email clients, some social platforms).
-- `spotter-mark.png` — mark only, transparent. Use when the logo needs to be small or the brand is already established in context.
-- `spotter-mark-white-bg.png` — mark only on white.
-- `spotter-mark-black.png` — monochrome black. Use for single-color printing (stamps, merch, receipts, faxes).
-- `spotter-mark-white.png` — monochrome white. Use on dark backgrounds.
+## Placeholders
 
-### /social
-- `spotter-avatar-1000.png` — 1000×1000 square avatar on white. Use for Google Business Profile, LinkedIn company page, Instagram, Facebook, Twitter/X.
-- `spotter-avatar-1000-transparent.png` — same avatar, transparent background.
-
-### /favicon
-Everything you need for the website favicon. See implementation snippet below.
-- `favicon.ico` — multi-resolution (16/32/48), legacy browsers
-- `favicon-16x16.png`, `favicon-32x32.png`, `favicon-48x48.png` — modern browsers
-- `favicon-192x192.png`, `favicon-512x512.png` — large previews
-- `apple-touch-icon.png` — 180×180, iOS home screen
-- `android-chrome-192x192.png`, `android-chrome-512x512.png` — Android home screen
-- `site.webmanifest` — PWA/home-screen metadata
-
-## Favicon implementation
-
-Upload the `/favicon` folder contents to the root of your domain, then add this to the `<head>` of every page:
+Anything not final on the page is wrapped like this:
 
 ```html
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#004F4D">
+<span class="sd-ph" data-ph="price">PLACEHOLDER: price</span>
 ```
 
-For Framer: Site Settings → General → upload `favicon.ico` as the favicon, and `apple-touch-icon.png` as the Apple touch icon.
+List every one before a deploy:
 
-## Usage rules
+```bash
+grep -o 'data-ph="[^"]*"' index.html | sort | uniq -c
+```
 
-**Do**
-- Maintain clear space around the mark equal to the height of the circuit node (the small circles)
-- Use the full logo (mark + wordmark) first time Spotter appears in a document or page
-- Use the mark alone once brand is established in context
+Current keys: `price`, `guaranteed-number`, `window-start`, `qualified-definition`, `refund-timing`, `guarantee-fine-print`, `deal-size`, `vsl`. The page must not go live while any remain.
 
-**Don't**
-- Stretch, skew, or rotate the logo
-- Change the colors outside of the two monochrome variants provided
-- Place the color logo on backgrounds that clash with the teal — use the monochrome white version on dark/photographic backgrounds instead
-- Put the logo on a teal background (pick the black or white version)
+## Voice
 
-## Note on scaling
+- First person plural, plain words, specific numbers. Short sentences.
+- No proof we cannot source: no client logos, testimonials, case studies or result numbers unless `offer/current_offer.md` in the business repo approves the claim.
+- Worked examples of the refund arithmetic are labelled as examples.
+- No emojis. No em dashes or en dashes.
 
-All files are raster PNGs derived from the original 1254×1254 source. They scale down beautifully for any digital use. For print or merch larger than ~6 inches wide, regenerate the logo as an SVG (vector) for sharpest output at any size.
+## Logo
+
+Files are in `logo/`, `social/` and `favicon/`, unchanged from v1.
+
+- `logo/spotter-mark.png`: color mark, transparent. Nav on paper or white.
+- `logo/spotter-mark-white.png`: white mark. Footer and any ink or teal surface.
+- `logo/spotter-mark-black.png`: one-color print.
+- `logo/spotter-logo-full.png`, `logo/spotter-logo-full-white-bg.png`: mark with wordmark, for documents and email signatures.
+- `social/spotter-avatar-1000.png`: square avatar for profiles.
+
+Do:
+
+- Keep clear space around the mark equal to the height of its small circuit node.
+- Use the mark with the "Spotter Digital" wordmark set in Switzer 700 in the nav and footer (`.sd-brand`).
+
+Do not:
+
+- Stretch, rotate or recolor the mark.
+- Put the color mark on teal or ink. Use the white mark there.
+- Put the mark on the highlighter color.
+
+All logo files are raster PNGs from a 1254px source. For print larger than about 6 inches, redraw the mark as a vector first.
+
+## Favicon
+
+```html
+<link rel="icon" type="image/png" sizes="32x32" href="assets/spotter-brand-kit/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/spotter-brand-kit/favicon/favicon-16x16.png">
+<link rel="shortcut icon" href="assets/spotter-brand-kit/favicon/favicon.ico">
+<link rel="apple-touch-icon" href="assets/spotter-brand-kit/favicon/apple-touch-icon.png">
+<link rel="manifest" href="assets/spotter-brand-kit/favicon/site.webmanifest">
+<meta name="theme-color" content="#f6f4ee">
+```

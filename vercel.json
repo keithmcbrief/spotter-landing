@@ -1,5 +1,13 @@
 {
   "rewrites": [
-    { "source": "/results", "destination": "/results.html" }
-  ]
+    {
+      "source": "/results",
+      "destination": "/results.html"
+    }
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "redesign-guaranteed-calls": false
+    }
+  }
 }
