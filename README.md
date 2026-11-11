@@ -20,7 +20,7 @@ Copy that is not final is wrapped in `<span class="sd-ph" data-ph="...">`, and a
 grep -o 'data-ph="[^"]*"' 40-calls.html | sort | uniq -c
 ```
 
-The new VSL goes in the hero of `40-calls.html`; the comment there shows the embed.
+The new VSL goes in the hero of `40-calls.html`; the comment there shows the embed. The page also needs a 2 to 3 minute walkthrough video of the flowchart and two founder facts (background, location). It embeds the Calendly inline widget with the same link the root page uses, and every button scrolls to it.
 
 ## Run locally
 ```bash

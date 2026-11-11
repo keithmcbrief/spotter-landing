@@ -99,6 +99,14 @@ Rules:
 | Video frame | `.sd-video-wrap`, `.sd-video`, `.sd-video__slot`, `.sd-video__play` | 16:9. Holds the VSL embed; shows a labelled slot until it exists |
 | Formula | `.sd-formula`, `.sd-formula__term`, `--result`, `.sd-formula__op` | The market count written out |
 | Check list | `.sd-checks` | Plain list with teal checks |
+| Pain card | `.sd-card.sd-pain` | Mono label, a bold lead line, one or two sentences |
+| Points | `.sd-points`, `.sd-points__num`, `.sd-points__body` | Ruled, numbered rows. The why-us list |
+| Included list | `.sd-included` | Every tangible thing we do, one cell each. Never an item called "research" |
+| Flowchart | `.sd-flow`, `.sd-flow__title`, `.sd-flow__lane`, `.sd-flow__stage`, `.sd-flow__nodes`, `.sd-flow__node`, `--result` | The system, stage by stage, labeled with its name. Rows with right arrows on desktop, one column with down arrows on phones |
+| Comparison table | `.sd-compare` | A real `table`. The last column is ours and sits on teal. Each `td` carries `data-label` so rows stack under 800px |
+| Founder | `.sd-founder`, `.sd-founder__photo`, `.sd-founder__copy` | Photo one side, three or four short lines the other |
+| Calendar embed | `.sd-embed`, `.sd-embed__fallback`, `.sd-book`, `.sd-book__foot` | White panel that holds the Calendly inline widget |
+| Large button | `.sd-btn--lg` | The one big button after the included list |
 
 ## Section patterns
 
@@ -112,10 +120,26 @@ Rules:
 | Steps | `.sd-steps`, `.sd-step`, `.sd-step__num`, `.sd-step__title`, `.sd-step__figure` | Numbered rows, copy and a figure. Numbers only where order is real |
 | Split | `.sd-split`, `.sd-split__aside` | Sticky heading left, content right. FAQ |
 | Two-up | `.sd-grid-2` | Two equal columns from 860px |
-| CTA band | `.sd-cta` | Centered block: eyebrow, display heading, lead, one button. The guarantee band and the final call to action |
+| Three-up | `.sd-grid-3` | Three equal columns from 860px |
+| Section button | `.sd-section__cta` | One centered button under a section, with an optional line above or below. Every major section ends with one; labels vary |
+| CTA band | `.sd-cta` | Centered block: eyebrow, display heading, lead, one button. Not used on the 40 calls page at the moment |
 | Footer | `.sd-footer`, `.sd-footer__inner`, `.sd-footer__links` | Ink |
 
-Section order on the 40 calls page: hero with the video, how it works, who it is for, the guarantee band, FAQ, final call to action. Surfaces run paper, white, paper, teal, white, ink.
+Section order on the 40 calls page follows the long-form order for cold email traffic (business repo, `brain/topics/marketing-vsl-landing-pages.md`):
+
+1. Hero: audience pill, the promise, sub-headline, button, VSL
+2. Pain points: what they already tried
+3. Why us: the market count
+4. How it works: three steps
+5. Everything included, then the large button
+6. The system: walkthrough video over the labeled flowchart. This stands in for case studies until there are client results we are cleared to show
+7. Comparison table
+8. Who it is for, and who it is not for
+9. Founder
+10. Book the call: the calendar embedded on the page
+11. FAQ
+
+Surfaces run paper, white, paper, white, paper, teal, white, paper, white, ink, paper. Every button on the page scrolls to the calendar (`#book`).
 
 ## Motion
 
@@ -137,13 +161,14 @@ List every one before a deploy:
 grep -o 'data-ph="[^"]*"' 40-calls.html | sort | uniq -c
 ```
 
-Current keys: `draft-banner`, `vsl`. The page must not go live while any remain.
+Current keys: `draft-banner`, `vsl`, `walkthrough-video`, `founder-background`, `founder-location`. The page must not go live while any remain.
 
 ## Voice
 
 - First person plural, plain words, specific numbers. Short sentences.
 - No proof we cannot source: no client logos, testimonials, case studies or result numbers unless `offer/current_offer.md` in the business repo approves the claim.
 - The page states the promise, "40 qualified sales calls in 90 days, or we refund every call we miss", and nothing about how the refund is settled. Refund terms, price and payment are explained on the call, not on the site (Yuri, 2026-11-11).
+- The promise number and the 90 days are written in four places only: the `title`, the meta description, `og:title` and the `h1`. Everywhere else the page says "the number", so a change to the promise is a four-line edit.
 - No emojis. No em dashes or en dashes.
 
 ## Logo
