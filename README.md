@@ -4,7 +4,7 @@ Static site, no build step. Deployed by Vercel from GitHub: `main` is production
 
 ## Pages
 - `index.html`: the root page. Still the v1 design and the performance-basis offer. Not changed by the brand kit v2 work.
-- `100-calls.html` (served at `/100-calls`): the new landing page, built on brand kit v2. Headline: We'll book you 100 sales calls with decision makers in your market. In 90 days, or you don't pay. It states the promise only; how that is settled, the price and payment are explained on the call, not on the page. The path still carries the old number.
+- `100-calls.html` (served at `/100-calls`): the new landing page, built on brand kit v2. Headline: I will book you 100 sales calls with decision makers in your market. In 90 days, or you don't pay. It states the promise only; how that is settled, the price and payment are explained on the call, not on the page. The path still carries the old number.
 - `results.html` (served at `/results`) and `roi-calculator.html`: older pages on the v1 inline styles.
 
 ## Brand kit
