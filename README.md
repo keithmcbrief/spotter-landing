@@ -3,7 +3,7 @@
 Static site, no build step. Deployed by Vercel from GitHub: `main` is production, other branches get preview deployments unless switched off in `vercel.json`.
 
 ## Live pages
-- `index.html`: the landing page. Built on brand kit v2 around the guaranteed-calls offer (100 qualified sales calls in 90 days, refund for every call missed).
+- `index.html`: the landing page. Built on brand kit v2 around the guaranteed-meetings offer (a set number of qualified meetings a month, paid up front, refund for every meeting that falls short). The number is a placeholder, set once as `data-guarantee` on the `<html>` tag.
 - `results.html` (served at `/results`) and `roi-calculator.html`: older pages, still on the v1 inline styles and the retired performance-basis wording. Not linked from the landing page until they are reworded.
 
 ## Brand kit

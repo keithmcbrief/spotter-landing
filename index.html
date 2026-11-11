@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-guarantee="40">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotter Digital | 100 qualified sales calls in 90 days, or we refund every call we miss</title>
-    <meta name="description" content="Cold email for B2B companies with 20 or more employees. We count the buyers we can reach in your market before you pay, guarantee 100 qualified sales calls in 90 days, and refund every call we miss.">
+    <title>Spotter Digital | 40 qualified meetings a month, or we refund every one we miss</title>
+    <meta name="description" content="Cold email for B2B companies with 20 or more employees. We count the buyers we can reach in your market before you pay, guarantee 40 qualified meetings a month, and refund every meeting that falls short.">
     <script>document.documentElement.classList.remove('no-js');</script>
 
     <!-- Favicon -->
@@ -18,8 +18,8 @@
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.spotterdigital.ai/">
-    <meta property="og:title" content="100 qualified sales calls in 90 days, or we refund every call we miss">
-    <meta property="og:description" content="We count the buyers we can reach in your market before you pay. If the math supports 100 calls, we guarantee them. Every call we miss is refunded.">
+    <meta property="og:title" content="40 qualified meetings a month, or we refund every one we miss">
+    <meta property="og:description" content="We count the buyers we can reach in your market before you pay. If the math supports 40 meetings a month, we guarantee them. Every meeting that falls short is refunded.">
     <meta property="og:image" content="https://www.spotterdigital.ai/assets/spotter-brand-kit/social/spotter-avatar-1000.png">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -35,6 +35,9 @@
   </head>
   <body>
     <a class="sd-skip" href="#main">Skip to content</a>
+
+    <!-- DRAFT BANNER. Delete when the number, the price and the terms are locked. -->
+    <p class="sd-draft" data-ph="draft-banner">Draft. The number of meetings, the price and the guarantee terms on this page are placeholders.</p>
 
     <!-- Nav -->
     <header class="sd-nav" id="nav">
@@ -59,8 +62,8 @@
         <div class="sd-container sd-hero__grid">
           <div class="sd-hero__copy">
             <p class="sd-eyebrow">Cold email for B2B companies with 20+ employees</p>
-            <h1 class="sd-display">100 qualified sales calls in 90 days, or we <span class="sd-hl">refund every call we miss.</span></h1>
-            <p class="sd-lead">Before you pay, we count the buyers we can actually reach in your market. If the math supports 100 calls, we guarantee them in writing. If we come up short, you get money back for each call we missed.</p>
+            <h1 class="sd-display"><span class="sd-ph sd-ph--bare" data-ph="guaranteed-number" data-guarantee>40</span> qualified meetings a month, or we <span class="sd-hl">refund every one we miss.</span></h1>
+            <p class="sd-lead">Before you pay, we count the buyers we can actually reach in your market. If the math supports <span data-guarantee>40</span> meetings a month, we guarantee them in writing. Any meeting that never happens, does not show or is not qualified gets refunded.</p>
             <div class="sd-hero__actions">
               <a class="sd-btn sd-btn--primary" href="https://calendly.com/spotterdigital/strategy" target="_blank" rel="noopener noreferrer">
                 See if your market qualifies
@@ -70,31 +73,31 @@
             </div>
           </div>
 
-          <!-- Refund meter: the guarantee as arithmetic. Percent of fee only, so it needs no price. -->
+          <!-- Refund meter: the guarantee as arithmetic. Share of the monthly fee only, so it needs no price. The total comes from data-guarantee on <html>. -->
           <aside class="sd-card sd-card--lg sd-card--dark sd-stack" aria-labelledby="meter-title">
             <div>
-              <p class="sd-label">Day 90, illustrated</p>
-              <h2 class="sd-h3 sd-meter__title" id="meter-title">Drag to see what we owe you if we miss.</h2>
+              <p class="sd-label">One month, illustrated</p>
+              <h2 class="sd-h3 sd-meter__title" id="meter-title">Drag to see what we owe you in a short month.</h2>
             </div>
 
             <div class="sd-meter__dots" id="meter-dots" aria-hidden="true"></div>
 
             <div class="sd-meter__control">
               <label for="meter-range">
-                <span>Calls we delivered</span>
-                <output class="sd-num" id="meter-out" for="meter-range">82</output>
+                <span>Qualified meetings held</span>
+                <output class="sd-num" id="meter-out" for="meter-range">33</output>
               </label>
-              <input class="sd-range" id="meter-range" type="range" min="0" max="100" step="1" value="82">
+              <input class="sd-range" id="meter-range" type="range" min="0" max="40" step="1" value="33">
             </div>
 
             <dl class="sd-ledger">
-              <div class="sd-ledger__row"><dt>Calls guaranteed</dt><dd>100</dd></div>
-              <div class="sd-ledger__row"><dt>Calls delivered</dt><dd id="meter-delivered">82</dd></div>
-              <div class="sd-ledger__row"><dt>Calls missed</dt><dd id="meter-missed">18</dd></div>
-              <div class="sd-ledger__row sd-ledger__row--total"><dt>We refund</dt><dd id="meter-refund">18% of your fee</dd></div>
+              <div class="sd-ledger__row"><dt>Meetings guaranteed</dt><dd data-guarantee>40</dd></div>
+              <div class="sd-ledger__row"><dt>Held and qualified</dt><dd id="meter-delivered">33</dd></div>
+              <div class="sd-ledger__row"><dt>Short, no-show or not qualified</dt><dd id="meter-missed">7</dd></div>
+              <div class="sd-ledger__row sd-ledger__row--total"><dt>We refund</dt><dd id="meter-refund">17.5% of the month</dd></div>
             </dl>
 
-            <p class="sd-small">One call is worth one hundredth of the fee. Every call we miss goes back to you at that rate. <span class="sd-ph" data-ph="guarantee-fine-print">PLACEHOLDER: final refund terms</span></p>
+            <p class="sd-small">Each meeting is an equal share of the monthly fee. Every one that falls short goes back to you at that share. <span class="sd-ph" data-ph="guarantee-fine-print">PLACEHOLDER: final refund terms</span></p>
           </aside>
         </div>
       </section>
@@ -104,7 +107,7 @@
         <div class="sd-container">
           <div class="sd-head sd-head--center sd-reveal">
             <p class="sd-eyebrow">Watch first</p>
-            <h2 class="sd-h2">How we count a market, and what happens if we miss.</h2>
+            <h2 class="sd-h2">How we count a market, and what happens when a meeting falls short.</h2>
           </div>
           <figure class="sd-video-wrap sd-reveal">
             <div class="sd-video">
@@ -136,15 +139,15 @@
               <div class="sd-step__copy">
                 <p class="sd-step__num">Step 01</p>
                 <h3 class="sd-step__title">Count the market.</h3>
-                <p class="sd-body">We pull the companies that fit your customer profile and the decision makers at them whose work email we can find and verify. Then we work out how many of those people we need to email to book one qualified call.</p>
-                <p class="sd-body"><strong>If the count clears 100 calls with room to spare, we offer the guarantee. If it does not, we tell you, and you keep your money.</strong></p>
+                <p class="sd-body">We pull the companies that fit your customer profile and the decision makers at them whose work email we can find and verify. Then we work out how many of those people we need to email to book one qualified meeting. That tells us how many months of <span data-guarantee>40</span> meetings your market holds.</p>
+                <p class="sd-body"><strong>If the count supports <span data-guarantee>40</span> meetings a month with room to spare, we offer the guarantee. If it does not, we tell you, and you keep your money.</strong></p>
               </div>
               <div class="sd-step__figure">
                 <p class="sd-label sd-figure-label">The count</p>
                 <div class="sd-formula">
                   <div class="sd-formula__term"><span class="sd-formula__op" aria-hidden="true">#</span><span>Buyers we can reach in your market</span></div>
-                  <div class="sd-formula__term"><span class="sd-formula__op" aria-label="divided by">&divide;</span><span>Buyers we email to book one qualified call</span></div>
-                  <div class="sd-formula__term sd-formula__term--result"><span class="sd-formula__op" aria-label="equals">=</span><span>Calls your market can support</span></div>
+                  <div class="sd-formula__term"><span class="sd-formula__op" aria-label="divided by">&divide;</span><span>Buyers we email to book one qualified meeting</span></div>
+                  <div class="sd-formula__term sd-formula__term--result"><span class="sd-formula__op" aria-label="equals">=</span><span>Meetings your market can support</span></div>
                 </div>
               </div>
             </li>
@@ -153,8 +156,8 @@
               <div class="sd-step__copy">
                 <p class="sd-step__num">Step 02</p>
                 <h3 class="sd-step__title">Send at volume.</h3>
-                <p class="sd-body">Hitting 100 calls in 90 days takes a lot of email, sent well. We build the sending setup, the lists and the copy, then email your market at the volume the count calls for. We answer the replies and put the qualified calls on your calendar.</p>
-                <p class="sd-body">You approve the copy and the definition of a qualified call. After that, your job is to take the calls.</p>
+                <p class="sd-body">Booking <span data-guarantee>40</span> meetings a month takes a lot of email, sent well. We build the sending setup, the lists and the copy, then email your market at the volume the count calls for. We answer the replies and put the qualified meetings on your calendar.</p>
+                <p class="sd-body">You approve the copy and the definition of a qualified meeting. After that, your job is to take the meetings.</p>
               </div>
               <div class="sd-step__figure">
                 <p class="sd-label sd-figure-label">What we run for you</p>
@@ -163,7 +166,7 @@
                   <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span>Lead lists built for your market, with verified emails</span></li>
                   <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span>Email copy, written by us and approved by you</span></li>
                   <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span>Reply handling and booking, through to the calendar invite</span></li>
-                  <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span>A running count of qualified calls against the 100</span></li>
+                  <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span>A running count of qualified meetings against the <span data-guarantee>40</span></span></li>
                 </ul>
               </div>
             </li>
@@ -172,14 +175,14 @@
               <div class="sd-step__copy">
                 <p class="sd-step__num">Step 03</p>
                 <h3 class="sd-step__title">Refund the gap.</h3>
-                <p class="sd-body">At day 90 we count the qualified calls together. If the number is 100 or more, we did our job. If it is less, we refund each missing call at one hundredth of the fee.</p>
-                <p class="sd-body">Deliver 82, refund 18. There is nothing to negotiate, because the definition of a qualified call was agreed before the first email went out.</p>
+                <p class="sd-body">At the end of each month we count the meetings that were held with a qualified buyer. If the number is <span data-guarantee>40</span> or more, we did our job. If it is less, we refund the difference, meeting by meeting.</p>
+                <p class="sd-body"><strong>A no-show counts as a miss. So does a cancellation, and so does a meeting with someone who does not fit the definition we agreed on.</strong> You only pay for meetings that were real.</p>
               </div>
               <div class="sd-step__figure">
-                <p class="sd-label sd-figure-label">Example settlement</p>
-                <div class="sd-bar" role="img" aria-label="Example: 82 calls delivered, 18 calls refunded">
-                  <span class="sd-bar__kept">82 delivered</span>
-                  <span class="sd-bar__refund">18 refunded</span>
+                <p class="sd-label sd-figure-label">Example month</p>
+                <div class="sd-bar" role="img" aria-label="Example month: 33 meetings held and qualified, 7 refunded">
+                  <span class="sd-bar__kept">33 held and qualified</span>
+                  <span class="sd-bar__refund">7 refunded</span>
                 </div>
                 <p class="sd-small sd-figure-note">An example of the arithmetic, not a result we are claiming.</p>
               </div>
@@ -211,7 +214,7 @@
                 </li>
                 <li>
                   <span class="sd-fit__mark" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg></span>
-                  <span><strong>Enough reachable buyers</strong>There are enough companies in your market to support 100 calls. We check this for you.</span>
+                  <span><strong>Enough reachable buyers</strong>There are enough companies in your market to support <span data-guarantee>40</span> meetings a month, for more than one month. We check this for you.</span>
                 </li>
                 <li>
                   <span class="sd-fit__mark" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg></span>
@@ -219,7 +222,7 @@
                 </li>
                 <li>
                   <span class="sd-fit__mark" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg></span>
-                  <span><strong>Deals big enough to carry the fee</strong>A handful of closed deals from 100 calls should pay for the whole thing. <span class="sd-ph" data-ph="deal-size">PLACEHOLDER: minimum deal size</span></span>
+                  <span><strong>Deals big enough to carry the fee</strong>A few closed deals a month should cover the fee. <span class="sd-ph" data-ph="deal-size">PLACEHOLDER: minimum deal size</span></span>
                 </li>
               </ul>
             </div>
@@ -233,7 +236,7 @@
                 </li>
                 <li>
                   <span class="sd-fit__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>
-                  <span><strong>You only serve one city or region</strong>Local markets run out of buyers before we reach 100 calls.</span>
+                  <span><strong>You only serve one city or region</strong>Local markets run out of buyers too fast to support <span data-guarantee>40</span> meetings a month.</span>
                 </li>
                 <li>
                   <span class="sd-fit__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>
@@ -245,7 +248,7 @@
                 </li>
                 <li>
                   <span class="sd-fit__mark" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>
-                  <span><strong>Nobody is free to take the calls</strong>100 calls in 90 days is about 8 a week. Someone on your side has to show up to them.</span>
+                  <span><strong>Nobody is free to take the meetings</strong><span data-guarantee>40</span> a month is about 10 a week. Someone on your side has to show up to them.</span>
                 </li>
               </ul>
             </div>
@@ -258,8 +261,8 @@
         <div class="sd-container sd-split">
           <div class="sd-split__aside sd-reveal">
             <p class="sd-eyebrow">The guarantee</p>
-            <h2 class="sd-h2">100 calls, or money back for <span class="sd-hl">every one we miss.</span></h2>
-            <p class="sd-lead">You pay one fee up front. We owe you 100 qualified sales calls inside 90 days. Whatever we fail to deliver, we refund, call by call.</p>
+            <h2 class="sd-h2"><span data-guarantee>40</span> meetings a month, or money back for <span class="sd-hl">every one we miss.</span></h2>
+            <p class="sd-lead">You pay for the month up front. We owe you <span data-guarantee>40</span> qualified meetings in that month. Whatever falls short, we refund, meeting by meeting.</p>
             <a class="sd-btn sd-btn--primary" href="https://calendly.com/spotterdigital/strategy" target="_blank" rel="noopener noreferrer">
               See if your market qualifies
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
@@ -269,23 +272,27 @@
           <dl class="sd-terms sd-reveal" style="--delay:.08s">
             <div class="sd-terms__row">
               <dt>What we owe</dt>
-              <dd>100 qualified sales calls. <span class="sd-ph" data-ph="guaranteed-number">PLACEHOLDER: confirm 100</span></dd>
-            </div>
-            <div class="sd-terms__row">
-              <dt>By when</dt>
-              <dd>90 days. <span class="sd-ph" data-ph="window-start">PLACEHOLDER: when the 90 days start</span></dd>
+              <dd><span data-guarantee>40</span> qualified meetings every month. <span class="sd-ph" data-ph="guaranteed-number">PLACEHOLDER: number not locked</span></dd>
             </div>
             <div class="sd-terms__row">
               <dt>What counts</dt>
-              <dd>A call with a decision maker at a company that fits the profile we agree on in writing before the first email goes out. <span class="sd-ph" data-ph="qualified-definition">PLACEHOLDER: counts when held or when booked</span></dd>
+              <dd>A meeting that is held with a decision maker at a company that fits the profile we agree on in writing before the first email goes out.</dd>
+            </div>
+            <div class="sd-terms__row">
+              <dt>What does not</dt>
+              <dd>No-shows, cancellations and meetings with someone who does not fit the definition. Each one is refunded like a meeting we never booked. <span class="sd-ph" data-ph="reschedule-rule">PLACEHOLDER: how rescheduled meetings are treated</span></dd>
             </div>
             <div class="sd-terms__row">
               <dt>If we miss</dt>
-              <dd>Each missing call is refunded at one hundredth of the fee. Miss 18, refund 18%. <span class="sd-ph" data-ph="refund-timing">PLACEHOLDER: when the refund is paid</span></dd>
+              <dd>Every meeting short of <span data-guarantee>40</span> is refunded as an equal share of that month's fee. <span class="sd-ph" data-ph="refund-timing">PLACEHOLDER: when and how the refund is paid</span></dd>
             </div>
             <div class="sd-terms__row">
               <dt>The fee</dt>
-              <dd><span class="sd-ph" data-ph="price">PLACEHOLDER: price</span><small>One upfront fee. No per-call charges on top.</small></dd>
+              <dd><span class="sd-ph" data-ph="price">PLACEHOLDER: monthly price</span><small>Paid monthly, up front. No per-meeting charges on top.</small></dd>
+            </div>
+            <div class="sd-terms__row">
+              <dt>The term</dt>
+              <dd><span class="sd-ph" data-ph="term-and-ramp">PLACEHOLDER: minimum term, and when the first guaranteed month starts</span></dd>
             </div>
             <div class="sd-terms__row">
               <dt>Fine print</dt>
@@ -306,30 +313,37 @@
 
           <div class="sd-faq sd-reveal" style="--delay:.08s">
             <details class="sd-faq__item" open>
-              <summary>What counts as a qualified call?<span class="sd-faq__icon" aria-hidden="true"></span></summary>
+              <summary>What counts as a qualified meeting?<span class="sd-faq__icon" aria-hidden="true"></span></summary>
               <div class="sd-faq__answer">
-                <p>We write the definition down with you before anything is sent: the job titles, the company size and the kind of company you want to talk to. A call counts when it is with someone who fits that definition. Calls that do not fit do not count toward the 100. <span class="sd-ph" data-ph="qualified-definition">PLACEHOLDER: counts when held or when booked</span></p>
+                <p>We write the definition down with you before anything is sent: the job titles, the company size and the kind of company you want to talk to. A meeting counts when it is held with someone who fits that definition. Anything else does not count toward the <span data-guarantee>40</span>.</p>
+              </div>
+            </details>
+
+            <details class="sd-faq__item">
+              <summary>What happens when someone does not show?<span class="sd-faq__icon" aria-hidden="true"></span></summary>
+              <div class="sd-faq__answer">
+                <p>That meeting is refunded. No-shows and cancellations are treated the same as a meeting we never booked, so you are not paying for an empty slot on your calendar. <span class="sd-ph" data-ph="reschedule-rule">PLACEHOLDER: how rescheduled meetings are treated</span></p>
               </div>
             </details>
 
             <details class="sd-faq__item">
               <summary>How does the refund work?<span class="sd-faq__icon" aria-hidden="true"></span></summary>
               <div class="sd-faq__answer">
-                <p>Divide the fee by 100. That is the price of one call. At day 90 we count the qualified calls, and every call short of 100 is refunded at that price. If we deliver 82, you get 18% of the fee back. <span class="sd-ph" data-ph="refund-timing">PLACEHOLDER: when the refund is paid</span></p>
+                <p>Each of the <span data-guarantee>40</span> meetings is an equal share of the monthly fee. At the end of the month we count the qualified meetings that were held, and every one short of <span data-guarantee>40</span> is refunded at that share. Hold 33, and 7 shares come back to you. <span class="sd-ph" data-ph="refund-timing">PLACEHOLDER: when and how the refund is paid</span></p>
               </div>
             </details>
 
             <details class="sd-faq__item">
               <summary>What does it cost?<span class="sd-faq__icon" aria-hidden="true"></span></summary>
               <div class="sd-faq__answer">
-                <p>One fee, paid up front, covering the full 90 days. <span class="sd-ph" data-ph="price">PLACEHOLDER: price, or "quoted after we count your market"</span></p>
+                <p>One fee per month, paid up front. <span class="sd-ph" data-ph="price">PLACEHOLDER: monthly price, or "quoted after we count your market"</span></p>
               </div>
             </details>
 
             <details class="sd-faq__item">
               <summary>Why do I pay up front?<span class="sd-faq__icon" aria-hidden="true"></span></summary>
               <div class="sd-faq__answer">
-                <p>Sending enough email to book 100 calls costs real money from the first day: domains, inboxes, data and the people running it. The fee pays for that. The refund is what keeps us honest about the number we promised.</p>
+                <p>Sending enough email to book <span data-guarantee>40</span> meetings a month costs real money from the first day: domains, inboxes, data and the people running it. The fee pays for that. The refund is what keeps us honest about the number we promised.</p>
               </div>
             </details>
 
@@ -341,16 +355,16 @@
             </details>
 
             <details class="sd-faq__item">
-              <summary>When does the first call show up?<span class="sd-faq__icon" aria-hidden="true"></span></summary>
+              <summary>When does the first meeting show up?<span class="sd-faq__icon" aria-hidden="true"></span></summary>
               <div class="sd-faq__answer">
-                <p>New sending domains need a warm up period before they can carry volume, so the first weeks are setup and the calls build from there. We walk you through the timeline before you pay. <span class="sd-ph" data-ph="window-start">PLACEHOLDER: ramp timeline, and when the 90 days start</span></p>
+                <p>New sending domains need a warm up period before they can carry volume, so the first weeks are setup. We walk you through the timeline before you pay. <span class="sd-ph" data-ph="term-and-ramp">PLACEHOLDER: ramp timeline, and when the first guaranteed month starts</span></p>
               </div>
             </details>
 
             <details class="sd-faq__item">
               <summary>What do you need from me?<span class="sd-faq__icon" aria-hidden="true"></span></summary>
               <div class="sd-faq__answer">
-                <p>A kickoff call to walk us through your offer and your best customers. Your sign off on the copy and on the definition of a qualified call. Then someone to take about 8 calls a week.</p>
+                <p>A kickoff call to walk us through your offer and your best customers. Your sign off on the copy and on the definition of a qualified meeting. Then someone to take about 10 meetings a week.</p>
               </div>
             </details>
 
@@ -368,7 +382,7 @@
       <section class="sd-section sd-section--ink" id="book">
         <div class="sd-container sd-cta sd-reveal">
           <p class="sd-eyebrow">The first step is the count</p>
-          <h2 class="sd-display">Find out if your market supports <span class="sd-hl">100 calls.</span></h2>
+          <h2 class="sd-display">Find out if your market supports <span class="sd-hl"><span data-guarantee>40</span> meetings a month.</span></h2>
           <p class="sd-lead">One call. We look at who you sell to, run the numbers on your market, and tell you whether we can guarantee it.</p>
           <a class="sd-btn sd-btn--primary" href="https://calendly.com/spotterdigital/strategy" target="_blank" rel="noopener noreferrer">
             See if your market qualifies
@@ -416,7 +430,11 @@
           items.forEach(function (el) { el.classList.add('is-in'); });
         }
 
-        // Refund meter: 100 dots, one per guaranteed call
+        // Guaranteed number: set once on <html data-guarantee>, written into every [data-guarantee] element
+        var total = parseInt(document.documentElement.getAttribute('data-guarantee'), 10) || 40;
+        document.querySelectorAll('body [data-guarantee]').forEach(function (el) { el.textContent = total; });
+
+        // Refund meter: one dot per guaranteed meeting
         var dotsEl = document.getElementById('meter-dots');
         var range = document.getElementById('meter-range');
         var out = document.getElementById('meter-out');
@@ -424,18 +442,21 @@
         var missed = document.getElementById('meter-missed');
         var refund = document.getElementById('meter-refund');
         var dots = [];
-        for (var i = 0; i < 100; i++) { var d = document.createElement('i'); dotsEl.appendChild(d); dots.push(d); }
+        range.max = total;
+        if (parseInt(range.value, 10) > total) { range.value = Math.round(total * 0.825); }
+        for (var i = 0; i < total; i++) { var d = document.createElement('i'); dotsEl.appendChild(d); dots.push(d); }
 
         function render() {
-          var n = Math.max(0, Math.min(100, parseInt(range.value, 10) || 0));
-          var gap = 100 - n;
-          for (var j = 0; j < 100; j++) { dots[j].classList.toggle('is-missed', j >= n); }
+          var n = Math.max(0, Math.min(total, parseInt(range.value, 10) || 0));
+          var gap = total - n;
+          var pct = Math.round((gap / total) * 1000) / 10;
+          for (var j = 0; j < total; j++) { dots[j].classList.toggle('is-missed', j >= n); }
           out.textContent = n;
           delivered.textContent = n;
           missed.textContent = gap;
-          refund.textContent = gap === 0 ? 'Nothing. We delivered.' : gap + '% of your fee';
-          range.style.setProperty('--fill', n + '%');
-          range.setAttribute('aria-valuetext', n + ' calls delivered, ' + gap + ' refunded');
+          refund.textContent = gap === 0 ? 'Nothing. We delivered.' : pct + '% of the month';
+          range.style.setProperty('--fill', (n / total) * 100 + '%');
+          range.setAttribute('aria-valuetext', n + ' meetings held, ' + gap + ' refunded');
         }
         range.addEventListener('input', render);
         render();

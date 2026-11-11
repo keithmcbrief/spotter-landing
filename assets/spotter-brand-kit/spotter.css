@@ -506,6 +506,35 @@ a {
   background: rgba(255, 217, 138, 0.08);
 }
 
+/* Placeholder inside a heading: keeps the heading's type, adds the dashed box */
+.sd-ph--bare {
+  padding: 0 0.12em;
+  border-width: 2px;
+  border-radius: 0.14em;
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+.sd-section--teal .sd-ph--bare,
+.sd-section--ink .sd-ph--bare {
+  color: inherit;
+  border-color: #ffd98a;
+}
+
+/* Draft banner: a full-width placeholder notice. Delete it when the page is final. */
+.sd-draft {
+  margin: 0;
+  padding: var(--s-2) var(--gutter);
+  background: #fff3d6;
+  border-bottom: 1px dashed #c98a1b;
+  color: #8a4b00;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  line-height: 1.5;
+  text-align: center;
+}
+
 /* Card */
 .sd-card {
   background: var(--surface);
@@ -811,11 +840,11 @@ a {
   color: var(--ink);
 }
 
-/* Refund meter: 100 dots, one per guaranteed call */
+/* Refund meter: one dot per guaranteed meeting. --cols sets the row length. */
 .sd-meter__dots {
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  gap: clamp(3px, 0.6vw, 6px);
+  grid-template-columns: repeat(var(--cols, 10), 1fr);
+  gap: clamp(5px, 1vw, 9px);
 }
 
 .sd-meter__dots i {
@@ -870,8 +899,8 @@ a {
   border-radius: 2px;
   background: linear-gradient(
     to right,
-    var(--on-dark) 0 var(--fill, 82%),
-    rgba(220, 243, 106, 0.55) var(--fill, 82%) 100%
+    var(--on-dark) 0 var(--fill, 82.5%),
+    rgba(220, 243, 106, 0.55) var(--fill, 82.5%) 100%
   );
 }
 
@@ -971,13 +1000,13 @@ a {
 }
 
 .sd-bar__kept {
-  flex: 82;
+  flex: var(--kept, 33);
   background: var(--teal-800);
   color: var(--on-dark);
 }
 
 .sd-bar__refund {
-  flex: 18;
+  flex: var(--gap, 7);
   min-width: 96px;
   background: var(--highlight);
   color: var(--ink);

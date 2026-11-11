@@ -8,7 +8,7 @@ Change a color, size or spacing value in `spotter.css` and nowhere else.
 
 ## The idea
 
-The offer is arithmetic: count the market, deliver 100 calls, refund the gap. The kit borrows from a marked-up agreement and a ledger, quietly:
+The offer is arithmetic: count the market, deliver the guaranteed meetings each month, refund the gap. The kit borrows from a marked-up agreement and a ledger, quietly:
 
 - Warm paper, green-black ink, the logo teal for dark surfaces.
 - One accent, a highlighter. It marks the phrase that matters and the money that comes back. Nothing else.
@@ -92,16 +92,16 @@ Rules:
 | Text link | `.sd-link` | Underlined, 1px, offset 5px |
 | Eyebrow | `.sd-eyebrow` | Mono label with a short rule in front. One per section header |
 | Chip | `.sd-chip` | Small bordered fact |
-| Placeholder | `.sd-ph` + `data-ph="key"` | Dashed amber box for copy that is not final. See below |
+| Placeholder | `.sd-ph` + `data-ph="key"`, `--bare`; `.sd-draft` | Dashed amber box for copy that is not final. `--bare` keeps a heading's type. `.sd-draft` is the banner across the top. See below |
 | Card | `.sd-card` + `--lg`, `--raised`, `--dark`, `--outline` | `.sd-card__title` for the heading |
 | Ledger | `.sd-ledger`, `.sd-ledger__row`, `--total` | `dl` rows with a dotted leader. The total row carries the double rule |
 | Fit list | `.sd-fit` + `--yes` or `--no`, `.sd-fit__mark` | Who it is for and who it is not for |
 | Term sheet | `.sd-terms`, `.sd-terms__row` | `dl` of guarantee terms. Label left, plain sentence right |
 | FAQ | `.sd-faq`, `.sd-faq__item`, `.sd-faq__icon`, `.sd-faq__answer` | Native `details` and `summary`. No script |
 | Video frame | `.sd-video-wrap`, `.sd-video`, `.sd-video__slot`, `.sd-video__play` | 16:9. Holds the VSL embed; shows a labelled slot until it exists |
-| Refund meter | `.sd-meter__dots`, `.sd-meter__control`, `.sd-range` | 100 dots, one per guaranteed call. Missed calls turn highlighter |
+| Refund meter | `.sd-meter__dots`, `.sd-meter__control`, `.sd-range` | One dot per guaranteed meeting (`--cols` sets the row length). Missed meetings turn highlighter |
 | Formula | `.sd-formula`, `.sd-formula__term`, `--result`, `.sd-formula__op` | The market count written out |
-| Split bar | `.sd-bar`, `.sd-bar__kept`, `.sd-bar__refund` | Delivered against refunded |
+| Split bar | `.sd-bar`, `.sd-bar__kept`, `.sd-bar__refund` | Held against refunded. `--kept` and `--gap` set the proportions |
 | Check list | `.sd-checks` | Plain list with teal checks |
 
 ## Section patterns
@@ -142,7 +142,9 @@ List every one before a deploy:
 grep -o 'data-ph="[^"]*"' index.html | sort | uniq -c
 ```
 
-Current keys: `price`, `guaranteed-number`, `window-start`, `qualified-definition`, `refund-timing`, `guarantee-fine-print`, `deal-size`, `vsl`. The page must not go live while any remain.
+Current keys: `draft-banner`, `guaranteed-number`, `price`, `refund-timing`, `reschedule-rule`, `term-and-ramp`, `guarantee-fine-print`, `deal-size`, `vsl`. The page must not go live while any remain.
+
+The guaranteed number is set once, as `data-guarantee="40"` on the `<html>` tag. The script writes it into every `[data-guarantee]` element and sizes the refund meter from it. Three things do not follow automatically and need a hand edit when the number changes: the `<title>` and meta descriptions, the "about 10 a week" lines, and the worked example (33 held, 7 refunded).
 
 ## Voice
 
