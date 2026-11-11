@@ -55,13 +55,13 @@ Components read `--fg`, `--fg-muted`, `--rule`, `--surface`, `--accent-text` and
 
 | Role | Class | Face | Size | Weight / tracking |
 | --- | --- | --- | --- | --- |
-| Display | `.sd-display` | Switzer | 40 to 68px, fluid | 600, -0.038em, line-height 1.03 |
-| Heading 2 | `.sd-h2` | Switzer | 32 to 52px, fluid | 600, -0.032em, 1.06 |
+| Display | `.sd-display` | Switzer | 40 to 72px, fluid | 500, -0.047em, line-height 1.01 |
+| Heading 2 | `.sd-h2` | Switzer | 32 to 60px, fluid | 500, -0.04em, 1.04 |
 | Heading 3 | `.sd-h3` | Switzer | 21 to 24px | 600, -0.018em, 1.2 |
 | Lead | `.sd-lead` | Switzer | 18 to 20px | 400, line-height 1.55 |
 | Body | `.sd-body` | Switzer | 17px | 400, line-height 1.6 |
 | Small | `.sd-small` | Switzer | 15px | 400 |
-| Label | `.sd-label`, `.sd-eyebrow` | Chivo Mono | 12px | 500, uppercase, +0.08em |
+| Label | `.sd-label`, `.sd-eyebrow` | Chivo Mono | 12px | 500, uppercase, +0.12em |
 | Figures | `.sd-num` | Chivo Mono | inherits | tabular numerals |
 
 Fonts load from Fontshare (Switzer 400, 500, 600, 700) and Google Fonts (Chivo Mono 400, 500):
@@ -73,6 +73,7 @@ Fonts load from Fontshare (Switzer 400, 500, 600, 700) and Google Fonts (Chivo M
 
 Rules:
 
+- Large type is medium weight and tightly tracked. Small headings (heading 3, step titles) are semibold.
 - Headings are sentence case and end with a period when they are a sentence. No all caps headings.
 - Text columns stop at `--measure` (62 characters).
 - Emphasis inside a heading is the highlighter (`.sd-hl`), never italics or a color change. On dark surfaces `.sd-hl` becomes highlighter-colored text.
@@ -102,6 +103,7 @@ Rules:
 | Refund meter | `.sd-meter__dots`, `.sd-meter__control`, `.sd-range` | One dot per guaranteed meeting (`--cols` sets the row length). Missed meetings turn highlighter |
 | Formula | `.sd-formula`, `.sd-formula__term`, `--result`, `.sd-formula__op` | The market count written out |
 | Split bar | `.sd-bar`, `.sd-bar__kept`, `.sd-bar__refund` | Held against refunded. `--kept` and `--gap` set the proportions |
+| Comparison table | `.sd-compare` | A real `table`: row label, the usual way, our way. The last column is the teal one. Stacks under 720px using `data-label` on each cell |
 | Check list | `.sd-checks` | Plain list with teal checks |
 
 ## Section patterns
@@ -119,7 +121,7 @@ Rules:
 | CTA band | `.sd-cta` | Centered closing block |
 | Footer | `.sd-footer`, `.sd-footer__inner`, `.sd-footer__links` | Ink |
 
-Section order on the landing page: hero, video, how it works, who it is for, guarantee, FAQ, final call to action. Surfaces alternate paper, paper, white, paper, teal, white, ink.
+Section order on the landing page: hero, video, how it works, who it is for, how it differs from a retainer, guarantee, FAQ, final call to action. Surfaces run paper, paper, white, paper, white, teal, white, ink.
 
 ## Motion
 

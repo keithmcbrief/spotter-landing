@@ -55,8 +55,8 @@
   --font-sans: "Switzer", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "Chivo Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --text-display: clamp(2.5rem, 1.45rem + 4.4vw, 4.25rem);
-  --text-h2: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --text-display: clamp(2.5rem, 1.35rem + 4.8vw, 4.5rem);
+  --text-h2: clamp(2rem, 1.3rem + 3vw, 3.75rem);
   --text-h3: clamp(1.3125rem, 1.2rem + 0.5vw, 1.5rem);
   --text-lead: clamp(1.125rem, 1.07rem + 0.3vw, 1.25rem);
   --text-body: 1.0625rem;
@@ -186,24 +186,27 @@ a {
 .sd-h2,
 .sd-h3 {
   color: var(--fg);
-  font-weight: 600;
   text-wrap: balance;
 }
 
+/* Large type is medium weight and tightly tracked; small headings carry more weight */
 .sd-display {
   font-size: var(--text-display);
-  line-height: 1.03;
-  letter-spacing: -0.038em;
+  font-weight: 500;
+  line-height: 1.01;
+  letter-spacing: -0.047em;
 }
 
 .sd-h2 {
   font-size: var(--text-h2);
-  line-height: 1.06;
-  letter-spacing: -0.032em;
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
 }
 
 .sd-h3 {
   font-size: var(--text-h3);
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.018em;
 }
@@ -240,7 +243,7 @@ a {
   font-size: var(--text-label);
   font-weight: 500;
   line-height: 1.3;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--fg-muted);
 }
@@ -449,7 +452,7 @@ a {
   font-size: var(--text-label);
   font-weight: 500;
   line-height: 1.3;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--label-accent);
 }
@@ -684,7 +687,7 @@ a {
   font-family: var(--font-mono);
   font-size: var(--text-label);
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--fg-muted);
   padding-top: 5px;
@@ -1013,6 +1016,124 @@ a {
   justify-content: center;
 }
 
+/* Comparison table: a typical retainer against this offer */
+.sd-compare {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.sd-compare th,
+.sd-compare td {
+  padding: var(--s-5) var(--s-5) var(--s-5) 0;
+  border-top: 1px solid var(--rule);
+  vertical-align: top;
+  font-weight: 400;
+}
+
+.sd-compare thead th {
+  border-top: 0;
+  padding-bottom: var(--s-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.sd-compare tbody th {
+  width: 28%;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.sd-compare td {
+  width: 36%;
+  color: var(--fg-muted);
+}
+
+/* The last column is ours: it sits on a teal panel */
+.sd-compare th:last-child,
+.sd-compare td:last-child {
+  padding-inline: var(--s-5);
+  background: var(--teal-800);
+  color: var(--on-dark);
+  border-top-color: var(--line-on-dark);
+}
+
+.sd-compare thead th:last-child {
+  padding-top: var(--s-5);
+  border-radius: var(--r-md) var(--r-md) 0 0;
+  color: var(--highlight);
+}
+
+.sd-compare tbody tr:last-child td:last-child {
+  border-radius: 0 0 var(--r-md) var(--r-md);
+}
+
+@media (max-width: 719px) {
+  .sd-compare,
+  .sd-compare tbody,
+  .sd-compare tr,
+  .sd-compare th,
+  .sd-compare td {
+    display: block;
+    width: 100%;
+  }
+
+  .sd-compare thead {
+    display: none;
+  }
+
+  .sd-compare tbody tr {
+    padding-block: var(--s-5);
+    border-top: 1px solid var(--rule);
+  }
+
+  .sd-compare tbody th,
+  .sd-compare td {
+    padding: 0;
+    border-top: 0;
+  }
+
+  .sd-compare td {
+    margin-top: var(--s-3);
+  }
+
+  .sd-compare td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+
+  .sd-compare td:last-child,
+  .sd-compare tbody tr:last-child td:last-child {
+    padding: var(--s-3) var(--s-4);
+    border-radius: var(--r-sm);
+  }
+
+  .sd-compare td:last-child::before {
+    color: var(--highlight);
+  }
+}
+
+.sd-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* Check list (plain) */
 .sd-checks {
   display: grid;
@@ -1182,7 +1303,7 @@ a {
   font-family: var(--font-mono);
   font-size: var(--text-label);
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--label-accent);
 }
