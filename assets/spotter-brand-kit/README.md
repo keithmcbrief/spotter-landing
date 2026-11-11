@@ -116,7 +116,7 @@ Rules:
 | Section | `.sd-section` + surface modifier, `--tight`, `--flush-top` | Vertical rhythm |
 | Section header | `.sd-head`, `--center` | Eyebrow, heading, optional lead. Max 820px wide |
 | Nav | `.sd-nav`, `.sd-nav__inner`, `.sd-brand`, `.sd-nav__links` | Sticky, blurred paper. Links hide under 900px; the button stays |
-| Hero | `.sd-hero`, `.sd-hero__copy`, `.sd-hero__promise`, `.sd-hero__actions`, `.sd-hero__buttons`, `.sd-hero__covered`; `.sd-hero--center` or `.sd-hero__grid` | Centered (copy, then the video frame under it) is what the `/40-calls` page uses. `.sd-hero__grid` is the two-column variant: copy left, one object right, stacking under 1000px |
+| Hero | `.sd-hero`, `.sd-hero__copy`, `.sd-hero__headline` (with `.sd-hero__line` and `.sd-hero__big` for the one blown-up phrase), `.sd-hero__promise`, `.sd-hero__actions`, `.sd-hero__buttons`, `.sd-hero__covered`; `.sd-hero--center` or `.sd-hero__grid` | Centered (copy, then the video frame under it) is what the `/40-calls` page uses. `.sd-hero__grid` is the two-column variant: copy left, one object right, stacking under 1000px |
 | Steps | `.sd-steps`, `.sd-step`, `.sd-step__num`, `.sd-step__title`, `.sd-step__figure` | Numbered rows, copy and a figure. Numbers only where order is real |
 | Split | `.sd-split`, `.sd-split__aside` | Sticky heading left, content right. FAQ |
 | Two-up | `.sd-grid-2` | Two equal columns from 860px |

@@ -908,6 +908,29 @@ a {
   gap: var(--s-3);
 }
 
+/* Headline with one phrase blown up: small line, the big phrase, small line */
+.sd-hero__headline {
+  display: grid;
+  justify-items: center;
+  gap: 0.12em;
+  font-size: clamp(1.625rem, 1.1rem + 2.3vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.sd-hero__line {
+  display: block;
+}
+
+.sd-hero__big {
+  display: block;
+  font-size: clamp(2.75rem, 0.6rem + 9vw, 7.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+}
+
 /* The guarantee: its own short line under the headline */
 .sd-hero__promise {
   margin-top: calc(var(--s-4) * -1);
