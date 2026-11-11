@@ -1,6 +1,6 @@
 # Spotter Digital brand kit (v2, 2026-11-11)
 
-One stylesheet, `spotter.css`, is the source of truth for new pages on the marketing site. `index.html` in this folder renders every token and component from it. The guaranteed calls landing page (`/40-calls.html`, served at `/40-calls`; the path still carries the old number) has no styles of its own: it composes the classes documented here.
+One stylesheet, `spotter.css`, is the source of truth for new pages on the marketing site. `index.html` in this folder renders every token and component from it. The guaranteed calls landing page (`/100-calls.html`, served at `/100-calls`; the path still carries the old number) has no styles of its own: it composes the classes documented here.
 
 Change a color, size or spacing value in `spotter.css` and nowhere else.
 
@@ -116,16 +116,16 @@ Rules:
 | Section | `.sd-section` + surface modifier, `--tight`, `--flush-top` | Vertical rhythm |
 | Section header | `.sd-head`, `--center` | Eyebrow, heading, optional lead. Max 820px wide |
 | Nav | `.sd-nav`, `.sd-nav__inner`, `.sd-brand`, `.sd-nav__links` | Sticky, blurred paper. Links hide under 900px; the button stays |
-| Hero | `.sd-hero`, `.sd-hero__copy`, `.sd-hero__headline` (with `.sd-hero__line` and `.sd-hero__big` for the one blown-up phrase), `.sd-hero__promise`, `.sd-hero__actions`, `.sd-hero__buttons`, `.sd-hero__covered`; `.sd-hero--center` or `.sd-hero__grid` | Centered (copy, then the video frame under it) is what the `/40-calls` page uses. `.sd-hero__grid` is the two-column variant: copy left, one object right, stacking under 1000px |
+| Hero | `.sd-hero`, `.sd-hero__copy`, `.sd-hero__headline` (with `.sd-hero__line` and `.sd-hero__big` for the one blown-up phrase), `.sd-hero__promise`, `.sd-hero__actions`, `.sd-hero__buttons`, `.sd-hero__covered`; `.sd-hero--center` or `.sd-hero__grid` | Centered (copy, then the video frame under it) is what the `/100-calls` page uses. `.sd-hero__grid` is the two-column variant: copy left, one object right, stacking under 1000px |
 | Steps | `.sd-steps`, `.sd-step`, `.sd-step__num`, `.sd-step__title`, `.sd-step__figure` | Numbered rows, copy and a figure. Numbers only where order is real |
 | Split | `.sd-split`, `.sd-split__aside` | Sticky heading left, content right. FAQ |
 | Two-up | `.sd-grid-2` | Two equal columns from 860px |
 | Three-up | `.sd-grid-3` | Three equal columns from 860px |
 | Section button | `.sd-section__cta` | One centered button under a section, with an optional line above or below. Every major section ends with one; labels vary |
-| CTA band | `.sd-cta` | Centered block: eyebrow, display heading, lead, one button. Not used on the `/40-calls` page at the moment |
+| CTA band | `.sd-cta` | Centered block: eyebrow, display heading, lead, one button. Not used on the `/100-calls` page at the moment |
 | Footer | `.sd-footer`, `.sd-footer__inner`, `.sd-footer__links` | Ink |
 
-Section order on the `/40-calls` page follows the long-form order for cold email traffic (business repo, `brain/topics/marketing-vsl-landing-pages.md`):
+Section order on the `/100-calls` page follows the long-form order for cold email traffic (business repo, `brain/topics/marketing-vsl-landing-pages.md`):
 
 1. Hero: audience pill, outcome headline, the guarantee on its own line, sub-headline, two buttons (book, watch the video), a row of what we handle, VSL
 2. Pain points: what they already tried
@@ -158,7 +158,7 @@ Anything not final on the page is wrapped like this:
 List every one before a deploy:
 
 ```bash
-grep -o 'data-ph="[^"]*"' 40-calls.html | sort | uniq -c
+grep -o 'data-ph="[^"]*"' 100-calls.html | sort | uniq -c
 ```
 
 Current keys: `draft-banner`, `vsl`, `walkthrough-video`, `founder-background`, `founder-location`. The page must not go live while any remain.
