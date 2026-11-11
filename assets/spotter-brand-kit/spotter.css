@@ -8,8 +8,8 @@
    2. Base
    3. Type
    4. Layout: container, section, surface modes
-   5. Components: button, link, eyebrow, chip, placeholder, card, ledger,
-      fit list, term sheet, FAQ, video frame, refund meter, formula
+   5. Components: button, link, eyebrow, chip, placeholder, card, fit list,
+      FAQ, video frame, formula, check list
    6. Section patterns: nav, hero, steps, split, CTA band, footer
    7. Motion
    ========================================================================== */
@@ -573,61 +573,6 @@ a {
   margin-bottom: var(--s-5);
 }
 
-/* Ledger: label, dotted leader, figure. The last row can be a total. */
-.sd-ledger {
-  display: grid;
-  gap: var(--s-3);
-}
-
-.sd-ledger__row {
-  display: flex;
-  align-items: baseline;
-  gap: var(--s-3);
-  color: var(--fg-muted);
-}
-
-.sd-ledger__row dt {
-  flex: none;
-}
-
-.sd-ledger__row::after {
-  content: "";
-  order: 1;
-  flex: 1;
-  min-width: 16px;
-  border-bottom: 1px dotted var(--fg-muted);
-  opacity: 0.5;
-  transform: translateY(-4px);
-}
-
-.sd-ledger__row dd {
-  order: 2;
-  flex: none;
-  color: var(--fg);
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  text-align: right;
-}
-
-/* Total row: single rule above, double rule below, as on a balance sheet */
-.sd-ledger__row--total {
-  margin-top: var(--s-2);
-  padding-block: var(--s-4);
-  border-top: 1px solid var(--fg);
-  border-bottom: 3px double var(--fg);
-  color: var(--fg);
-  font-weight: 600;
-}
-
-.sd-ledger__row--total::after {
-  border-bottom-color: transparent;
-}
-
-.sd-ledger__row--total dd {
-  color: var(--accent-text);
-  font-weight: 500;
-}
-
 /* Fit list: who it is for, who it is not for */
 .sd-fit {
   display: grid;
@@ -668,51 +613,6 @@ a {
   background: transparent;
   border: 1px solid var(--line-strong);
   color: var(--muted);
-}
-
-/* Term sheet: the guarantee written as terms */
-.sd-terms {
-  display: grid;
-}
-
-.sd-terms__row {
-  display: grid;
-  gap: var(--s-1) var(--s-5);
-  padding-block: var(--s-5);
-  border-top: 1px solid var(--rule);
-}
-
-.sd-terms__row:last-child {
-  border-bottom: 1px solid var(--rule);
-}
-
-.sd-terms__row dt {
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-  padding-top: 5px;
-}
-
-.sd-terms__row dd {
-  color: var(--fg);
-  font-size: var(--text-lead);
-  line-height: 1.45;
-}
-
-.sd-terms__row dd small {
-  display: block;
-  margin-top: var(--s-1);
-  font-size: var(--text-small);
-  color: var(--fg-muted);
-}
-
-@media (min-width: 640px) {
-  .sd-terms__row {
-    grid-template-columns: 150px 1fr;
-  }
 }
 
 /* FAQ accordion (details / summary) */
@@ -846,103 +746,6 @@ a {
   color: var(--ink);
 }
 
-/* Refund meter: one dot per guaranteed meeting. --cols sets the row length. */
-.sd-meter__dots {
-  display: grid;
-  grid-template-columns: repeat(var(--cols, 10), 1fr);
-  gap: clamp(5px, 1vw, 9px);
-}
-
-.sd-meter__dots i {
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--on-dark);
-  opacity: 0.92;
-  transition: background-color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
-}
-
-.sd-meter__dots i.is-missed {
-  background: var(--highlight);
-  opacity: 1;
-  transform: scale(0.82);
-  box-shadow: 0 0 0 2px rgba(220, 243, 106, 0.18);
-}
-
-.sd-meter__title {
-  margin-top: var(--s-2);
-}
-
-.sd-meter__control {
-  display: grid;
-  gap: var(--s-3);
-}
-
-.sd-meter__control label {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--s-4);
-  color: var(--fg);
-  font-weight: 500;
-}
-
-.sd-range {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 28px;
-  margin: 0;
-  background: transparent;
-  cursor: grab;
-}
-
-.sd-range:active {
-  cursor: grabbing;
-}
-
-.sd-range::-webkit-slider-runnable-track {
-  height: 4px;
-  border-radius: 2px;
-  background: linear-gradient(
-    to right,
-    var(--on-dark) 0 var(--fill, 82.5%),
-    rgba(220, 243, 106, 0.55) var(--fill, 82.5%) 100%
-  );
-}
-
-.sd-range::-moz-range-track {
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(220, 243, 106, 0.55);
-}
-
-.sd-range::-moz-range-progress {
-  height: 4px;
-  border-radius: 2px;
-  background: var(--on-dark);
-}
-
-.sd-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  margin-top: -10px;
-  border: 3px solid var(--teal-800);
-  border-radius: 50%;
-  background: var(--highlight);
-  box-shadow: 0 0 0 1px var(--highlight);
-}
-
-.sd-range::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  border: 3px solid var(--teal-800);
-  border-radius: 50%;
-  background: var(--highlight);
-  box-shadow: 0 0 0 1px var(--highlight);
-}
-
 /* Formula: the market math written out */
 .sd-formula {
   display: grid;
@@ -987,152 +790,6 @@ a {
 .sd-formula__term--result .sd-formula__op {
   background: var(--highlight);
   color: var(--ink);
-}
-
-/* Split bar: delivered against refunded */
-.sd-bar {
-  display: flex;
-  height: 44px;
-  overflow: hidden;
-  border-radius: var(--r-sm);
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.sd-bar span {
-  display: flex;
-  align-items: center;
-  padding-inline: var(--s-3);
-  white-space: nowrap;
-}
-
-/* The refund segment is never narrower than its label, so on small screens
-   the split is indicative rather than to scale */
-.sd-bar__kept {
-  flex: var(--kept, 33) 1 0;
-  min-width: 0;
-  overflow: hidden;
-  background: var(--teal-800);
-  color: var(--on-dark);
-}
-
-.sd-bar__refund {
-  flex: var(--gap, 7) 0 auto;
-  background: var(--highlight);
-  color: var(--ink);
-  justify-content: center;
-}
-
-/* Comparison table: a typical retainer against this offer */
-.sd-compare {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  text-align: left;
-}
-
-.sd-compare th,
-.sd-compare td {
-  padding: var(--s-5) var(--s-5) var(--s-5) 0;
-  border-top: 1px solid var(--rule);
-  vertical-align: top;
-  font-weight: 400;
-}
-
-.sd-compare thead th {
-  border-top: 0;
-  padding-bottom: var(--s-4);
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-}
-
-.sd-compare tbody th {
-  width: 28%;
-  color: var(--fg);
-  font-weight: 600;
-}
-
-.sd-compare td {
-  width: 36%;
-  color: var(--fg-muted);
-}
-
-/* The last column is ours: it sits on a teal panel */
-.sd-compare th:last-child,
-.sd-compare td:last-child {
-  padding-inline: var(--s-5);
-  background: var(--teal-800);
-  color: var(--on-dark);
-  border-top-color: var(--line-on-dark);
-}
-
-.sd-compare thead th:last-child {
-  padding-top: var(--s-5);
-  border-radius: var(--r-md) var(--r-md) 0 0;
-  color: var(--highlight);
-}
-
-.sd-compare tbody tr:last-child td:last-child {
-  border-radius: 0 0 var(--r-md) var(--r-md);
-}
-
-@media (max-width: 719px) {
-  .sd-compare,
-  .sd-compare tbody,
-  .sd-compare tr,
-  .sd-compare th,
-  .sd-compare td {
-    display: block;
-    width: 100%;
-  }
-
-  .sd-compare thead {
-    display: none;
-  }
-
-  .sd-compare tbody tr {
-    padding-block: var(--s-5);
-    border-top: 1px solid var(--rule);
-  }
-
-  .sd-compare tbody th,
-  .sd-compare td {
-    width: 100%;
-    padding: 0;
-    border-top: 0;
-  }
-
-  .sd-compare td {
-    margin-top: var(--s-3);
-  }
-
-  .sd-compare td::before {
-    content: attr(data-label);
-    display: block;
-    margin-bottom: 2px;
-    font-family: var(--font-mono);
-    font-size: var(--text-label);
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--fg-muted);
-  }
-
-  .sd-compare td:last-child,
-  .sd-compare tbody tr:last-child td:last-child {
-    padding: var(--s-3) var(--s-4);
-    border-radius: var(--r-sm);
-  }
-
-  .sd-compare td:last-child::before {
-    color: var(--highlight);
-  }
 }
 
 .sd-visually-hidden {
@@ -1236,6 +893,29 @@ a {
   .sd-brand span {
     display: none;
   }
+}
+
+/* Hero, centered: copy in one column, the video frame under it */
+.sd-hero--center .sd-hero__copy {
+  max-width: 940px;
+  margin-inline: auto;
+  justify-items: center;
+  text-align: center;
+}
+
+.sd-hero--center .sd-hero__actions {
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.sd-hero--center .sd-lead {
+  margin-inline: auto;
+}
+
+.sd-hero--center .sd-video-wrap {
+  position: relative;
+  width: 100%;
+  margin-top: clamp(40px, 5vw, 64px);
 }
 
 /* Hero: copy left, one object right */
@@ -1480,7 +1160,6 @@ a {
 
   .sd-btn,
   .sd-btn svg,
-  .sd-meter__dots i,
   .sd-faq__icon::before,
   .sd-faq__icon::after {
     transition: none;

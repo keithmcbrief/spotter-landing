@@ -1,19 +1,18 @@
 # Spotter Digital brand kit (v2, 2026-11-11)
 
-One stylesheet, `spotter.css`, is the source of truth for the marketing site. `index.html` in this folder renders every token and component from it. The landing page (`/index.html`) has no styles of its own: it composes the classes documented here.
+One stylesheet, `spotter.css`, is the source of truth for new pages on the marketing site. `index.html` in this folder renders every token and component from it. The 40 calls landing page (`/40-calls.html`, served at `/40-calls`) has no styles of its own: it composes the classes documented here.
 
 Change a color, size or spacing value in `spotter.css` and nowhere else.
 
-`results.html` and `roi-calculator.html` still carry the v1 styles inline (`vk-*` classes, Tailwind CDN, sharp 2px corners). They have not been migrated.
+The root page (`/index.html`), `results.html` and `roi-calculator.html` still carry the v1 styles inline (`vk-*` classes, Tailwind CDN, sharp 2px corners). They have not been migrated.
 
 ## The idea
 
-The offer is arithmetic: count the market, deliver the guaranteed meetings each month, refund the gap. The kit borrows from a marked-up agreement and a ledger, quietly:
+The pitch is arithmetic: count the market, then promise a number it can support. The kit borrows from a marked-up agreement, quietly:
 
 - Warm paper, green-black ink, the logo teal for dark surfaces.
-- One accent, a highlighter. It marks the phrase that matters and the money that comes back. Nothing else.
-- Figures in a mono face with tabular numerals.
-- Totals get a single rule above and a double rule below, as on a balance sheet.
+- One accent, a highlighter. It marks the one phrase that matters on a screen. Nothing else.
+- Figures and labels in a mono face.
 
 ## Color
 
@@ -29,12 +28,12 @@ The offer is arithmetic: count the market, deliver the guaranteed meetings each 
 | `--teal-800` | `#023E3E` | The teal in the logo files. Dark sections and dark cards |
 | `--teal-700` | `#004F4D` | Interactive teal on light: eyebrows, focus ring, button hover |
 | `--teal-300` / `--teal-100` | `#8FBDB7` / `#E1ECE9` | Tints |
-| `--highlight` | `#DCF36A` | The accent. Highlighter stroke, primary button on dark, refunded dots |
+| `--highlight` | `#DCF36A` | The accent. Highlighter stroke, primary button on dark |
 | `--on-dark` / `--on-dark-muted` | `#F3F6F1` / `#A9C2BE` | Text on teal and ink |
 
 Rules:
 
-- The highlighter appears at most once per screen in a heading, plus the refund figure. If it is everywhere it means nothing.
+- The highlighter appears at most once per screen in a heading. If it is everywhere it means nothing.
 - No gradients as decoration, no second accent color, no pure black.
 - Placeholder amber (`.sd-ph`) is not a brand color. It exists so unfinished copy cannot ship unnoticed.
 
@@ -49,7 +48,7 @@ Sections set the surface; components adapt. Add one modifier to `.sd-section`:
 | `.sd-section--teal` | teal 800 | Text flips to light, accent text and primary button become the highlighter |
 | `.sd-section--ink` | ink | Same as teal, darker. Used for the final CTA |
 
-Components read `--fg`, `--fg-muted`, `--rule`, `--surface`, `--accent-text` and `--label-accent`, never a raw color. On dark surfaces eyebrows use teal 300, so the highlighter stays reserved for the phrase, the button and the refund. `.sd-card--dark` applies the teal mode to a single card.
+Components read `--fg`, `--fg-muted`, `--rule`, `--surface`, `--accent-text` and `--label-accent`, never a raw color. On dark surfaces eyebrows use teal 300, so the highlighter stays reserved for the phrase and the button. `.sd-card--dark` applies the teal mode to a single card.
 
 ## Type
 
@@ -95,15 +94,10 @@ Rules:
 | Chip | `.sd-chip` | Small bordered fact |
 | Placeholder | `.sd-ph` + `data-ph="key"`, `--bare`; `.sd-draft` | Dashed amber box for copy that is not final. `--bare` keeps a heading's type. `.sd-draft` is the banner across the top. See below |
 | Card | `.sd-card` + `--lg`, `--raised`, `--dark`, `--outline` | `.sd-card__title` for the heading |
-| Ledger | `.sd-ledger`, `.sd-ledger__row`, `--total` | `dl` rows with a dotted leader. The total row carries the double rule |
 | Fit list | `.sd-fit` + `--yes` or `--no`, `.sd-fit__mark` | Who it is for and who it is not for |
-| Term sheet | `.sd-terms`, `.sd-terms__row` | `dl` of guarantee terms. Label left, plain sentence right |
 | FAQ | `.sd-faq`, `.sd-faq__item`, `.sd-faq__icon`, `.sd-faq__answer` | Native `details` and `summary`. No script |
 | Video frame | `.sd-video-wrap`, `.sd-video`, `.sd-video__slot`, `.sd-video__play` | 16:9. Holds the VSL embed; shows a labelled slot until it exists |
-| Refund meter | `.sd-meter__dots`, `.sd-meter__control`, `.sd-range` | One dot per guaranteed meeting (`--cols` sets the row length). Missed meetings turn highlighter |
 | Formula | `.sd-formula`, `.sd-formula__term`, `--result`, `.sd-formula__op` | The market count written out |
-| Split bar | `.sd-bar`, `.sd-bar__kept`, `.sd-bar__refund` | Held against refunded. `--kept` and `--gap` set the proportions |
-| Comparison table | `.sd-compare` | A real `table`: row label, the usual way, our way. The last column is the teal one. Stacks under 720px using `data-label` on each cell |
 | Check list | `.sd-checks` | Plain list with teal checks |
 
 ## Section patterns
@@ -114,20 +108,19 @@ Rules:
 | Section | `.sd-section` + surface modifier, `--tight`, `--flush-top` | Vertical rhythm |
 | Section header | `.sd-head`, `--center` | Eyebrow, heading, optional lead. Max 820px wide |
 | Nav | `.sd-nav`, `.sd-nav__inner`, `.sd-brand`, `.sd-nav__links` | Sticky, blurred paper. Links hide under 900px; the button stays |
-| Hero | `.sd-hero`, `.sd-hero__grid`, `.sd-hero__copy`, `.sd-hero__actions` | Copy left, one object right. Stacks under 1000px |
+| Hero | `.sd-hero`, `.sd-hero__copy`, `.sd-hero__actions`; `.sd-hero--center` or `.sd-hero__grid` | Centered (copy, then the video frame under it) is what the 40 calls page uses. `.sd-hero__grid` is the two-column variant: copy left, one object right, stacking under 1000px |
 | Steps | `.sd-steps`, `.sd-step`, `.sd-step__num`, `.sd-step__title`, `.sd-step__figure` | Numbered rows, copy and a figure. Numbers only where order is real |
-| Split | `.sd-split`, `.sd-split__aside` | Sticky heading left, content right. Guarantee and FAQ |
+| Split | `.sd-split`, `.sd-split__aside` | Sticky heading left, content right. FAQ |
 | Two-up | `.sd-grid-2` | Two equal columns from 860px |
-| CTA band | `.sd-cta` | Centered closing block |
+| CTA band | `.sd-cta` | Centered block: eyebrow, display heading, lead, one button. The guarantee band and the final call to action |
 | Footer | `.sd-footer`, `.sd-footer__inner`, `.sd-footer__links` | Ink |
 
-Section order on the landing page: hero, video, how it works, who it is for, how it differs from a retainer, guarantee, FAQ, final call to action. Surfaces run paper, paper, white, paper, white, teal, white, ink.
+Section order on the 40 calls page: hero with the video, how it works, who it is for, the guarantee band, FAQ, final call to action. Surfaces run paper, white, paper, teal, white, ink.
 
 ## Motion
 
 - `.sd-reveal`: fade and 18px rise on scroll, once. `--delay` staggers a neighbor.
 - Buttons: color change and a 3px arrow nudge. FAQ icon: plus turns to minus.
-- The refund meter responds to the slider. That is the only interactive figure.
 - Everything is off under `prefers-reduced-motion`, and nothing is hidden when JavaScript is off.
 
 ## Placeholders
@@ -141,18 +134,16 @@ Anything not final on the page is wrapped like this:
 List every one before a deploy:
 
 ```bash
-grep -o 'data-ph="[^"]*"' index.html | sort | uniq -c
+grep -o 'data-ph="[^"]*"' 40-calls.html | sort | uniq -c
 ```
 
-Current keys: `draft-banner`, `guaranteed-number`, `price`, `refund-timing`, `reschedule-rule`, `term-and-ramp`, `guarantee-fine-print`, `deal-size`, `vsl`. The page must not go live while any remain.
-
-The guaranteed number is set once, as `data-guarantee="40"` on the `<html>` tag. The script writes it into every `[data-guarantee]` element and sizes the refund meter from it. Three things do not follow automatically and need a hand edit when the number changes: the `<title>` and meta descriptions, the "about 10 a week" lines, and the worked example (33 held, 7 refunded).
+Current keys: `draft-banner`, `vsl`, `deal-size`. The page must not go live while any remain.
 
 ## Voice
 
 - First person plural, plain words, specific numbers. Short sentences.
 - No proof we cannot source: no client logos, testimonials, case studies or result numbers unless `offer/current_offer.md` in the business repo approves the claim.
-- Worked examples of the refund arithmetic are labelled as examples.
+- The page states the promise and nothing about how the guarantee is settled. Refund terms, price and payment are explained on the call, not on the site (Yuri, 2026-11-11).
 - No emojis. No em dashes or en dashes.
 
 ## Logo

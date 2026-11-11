@@ -3,6 +3,10 @@
     {
       "source": "/results",
       "destination": "/results.html"
+    },
+    {
+      "source": "/40-calls",
+      "destination": "/40-calls.html"
     }
   ],
   "git": {
