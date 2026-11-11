@@ -1,5 +1,12 @@
 {
   "rewrites": [
-    { "source": "/results", "destination": "/results.html" }
+    {
+      "source": "/results",
+      "destination": "/results.html"
+    },
+    {
+      "source": "/100-calls",
+      "destination": "/100-calls.html"
+    }
   ]
 }
