@@ -12,7 +12,7 @@ Yuri asked for a full redesign that feels premium, in the family of anevo.com, l
 
 - White and cool grey grounds, deep navy ink, navy falling to near black for dark sections.
 - One accent, cobalt. It marks the one phrase that matters on a screen, the primary button and small tinted chips. Nothing else.
-- A dot grid with one dot lit up. It is the logo idea (a viewfinder locked on one buyer) and it sits behind the hero, the dark sections, the video frame and the figures.
+- A dot grid with one dot lit up. It stands for one buyer picked out of the market, and it sits behind the hero, the dark sections, the video frame and the figures.
 - Labels in a mono face.
 
 ## Color
@@ -170,16 +170,15 @@ Current keys: `draft-banner`, `vsl`, `walkthrough-video`, `founder-background`, 
 
 ## Logo
 
-New in v3 (2026-11-12). Yuri said he is willing to drop the old logo; the old PNG files are still in `logo/` and the root page still uses them.
+New in v3. Yuri picked this mark on 2026-11-12 from a round of concepts. The old PNG files are still in `logo/` and the root page still uses them.
 
-The mark is four viewfinder corners locked on one dot: we find the buyer. Files are in `logo/v3/`, all vector, the wordmarks are outlines (no font needed):
+The mark is a disc cut by one slash, with the two halves slipped apart so they read as an S. Files are in `logo/v3/`, all vector, the wordmark is outlines (no font needed):
 
-- `spotter-lockup.svg`, `spotter-lockup-white.svg`: mark and name. "Spotter" in Geist 600, "Digital" in Geist 500 muted.
+- `spotter-lockup.svg`, `spotter-lockup-white.svg`: mark and the name "Spotter" in Geist 700.
 - `spotter-mark.svg`, `spotter-mark-white.svg`: the mark alone.
-- `spotter-icon.svg`: the mark reversed out of a navy tile, for favicons and avatars.
-- `options/`: two other candidates (B: a tile with an s and a spot; C: the name only, with the o as the spot). Not in use. Delete the folder once the logo is chosen.
+- `spotter-icon.svg`: the mark in white on a navy tile, for favicons and avatars.
 
-On pages the mark is inline SVG inside `.sd-brand`, so it takes the text color and its dot takes the accent, on light and dark.
+On pages the mark is inline SVG inside `.sd-brand`, so it takes the text color on light and dark. The name next to it is "Spotter"; the full company name "Spotter Digital" stays in running text and the footer line.
 
 Do:
 
@@ -188,10 +187,12 @@ Do:
 
 Do not:
 
-- Recolor the dot outside the accent, stretch the mark, or set the name in another face.
+- Recolor the two halves differently, close the slash, stretch the mark, or set the name in another face.
 - Use the mark smaller than 16px. Under 24px use `spotter-icon.svg`.
 
-The files are built by a script (Geist outlines through fontTools); it is not in the repo. Ask for it if the logo needs to change.
+The concept came from an image model and was redrawn by hand as a vector. Before it goes on anything public beyond this site, check it is not close to an existing company's mark.
+
+The files are built by a script (Geist outlines through fontTools, favicons through Pillow); it is not in the repo. Ask for it if the logo needs to change.
 
 ## Favicon
 

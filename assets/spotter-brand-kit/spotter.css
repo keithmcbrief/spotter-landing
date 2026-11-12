@@ -983,24 +983,20 @@ a {
 .sd-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   text-decoration: none;
   color: var(--fg);
-  font-weight: 600;
-  font-size: 1.125rem;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  font-size: 1.3125rem;
+  letter-spacing: -0.04em;
   line-height: 1;
   white-space: nowrap;
 }
 
 .sd-brand svg {
   flex: none;
-  width: 28px;
-  height: 28px;
-}
-
-.sd-brand__dot {
-  fill: var(--accent-text);
+  width: 30px;
+  height: 30px;
 }
 
 .sd-brand__sub {
