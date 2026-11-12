@@ -29,17 +29,6 @@
       .kit-swatch i { display: block; height: 72px; border: 1px solid var(--line); border-radius: var(--r-md); }
       .kit-swatch code { font-family: var(--font-mono); font-size: var(--text-label); color: var(--muted); }
       .kit-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: var(--s-4); }
-      .kit-preview { display: grid; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--white); box-shadow: var(--shadow-card); }
-      .kit-preview__light { display: grid; justify-items: center; gap: var(--s-3); padding: var(--s-6) var(--s-5); text-align: center; background: radial-gradient(70% 60% at 50% 0%, var(--accent-100), transparent 75%), var(--white); color: var(--ink); }
-      .kit-preview__big { font-size: clamp(2rem, 3.3vw, 2.5rem); white-space: nowrap; font-weight: 700; letter-spacing: -0.045em; line-height: 1; color: var(--accent); }
-      .kit-preview__line { font-size: 1.25rem; font-weight: 500; letter-spacing: -0.03em; }
-      .kit-preview__promise { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.04em; }
-      .kit-preview__dark { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3); padding: var(--s-5); background: radial-gradient(80% 120% at 50% 0%, color-mix(in srgb, var(--accent) 34%, transparent), transparent 72%), linear-gradient(180deg, var(--ink), var(--night)); color: var(--on-dark); font-weight: 600; letter-spacing: -0.02em; }
-      .kit-preview__dark span { color: var(--accent-on-dark); }
-      .kit-preview > .sd-label { padding: var(--s-3) var(--s-5); border-bottom: 1px solid var(--line); }
-      /* The two other palettes, shown only here so they can be compared */
-      .kit-alt--evergreen { --ink: #0a2a25; --night: #051512; --muted: #55655f; --mist: #f4f2ea; --line: #e2dfd2; --line-strong: #cfcbb9; --accent: #0a6b5a; --accent-strong: #075244; --accent-300: #9fd3c5; --accent-100: #dff1ea; --accent-50: #f0f8f4; --accent-on-dark: #d7f77e; }
-      .kit-alt { --fg: var(--ink); --fg-muted: var(--muted); --rule: var(--line); --accent-text: var(--accent); --label-accent: var(--accent); --tint: var(--accent-100); --tint-fg: var(--accent); --glow: color-mix(in srgb, var(--accent) 55%, transparent); }
       .kit-demo-dark { padding: var(--s-6); border-radius: var(--r-lg); }
     </style>
   </head>
@@ -78,23 +67,6 @@
           <div class="kit-swatch"><i style="background:var(--accent-300)"></i><code>--accent-300 #A9BBFF</code></div>
           <div class="kit-swatch"><i style="background:var(--accent-100)"></i><code>--accent-100 #E7EDFF</code></div>
           <div class="kit-swatch"><i style="background:var(--accent-on-dark)"></i><code>--accent-on-dark #8EA6FF</code></div>
-        </div>
-      </section>
-
-      <section class="kit-block" id="palettes">
-        <p class="sd-eyebrow">Palette choice</p>
-        <h2 class="sd-h3">The same parts in two palettes. Cobalt is the one the kit ships with.</h2>
-        <div class="kit-grid">
-          <div class="kit-preview">
-            <p class="sd-label">1. Cobalt (in use)</p>
-            <div class="kit-preview__light"><span class="sd-eyebrow">Cold email for B2B</span><span class="kit-preview__line">We'll book you</span><span class="kit-preview__big">100 sales calls</span><span class="kit-preview__promise">In 90 days, or you don't pay.</span><a class="sd-btn sd-btn--primary" href="#palettes">See if your market qualifies</a></div>
-            <div class="kit-preview__dark">Pick a time. <span>The call is free.</span><a class="sd-btn sd-btn--invert sd-btn--sm" href="#palettes">Book a call</a></div>
-          </div>
-          <div class="kit-preview kit-alt kit-alt--evergreen">
-            <p class="sd-label">2. Evergreen</p>
-            <div class="kit-preview__light"><span class="sd-eyebrow">Cold email for B2B</span><span class="kit-preview__line">We'll book you</span><span class="kit-preview__big">100 sales calls</span><span class="kit-preview__promise">In 90 days, or you don't pay.</span><a class="sd-btn sd-btn--primary" href="#palettes">See if your market qualifies</a></div>
-            <div class="kit-preview__dark">Pick a time. <span>The call is free.</span><a class="sd-btn sd-btn--invert sd-btn--sm" href="#palettes">Book a call</a></div>
-          </div>
         </div>
       </section>
 

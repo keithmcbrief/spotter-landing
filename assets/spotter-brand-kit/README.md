@@ -33,7 +33,7 @@ Yuri asked for a full redesign that feels premium, in the family of anevo.com, l
 
 - The accent appears at most once per screen in a heading. If it is everywhere it means nothing.
 - Amber is reserved for placeholders (`.sd-ph`, `.sd-draft`). It is not a brand color.
-- Two other palettes (Ember, Evergreen) are drawn on the kit page for comparison only. They are not in `spotter.css`.
+- Cobalt is the palette. Yuri picked it on 2026-11-12 over Ember, Evergreen, Violet, Mono and Midnight; none of those are in the kit.
 
 ### Surface modes
 
