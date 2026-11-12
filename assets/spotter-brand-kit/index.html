@@ -1,216 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <title>Spotter Digital brand kit</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <title>Spotter Digital brand kit v3</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="logo/v3/spotter-icon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="spotter.css">
-    <!-- Layout for this reference page only. Nothing here is part of the kit. -->
+    <!-- Styles for this reference page only (kit-*). Pages never use these. -->
     <style>
-      .kit-block { padding-block: var(--s-7); border-top: 1px solid var(--rule); }
-      .kit-block > .sd-label { margin-bottom: var(--s-5); }
-      .kit-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s-4); }
-      .kit-swatch { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: var(--white); }
-      .kit-swatch i { display: block; height: 72px; }
-      .kit-swatch div { padding: var(--s-3); font-size: 0.875rem; line-height: 1.35; }
-      .kit-swatch code { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+      .kit-top { padding-block: var(--s-7) var(--s-6); background: var(--white); border-bottom: 1px solid var(--line); }
+      .kit-top img { height: 40px; width: auto; }
+      .kit-block { display: grid; gap: var(--s-5); padding-block: var(--s-7); border-bottom: 1px solid var(--line); }
+      .kit-block > .sd-eyebrow { justify-self: start; }
       .kit-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4); }
-      .kit-type > * + * { margin-top: var(--s-5); }
-      .kit-logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--s-4); }
-      .kit-logo { display: grid; place-items: center; min-height: 160px; border-radius: var(--r-md); border: 1px solid var(--line); }
-      .kit-logo img { width: 96px; height: 96px; object-fit: contain; }
-      .kit-space i { display: block; height: 12px; background: var(--teal-800); border-radius: 2px; }
-      .kit-space { display: grid; gap: var(--s-2); font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+      .kit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--s-4); }
+      .kit-logo { display: grid; gap: var(--s-4); align-content: space-between; min-height: 190px; padding: var(--s-5); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--white); }
+      .kit-logo--dark { background: linear-gradient(180deg, var(--ink), var(--night)); border-color: transparent; }
+      .kit-logo--dark .sd-label { color: var(--on-dark-muted); }
+      .kit-logo img { height: 44px; width: auto; max-width: 100%; }
+      .kit-logo__marks { display: flex; align-items: center; gap: var(--s-4); }
+      .kit-logo__marks img:nth-child(2) { height: 28px; }
+      .kit-logo__marks img:nth-child(3) { height: 16px; }
+      .kit-swatch { display: grid; gap: var(--s-2); }
+      .kit-swatch i { display: block; height: 72px; border: 1px solid var(--line); border-radius: var(--r-md); }
+      .kit-swatch code { font-family: var(--font-mono); font-size: var(--text-label); color: var(--muted); }
+      .kit-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: var(--s-4); }
+      .kit-preview { display: grid; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--white); box-shadow: var(--shadow-card); }
+      .kit-preview__light { display: grid; justify-items: center; gap: var(--s-3); padding: var(--s-6) var(--s-5); text-align: center; background: radial-gradient(70% 60% at 50% 0%, var(--accent-100), transparent 75%), var(--white); color: var(--ink); }
+      .kit-preview__big { font-size: clamp(2rem, 3.3vw, 2.5rem); white-space: nowrap; font-weight: 700; letter-spacing: -0.045em; line-height: 1; color: var(--accent); }
+      .kit-preview__line { font-size: 1.25rem; font-weight: 500; letter-spacing: -0.03em; }
+      .kit-preview__promise { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.04em; }
+      .kit-preview__dark { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3); padding: var(--s-5); background: radial-gradient(80% 120% at 50% 0%, color-mix(in srgb, var(--accent) 34%, transparent), transparent 72%), linear-gradient(180deg, var(--ink), var(--night)); color: var(--on-dark); font-weight: 600; letter-spacing: -0.02em; }
+      .kit-preview__dark span { color: var(--accent-on-dark); }
+      .kit-preview > .sd-label { padding: var(--s-3) var(--s-5); border-bottom: 1px solid var(--line); }
+      /* The two other palettes, shown only here so they can be compared */
+      .kit-alt--ember { --ink: #1a1a1a; --night: #0c0c0c; --muted: #5f5852; --mist: #faf5f0; --line: #ecdfd5; --line-strong: #dcc9bb; --accent: #e8560a; --accent-strong: #c44706; --accent-300: #f8b893; --accent-100: #ffe9dc; --accent-50: #fff5ef; --accent-on-dark: #ff9a62; }
+      .kit-alt--evergreen { --ink: #0a2a25; --night: #051512; --muted: #55655f; --mist: #f4f2ea; --line: #e2dfd2; --line-strong: #cfcbb9; --accent: #0a6b5a; --accent-strong: #075244; --accent-300: #9fd3c5; --accent-100: #dff1ea; --accent-50: #f0f8f4; --accent-on-dark: #d7f77e; }
+      .kit-alt { --fg: var(--ink); --fg-muted: var(--muted); --rule: var(--line); --accent-text: var(--accent); --label-accent: var(--accent); --tint: var(--accent-100); --tint-fg: var(--accent); --glow: color-mix(in srgb, var(--accent) 55%, transparent); }
+      .kit-demo-dark { padding: var(--s-6); border-radius: var(--r-lg); }
     </style>
   </head>
   <body>
-    <header class="sd-nav is-stuck">
-      <div class="sd-container sd-nav__inner">
-        <a class="sd-brand" href="../../100-calls.html"><img src="../spotter-mark.png" alt="" width="36" height="36"><span>Spotter Digital</span></a>
-        <span class="sd-label">Brand kit v2</span>
+    <header class="kit-top">
+      <div class="sd-container sd-stack">
+        <img src="logo/v3/spotter-lockup.svg" alt="Spotter Digital">
+        <h1 class="sd-h2">Brand kit v3</h1>
+        <p class="sd-lead">Every token and component in <code>spotter.css</code>, rendered. The rules are in <code>README.md</code> in this folder.</p>
       </div>
     </header>
 
-    <main class="sd-section">
-      <div class="sd-container">
-        <div class="sd-head">
-          <p class="sd-eyebrow">Brand kit</p>
-          <h1 class="sd-display">One stylesheet, <span class="sd-hl">one source.</span></h1>
-          <p class="sd-lead">Every token and component the site is built from, rendered from <code>spotter.css</code>. The written rules are in <code>README.md</code> in this folder.</p>
+    <main class="sd-container">
+      <section class="kit-block" id="logo">
+        <p class="sd-eyebrow">Logo</p>
+        <h2 class="sd-h3">Option A, in use on the page: four corners locked on one dot.</h2>
+        <div class="kit-grid">
+          <div class="kit-logo"><img src="logo/v3/spotter-lockup.svg" alt="Spotter Digital logo"><p class="sd-label">Logo on white</p></div>
+          <div class="kit-logo kit-logo--dark"><img src="logo/v3/spotter-lockup-white.svg" alt="Spotter Digital logo, white"><p class="sd-label">Logo on navy</p></div>
+          <div class="kit-logo"><div class="kit-logo__marks"><img src="logo/v3/spotter-icon.svg" alt="App icon"><img src="logo/v3/spotter-icon.svg" alt=""><img src="logo/v3/spotter-icon.svg" alt=""><img src="logo/v3/spotter-mark.svg" alt="Mark"></div><p class="sd-label">Icon at 44, 28 and 16px, and the mark alone</p></div>
         </div>
+        <h2 class="sd-h3">Two other options, not in use.</h2>
+        <div class="kit-grid">
+          <div class="kit-logo"><div class="kit-logo__marks"><img src="logo/v3/options/option-b-lockup.svg" alt="Option B logo"></div><p class="sd-label">Option B: a tile with an s and a spot</p></div>
+          <div class="kit-logo"><div class="kit-logo__marks"><img src="logo/v3/options/option-c-wordmark.svg" alt="Option C logo"></div><p class="sd-label">Option C: name only, the o is the spot</p></div>
+          <div class="kit-logo"><div class="kit-logo__marks"><img src="logo/v3/options/option-b-tile.svg" alt="Option B icon"><img src="logo/v3/options/option-c-tile.svg" alt="Option C icon" style="height:44px"></div><p class="sd-label">Their icons: B, then C</p></div>
+        </div>
+      </section>
 
-        <section class="kit-block">
-          <p class="sd-label">Color</p>
-          <div class="kit-swatches">
-            <div class="kit-swatch"><i style="background:var(--ink)"></i><div>Ink<code>--ink #0B1B1A</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--muted)"></i><div>Muted<code>--muted #5B6866</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--paper)"></i><div>Paper<code>--paper #F6F4EE</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--paper-deep)"></i><div>Paper deep<code>--paper-deep #EDEAE1</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--white)"></i><div>White<code>--white #FFFFFF</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--line)"></i><div>Line<code>--line #DFDBD0</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--teal-900)"></i><div>Teal 900<code>--teal-900 #04302F</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--teal-800)"></i><div>Teal 800, logo<code>--teal-800 #023E3E</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--teal-700)"></i><div>Teal 700<code>--teal-700 #004F4D</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--teal-300)"></i><div>Teal 300<code>--teal-300 #8FBDB7</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--teal-100)"></i><div>Teal 100<code>--teal-100 #E1ECE9</code></div></div>
-            <div class="kit-swatch"><i style="background:var(--highlight)"></i><div>Highlight<code>--highlight #DCF36A</code></div></div>
+      <section class="kit-block" id="color">
+        <p class="sd-eyebrow">Color</p>
+        <div class="kit-swatches">
+          <div class="kit-swatch"><i style="background:var(--ink)"></i><code>--ink #0A1430</code></div>
+          <div class="kit-swatch"><i style="background:var(--night)"></i><code>--night #050A1C</code></div>
+          <div class="kit-swatch"><i style="background:var(--muted)"></i><code>--muted #56607A</code></div>
+          <div class="kit-swatch"><i style="background:var(--line-strong)"></i><code>--line-strong #CBD3E2</code></div>
+          <div class="kit-swatch"><i style="background:var(--line)"></i><code>--line #E3E8F1</code></div>
+          <div class="kit-swatch"><i style="background:var(--mist)"></i><code>--mist #F5F7FB</code></div>
+          <div class="kit-swatch"><i style="background:var(--white)"></i><code>--white #FFFFFF</code></div>
+          <div class="kit-swatch"><i style="background:var(--accent)"></i><code>--accent #2447F9</code></div>
+          <div class="kit-swatch"><i style="background:var(--accent-strong)"></i><code>--accent-strong #1634D1</code></div>
+          <div class="kit-swatch"><i style="background:var(--accent-300)"></i><code>--accent-300 #A9BBFF</code></div>
+          <div class="kit-swatch"><i style="background:var(--accent-100)"></i><code>--accent-100 #E7EDFF</code></div>
+          <div class="kit-swatch"><i style="background:var(--accent-on-dark)"></i><code>--accent-on-dark #8EA6FF</code></div>
+        </div>
+      </section>
+
+      <section class="kit-block" id="palettes">
+        <p class="sd-eyebrow">Palette choice</p>
+        <h2 class="sd-h3">The same parts in three palettes. Cobalt is the one the kit ships with.</h2>
+        <div class="kit-grid">
+          <div class="kit-preview">
+            <p class="sd-label">1. Cobalt (in use)</p>
+            <div class="kit-preview__light"><span class="sd-eyebrow">Cold email for B2B</span><span class="kit-preview__line">We'll book you</span><span class="kit-preview__big">100 sales calls</span><span class="kit-preview__promise">In 90 days, or you don't pay.</span><a class="sd-btn sd-btn--primary" href="#palettes">See if your market qualifies</a></div>
+            <div class="kit-preview__dark">Pick a time. <span>The call is free.</span><a class="sd-btn sd-btn--invert sd-btn--sm" href="#palettes">Book a call</a></div>
           </div>
-        </section>
-
-        <section class="kit-block kit-type">
-          <p class="sd-label">Type</p>
-          <p class="sd-display">Display. Count the market first.</p>
-          <p class="sd-h2">Heading 2. We count the market first.</p>
-          <p class="sd-h3">Heading 3. Take the calls.</p>
-          <p class="sd-lead">Lead. Before you pay, we count the buyers we can actually reach in your market.</p>
-          <p class="sd-body">Body. If the count supports the number, we take you on. <strong>If it does not, we tell you.</strong></p>
-          <p class="sd-small">Small. Free call. We walk you through how it works.</p>
-          <p class="sd-label">Label. Mono, uppercase</p>
-          <p class="sd-num">Figures: 01 / 02 / 03</p>
-        </section>
-
-        <section class="kit-block">
-          <p class="sd-label">Spacing scale</p>
-          <div class="kit-space">
-            <span>--s-1 4px<i style="width:4px"></i></span>
-            <span>--s-2 8px<i style="width:8px"></i></span>
-            <span>--s-3 12px<i style="width:12px"></i></span>
-            <span>--s-4 16px<i style="width:16px"></i></span>
-            <span>--s-5 24px<i style="width:24px"></i></span>
-            <span>--s-6 32px<i style="width:32px"></i></span>
-            <span>--s-7 48px<i style="width:48px"></i></span>
-            <span>--s-8 64px<i style="width:64px"></i></span>
-            <span>--s-9 96px<i style="width:96px"></i></span>
+          <div class="kit-preview kit-alt kit-alt--ember">
+            <p class="sd-label">2. Ember</p>
+            <div class="kit-preview__light"><span class="sd-eyebrow">Cold email for B2B</span><span class="kit-preview__line">We'll book you</span><span class="kit-preview__big">100 sales calls</span><span class="kit-preview__promise">In 90 days, or you don't pay.</span><a class="sd-btn sd-btn--primary" href="#palettes">See if your market qualifies</a></div>
+            <div class="kit-preview__dark">Pick a time. <span>The call is free.</span><a class="sd-btn sd-btn--invert sd-btn--sm" href="#palettes">Book a call</a></div>
           </div>
-        </section>
-
-        <section class="kit-block">
-          <p class="sd-label">Buttons, links, small parts</p>
-          <div class="kit-row">
-            <a class="sd-btn sd-btn--primary" href="#">Primary <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-            <a class="sd-btn sd-btn--accent" href="#">Accent</a>
-            <a class="sd-btn sd-btn--ghost" href="#">Ghost</a>
-            <a class="sd-btn sd-btn--sm" href="#">Small</a>
-            <a class="sd-link" href="#">Text link</a>
-            <span class="sd-eyebrow">Eyebrow</span>
-            <span class="sd-chip">Chip</span>
-            <span class="sd-ph">PLACEHOLDER: not final</span>
-            <span class="sd-h3"><span class="sd-ph sd-ph--bare">Number</span> in a heading</span>
+          <div class="kit-preview kit-alt kit-alt--evergreen">
+            <p class="sd-label">3. Evergreen</p>
+            <div class="kit-preview__light"><span class="sd-eyebrow">Cold email for B2B</span><span class="kit-preview__line">We'll book you</span><span class="kit-preview__big">100 sales calls</span><span class="kit-preview__promise">In 90 days, or you don't pay.</span><a class="sd-btn sd-btn--primary" href="#palettes">See if your market qualifies</a></div>
+            <div class="kit-preview__dark">Pick a time. <span>The call is free.</span><a class="sd-btn sd-btn--invert sd-btn--sm" href="#palettes">Book a call</a></div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="kit-block">
-          <p class="sd-label">Cards, formula, check list</p>
-          <div class="sd-grid-2">
-            <div class="sd-card sd-card--lg sd-card--raised sd-stack">
-              <h3 class="sd-h3">Card, raised</h3>
-              <p class="sd-body">White surface on paper, 14px or 24px radius, one soft shadow.</p>
-              <div class="sd-formula">
-                <div class="sd-formula__term"><span class="sd-formula__op">#</span><span>Buyers we can reach</span></div>
-                <div class="sd-formula__term"><span class="sd-formula__op">&divide;</span><span>Buyers emailed per call</span></div>
-                <div class="sd-formula__term sd-formula__term--result"><span class="sd-formula__op">=</span><span>Calls the market supports</span></div>
+      <section class="kit-block" id="type">
+        <p class="sd-eyebrow">Type</p>
+        <p class="sd-display">Display, Geist 600</p>
+        <p class="sd-h2">Heading 2. One phrase can take <span class="sd-hl">the accent.</span></p>
+        <p class="sd-h3">Heading 3, for cards and list items.</p>
+        <p class="sd-lead">Lead text sits under a heading and says the next most useful thing in one or two sentences.</p>
+        <p class="sd-body">Body text. Short sentences, common words, one idea per sentence. <strong>Bold marks the line that matters.</strong></p>
+        <p class="sd-small">Small text, for notes under a button.</p>
+        <p class="sd-label">Label, Geist Mono, uppercase</p>
+      </section>
+
+      <section class="kit-block" id="buttons">
+        <p class="sd-eyebrow">Buttons, pills, chips</p>
+        <div class="kit-row">
+          <a class="sd-btn sd-btn--primary" href="#buttons">Primary button <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="sd-btn sd-btn--ghost" href="#buttons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>Quiet button</a>
+          <a class="sd-btn sd-btn--primary sd-btn--sm" href="#buttons">Small</a>
+          <a class="sd-btn sd-btn--primary sd-btn--lg" href="#buttons">Large</a>
+          <a class="sd-link" href="#buttons">Text link</a>
+        </div>
+        <div class="kit-row">
+          <span class="sd-eyebrow">Eyebrow pill</span>
+          <span class="sd-chip">Chip</span><span class="sd-chip">Lead lists</span>
+          <span class="sd-tag">Example</span>
+          <span class="sd-ph" data-ph="sample">PLACEHOLDER: copy that is not final</span>
+        </div>
+      </section>
+
+      <section class="kit-block" id="cards">
+        <p class="sd-eyebrow">Cards and lists</p>
+        <div class="sd-grid-2">
+          <div class="sd-card sd-pain"><p class="sd-label">Pain card</p><h3 class="sd-h3">You get reports, not calls.</h3><p class="sd-body">A label, a bold line, one or two sentences.</p></div>
+          <ol class="sd-points">
+            <li><span class="sd-points__num" aria-hidden="true">01</span><div class="sd-points__body"><h3 class="sd-h3">Points list.</h3><p class="sd-body">A number, a bold line and a sentence.</p></div></li>
+            <li><span class="sd-points__num" aria-hidden="true">02</span><div class="sd-points__body"><h3 class="sd-h3">One card per point.</h3><p class="sd-body">Numbers only where order is real.</p></div></li>
+          </ol>
+        </div>
+        <ul class="sd-included">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span><strong>Included list</strong>One cell for each thing we do.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span><strong>A list of buyers</strong>Owners and founders at the companies you sell to.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span><strong>Booked calls</strong>We put each call on your calendar.</span></li>
+        </ul>
+        <div class="sd-grid-2">
+          <div class="sd-step__figure">
+            <p class="sd-label sd-figure-label">Formula</p>
+            <div class="sd-formula">
+              <div class="sd-formula__term"><span class="sd-formula__op" aria-hidden="true">#</span><span>Buyers we can reach</span></div>
+              <div class="sd-formula__term"><span class="sd-formula__op" aria-hidden="true">&divide;</span><span>Buyers we email to book one call</span></div>
+              <div class="sd-formula__term sd-formula__term--result"><span class="sd-formula__op" aria-hidden="true">=</span><span>Sales calls we can book for you</span></div>
+            </div>
+          </div>
+          <div class="sd-step__figure">
+            <p class="sd-label sd-figure-label">Mock panel <span class="sd-tag">Example</span></p>
+            <div class="sd-mock">
+              <div class="sd-mock__row"><span class="sd-label">The buyer's job and company</span>Owner of a freight company with 40 people</div>
+              <div class="sd-mock__row sd-mock__row--accent"><span class="sd-label">A set time on your calendar</span>Tuesday, 10:30 AM</div>
+            </div>
+          </div>
+        </div>
+        <div class="sd-faq">
+          <details class="sd-faq__item" open><summary>FAQ item, open<span class="sd-faq__icon" aria-hidden="true"></span></summary><div class="sd-faq__answer"><p>One card per question. The answer is one or two short sentences.</p></div></details>
+          <details class="sd-faq__item"><summary>FAQ item, closed<span class="sd-faq__icon" aria-hidden="true"></span></summary><div class="sd-faq__answer"><p>Answer.</p></div></details>
+        </div>
+        <table class="sd-compare">
+          <thead><tr><th scope="col"><span class="sd-visually-hidden">Question</span></th><th scope="col">Hiring someone</th><th scope="col">Paying an agency</th><th scope="col">Spotter Digital</th></tr></thead>
+          <tbody><tr><th scope="row">Comparison table</th><td data-label="Hiring someone">They will try.</td><td data-label="Paying an agency">A report each month.</td><td data-label="Spotter Digital">The last column is ours.</td></tr></tbody>
+        </table>
+      </section>
+
+      <section class="kit-block" id="dark">
+        <p class="sd-eyebrow">Dark surface</p>
+        <div class="sd-section sd-section--navy kit-demo-dark">
+          <div class="sd-container sd-stack">
+            <p class="sd-eyebrow">On navy</p>
+            <h2 class="sd-h2">Text flips to light. <span class="sd-hl">The accent turns pale.</span></h2>
+            <p class="sd-lead">The primary button turns white. Cards turn to glass.</p>
+            <div class="kit-row"><a class="sd-btn sd-btn--primary" href="#dark">Primary on dark</a><a class="sd-btn sd-btn--ghost" href="#dark">Quiet on dark</a></div>
+            <div class="sd-flow">
+              <div class="sd-flow__lane">
+                <p class="sd-flow__stage"><span class="sd-label">Part 01</span>Flowchart</p>
+                <ol class="sd-flow__nodes">
+                  <li class="sd-flow__node"><strong>Replies</strong>We answer them</li>
+                  <li class="sd-flow__node"><strong>Booking</strong>On your calendar</li>
+                  <li class="sd-flow__node"><strong>The call</strong>You talk to a real buyer</li>
+                  <li class="sd-flow__node sd-flow__node--result"><strong>It counts</strong>Toward your total</li>
+                </ol>
               </div>
             </div>
-            <div class="sd-card sd-card--lg sd-card--dark sd-stack">
-              <h3 class="sd-h3">Card, dark</h3>
-              <p class="sd-body">The teal surface mode on a single card.</p>
-              <ul class="sd-checks">
-                <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span>Check list item</span></li>
-                <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span>Another one</span></li>
-              </ul>
-              <span class="sd-ph">PLACEHOLDER: on dark</span>
-            </div>
           </div>
-        </section>
-
-        <section class="kit-block">
-          <p class="sd-label">Fit list, FAQ, video frame</p>
-          <div class="sd-grid-2">
-            <div class="sd-stack">
-              <ul class="sd-fit sd-fit--yes">
-                <li><span class="sd-fit__mark"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg></span><span><strong>A fit</strong>One line of why.</span></li>
-              </ul>
-              <ul class="sd-fit sd-fit--no">
-                <li><span class="sd-fit__mark"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></span><span><strong>Not a fit</strong>One line of why.</span></li>
-              </ul>
-              <div class="sd-video"><div class="sd-video__slot"><span class="sd-video__play"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="sd-ph">PLACEHOLDER: video</span></div></div>
-            </div>
-            <div class="sd-faq">
-              <details class="sd-faq__item" open><summary>An open question<span class="sd-faq__icon"></span></summary><div class="sd-faq__answer"><p>The answer, in plain words.</p></div></details>
-              <details class="sd-faq__item"><summary>A closed question<span class="sd-faq__icon"></span></summary><div class="sd-faq__answer"><p>The answer.</p></div></details>
-            </div>
-          </div>
-        </section>
-
-        <section class="kit-block">
-          <p class="sd-label">Pain card, points, included list</p>
-          <div class="sd-grid-2">
-            <div class="sd-stack">
-              <div class="sd-card sd-pain"><p class="sd-label">Label</p><h3 class="sd-h3">A bold lead line.</h3><p class="sd-body">One or two sentences under it.</p></div>
-              <ul class="sd-included"><li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span><strong>Included item</strong>One tangible thing we do.</span></li><li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span><strong>Another item</strong>One line each.</span></li></ul>
-            </div>
-            <ol class="sd-points">
-              <li><span class="sd-points__num">01</span><div class="sd-points__body"><h3 class="sd-h3">A point.</h3><p class="sd-body">The sentence that backs it.</p></div></li>
-              <li><span class="sd-points__num">02</span><div class="sd-points__body"><h3 class="sd-h3">Another point.</h3><p class="sd-body">The sentence that backs it.</p></div></li>
-            </ol>
-          </div>
-        </section>
-
-        <section class="kit-block">
-          <p class="sd-label">Flowchart</p>
-          <div class="sd-flow">
-            <p class="sd-flow__title"><strong>The system's name</strong><span class="sd-label">Stages, in order</span></p>
-            <div class="sd-flow__lane">
-              <p class="sd-flow__stage"><span class="sd-label">Stage 01</span>Stage name</p>
-              <ol class="sd-flow__nodes">
-                <li class="sd-flow__node"><strong>Node</strong>What happens</li>
-                <li class="sd-flow__node"><strong>Node</strong>What happens</li>
-                <li class="sd-flow__node"><strong>Node</strong>What happens</li>
-                <li class="sd-flow__node sd-flow__node--result"><strong>Result</strong>The outcome</li>
-              </ol>
-            </div>
-          </div>
-        </section>
-
-        <section class="kit-block">
-          <p class="sd-label">Comparison table, section button</p>
-          <table class="sd-compare">
-            <thead><tr><th scope="col"><span class="sd-visually-hidden">Question</span></th><th scope="col">Option A</th><th scope="col">Option B</th><th scope="col">Ours</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">A question</th><td data-label="Option A">Their answer.</td><td data-label="Option B">Their answer.</td><td data-label="Ours">Our answer.</td></tr>
-              <tr><th scope="row">Another</th><td data-label="Option A">Their answer.</td><td data-label="Option B">Their answer.</td><td data-label="Ours">Our answer.</td></tr>
-            </tbody>
-          </table>
-          <div class="sd-section__cta"><a class="sd-btn sd-btn--primary sd-btn--lg" href="#">Large button</a><p class="sd-small">One line under it.</p></div>
-        </section>
-
-        <section class="kit-block">
-          <p class="sd-label">Logo</p>
-          <div class="kit-logos">
-            <div class="kit-logo" style="background:var(--paper)"><img src="logo/spotter-mark.png" alt="Color mark on paper"></div>
-            <div class="kit-logo" style="background:var(--white)"><img src="logo/spotter-logo-full.png" alt="Full logo on white"></div>
-            <div class="kit-logo" style="background:var(--ink)"><img src="logo/spotter-mark-white.png" alt="White mark on ink"></div>
-            <div class="kit-logo" style="background:var(--teal-800)"><img src="logo/spotter-mark-white.png" alt="White mark on teal"></div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
-
-    <section class="sd-section sd-section--teal">
-      <div class="sd-container sd-stack">
-        <p class="sd-eyebrow">Surface: teal</p>
-        <h2 class="sd-h2">Dark sections flip the tokens, <span class="sd-hl">not the classes.</span></h2>
-        <p class="sd-lead">Components read --fg, --fg-muted, --rule and --surface, so the same markup works on any surface.</p>
-        <div class="kit-row"><a class="sd-btn sd-btn--primary" href="#">Primary on dark</a><a class="sd-btn sd-btn--ghost" href="#">Ghost on dark</a></div>
-      </div>
-    </section>
-
   </body>
 </html>

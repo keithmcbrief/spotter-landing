@@ -11,11 +11,11 @@
     <script>document.documentElement.classList.remove('no-js');</script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/spotter-brand-kit/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/spotter-brand-kit/favicon/favicon-16x16.png">
-    <link rel="shortcut icon" href="assets/spotter-brand-kit/favicon/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/spotter-brand-kit/favicon/apple-touch-icon.png">
-    <meta name="theme-color" content="#f6f4ee">
+    <link rel="icon" type="image/svg+xml" href="assets/spotter-brand-kit/logo/v3/spotter-icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/spotter-brand-kit/favicon/v3/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/spotter-brand-kit/favicon/v3/icon-16.png">
+    <link rel="apple-touch-icon" href="assets/spotter-brand-kit/favicon/v3/icon-180.png">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website">
@@ -25,12 +25,10 @@
     <meta property="og:image" content="https://www.spotterdigital.ai/assets/spotter-brand-kit/social/spotter-avatar-1000.png">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Fonts: Switzer (Fontshare), Chivo Mono (Google Fonts). Same hosts as the main site. -->
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <!-- Fonts: Geist and Geist Mono (Google Fonts). -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Brand kit: the only stylesheet. See assets/spotter-brand-kit/README.md -->
     <link rel="stylesheet" href="assets/spotter-brand-kit/spotter.css">
@@ -45,8 +43,8 @@
     <header class="sd-nav" id="nav">
       <div class="sd-container sd-nav__inner">
         <a class="sd-brand" href="#top" aria-label="Spotter Digital, back to top">
-          <img src="assets/spotter-mark.png" alt="" width="36" height="36">
-          <span>Spotter Digital</span>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"><path d="M6.5 18v-1.5a10 10 0 0 1 10-10H18"/><path d="M30 6.5h1.5a10 10 0 0 1 10 10V18"/><path d="M41.5 30v1.5a10 10 0 0 1-10 10H30"/><path d="M18 41.5h-1.5a10 10 0 0 1-10-10V30"/></g><circle class="sd-brand__dot" cx="24" cy="24" r="6.5"/></svg>
+          <span class="sd-brand__name">Spotter <span class="sd-brand__sub">Digital</span></span>
         </a>
         <nav class="sd-nav__links" aria-label="Page sections">
           <a href="#how">How it works</a>
@@ -107,7 +105,7 @@
       </section>
 
       <!-- 2. Pain points: what they already tried -->
-      <section class="sd-section sd-section--white" id="problem">
+      <section class="sd-section" id="problem">
         <div class="sd-container">
           <div class="sd-head sd-reveal">
             <p class="sd-eyebrow">The problem</p>
@@ -149,7 +147,7 @@
       </section>
 
       <!-- 3. Why us: we count the buyers first -->
-      <section class="sd-section" id="why">
+      <section class="sd-section sd-section--white" id="why">
         <div class="sd-container sd-split">
           <div class="sd-split__aside sd-reveal">
             <p class="sd-eyebrow">Why us</p>
@@ -195,7 +193,7 @@
       </section>
 
       <!-- 4. How it works: three steps -->
-      <section class="sd-section sd-section--white" id="how">
+      <section class="sd-section" id="how">
         <div class="sd-container">
           <div class="sd-head sd-reveal">
             <p class="sd-eyebrow">How it works</p>
@@ -249,12 +247,12 @@
                 <p class="sd-body"><strong>Your job is to show up and sell.</strong></p>
               </div>
               <div class="sd-step__figure">
-                <p class="sd-label sd-figure-label">What you get with each call</p>
-                <ul class="sd-checks">
-                  <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span>The buyer's name, job title and company</span></li>
-                  <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span>What they wrote back to us</span></li>
-                  <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span>A set time on your calendar</span></li>
-                </ul>
+                <p class="sd-label sd-figure-label">What you get with each call <span class="sd-tag">Example</span></p>
+                <div class="sd-mock">
+                  <div class="sd-mock__row"><span class="sd-label">The buyer's job and company</span>Owner of a freight company with 40 people</div>
+                  <div class="sd-mock__row"><span class="sd-label">What they wrote back to us</span>"Yes, we need this. Send me a time."</div>
+                  <div class="sd-mock__row sd-mock__row--accent"><span class="sd-label">A set time on your calendar</span>Tuesday, 10:30 AM</div>
+                </div>
               </div>
             </li>
           </ol>
@@ -269,7 +267,7 @@
       </section>
 
       <!-- 5. Everything included: every tangible thing we do -->
-      <section class="sd-section" id="included">
+      <section class="sd-section sd-section--white" id="included">
         <div class="sd-container">
           <div class="sd-head sd-reveal">
             <p class="sd-eyebrow">What you get</p>
@@ -304,7 +302,7 @@
 
       <!-- 6. The full process: a walkthrough video over the labeled flowchart.
            This stands in for client results until there are some we are cleared to show. -->
-      <section class="sd-section sd-section--teal" id="system">
+      <section class="sd-section sd-section--navy" id="system">
         <div class="sd-container">
           <div class="sd-head sd-head--center sd-reveal">
             <p class="sd-eyebrow">The full process</p>
@@ -594,8 +592,8 @@
     <footer class="sd-footer">
       <div class="sd-container sd-footer__inner">
         <a class="sd-brand" href="#top">
-          <img src="assets/spotter-mark-white.png" alt="" width="36" height="36">
-          <span>Spotter Digital</span>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"><path d="M6.5 18v-1.5a10 10 0 0 1 10-10H18"/><path d="M30 6.5h1.5a10 10 0 0 1 10 10V18"/><path d="M41.5 30v1.5a10 10 0 0 1-10 10H30"/><path d="M18 41.5h-1.5a10 10 0 0 1-10-10V30"/></g><circle class="sd-brand__dot" cx="24" cy="24" r="6.5"/></svg>
+          <span class="sd-brand__name">Spotter <span class="sd-brand__sub">Digital</span></span>
         </a>
         <nav class="sd-footer__links" aria-label="Footer">
           <a href="#how">How it works</a>

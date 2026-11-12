@@ -1,4 +1,4 @@
-# Spotter Digital brand kit (v2, 2026-11-11)
+# Spotter Digital brand kit (v3, 2026-11-12)
 
 One stylesheet, `spotter.css`, is the source of truth for new pages on the marketing site. `index.html` in this folder renders every token and component from it. The guaranteed calls landing page (`/100-calls.html`, served at `/100-calls`; the path still carries the old number) has no styles of its own: it composes the classes documented here.
 
@@ -8,89 +8,84 @@ The root page (`/index.html`), `results.html` and `roi-calculator.html` still ca
 
 ## The idea
 
-The pitch is arithmetic: count the market, then promise a number it can support. The kit borrows from a marked-up agreement, quietly:
+Yuri asked for a full redesign that feels premium, in the family of anevo.com, leadbird.io, pipeline.tech, varickagents.com and scalestack.ai (2026-11-12). What those pages share: two neutrals and one accent, a lot of empty space, large tight type, small mono labels, soft cards, and one dark section used for weight. v3 does that in Spotter's own terms:
 
-- Warm paper, green-black ink, the logo teal for dark surfaces.
-- One accent, a highlighter. It marks the one phrase that matters on a screen. Nothing else.
-- Figures and labels in a mono face.
+- White and cool grey grounds, deep navy ink, navy falling to near black for dark sections.
+- One accent, cobalt. It marks the one phrase that matters on a screen, the primary button and small tinted chips. Nothing else.
+- A dot grid with one dot lit up. It is the logo idea (a viewfinder locked on one buyer) and it sits behind the hero, the dark sections, the video frame and the figures.
+- Labels in a mono face.
 
 ## Color
 
-| Token | Hex | Use |
+| Token | Value | Use |
 | --- | --- | --- |
-| `--ink` | `#0B1B1A` | Text, primary button, final CTA band, footer |
-| `--muted` | `#5B6866` | Secondary text (5.3:1 on paper) |
-| `--paper` | `#F6F4EE` | Default page background |
-| `--paper-deep` | `#EDEAE1` | Reserved for tinted fills |
-| `--white` | `#FFFFFF` | Cards on paper; alternate section background |
-| `--line` / `--line-strong` | `#DFDBD0` / `#C6C1B3` | Borders and rules |
-| `--teal-900` | `#04302F` | Video frame, deepest surface |
-| `--teal-800` | `#023E3E` | The teal in the logo files. Dark sections and dark cards |
-| `--teal-700` | `#004F4D` | Interactive teal on light: eyebrows, focus ring, button hover |
-| `--teal-300` / `--teal-100` | `#8FBDB7` / `#E1ECE9` | Tints |
-| `--highlight` | `#DCF36A` | The accent. Highlighter stroke, primary button on dark |
-| `--on-dark` / `--on-dark-muted` | `#F3F6F1` / `#A9C2BE` | Text on teal and ink |
+| `--ink` | `#0A1430` | Text, the top of dark sections |
+| `--night` | `#050A1C` | The bottom of dark sections, footer, video screen |
+| `--muted` | `#56607A` | Secondary text (6.2:1 on white) |
+| `--white` | `#FFFFFF` | Page ground, cards |
+| `--mist` / `--mist-deep` | `#F5F7FB` / `#EBEFF7` | Alternate section ground, inset panels, tags |
+| `--line` / `--line-strong` | `#E3E8F1` / `#CBD3E2` | Borders |
+| `--accent` | `#2447F9` | The accent. Primary button, emphasized phrase, links |
+| `--accent-strong` | `#1634D1` | Button hover |
+| `--accent-300` / `--accent-100` / `--accent-50` | `#A9BBFF` / `#E7EDFF` / `#F3F6FF` | Tints: outlines, chips, our column in the comparison table |
+| `--accent-on-dark` | `#8EA6FF` | The accent on navy |
+| `--on-dark` / `--on-dark-muted` | `#F4F6FC` / `#A5B0CC` | Text on navy |
 
-Rules:
-
-- The highlighter appears at most once per screen in a heading. If it is everywhere it means nothing.
-- No gradients as decoration, no second accent color, no pure black.
-- Placeholder amber (`.sd-ph`) is not a brand color. It exists so unfinished copy cannot ship unnoticed.
+- The accent appears at most once per screen in a heading. If it is everywhere it means nothing.
+- Amber is reserved for placeholders (`.sd-ph`, `.sd-draft`). It is not a brand color.
+- Two other palettes (Ember, Evergreen) are drawn on the kit page for comparison only. They are not in `spotter.css`.
 
 ### Surface modes
 
-Sections set the surface; components adapt. Add one modifier to `.sd-section`:
-
-| Class | Background | Notes |
+| Class | Ground | What changes |
 | --- | --- | --- |
-| (none) | paper | Cards are white |
-| `.sd-section--white` | white | Cards are paper |
-| `.sd-section--teal` | teal 800 | Text flips to light, accent text and primary button become the highlighter |
-| `.sd-section--ink` | ink | Same as teal, darker. Used for the final CTA |
+| (none) | mist | Cards are white |
+| `.sd-section--white` | white | Cards are white with a border and a soft shadow |
+| `.sd-section--navy` | navy to near black, accent glow, dot grid | Text flips to light, the accent turns pale, the primary button turns white, cards turn to glass |
+| `.sd-section--ink` | same as navy | Used for the booking section |
 
-Components read `--fg`, `--fg-muted`, `--rule`, `--surface`, `--accent-text` and `--label-accent`, never a raw color. On dark surfaces eyebrows use teal 300, so the highlighter stays reserved for the phrase and the button. `.sd-card--dark` applies the teal mode to a single card.
+Components read `--fg`, `--fg-muted`, `--rule`, `--surface`, `--inset`, `--tint`, `--tint-fg`, `--accent-text` and `--label-accent`, never a raw color.
 
 ## Type
 
-| Role | Class | Face | Size | Weight / tracking |
+| Role | Class | Face | Size | Weight and tracking |
 | --- | --- | --- | --- | --- |
-| Display | `.sd-display` | Switzer | 40 to 72px, fluid | 500, -0.04em, line-height 1.02 |
-| Heading 2 | `.sd-h2` | Switzer | 32 to 60px, fluid | 500, -0.035em, 1.05 |
-| Heading 3 | `.sd-h3` | Switzer | 21 to 24px | 600, -0.018em, 1.2 |
-| Lead | `.sd-lead` | Switzer | 18 to 20px | 400, line-height 1.55 |
-| Body | `.sd-body` | Switzer | 17px | 400, line-height 1.6 |
-| Small | `.sd-small` | Switzer | 15px | 400 |
-| Label | `.sd-label`, `.sd-eyebrow` | Chivo Mono | 12px | 500, uppercase, +0.12em |
-| Figures | `.sd-num` | Chivo Mono | inherits | tabular numerals |
+| Display | `.sd-display` | Geist | 40 to 72px, fluid | 600, -0.04em, line-height 1.02 |
+| Heading 2 | `.sd-h2` | Geist | 30 to 50px, fluid | 600, -0.035em, 1.08 |
+| Heading 3 | `.sd-h3` | Geist | 19 to 22px | 600, -0.02em, 1.25 |
+| Lead | `.sd-lead` | Geist | 17 to 19px | 400, line-height 1.55 |
+| Body | `.sd-body` | Geist | 16px | 400, line-height 1.6 |
+| Small | `.sd-small` | Geist | 15px | 400 |
+| Label | `.sd-label`, `.sd-eyebrow` | Geist Mono | 12px | 500, uppercase, +0.06 to +0.08em |
+| Figures | `.sd-num` | Geist Mono | inherits | tabular numerals |
 
-Fonts load from Fontshare (Switzer 400, 500, 600, 700) and Google Fonts (Chivo Mono 400, 500):
+Both faces load from Google Fonts (Geist 400, 500, 600, 700; Geist Mono 400, 500). Both are open source (SIL OFL):
 
 ```html
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 ```
 
-Rules:
-
-- Large type is medium weight and tightly tracked. Small headings (heading 3, step titles) are semibold.
 - Headings are sentence case and end with a period when they are a sentence. No all caps headings.
-- Text columns stop at `--measure` (62 characters).
-- Emphasis inside a heading is the highlighter (`.sd-hl`), never italics or a color change. On dark surfaces `.sd-hl` becomes highlighter-colored text.
+- Text columns stop at `--measure` (60 characters).
+- Emphasis inside a heading is the accent color (`.sd-hl`), never italics. In the hero the blown-up phrase (`.sd-hero__big .sd-hl`) is the accent at weight 700.
 
 ## Space, shape, depth
 
 - Spacing scale, 4px base: `--s-1` 4, `--s-2` 8, `--s-3` 12, `--s-4` 16, `--s-5` 24, `--s-6` 32, `--s-7` 48, `--s-8` 64, `--s-9` 96.
-- `--gutter`: 20 to 40px side padding. `--container`: 1180px. `--section-y`: 72 to 136px vertical section padding.
-- Radius: `--r-sm` 6 (chips, bars), `--r-md` 14 (cards, figures), `--r-lg` 24 (large cards, steps, video), `--r-pill` (buttons).
-- Two shadows only: `--shadow-card` for a raised white card, `--shadow-lift` for the dark hero card and the video frame. Most cards have a border and no shadow.
+- `--gutter`: 20 to 40px side padding. `--container`: 1160px. `--section-y`: 72 to 128px vertical section padding.
+- Radius: `--r-sm` 8, `--r-md` 14 (cards), `--r-lg` 22 (large cards, steps, video), `--r-pill` (eyebrows, chips, tags). Buttons are 12px.
+- Three shadows: `--shadow-xs` (every card, a hairline of depth), `--shadow-card` (raised cards, steps, the open FAQ item), `--shadow-lift` (video frame, founder photo). `--glow` is the accent-colored shadow under primary buttons.
+- The dot grid: `--dots` and `--dots-on-dark`, 26px step.
 
 ## Components
 
 | Component | Classes | Notes |
 | --- | --- | --- |
-| Button | `.sd-btn` + `--primary`, `--accent`, `--ghost`, `--sm` | Pill, 52px tall (42px small). Primary is ink on light and highlighter on dark, automatically. One primary button per section |
-| Text link | `.sd-link` | Underlined, 1px, offset 5px |
-| Eyebrow | `.sd-eyebrow` | Mono label with a short rule in front. One per section header |
+| Button | `.sd-btn` + `--primary`, `--invert`, `--ghost`, `--sm`, `--lg` | Rounded rectangle (12px), 50px tall (40px small, 60px large). Primary is the accent on light and white on dark, automatically. Ghost is white with a border. One primary button per section |
+| Text link | `.sd-link` | Accent color, underlined, 1px |
+| Eyebrow | `.sd-eyebrow` | A small pill with the accent dot in front. One per section header |
 | Chip | `.sd-chip` | Small bordered fact |
 | Placeholder | `.sd-ph` + `data-ph="key"`, `--bare`; `.sd-draft` | Dashed amber box for copy that is not final. `--bare` keeps a heading's type. `.sd-draft` is the banner across the top. See below |
 | Card | `.sd-card` + `--lg`, `--raised`, `--dark`, `--outline` | `.sd-card__title` for the heading |
@@ -98,15 +93,16 @@ Rules:
 | FAQ | `.sd-faq`, `.sd-faq__item`, `.sd-faq__icon`, `.sd-faq__answer` | Native `details` and `summary`. No script |
 | Video frame | `.sd-video-wrap`, `.sd-video`, `.sd-video__slot`, `.sd-video__play` | 16:9. Holds the VSL embed; shows a labelled slot until it exists |
 | Formula | `.sd-formula`, `.sd-formula__term`, `--result`, `.sd-formula__op` | The market count written out |
-| Check list | `.sd-checks` | Plain list with teal checks |
+| Check list | `.sd-checks` | One small card per line, with a tinted round check |
 | Pain card | `.sd-card.sd-pain` | Mono label, a bold lead line, one or two sentences |
-| Points | `.sd-points`, `.sd-points__num`, `.sd-points__body` | Ruled, numbered rows. The why-us list |
+| Points | `.sd-points`, `.sd-points__num`, `.sd-points__body` | One card per point with a tinted number. The why-us list |
 | Included list | `.sd-included` | Every tangible thing we do, one cell each. Never an item called "research" |
 | Flowchart | `.sd-flow`, `.sd-flow__title`, `.sd-flow__lane`, `.sd-flow__stage`, `.sd-flow__nodes`, `.sd-flow__node`, `--result` | The system, stage by stage, labeled with its name. Rows with right arrows on desktop, one column with down arrows on phones |
-| Comparison table | `.sd-compare` | A real `table`. The last column is ours and sits on teal. Each `td` carries `data-label` so rows stack under 800px |
+| Comparison table | `.sd-compare` | A real `table`. The last column is ours: a tinted, outlined panel. Each `td` carries `data-label` so rows stack under 800px |
 | Founder | `.sd-founder`, `.sd-founder__photo`, `.sd-founder__copy` | Photo one side, three or four short lines the other |
 | Calendar embed | `.sd-embed`, `.sd-embed__fallback`, `.sd-book`, `.sd-book__foot` | White panel that holds the Calendly inline widget |
 | Large button | `.sd-btn--lg` | The one big button after the included list |
+| Mock panel | `.sd-mock`, `.sd-mock__row`, `--accent`; `.sd-tag` | A small made-up piece of screen that shows what a thing looks like. It always carries the `Example` tag and never holds a result number, a client name or a person's name |
 
 ## Section patterns
 
@@ -114,8 +110,8 @@ Rules:
 | --- | --- | --- |
 | Container | `.sd-container` | Every section's inner wrapper |
 | Section | `.sd-section` + surface modifier, `--tight`, `--flush-top` | Vertical rhythm |
-| Section header | `.sd-head`, `--center` | Eyebrow, heading, optional lead. Max 820px wide |
-| Nav | `.sd-nav`, `.sd-nav__inner`, `.sd-brand`, `.sd-nav__links` | Sticky, blurred paper. Links hide under 900px; the button stays |
+| Section header | `.sd-head`, `--left` | Eyebrow, heading, optional lead. Centered, max 780px wide. `--left` aligns it left |
+| Nav | `.sd-nav`, `.sd-nav__inner`, `.sd-brand`, `.sd-nav__links` | A floating bar: rounded, bordered, blurred white, 12px from the top. Links hide under 900px; the button stays. `.sd-brand` holds the inline mark and the name |
 | Hero | `.sd-hero`, `.sd-hero__copy`, `.sd-hero__headline` (with `.sd-hero__line` and `.sd-hero__big` for the one blown-up phrase), `.sd-hero__promise`, `.sd-hero__actions`, `.sd-hero__buttons`, `.sd-hero__covered`; `.sd-hero--center` or `.sd-hero__grid` | Centered (copy, then the video frame under it) is what the `/100-calls` page uses. `.sd-hero__grid` is the two-column variant: copy left, one object right, stacking under 1000px |
 | Steps | `.sd-steps`, `.sd-step`, `.sd-step__num`, `.sd-step__title`, `.sd-step__figure` | Numbered rows, copy and a figure. Numbers only where order is real |
 | Split | `.sd-split`, `.sd-split__aside` | Sticky heading left, content right. FAQ |
@@ -123,7 +119,7 @@ Rules:
 | Three-up | `.sd-grid-3` | Three equal columns from 860px |
 | Section button | `.sd-section__cta` | One centered button under a section, with an optional line above or below. Every major section ends with one; labels vary |
 | CTA band | `.sd-cta` | Centered block: eyebrow, display heading, lead, one button. Not used on the `/100-calls` page at the moment |
-| Footer | `.sd-footer`, `.sd-footer__inner`, `.sd-footer__links` | Ink |
+| Footer | `.sd-footer`, `.sd-footer__inner`, `.sd-footer__links` | Night |
 
 Section order on the `/100-calls` page follows the long-form order for cold email traffic (business repo, `brain/topics/marketing-vsl-landing-pages.md`):
 
@@ -139,12 +135,12 @@ Section order on the `/100-calls` page follows the long-form order for cold emai
 10. Book the call: the calendar embedded on the page
 11. FAQ
 
-Surfaces run paper, white, paper, white, paper, teal, white, paper, white, ink, paper. Every button on the page scrolls to the calendar (`#book`).
+Surfaces run white (hero), mist, white, mist, white, navy, white, mist, white, navy, mist. Every button on the page scrolls to the calendar (`#book`).
 
 ## Motion
 
 - `.sd-reveal`: fade and 18px rise on scroll, once. `--delay` staggers a neighbor.
-- Buttons: color change and a 3px arrow nudge. FAQ icon: plus turns to minus.
+- Buttons: color change, a 1px lift and a 3px arrow nudge. FAQ icon: plus turns to minus.
 - Everything is off under `prefers-reduced-motion`, and nothing is hidden when JavaScript is off.
 
 ## Placeholders
@@ -174,34 +170,37 @@ Current keys: `draft-banner`, `vsl`, `walkthrough-video`, `founder-background`, 
 
 ## Logo
 
-Files are in `logo/`, `social/` and `favicon/`, unchanged from v1.
+New in v3 (2026-11-12). Yuri said he is willing to drop the old logo; the old PNG files are still in `logo/` and the root page still uses them.
 
-- `logo/spotter-mark.png`: color mark, transparent. Nav on paper or white.
-- `logo/spotter-mark-white.png`: white mark. Footer and any ink or teal surface.
-- `logo/spotter-mark-black.png`: one-color print.
-- `logo/spotter-logo-full.png`, `logo/spotter-logo-full-white-bg.png`: mark with wordmark, for documents and email signatures.
-- `social/spotter-avatar-1000.png`: square avatar for profiles.
+The mark is four viewfinder corners locked on one dot: we find the buyer. Files are in `logo/v3/`, all vector, the wordmarks are outlines (no font needed):
+
+- `spotter-lockup.svg`, `spotter-lockup-white.svg`: mark and name. "Spotter" in Geist 600, "Digital" in Geist 500 muted.
+- `spotter-mark.svg`, `spotter-mark-white.svg`: the mark alone.
+- `spotter-icon.svg`: the mark reversed out of a navy tile, for favicons and avatars.
+- `options/`: two other candidates (B: a tile with an s and a spot; C: the name only, with the o as the spot). Not in use. Delete the folder once the logo is chosen.
+
+On pages the mark is inline SVG inside `.sd-brand`, so it takes the text color and its dot takes the accent, on light and dark.
 
 Do:
 
-- Keep clear space around the mark equal to the height of its small circuit node.
-- Use the mark with the "Spotter Digital" wordmark set in Switzer 700 in the nav and footer (`.sd-brand`).
+- Keep clear space of half the mark's height around the logo.
+- Use the white lockup on navy.
 
 Do not:
 
-- Stretch, rotate or recolor the mark.
-- Put the color mark on teal or ink. Use the white mark there.
-- Put the mark on the highlighter color.
+- Recolor the dot outside the accent, stretch the mark, or set the name in another face.
+- Use the mark smaller than 16px. Under 24px use `spotter-icon.svg`.
 
-All logo files are raster PNGs from a 1254px source. For print larger than about 6 inches, redraw the mark as a vector first.
+The files are built by a script (Geist outlines through fontTools); it is not in the repo. Ask for it if the logo needs to change.
 
 ## Favicon
 
+`favicon/v3/` holds PNGs of the icon at 16, 32, 48, 180, 192 and 512px. The old favicons in `favicon/` are still used by the root page, `results.html` and `roi-calculator.html`.
+
 ```html
-<link rel="icon" type="image/png" sizes="32x32" href="assets/spotter-brand-kit/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/spotter-brand-kit/favicon/favicon-16x16.png">
-<link rel="shortcut icon" href="assets/spotter-brand-kit/favicon/favicon.ico">
-<link rel="apple-touch-icon" href="assets/spotter-brand-kit/favicon/apple-touch-icon.png">
-<link rel="manifest" href="assets/spotter-brand-kit/favicon/site.webmanifest">
-<meta name="theme-color" content="#f6f4ee">
+<link rel="icon" type="image/svg+xml" href="assets/spotter-brand-kit/logo/v3/spotter-icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/spotter-brand-kit/favicon/v3/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/spotter-brand-kit/favicon/v3/icon-16.png">
+<link rel="apple-touch-icon" href="assets/spotter-brand-kit/favicon/v3/icon-180.png">
+<meta name="theme-color" content="#ffffff">
 ```
