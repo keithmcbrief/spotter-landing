@@ -1057,6 +1057,7 @@ a {
 }
 
 .sd-hero::before {
+  opacity: 0.6;
   background: radial-gradient(60% 46% at 50% 0%, var(--accent-100), transparent 72%);
 }
 
@@ -1102,7 +1103,7 @@ a {
 
 /* Hero, centered: copy in one column, the video frame under it */
 .sd-hero--center .sd-hero__copy {
-  max-width: 940px;
+  max-width: 1040px;
   margin-inline: auto;
   justify-items: center;
   text-align: center;
@@ -1115,6 +1116,7 @@ a {
 }
 
 .sd-hero--center .sd-lead {
+  max-width: 56ch;
   margin-inline: auto;
   text-wrap: balance;
 }
@@ -1125,47 +1127,40 @@ a {
   margin-top: clamp(40px, 5vw, 64px);
 }
 
-/* Headline with one phrase blown up: small line, the big phrase, small line */
+/* Headline: one size, two lines on wide screens. The key phrase is picked out by color only. */
 .sd-hero__headline {
-  display: grid;
-  justify-items: center;
-  gap: 0.1em;
-  font-size: clamp(1.625rem, 1.1rem + 2.3vw, 2.875rem);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  max-width: 1040px;
+  margin-inline: auto;
+  font-size: clamp(2.125rem, 1.3rem + 3.2vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
-.sd-hero__line {
-  display: block;
-}
-
+.sd-hero__line,
 .sd-hero__big {
-  display: block;
-  font-size: clamp(2.625rem, 0.5rem + 8.4vw, 6.75rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.045em;
-  white-space: nowrap;
+  display: inline;
 }
 
 .sd-hero__big .sd-hl {
-  padding: 0 0.04em 0.06em;
-  color: var(--accent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, white), var(--accent) 55%, var(--accent-strong));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent-text);
+  white-space: nowrap;
 }
 
-/* The guarantee: its own short line under the headline */
+@media (min-width: 1080px) {
+  .sd-hero__line:last-child {
+    display: block;
+  }
+}
+
+/* The guarantee: a short bold line under the headline, smaller than the headline */
 .sd-hero__promise {
-  margin-top: calc(var(--s-3) * -1);
   color: var(--fg);
-  font-size: clamp(1.75rem, 1.1rem + 2.9vw, 3.25rem);
+  font-size: clamp(1.125rem, 1rem + 0.7vw, 1.5rem);
   font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .sd-hero__buttons,

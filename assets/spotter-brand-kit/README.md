@@ -69,7 +69,7 @@ Both faces load from Google Fonts (Geist 400, 500, 600, 700; Geist Mono 400, 500
 
 - Headings are sentence case and end with a period when they are a sentence. No all caps headings.
 - Text columns stop at `--measure` (60 characters).
-- Emphasis inside a heading is the accent color (`.sd-hl`), never italics. In the hero the blown-up phrase (`.sd-hero__big .sd-hl`) is the accent at weight 700.
+- Emphasis inside a heading is the accent color (`.sd-hl`), never italics. In the hero the key phrase (`.sd-hero__big .sd-hl`) is the accent color at the same size and weight as the rest of the headline.
 
 ## Space, shape, depth
 
@@ -112,7 +112,7 @@ Both faces load from Google Fonts (Geist 400, 500, 600, 700; Geist Mono 400, 500
 | Section | `.sd-section` + surface modifier, `--tight`, `--flush-top` | Vertical rhythm |
 | Section header | `.sd-head`, `--left` | Eyebrow, heading, optional lead. Centered, max 780px wide. `--left` aligns it left |
 | Nav | `.sd-nav`, `.sd-nav__inner`, `.sd-brand`, `.sd-nav__links` | A floating bar: rounded, bordered, blurred white, 12px from the top. Links hide under 900px; the button stays. `.sd-brand` holds the inline mark and the name |
-| Hero | `.sd-hero`, `.sd-hero__copy`, `.sd-hero__headline` (with `.sd-hero__line` and `.sd-hero__big` for the one blown-up phrase), `.sd-hero__promise`, `.sd-hero__actions`, `.sd-hero__buttons`, `.sd-hero__covered`; `.sd-hero--center` or `.sd-hero__grid` | Centered (copy, then the video frame under it) is what the `/100-calls` page uses. `.sd-hero__grid` is the two-column variant: copy left, one object right, stacking under 1000px |
+| Hero | `.sd-hero`, `.sd-hero__copy`, `.sd-hero__headline` (with `.sd-hero__line` and `.sd-hero__big` for the one key phrase, picked out by color only), `.sd-hero__promise`, `.sd-hero__actions`, `.sd-hero__buttons`, `.sd-hero__covered`; `.sd-hero--center` or `.sd-hero__grid` | Centered (copy, then the video frame under it) is what the `/100-calls` page uses. `.sd-hero__grid` is the two-column variant: copy left, one object right, stacking under 1000px |
 | Steps | `.sd-steps`, `.sd-step`, `.sd-step__num`, `.sd-step__title`, `.sd-step__figure` | Numbered rows, copy and a figure. Numbers only where order is real |
 | Split | `.sd-split`, `.sd-split__aside` | Sticky heading left, content right. FAQ |
 | Two-up | `.sd-grid-2` | Two equal columns from 860px |
