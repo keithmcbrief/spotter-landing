@@ -36,9 +36,6 @@
   <body>
     <a class="sd-skip" href="#main">Skip to content</a>
 
-    <!-- DRAFT BANNER. Delete when every placeholder on the page is filled. -->
-    <p class="sd-draft" data-ph="draft-banner">Draft. Two videos and the founder details are not final.</p>
-
     <!-- Nav -->
     <header class="sd-nav" id="nav">
       <div class="sd-container sd-nav__inner">
@@ -57,7 +54,7 @@
     </header>
 
     <main id="main">
-      <!-- 1. Hero: audience, the promise, one call to action, the VSL.
+      <!-- 1. Hero: audience, the promise, one call to action. The VSL goes back in when it is recorded.
            PROMISE NUMBER: the number and the 90 days appear only in this h1, the lead line under it ("in 90 days or less") and the three head tags marked above. -->
       <section class="sd-hero sd-hero--center" id="top">
         <div class="sd-container">
@@ -72,28 +69,9 @@
                   See if your market qualifies
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
                 </a>
-                <a class="sd-btn sd-btn--ghost" href="#video">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
-                  Watch the video
-                </a>
               </div>
             </div>
           </div>
-
-          <!-- VSL slot. Tristan is recording the new video. Swap .sd-video__slot for the embed when it exists. -->
-          <figure class="sd-video-wrap" id="video">
-            <div class="sd-video">
-              <!-- VSL EMBED GOES HERE. Example:
-                   <wistia-player media-id="NEW_MEDIA_ID" aspect="1.7777777777777777"></wistia-player>
-                   plus the two Wistia script tags in <head>. Then delete the .sd-video__slot div below. -->
-              <div class="sd-video__slot">
-                <span class="sd-video__play" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
-                </span>
-                <span class="sd-ph" data-ph="vsl">PLACEHOLDER: new VSL from Tristan goes here</span>
-              </div>
-            </div>
-          </figure>
         </div>
       </section>
 
@@ -293,27 +271,15 @@
         </div>
       </section>
 
-      <!-- 6. The full process: a walkthrough video over the labeled flowchart.
+      <!-- 6. The full process: the labeled flowchart.
            This stands in for client results until there are some we are cleared to show. -->
       <section class="sd-section sd-section--navy" id="system">
         <div class="sd-container">
           <div class="sd-head sd-head--center sd-reveal">
             <p class="sd-eyebrow">The full process</p>
             <h2 class="sd-h2">Every step, from your list of buyers <span class="sd-hl">to a sales call.</span></h2>
-            <p class="sd-lead">Watch the video, or read the steps below.</p>
+            <p class="sd-lead">Here is every step, in order.</p>
           </div>
-
-          <!-- WALKTHROUGH VIDEO. A 2 to 3 minute screen recording of this flowchart. Swap .sd-video__slot for the embed. -->
-          <figure class="sd-video-wrap sd-reveal">
-            <div class="sd-video">
-              <div class="sd-video__slot">
-                <span class="sd-video__play" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
-                </span>
-                <span class="sd-ph" data-ph="walkthrough-video">PLACEHOLDER: 2 to 3 minute video that walks through these steps</span>
-              </div>
-            </div>
-          </figure>
 
           <div class="sd-flow sd-reveal" role="group" aria-label="The Buyer Count System, in three parts">
             <p class="sd-flow__title"><strong>The Buyer Count System</strong><span class="sd-label">Three parts, in order</span></p>
@@ -460,21 +426,19 @@
         </div>
       </section>
 
-      <!-- 9. Founder. The photo and the name are carried over from the live root page.
-           The two facts in placeholders are not sourced yet: do not guess them. -->
+      <!-- 9. Founders -->
       <section class="sd-section sd-section--white" id="founder">
         <div class="sd-container sd-founder">
           <div class="sd-founder__photo sd-reveal">
-            <img src="assets/founder-tristan.jpg" alt="Tristan, founder of Spotter Digital" width="1050" height="1400" loading="lazy">
+            <img src="assets/founder-tristan.jpg" alt="Tristan, co-founder of Spotter Digital" width="1050" height="1400" loading="lazy">
           </div>
           <div class="sd-founder__copy sd-reveal" style="--delay:.08s">
-            <p class="sd-eyebrow">Founder</p>
-            <h2 class="sd-h2">Hey, I'm Tristan.</h2>
-            <p class="sd-body">For years I saw good companies pay agencies and still get no sales calls. I started Spotter to fix that.</p>
-            <p class="sd-body">We do one thing. We email the people who can buy from you, and we book the sales calls. We promise a number of calls before we start.</p>
-            <p class="sd-body"><span class="sd-ph" data-ph="founder-background">PLACEHOLDER: what Tristan did before Spotter, one or two lines</span></p>
-            <p class="sd-body"><span class="sd-ph" data-ph="founder-location">PLACEHOLDER: where Tristan is based</span></p>
-            <p class="sd-label">Tristan, Founder</p>
+            <p class="sd-eyebrow">The founders</p>
+            <h2 class="sd-h2">Hey, we're Yuri and Tristan.</h2>
+            <p class="sd-body">Yuri played League of Legends professionally for six years in the LCS, for TSM, Cloud9 and Team Liquid, and was rank 1 in North America in season 5.</p>
+            <p class="sd-body">We met at the gym, tried a couple of businesses together, and landed on cold email.</p>
+            <p class="sd-body">Now we do one thing. We email the people who can buy from you, and we book the sales calls. We promise a number of calls before we start.</p>
+            <p class="sd-label">Yuri and Tristan, co-founders</p>
             <a class="sd-btn sd-btn--primary" href="#book">
               Talk to us
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>

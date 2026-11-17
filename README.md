@@ -13,14 +13,8 @@ Static site, no build step. Deployed by Vercel from GitHub: `main` is production
 - `assets/spotter-brand-kit/index.html`: every token and component rendered.
 - `assets/spotter-brand-kit/logo`, `social`, `favicon`: logo files.
 
-## Before `/100-calls` goes live
-Copy that is not final is wrapped in `<span class="sd-ph" data-ph="...">`, and a draft banner sits across the top. List what is left:
-
-```bash
-grep -o 'data-ph="[^"]*"' 100-calls.html | sort | uniq -c
-```
-
-The new VSL goes in the hero of `100-calls.html`; the comment there shows the embed. The page also needs a 2 to 3 minute walkthrough video of the flowchart and two founder facts (background, location). It embeds the Calendly inline widget with the same link the root page uses, and every button scrolls to it.
+## `/100-calls` launch state (2026-11-17)
+Launched without the two videos: the VSL slot, the "Watch the video" button and the walkthrough video were removed because neither video exists yet. The founder section names both co-founders, Yuri and Tristan, using Yuri's published facts only. When the VSL is ready, add it back in the hero as a Wistia embed. The page embeds the Calendly inline widget with the same link the root page uses, and every button scrolls to it.
 
 ## Run locally
 ```bash
