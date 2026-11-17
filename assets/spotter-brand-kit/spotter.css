@@ -1745,6 +1745,31 @@ a {
   object-position: 50% 28%;
 }
 
+/* Two founders: photos side by side, each with a name tag */
+.sd-founder__photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-4);
+  width: 100%;
+  max-width: 520px;
+}
+
+.sd-founder__photos .sd-founder__photo {
+  position: relative;
+  max-width: none;
+  margin: 0;
+}
+
+.sd-founder__photos figcaption {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+}
+
 .sd-founder__copy {
   display: grid;
   gap: var(--s-5);
