@@ -1856,3 +1856,36 @@ a {
     transition: none;
   }
 }
+
+/* 99. Theme: Spotter green, square corners (Yuri, 2026-11-17) ------------
+   Back to the original site's green (#004f4d family) instead of Cobalt,
+   and no rounded corners anywhere, buttons included, like the original
+   site. This block overrides the tokens above; delete it to return to
+   Cobalt with rounded corners. */
+:root {
+  --ink: #0d2423;
+  --ink-2: #1a3634;
+  --night: #00201f;
+  --muted: #5f5f5f;
+  --mist: #f4f4f4;
+  --mist-deep: #eaeeed;
+  --line: #e2e2e2;
+  --line-strong: #cfd6d5;
+  --accent: #004f4d;
+  --accent-strong: #003837;
+  --accent-300: #7fb8b2;
+  --accent-100: #cfe3e0;
+  --accent-50: #eef5f4;
+  --accent-on-dark: #7fb8b2;
+  --on-dark-muted: #a9c2bf;
+  --r-sm: 0;
+  --r-md: 0;
+  --r-lg: 0;
+  --r-pill: 0;
+}
+
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
