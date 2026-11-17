@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/100-calls.html"
+    },
+    {
+      "source": "/old",
+      "destination": "/old.html"
+    },
+    {
       "source": "/results",
       "destination": "/results.html"
     },
