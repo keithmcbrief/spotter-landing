@@ -102,6 +102,10 @@ Both faces load from Google Fonts (Geist 400, 500, 600, 700; Geist Mono 400, 500
 | Founder | `.sd-founder`, `.sd-founder__photo`, `.sd-founder__copy` | Photo one side, three or four short lines the other |
 | Calendar embed | `.sd-embed`, `.sd-embed__fallback`, `.sd-book`, `.sd-book__foot` | White panel that holds the Calendly inline widget |
 | Large button | `.sd-btn--lg` | The one big button after the included list |
+| Proof tiles | `.sd-proof`, `.sd-proof__tile` + `--lead`, `--8`, `--7`, `--5`, `--4`; `.sd-proof__lead`, `.sd-proof__figure`, `.sd-proof__claim`, `.sd-proof__quote` + `--lg`, `.sd-proof__stats` | A bento of client proof. Each tile is a mono label, one line set in type (a figure, a quote or three numbers) and the screenshot it was copied from. The number modifier is the tile's width out of 12 columns from 900px; under that the tiles stack |
+| Screenshot | `.sd-shot`, `.sd-receipt` + `--wide` | `.sd-shot` is a link to the full picture; the page script opens it in the lightbox. `--w` on it is the picture's width in pixels, and it is never shown above half of that. `.sd-receipt` is the frame inside a tile; set `--shot-bg` to the screenshot's background. `--wide` keeps one long line of chat readable on a phone by letting it scroll sideways |
+| Screenshot wall | `.sd-wall`, `.sd-wall__label`, `.sd-wall__note`, `.sd-marquee` + `--tall`, `--reverse`, `.sd-marquee__track` | Rows of screenshots, edge to edge, that drift sideways and stop under the pointer. Every picture in a row is the same height (`--row-h`). The page script copies each row once to close the loop; without script or with reduced motion a row is a plain strip that scrolls sideways |
+| Lightbox | `.sd-lightbox`, `.sd-lightbox__close` | A native `dialog` that shows one screenshot larger |
 | Mock panel | `.sd-mock`, `.sd-mock__row`, `--accent`; `.sd-tag` | A small made-up piece of screen that shows what a thing looks like. It always carries the `Example` tag and never holds a result number, a client name or a person's name |
 
 ## Section patterns
@@ -124,23 +128,25 @@ Both faces load from Google Fonts (Geist 400, 500, 600, 700; Geist Mono 400, 500
 Section order on the `/100-calls` page follows the long-form order for cold email traffic (business repo, `brain/topics/marketing-vsl-landing-pages.md`):
 
 1. Hero: audience pill, outcome headline, the guarantee on its own line, sub-headline, two buttons (book, watch the video), a row of what we handle, VSL
-2. Pain points: what they already tried
-3. Why us: the market count
-4. How it works: three steps
-5. Everything included, then the large button
-6. The system: walkthrough video over the labeled flowchart. This stands in for case studies until there are client results we are cleared to show
-7. Comparison table
-8. Who it is for, and who it is not for
-9. Founder
-10. Book the call: the calendar embedded on the page
-11. FAQ
+2. Proof: four tiles of client messages, then the wall of screenshots (added 2026-11-19)
+3. Pain points: what they already tried
+4. Why us: the market count
+5. How it works: three steps
+6. Everything included, then the large button
+7. The system: walkthrough video over the labeled flowchart
+8. Comparison table
+9. Who it is for, and who it is not for
+10. Founder
+11. Book the call: the calendar embedded on the page
+12. FAQ
 
-Surfaces run white (hero), mist, white, mist, white, navy, white, mist, white, navy, mist. Every button on the page scrolls to the calendar (`#book`).
+Surfaces run white (hero), navy (proof), mist, white, mist, white, navy, white, mist, white, navy, mist. Every button on the page scrolls to the calendar (`#book`).
 
 ## Motion
 
 - `.sd-reveal`: fade and 18px rise on scroll, once. `--delay` staggers a neighbor.
 - Buttons: color change, a 1px lift and a 3px arrow nudge. FAQ icon: plus turns to minus.
+- The screenshot wall drifts sideways at one slow speed, the two rows in opposite directions. It stops under the pointer and while it is off screen.
 - Everything is off under `prefers-reduced-motion`, and nothing is hidden when JavaScript is off.
 
 ## Placeholders
@@ -162,7 +168,7 @@ Current keys: `draft-banner`, `vsl`, `walkthrough-video`, `founder-background`, 
 ## Voice
 
 - First person plural, plain words, specific numbers. Short sentences.
-- No proof we cannot source: no client logos, testimonials, case studies or result numbers unless `offer/current_offer.md` in the business repo approves the claim.
+- No proof we cannot source: no client logos, testimonials, case studies or result numbers unless `offer/current_offer.md` in the business repo approves the claim. One exception, approved by Yuri on 2026-11-19: the proof section shows real screenshots from client chats with every name hidden. Its figures and quotes are copied from those screenshots and from nowhere else, and it names no client and no buyer. See `assets/proof/README.md`.
 - The page states the promise, "We'll book you 100 sales calls with decision makers in your market. In 90 days, or you don't pay.", and nothing about how that is settled. Terms, price and payment are explained on the call, not on the site (Yuri, 2026-11-11).
 - The promise number and the 90 days are written in four places only: the `title`, the meta description, `og:title` and the `h1`. The guarantee line ("In 90 days, or you don't pay.") sits under the `h1` as `.sd-hero__promise`, so the 90 days is written there and not in the `h1`. Everywhere else the page says "the number", so a change to the promise is a four-line edit.
 - Below the hero, every line says the actual thing we do or the actual thing the client gets. Short sentences, common words, one idea per sentence. No clever headings, no slogans. Sixth grade reading level or lower (Yuri, 2026-11-11). The banned word list is in the business repo: `skills/spotter/cold-email-generator/references/WRITING_RULES.md`, Style.

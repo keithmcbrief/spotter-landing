@@ -16,6 +16,7 @@
       FAQ, video frame, formula, check list, mock panel
    6. Section patterns: nav, hero, steps, split, CTA band, footer
    6b. Long-form page parts
+   6c. Proof: client messages and the screenshot wall
    7. Motion
    ========================================================================== */
 
@@ -1819,6 +1820,298 @@ a {
   color: var(--fg-muted);
 }
 
+/* 6c. Proof: client messages and the screenshot wall ----------------------
+   Real screenshots from client chats, names hidden. A bento of four tiles
+   (each one a line set in type over the screenshot it came from), then two
+   rows of screenshots that drift past in opposite directions. */
+
+/* A screenshot. It is a link to the full picture; the page script opens it
+   in the lightbox instead. --w is the picture's width in pixels: it is shown
+   at half that at most, so chat text is never blown up. */
+.sd-shot {
+  display: block;
+  cursor: zoom-in;
+}
+
+.sd-shot img {
+  width: 100%;
+  max-width: calc(var(--w, 4000) * 0.5px);
+  height: auto;
+}
+
+/* The frame a screenshot sits in inside a tile. Its ground matches the
+   screenshot (--shot-bg), so a narrow picture does not show a seam. */
+.sd-receipt {
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+  background: var(--shot-bg, #1c1d21);
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-on-dark) transparent;
+  transition: border-color var(--dur-fast) ease;
+}
+
+.sd-receipt:hover {
+  border-color: var(--accent-text);
+}
+
+/* One long line of chat: keep it readable on a phone and let it scroll sideways */
+.sd-receipt--wide .sd-shot img {
+  min-width: 620px;
+}
+
+.sd-proof {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-4);
+}
+
+.sd-proof__tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  min-width: 0;
+  padding: clamp(20px, 2.6vw, 32px);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-xs);
+}
+
+.sd-proof__tile .sd-receipt {
+  margin-top: auto;
+}
+
+/* The lead tile carries the one big figure and a soft accent wash */
+.sd-proof__tile--lead {
+  background:
+    radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, var(--accent-text) 20%, transparent), transparent 62%),
+    var(--surface);
+}
+
+.sd-proof__lead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s-2) var(--s-5);
+  margin-bottom: var(--s-4);
+}
+
+.sd-proof__figure {
+  font-size: clamp(4.5rem, 2rem + 9.5vw, 8.5rem);
+  font-weight: 600;
+  line-height: 0.86;
+  letter-spacing: -0.06em;
+  color: var(--accent-text);
+}
+
+.sd-proof__claim {
+  max-width: 14ch;
+  padding-bottom: 0.2em;
+  font-size: clamp(1.375rem, 1.1rem + 1.2vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.sd-proof__quote {
+  margin-bottom: var(--s-4);
+  font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.125rem);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+/* The one long quote gets more room and larger type */
+.sd-proof__quote--lg {
+  font-size: clamp(1.5rem, 1rem + 2.4vw, 2.75rem);
+}
+
+/* Three numbers from one weekly report */
+.sd-proof__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: var(--s-4);
+}
+
+.sd-proof__stats > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: var(--s-2);
+}
+
+.sd-proof__stats > div + div {
+  padding-left: var(--s-4);
+  border-left: 1px solid var(--rule);
+}
+
+.sd-proof__stats dd {
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.sd-proof__stats > div:last-child dd {
+  color: var(--accent-text);
+}
+
+@media (min-width: 900px) {
+  .sd-proof {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--s-5);
+  }
+
+  .sd-proof__tile--8 { grid-column: span 8; }
+  .sd-proof__tile--7 { grid-column: span 7; }
+  .sd-proof__tile--5 { grid-column: span 5; }
+  .sd-proof__tile--4 { grid-column: span 4; }
+}
+
+/* The wall: rows of screenshots, edge to edge, fading out at both sides.
+   Without JavaScript, or with reduced motion, each row is a plain strip that
+   scrolls sideways. The page script adds .is-live, copies the row once and
+   the copy makes the loop seamless. */
+.sd-wall {
+  position: relative;
+  display: grid;
+  gap: var(--s-4);
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.sd-wall__label {
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+.sd-wall__note {
+  max-width: 62ch;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  text-align: center;
+  color: var(--fg-muted);
+}
+
+.sd-marquee {
+  --row-h: 160px;
+  --gap: var(--s-3);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.sd-marquee::-webkit-scrollbar {
+  display: none;
+}
+
+.sd-marquee--tall {
+  --row-h: 262px;
+}
+
+.sd-marquee__track {
+  display: flex;
+  gap: var(--gap);
+  width: max-content;
+  padding-inline: var(--gutter);
+}
+
+.sd-marquee__track li {
+  flex: none;
+  border: 1px solid var(--rule);
+  transition: border-color var(--dur-fast) ease;
+}
+
+.sd-marquee__track li:hover {
+  border-color: var(--accent-text);
+}
+
+.sd-marquee__track img {
+  width: auto;
+  max-width: none;
+  height: var(--row-h);
+}
+
+.sd-marquee.is-live {
+  overflow: hidden;
+}
+
+.sd-marquee.is-live .sd-marquee__track {
+  padding-inline: 0;
+  animation: sd-marquee var(--marquee-dur, 160s) linear infinite;
+  will-change: transform;
+}
+
+.sd-marquee--reverse.is-live .sd-marquee__track {
+  animation-direction: reverse;
+}
+
+.sd-marquee.is-live:hover .sd-marquee__track,
+.sd-marquee.is-paused .sd-marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes sd-marquee {
+  to {
+    transform: translateX(calc(-50% - var(--gap) / 2));
+  }
+}
+
+@media (min-width: 700px) {
+  .sd-marquee {
+    --row-h: 220px;
+    --gap: var(--s-4);
+  }
+
+  .sd-marquee--tall {
+    --row-h: 360px;
+  }
+}
+
+/* Lightbox: one screenshot, enlarged. A native dialog. */
+.sd-lightbox {
+  max-width: 94vw;
+  max-height: 88vh;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--line-on-dark);
+  background: var(--night);
+  box-shadow: var(--shadow-lift);
+}
+
+.sd-lightbox::backdrop {
+  background: color-mix(in srgb, var(--night) 84%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.sd-lightbox img {
+  max-width: none;
+}
+
+.sd-lightbox__close {
+  position: fixed;
+  top: var(--s-4);
+  right: var(--s-4);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-on-dark);
+  background: var(--night);
+  color: var(--on-dark);
+  cursor: pointer;
+}
+
+.sd-lightbox__close:hover {
+  background: var(--ink-2);
+}
+
+.sd-lightbox__close:focus-visible {
+  outline-color: var(--accent-on-dark);
+}
+
 /* 7. Motion --------------------------------------------------------------- */
 .sd-reveal {
   opacity: 0;
@@ -1852,7 +2145,9 @@ a {
   .sd-btn,
   .sd-btn svg,
   .sd-faq__icon::before,
-  .sd-faq__icon::after {
+  .sd-faq__icon::after,
+  .sd-receipt,
+  .sd-marquee__track li {
     transition: none;
   }
 }
