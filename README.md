@@ -4,7 +4,7 @@ Static site, no build step. Deployed by Vercel from GitHub: `main` is production
 
 ## Pages
 - `old.html` (served at `/old`, noindex): the previous root page, v1 design and the performance-basis offer. Moved from `index.html` on 2026-11-17.
-- `100-calls.html` (served at `/` and at `/100-calls`; there is no `index.html`, so `vercel.json` rewrites `/` to it): the new landing page, built on brand kit v3. Headline: We'll book you 100 sales calls with decision makers in your market. In 90 days, or you don't pay. It states the promise only; how that is settled, the price and payment are explained on the call, not on the page. The path still carries the old number.
+- `100-calls.html` (served at `/` and at `/100-calls`; there is no `index.html`, so `vercel.json` rewrites `/` to it): the new landing page, built on brand kit v3. Headline: We'll book you 100 sales calls with decision makers in your market. In 90 days, or you don't pay. It states the promise only; how that is settled, the price and payment are explained on the call, not on the page. The path still carries the old number. Right under the hero is the proof section (`#proof`, added 2026-11-19): real screenshots from client chats with names hidden. Its pictures and rules are in `assets/proof/README.md`.
 - `results.html` (served at `/results`) and `roi-calculator.html`: older pages on the v1 inline styles.
 
 ## Brand kit
