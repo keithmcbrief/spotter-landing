@@ -41,6 +41,7 @@ SHOTS = {
     "weekly-3750-2":           ("folder-10.png", None, "short"),
     "booked-today-4pm":        ("upload-16.png", (0, 16, 932, 345), "short"),
 
+    "client-verbal-close":     ("telegram-01.png", None, "tall"),
     "confirmed-nov-23":        ("upload-01.png", (0, 16, 1198, 868), "tall"),
     "booked-co-ceo":           ("upload-14.png", None, "tall"),
     "scheduled-sep-9":         ("folder-06.png", None, "tall"),
@@ -62,6 +63,7 @@ ROWS = {
 # Per-screenshot scale: text-only screenshots in the tall row keep full size, and the
 # phone chat app sets bigger type than Slack, so it is brought down to match.
 SCALE = {
+    "client-verbal-close": 0.55,
     "booked-co-ceo": 1.0, "booked-oct-19": 1.0, "booked-workers-comp": 1.0,
     "booked-chief-creative": 0.86, "weekly-3750-3": 0.86, "weekly-5396": 0.86, "weekly-3750-2": 0.86,
 }
