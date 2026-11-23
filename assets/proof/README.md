@@ -14,7 +14,7 @@ The pictures in the proof section of `100-calls.html` (`#proof`). They are scree
 - `<name>.webp`: the screenshot at full size, with stray edges cropped. Used in the four tiles and in the lightbox.
 - `<name>-card.webp`: the same picture centered on a canvas of one fixed height, filled with the screenshot's own background. Used in the two moving rows, so every card in a row is the same height and the chat text is the same size.
 
-There are 27 screenshots: 4 in the tiles, 12 in the first row, 11 in the second. The first card in the second row (`client-verbal-close`) is a phone chat app screenshot, blurred with its own boxes (2026-11-20).
+There are 26 screenshots displayed on `100-calls.html`: 4 in the featured tiles (including `client-verbal-close`, a phone chat app screenshot blurred with its own boxes, 2026-11-20), 12 in the first row, and 10 in the second (`weekly-9520.webp` remains in the folder but is not shown in the featured tiles).
 
 ## Rebuild
 
