@@ -1867,10 +1867,12 @@ a {
 }
 
 .sd-founder__photo img {
+  display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: 50% 22%;
+  object-position: 50% 20%;
 }
 
 /* Two founders: side-by-side editorial frames with solid dark caption strip */
@@ -1878,15 +1880,15 @@ a {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--s-4);
+  align-items: start;
   width: 100%;
   max-width: 500px;
 }
 
 .sd-founder__photos .sd-founder__photo {
+  display: block;
   max-width: none;
   margin: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 .sd-founder__photos figcaption {
