@@ -22,29 +22,31 @@
 
 /* 1. Tokens --------------------------------------------------------------- */
 :root {
-  /* Color: neutrals (cool, navy-biased) */
-  --ink: #0a1430;
-  --ink-2: #1c2748;
-  --muted: #56607a;
+  /* Color: Sharp Editorial Green (Spotter deep green, warm alabaster, obsidian forest) */
+  --ink: #071c1b;
+  --ink-2: #0d2b29;
+  --muted: #4b5d5a;
   --white: #ffffff;
-  --mist: #f5f7fb;
-  --mist-deep: #ebeff7;
-  --line: #e3e8f1;
-  --line-strong: #cbd3e2;
-  --night: #050a1c;
+  --mist: #fafaf7;
+  --mist-deep: #eef2f0;
+  --line: #d5dedb;
+  --line-strong: #b6c6c1;
+  --night: #041615;
+  --obsidian-card: #092220;
+  --obsidian-rule: #163734;
 
-  /* Color: the one accent (cobalt) and its tints */
-  --accent: #2447f9;
-  --accent-strong: #1634d1;
-  --accent-300: #a9bbff;
-  --accent-100: #e7edff;
-  --accent-50: #f3f6ff;
-  --accent-on-dark: #8ea6ff;
+  /* Color: signature Spotter deep green and crisp mint on dark */
+  --accent: #004f4d;
+  --accent-strong: #003837;
+  --accent-300: #6ee0c8;
+  --accent-100: #e2f0ed;
+  --accent-50: #f0f7f5;
+  --accent-on-dark: #6ee0c8;
 
   /* Color: text on dark surfaces */
-  --on-dark: #f4f6fc;
-  --on-dark-muted: #a5b0cc;
-  --line-on-dark: rgba(255, 255, 255, 0.12);
+  --on-dark: #f2f7f6;
+  --on-dark-muted: #99b5b0;
+  --line-on-dark: #163734;
 
   /* Surface mode (overridden by .sd-section--* and .sd-card--dark) */
   --bg: var(--mist);
@@ -81,31 +83,39 @@
   --s-8: 64px;
   --s-9: 96px;
   --gutter: clamp(20px, 4vw, 40px);
-  --section-y: clamp(72px, 8.5vw, 128px);
+  --section-y: clamp(64px, 7.5vw, 112px);
   --container: 1160px;
   --measure: 60ch;
 
-  /* Shape */
-  --r-sm: 8px;
-  --r-md: 14px;
-  --r-lg: 22px;
-  --r-pill: 999px;
+  /* Shape: strict architectural square corners */
+  --r-sm: 0;
+  --r-md: 0;
+  --r-lg: 0;
+  --r-pill: 0;
 
-  /* Depth */
-  --shadow-xs: 0 1px 2px rgba(10, 20, 48, 0.06);
-  --shadow-card: 0 1px 2px rgba(10, 20, 48, 0.05), 0 14px 32px -18px rgba(10, 20, 48, 0.18);
-  --shadow-lift: 0 2px 4px rgba(10, 20, 48, 0.05), 0 40px 80px -32px rgba(10, 20, 48, 0.35);
-  --glow: color-mix(in srgb, var(--accent) 55%, transparent);
+  /* Depth: crisp editorial offsets and hairlines instead of blurry SaaS glows */
+  --shadow-xs: none;
+  --shadow-card: none;
+  --shadow-lift: 0 24px 60px -24px rgba(4, 22, 21, 0.45);
+  --shadow-offset: 4px 4px 0 var(--ink);
+  --shadow-offset-hover: 5px 5px 0 var(--ink);
+  --shadow-offset-dark: 4px 4px 0 rgba(110, 224, 200, 0.35);
+  --shadow-offset-dark-hover: 5px 5px 0 rgba(110, 224, 200, 0.48);
+  --glow: color-mix(in srgb, var(--accent) 45%, transparent);
 
-  /* The dot grid motif */
-  --dots: radial-gradient(circle at 1px 1px, rgba(10, 20, 48, 0.16) 1px, transparent 1.6px);
-  --dots-on-dark: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.16) 1px, transparent 1.6px);
-  --dot-step: 26px;
+  /* Architectural hairline grid motif */
+  --grid-light:
+    linear-gradient(to right, rgba(0, 79, 77, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 79, 77, 0.045) 1px, transparent 1px);
+  --grid-step: 36px;
+  --dots: radial-gradient(circle at 1px 1px, rgba(7, 28, 27, 0.14) 1px, transparent 1.6px);
+  --dots-on-dark: radial-gradient(circle at 1px 1px, rgba(110, 224, 200, 0.12) 1px, transparent 1.6px);
+  --dot-step: 28px;
 
   /* Motion */
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --dur-fast: 0.2s;
-  --dur: 0.6s;
+  --dur-fast: 0.18s;
+  --dur: 0.55s;
 }
 
 /* 2. Base ----------------------------------------------------------------- */
@@ -287,6 +297,7 @@ a {
   background: var(--bg);
   color: var(--fg);
   padding-block: var(--section-y);
+  border-top: 1px solid var(--rule);
 }
 
 .sd-section--tight {
@@ -305,24 +316,24 @@ a {
 .sd-section--navy,
 .sd-section--ink,
 .sd-card--dark {
-  --bg: var(--ink);
+  --bg: var(--night);
   --fg: var(--on-dark);
   --fg-muted: var(--on-dark-muted);
-  --rule: var(--line-on-dark);
-  --surface: rgba(255, 255, 255, 0.05);
-  --inset: rgba(255, 255, 255, 0.04);
+  --rule: var(--obsidian-rule);
+  --surface: var(--obsidian-card);
+  --inset: #061b1a;
   --accent-text: var(--accent-on-dark);
   --label-accent: var(--accent-on-dark);
-  --tint: rgba(255, 255, 255, 0.08);
+  --tint: rgba(110, 224, 200, 0.1);
   --tint-fg: var(--accent-on-dark);
 }
 
-/* Dark sections: navy falling to near black, a soft accent glow at the top, the dot grid */
+/* Dark sections: obsidian forest with subtle deep-green spotlight */
 .sd-section--navy,
 .sd-section--ink {
   background:
-    radial-gradient(70% 55% at 50% 0%, color-mix(in srgb, var(--accent) 34%, transparent), transparent 72%),
-    linear-gradient(180deg, var(--ink), var(--night));
+    radial-gradient(65% 42% at 50% 0%, rgba(0, 79, 77, 0.46), transparent 72%),
+    var(--night);
   overflow: hidden;
 }
 
@@ -334,8 +345,8 @@ a {
   pointer-events: none;
   background-image: var(--dots-on-dark);
   background-size: var(--dot-step) var(--dot-step);
-  -webkit-mask-image: radial-gradient(70% 60% at 50% 0%, #000, transparent 75%);
-  mask-image: radial-gradient(70% 60% at 50% 0%, #000, transparent 75%);
+  -webkit-mask-image: radial-gradient(70% 55% at 50% 0%, #000, transparent 74%);
+  mask-image: radial-gradient(70% 55% at 50% 0%, #000, transparent 74%);
 }
 
 .sd-section--navy > .sd-container,
@@ -349,7 +360,7 @@ a {
   gap: var(--s-4);
   justify-items: center;
   margin-inline: auto;
-  margin-bottom: clamp(40px, 5vw, 64px);
+  margin-bottom: clamp(36px, 4.5vw, 56px);
   max-width: 780px;
   text-align: center;
 }
@@ -362,6 +373,38 @@ a {
   justify-items: start;
   margin-inline: 0;
   text-align: left;
+}
+
+.sd-head--split {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-4);
+  max-width: none;
+  margin-inline: 0;
+  text-align: left;
+}
+
+.sd-head--split__main {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.sd-head--split .sd-lead {
+  margin-inline: 0;
+  max-width: 36ch;
+}
+
+@media (min-width: 860px) {
+  .sd-head--split {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .sd-head--split .sd-lead {
+    text-align: right;
+  }
 }
 
 .sd-stack > * + * {
@@ -383,7 +426,7 @@ a {
 
 /* 5. Components ----------------------------------------------------------- */
 
-/* Button. Rounded rectangle, one line, arrow optional. */
+/* Button: sharp architectural rectangle with crisp offset shadow on primary */
 .sd-btn {
   --btn-bg: var(--accent);
   --btn-fg: var(--white);
@@ -393,9 +436,9 @@ a {
   justify-content: center;
   gap: 10px;
   min-height: 50px;
-  padding: 13px 22px;
-  border: 1px solid transparent;
-  border-radius: 12px;
+  padding: 13px 24px;
+  border: 1px solid var(--accent-strong);
+  border-radius: 0;
   background: var(--btn-bg);
   color: var(--btn-fg);
   font-family: var(--font-sans);
@@ -406,19 +449,20 @@ a {
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 1px 2px rgba(10, 20, 48, 0.2),
-    0 10px 22px -10px var(--glow);
+  box-shadow: var(--shadow-offset);
   transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease,
     border-color var(--dur-fast) ease, transform var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
 }
 
 .sd-btn:hover {
   background: var(--btn-bg-hover);
-  transform: translateY(-1px);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-offset-hover);
 }
 
 .sd-btn:active {
-  transform: translateY(0);
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--ink);
 }
 
 .sd-btn svg {
@@ -430,27 +474,36 @@ a {
   transform: translateX(3px);
 }
 
-/* On dark surfaces the primary button is white */
+/* On dark surfaces the primary button is white with a crisp mint offset shadow */
 .sd-btn--invert,
 .sd-section--navy .sd-btn--primary,
 .sd-section--ink .sd-btn--primary {
   --btn-bg: var(--white);
   --btn-fg: var(--ink);
   --btn-bg-hover: var(--accent-100);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 30px -12px var(--glow);
+  border-color: var(--white);
+  box-shadow: var(--shadow-offset-dark);
 }
 
-/* The quiet button: white, bordered */
+.sd-btn--invert:hover,
+.sd-section--navy .sd-btn--primary:hover,
+.sd-section--ink .sd-btn--primary:hover {
+  box-shadow: var(--shadow-offset-dark-hover);
+}
+
+/* The quiet button: crisp bordered hairline */
 .sd-btn--ghost {
   --btn-bg: var(--surface);
   --btn-fg: var(--fg);
-  --btn-bg-hover: var(--surface);
-  border-color: var(--rule);
-  box-shadow: var(--shadow-xs);
+  --btn-bg-hover: var(--mist-deep);
+  border-color: var(--line-strong);
+  box-shadow: none;
 }
 
 .sd-btn--ghost:hover {
-  border-color: var(--line-strong);
+  border-color: var(--ink);
+  transform: none;
+  box-shadow: none;
 }
 
 .sd-btn--ghost svg {
@@ -462,17 +515,23 @@ a {
 }
 
 .sd-btn--sm {
-  min-height: 40px;
-  padding: 9px 16px;
-  border-radius: 10px;
-  font-size: 0.9375rem;
+  min-height: 38px;
+  padding: 8px 16px;
+  border-radius: 0;
+  font-size: 0.875rem;
+  box-shadow: none;
+}
+
+.sd-btn--sm:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .sd-btn--lg {
-  min-height: 60px;
-  padding: 17px 32px;
-  border-radius: 14px;
-  font-size: 1.125rem;
+  min-height: 56px;
+  padding: 16px 30px;
+  border-radius: 0;
+  font-size: 1.0625rem;
 }
 
 /* Text link */
@@ -597,29 +656,28 @@ a {
   background: var(--surface);
   color: var(--fg);
   border: 1px solid var(--rule);
-  border-radius: var(--r-md);
+  border-radius: 0;
   padding: clamp(22px, 2.6vw, 32px);
-  box-shadow: var(--shadow-xs);
 }
 
 .sd-card--lg {
-  border-radius: var(--r-lg);
+  border-radius: 0;
   padding: clamp(24px, 3.2vw, 40px);
 }
 
 .sd-card--raised {
-  box-shadow: var(--shadow-card);
+  border-color: var(--line-strong);
+  border-top: 3px solid var(--accent);
 }
 
 .sd-card--dark {
-  background: linear-gradient(180deg, var(--ink), var(--night));
-  border-color: transparent;
-  box-shadow: var(--shadow-lift);
+  background: var(--obsidian-card);
+  border-color: var(--obsidian-rule);
 }
 
 .sd-card--outline {
   background: transparent;
-  box-shadow: none;
+  border-color: var(--rule);
 }
 
 .sd-card__title {
@@ -684,8 +742,7 @@ a {
 }
 
 .sd-faq__item[open] {
-  border-color: var(--line-strong);
-  box-shadow: var(--shadow-card);
+  border-color: var(--accent);
 }
 
 .sd-faq__item summary {
@@ -950,24 +1007,23 @@ a {
 
 /* 6. Section patterns ----------------------------------------------------- */
 
-/* Nav: a floating bar */
+/* Nav: full-width editorial hairline bar */
 .sd-nav {
   position: sticky;
-  top: 12px;
+  top: 0;
   z-index: 50;
-  width: min(100% - 24px, var(--container) + 2 * var(--gutter));
-  margin: 12px auto 0;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.82);
-  -webkit-backdrop-filter: saturate(1.6) blur(16px);
-  backdrop-filter: saturate(1.6) blur(16px);
-  box-shadow: var(--shadow-xs);
-  transition: box-shadow var(--dur-fast) ease;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+  background: rgba(250, 250, 247, 0.94);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  backdrop-filter: saturate(1.4) blur(12px);
+  transition: border-color var(--dur-fast) ease, background-color var(--dur-fast) ease;
 }
 
 .sd-nav.is-stuck {
-  box-shadow: var(--shadow-card);
+  border-bottom-color: var(--line-strong);
+  background: rgba(250, 250, 247, 0.98);
 }
 
 .sd-nav__inner {
@@ -975,12 +1031,10 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: var(--s-5);
-  min-height: 60px;
-  max-width: none;
-  padding-inline: 16px 10px;
+  min-height: 66px;
 }
 
-/* Brand: the mark and the name. The mark takes the text color; its dot takes the accent. */
+/* Brand: the mark and the name. Mark carries signature Spotter green. */
 .sd-brand {
   display: inline-flex;
   align-items: center;
@@ -988,7 +1042,7 @@ a {
   text-decoration: none;
   color: var(--fg);
   font-weight: 700;
-  font-size: 1.3125rem;
+  font-size: 1.25rem;
   letter-spacing: -0.04em;
   line-height: 1;
   white-space: nowrap;
@@ -996,8 +1050,9 @@ a {
 
 .sd-brand svg {
   flex: none;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
+  color: var(--accent-text);
 }
 
 .sd-brand__sub {
@@ -1035,35 +1090,23 @@ a {
   }
 }
 
-/* Hero */
+/* Hero: warm alabaster paper with crisp architectural hairline grid */
 .sd-hero {
   position: relative;
-  margin-top: -74px; /* the floating nav sits over the hero ground */
-  padding-block: calc(74px + clamp(40px, 5vw, 72px)) clamp(64px, 8vw, 112px);
-  background: var(--white);
+  padding-top: clamp(56px, 7vw, 96px);
+  padding-bottom: 0;
+  background-color: var(--mist);
+  background-image: var(--grid-light);
+  background-size: var(--grid-step) var(--grid-step);
   overflow: hidden;
 }
 
-/* A soft accent wash at the top, and the dot grid fading out over it */
-.sd-hero::before,
-.sd-hero::after {
+.sd-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-}
-
-.sd-hero::before {
-  opacity: 0.6;
-  background: radial-gradient(60% 46% at 50% 0%, var(--accent-100), transparent 72%);
-}
-
-.sd-hero::after {
-  background-image: var(--dots);
-  background-size: var(--dot-step) var(--dot-step);
-  background-position: 50% 0;
-  -webkit-mask-image: radial-gradient(70% 55% at 50% 0%, #000, transparent 78%);
-  mask-image: radial-gradient(70% 55% at 50% 0%, #000, transparent 78%);
+  background: radial-gradient(68% 55% at 50% 0%, rgba(226, 240, 237, 0.45), transparent 72%);
 }
 
 .sd-hero > .sd-container {
@@ -1098,9 +1141,9 @@ a {
   }
 }
 
-/* Hero, centered: copy in one column, the video frame under it */
+/* Hero, centered */
 .sd-hero--center .sd-hero__copy {
-  max-width: 1040px;
+  max-width: 960px;
   margin-inline: auto;
   justify-items: center;
   text-align: center;
@@ -1124,14 +1167,14 @@ a {
   margin-top: clamp(40px, 5vw, 64px);
 }
 
-/* Headline: one size, two lines on wide screens. The key phrase is picked out by color only. */
+/* Headline: tight architectural display, highlighted key phrase with crisp green underline */
 .sd-hero__headline {
-  max-width: 1040px;
+  max-width: 960px;
   margin-inline: auto;
-  font-size: clamp(2.125rem, 1.3rem + 3.2vw, 3.5rem);
+  font-size: clamp(2.125rem, 1.35rem + 3.1vw, 3.625rem);
   font-weight: 600;
-  line-height: 1.06;
-  letter-spacing: -0.04em;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
   text-wrap: balance;
 }
 
@@ -1141,8 +1184,8 @@ a {
 }
 
 .sd-hero__big .sd-hl {
-  color: var(--accent-text);
-  white-space: nowrap;
+  color: var(--accent);
+  box-shadow: inset 0 -0.14em 0 rgba(0, 79, 77, 0.16);
 }
 
 @media (min-width: 1080px) {
@@ -1151,13 +1194,96 @@ a {
   }
 }
 
-/* The guarantee: a short bold line under the headline, smaller than the headline */
+/* The guarantee: short bold line under the headline */
 .sd-hero__promise {
   color: var(--fg);
-  font-size: clamp(1.125rem, 1rem + 0.7vw, 1.5rem);
+  font-size: clamp(1.1875rem, 1.02rem + 0.75vw, 1.5625rem);
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+}
+
+.sd-hero__note {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Architectural 4-column proof strip anchoring the bottom of the hero */
+.sd-hero-strip {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(44px, 6vw, 72px);
+  border-top: 1px solid var(--line-strong);
+  background: var(--white);
+}
+
+.sd-hero-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sd-hero-strip__cell {
+  padding: 20px var(--s-4);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.sd-hero-strip__cell:nth-child(2n) {
+  border-right: 0;
+}
+
+.sd-hero-strip__cell:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.sd-hero-strip__k {
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sd-hero-strip__v {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+@media (min-width: 860px) {
+  .sd-hero-strip__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sd-hero-strip__cell {
+    padding: 22px var(--s-5);
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+  }
+
+  .sd-hero-strip__cell:nth-child(2n) {
+    border-right: 1px solid var(--line);
+  }
+
+  .sd-hero-strip__cell:last-child {
+    border-right: 0;
+  }
+
+  .sd-hero-strip__cell:first-child {
+    padding-left: 0;
+  }
+
+  .sd-hero-strip__cell:last-child {
+    padding-right: 0;
+  }
 }
 
 .sd-hero__buttons,
@@ -1235,14 +1361,14 @@ a {
   margin-top: var(--s-4);
 }
 
-/* The figure: a panel on the dot grid */
+/* The figure: a crisp architectural panel on the hairline grid */
 .sd-step__figure {
   padding: clamp(18px, 2.4vw, 28px);
-  border-radius: var(--r-md);
-  border: 1px solid var(--rule);
-  background:
-    var(--dots) 0 0 / var(--dot-step) var(--dot-step),
-    var(--inset);
+  border-radius: 0;
+  border: 1px solid var(--line-strong);
+  background-color: var(--inset);
+  background-image: var(--grid-light);
+  background-size: var(--grid-step) var(--grid-step);
 }
 
 @media (min-width: 900px) {
@@ -1599,66 +1725,63 @@ a {
   }
 }
 
-/* Comparison table: the usual options against this offer. The last column is ours. */
+/* Comparison table: architectural hairline grid with dominant Spotter green column */
 .sd-compare {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
   text-align: left;
+  border: 1px solid var(--line-strong);
+  background: var(--white);
 }
 
 .sd-compare th,
 .sd-compare td {
-  padding: var(--s-5) var(--s-5) var(--s-5) 0;
+  padding: var(--s-5);
   border-top: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
   vertical-align: top;
   font-weight: 400;
 }
 
 .sd-compare thead th {
   border-top: 0;
-  padding-bottom: var(--s-4);
+  padding-block: var(--s-4);
+  background: var(--mist);
   font-family: var(--font-mono);
   font-size: var(--text-label);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg-muted);
 }
 
 .sd-compare tbody th {
-  width: 20%;
+  width: 22%;
+  background: var(--mist);
   color: var(--fg);
   font-weight: 600;
 }
 
 .sd-compare td {
   color: var(--fg-muted);
+  line-height: 1.5;
 }
 
-/* Our column: a tinted, outlined panel */
+/* Dominant Spotter Digital column */
 .sd-compare th:last-child,
 .sd-compare td:last-child {
   width: 30%;
-  padding-inline: var(--s-5);
-  background: var(--accent-50);
-  border-inline: 1px solid var(--accent-300);
-  border-top-color: color-mix(in srgb, var(--accent-300) 55%, transparent);
-  color: var(--fg);
+  border-right: 0;
+  background: var(--accent);
+  border-top-color: rgba(255, 255, 255, 0.14);
+  color: var(--white);
   font-weight: 500;
 }
 
 .sd-compare thead th:last-child {
-  padding-top: var(--s-5);
-  border-top: 1px solid var(--accent-300);
-  border-radius: var(--r-md) var(--r-md) 0 0;
-  color: var(--accent);
-}
-
-.sd-compare tbody tr:last-child td:last-child {
-  padding-bottom: var(--s-6);
-  border-bottom: 1px solid var(--accent-300);
-  border-radius: 0 0 var(--r-md) var(--r-md);
+  background: var(--accent-strong);
+  border-top: 0;
+  color: var(--accent-on-dark);
 }
 
 @media (max-width: 799px) {
@@ -1671,20 +1794,26 @@ a {
     width: 100%;
   }
 
+  .sd-compare {
+    border: 0;
+    background: transparent;
+  }
+
   .sd-compare thead {
     display: none;
   }
 
   .sd-compare tbody tr {
     padding-block: var(--s-5);
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--line-strong);
   }
 
   .sd-compare tbody th,
   .sd-compare td {
     width: 100%;
     padding: 0;
-    border-top: 0;
+    border: 0;
+    background: transparent;
   }
 
   .sd-compare tbody th {
@@ -1701,7 +1830,7 @@ a {
     margin-bottom: 2px;
     font-family: var(--font-mono);
     font-size: var(--text-label);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--fg-muted);
@@ -1710,65 +1839,75 @@ a {
   .sd-compare td:last-child,
   .sd-compare tbody tr:last-child td:last-child {
     width: 100%;
-    padding: var(--s-3) var(--s-4);
-    border: 1px solid var(--accent-300);
-    border-radius: 12px;
+    padding: var(--s-4);
+    background: var(--accent);
+    border: 1px solid var(--accent-strong);
+    color: var(--white);
   }
 
   .sd-compare td:last-child::before {
-    color: var(--accent);
+    color: var(--accent-on-dark);
   }
 }
 
-/* Founder: photo one side, a few short lines the other */
+/* Founder: sharp editorial portraits with obsidian caption bars */
 .sd-founder {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(32px, 5vw, 80px);
+  gap: clamp(32px, 5vw, 72px);
   align-items: center;
 }
 
 .sd-founder__photo {
   width: 100%;
   max-width: 420px;
-  aspect-ratio: 4 / 5;
   overflow: hidden;
-  border: 1px solid var(--rule);
-  border-radius: var(--r-lg);
-  background: var(--accent-100);
-  box-shadow: var(--shadow-lift);
+  border: 1px solid var(--line-strong);
+  background: var(--night);
 }
 
 .sd-founder__photo img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: 50% 28%;
+  object-position: 50% 22%;
 }
 
-/* Two founders: photos side by side, each with a name tag */
+/* Two founders: side-by-side editorial frames with solid dark caption strip */
 .sd-founder__photos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--s-4);
   width: 100%;
-  max-width: 520px;
+  max-width: 500px;
 }
 
 .sd-founder__photos .sd-founder__photo {
-  position: relative;
   max-width: none;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .sd-founder__photos figcaption {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  background: var(--night);
+  border-top: 1px solid var(--obsidian-rule);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-dark);
+}
+
+.sd-founder__photos figcaption span {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--accent-on-dark);
 }
 
 .sd-founder__copy {
@@ -1779,20 +1918,20 @@ a {
 
 @media (min-width: 860px) {
   .sd-founder {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
   }
 }
 
-/* Calendar embed: the booking widget in a white panel */
+/* Calendar embed: sharp framed booking widget */
 .sd-embed {
   width: 100%;
   max-width: 1000px;
   margin-inline: auto;
   overflow: hidden;
-  border-radius: var(--r-lg);
+  border: 1px solid var(--obsidian-rule);
   background: var(--white);
   color: var(--ink);
-  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--shadow-lift);
 }
 
 .sd-embed .calendly-inline-widget {
@@ -1839,12 +1978,12 @@ a {
   height: auto;
 }
 
-/* The frame a screenshot sits in inside a tile. Its ground matches the
-   screenshot (--shot-bg), so a narrow picture does not show a seam. */
+/* The frame a screenshot sits in inside a tile: uniform dark editorial chrome */
 .sd-receipt {
   overflow-x: auto;
-  border: 1px solid var(--rule);
-  background: var(--shot-bg, #1c1d21);
+  padding: 8px;
+  border: 1px solid #204642;
+  background: var(--shot-bg, #14171a);
   scrollbar-width: thin;
   scrollbar-color: var(--line-on-dark) transparent;
   transition: border-color var(--dur-fast) ease;
@@ -1856,7 +1995,7 @@ a {
 
 /* One long line of chat: keep it readable on a phone and let it scroll sideways */
 .sd-receipt--wide .sd-shot img {
-  min-width: 620px;
+  min-width: 560px;
 }
 
 .sd-proof {
@@ -1870,60 +2009,78 @@ a {
   flex-direction: column;
   gap: var(--s-4);
   min-width: 0;
-  padding: clamp(20px, 2.6vw, 32px);
+  padding: clamp(20px, 2.4vw, 28px);
   background: var(--surface);
   border: 1px solid var(--rule);
-  box-shadow: var(--shadow-xs);
+}
+
+.sd-proof__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.sd-proof__tag {
+  color: var(--accent-text);
+  font-weight: 600;
 }
 
 .sd-proof__tile .sd-receipt {
   margin-top: auto;
 }
 
-/* The lead tile carries the one big figure and a soft accent wash */
+/* The lead tile carries the one big figure and a subtle emerald wash */
 .sd-proof__tile--lead {
   background:
-    radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, var(--accent-text) 20%, transparent), transparent 62%),
+    linear-gradient(135deg, rgba(110, 224, 200, 0.09), transparent 55%),
     var(--surface);
 }
 
 .sd-proof__lead {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
-  gap: var(--s-2) var(--s-5);
-  margin-bottom: var(--s-4);
+  align-items: baseline;
+  gap: var(--s-2) var(--s-4);
+  margin-bottom: var(--s-2);
 }
 
 .sd-proof__figure {
-  font-size: clamp(4.5rem, 2rem + 9.5vw, 8.5rem);
-  font-weight: 600;
-  line-height: 0.86;
-  letter-spacing: -0.06em;
+  font-size: clamp(3.5rem, 2rem + 5.5vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
   color: var(--accent-text);
 }
 
 .sd-proof__claim {
-  max-width: 14ch;
-  padding-bottom: 0.2em;
-  font-size: clamp(1.375rem, 1.1rem + 1.2vw, 1.875rem);
+  max-width: 18ch;
+  font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.625rem);
   font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
 }
 
 .sd-proof__quote {
-  margin-bottom: var(--s-4);
-  font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.125rem);
+  margin-bottom: var(--s-2);
+  font-size: clamp(1.375rem, 1.15rem + 1vw, 1.875rem);
   font-weight: 600;
-  line-height: 1.14;
-  letter-spacing: -0.035em;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
-/* The one long quote gets more room and larger type */
+/* The one long quote gets slightly more presence */
 .sd-proof__quote--lg {
-  font-size: clamp(1.5rem, 1rem + 2.4vw, 2.75rem);
+  font-size: clamp(1.4375rem, 1.15rem + 1.3vw, 2.125rem);
 }
 
 /* Three numbers from one weekly report */
@@ -2152,35 +2309,9 @@ a {
   }
 }
 
-/* 99. Theme: Spotter green, square corners (Yuri, 2026-11-17) ------------
-   Back to the original site's green (#004f4d family) instead of Cobalt,
-   and no rounded corners anywhere, buttons included, like the original
-   site. This block overrides the tokens above; delete it to return to
-   Cobalt with rounded corners. */
-:root {
-  --ink: #0d2423;
-  --ink-2: #1a3634;
-  --night: #00201f;
-  --muted: #5f5f5f;
-  --mist: #f4f4f4;
-  --mist-deep: #eaeeed;
-  --line: #e2e2e2;
-  --line-strong: #cfd6d5;
-  --accent: #004f4d;
-  --accent-strong: #003837;
-  --accent-300: #7fb8b2;
-  --accent-100: #cfe3e0;
-  --accent-50: #eef5f4;
-  --accent-on-dark: #7fb8b2;
-  --on-dark-muted: #a9c2bf;
-  --r-sm: 0;
-  --r-md: 0;
-  --r-lg: 0;
-  --r-pill: 0;
-}
-
+/* Enforce strict architectural square corners across all components */
 *,
 *::before,
 *::after {
-  border-radius: 0 !important;
+  border-radius: 0;
 }
